@@ -25,7 +25,7 @@ module.exports = {
       center: true,
       padding: '10px',
       screens: {
-        '2xl': '1280px',
+        '2xl': '1440px',
       },
     },
     fontFamily: {
@@ -44,7 +44,15 @@ module.exports = {
         darker: '#0E0F0F',
         danger: '#AE0A0A',
         primary: 'var(--color-primary)',
+        'primary-d': 'var(--color-primary-dark)',
+        'primary-l': 'var(--color-primary-light)',
+        'primary-reverse': 'var(--color-primary-reverse)',
         'primary-dark': 'var(--color-primary-dark)',
+        // Triple color names (CSS variables in 01-settings/triple-colors.scss)
+        storeBG: 'var(--bg-primary)',
+        'store-bg-secondary': 'var(--bg-secondary)',
+        'store-text-primary': 'var(--store-text-primary)',
+        'store-text-secondary': 'var(--store-text-secondary)',
       },
       spacing: {
         3.75: '15px',
@@ -60,7 +68,7 @@ module.exports = {
         large: '22px',
         big: '40px',
         tiny: '3px',
-        DEFAULT: '16px',
+        DEFAULT: '.75rem',
       },
       fontSize: {
         'icon-lg': '33px',
