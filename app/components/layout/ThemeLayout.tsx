@@ -3,15 +3,23 @@ import type { ReactNode } from 'react';
 import { useRouterState } from '@tanstack/react-router';
 import themeTranslations from 'virtual:twilight/theme-translations';
 import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
+import { useDocumentClass } from '@salla.sa/twilight-theme-engine/hooks/useDocumentClass';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { useUser } from '@salla.sa/twilight-theme-engine/hooks/useUser';
 import { Footer } from '@salla.sa/twilight-theme-engine/layout';
 import { Header } from './Header';
+import { PromotionBar } from './PromotionBar';
+import { LoadingOverlay } from './LoadingOverlay';
+import { TripleFloating } from './TripleFloating';
+import { CartDrawer } from '../cart/CartDrawer';
 import { ImportantLinksSheet } from './ImportantLinksSheet';
 import { MobileAccountSheet } from './MobileAccountSheet';
 import { MobileBottomBar } from './MobileBottomBar';
 import { MobilePageTitleBar } from './MobilePageTitleBar';
 import { fillComponentTranslations, type ComponentLang } from '../../lib/componentTranslations';
+import { buildBodyClasses } from '../../lib/themeVars';
+import { useBlockAnimate } from '../../hooks/useBlockAnimate';
+import { HOME_ROUTE_ID } from '../../lib/routeIds';
 
 /**
  * Theme layout — passed to `<TwilightProvider layout={ThemeLayout}>` in
@@ -150,13 +158,34 @@ export function ThemeLayout({ children }: ThemeLayoutProps) {
 
   const imgRatio = productImageRatio(theme?.settings?.product_card_img_ratio);
 
+  // Triple's settings-driven <body> classes (section-title style, bottom nav,
+  // custom_colors, khadamaty card, …) — the React port of master.twig's class list.
+  const isHome = useRouterState({
+    select: (st) => st.matches.some((m) => m.routeId === HOME_ROUTE_ID),
+  });
+  const isCart = pathname === '/cart' || pathname.endsWith('/cart');
+  const bodyClasses = buildBodyClasses(
+    (theme?.settings ?? {}) as Record<string, unknown>,
+    isHome,
+    isCart
+  );
+  useDocumentClass({ body: { class: bodyClasses } });
+
+  // Reveal `.s-block--animate` blocks on scroll (and un-hide their product cards).
+  useBlockAnimate(
+    (theme?.settings as Record<string, unknown> | undefined)?.animate_blocks !== false
+  );
+
   return (
     <>
+      <LoadingOverlay />
       <div
         className={`app-inner flex flex-col min-h-full product-card-img--${imgRatio}`}
         suppressHydrationWarning
       >
+        <PromotionBar />
         <Header navOpen={navOpen} onNavOpenChange={setNavOpen} />
+        <CartDrawer />
         <MobilePageTitleBar />
         <main id="main-content" className="flex-1">
           {children}
@@ -185,6 +214,8 @@ export function ThemeLayout({ children }: ThemeLayoutProps) {
       />
 
       <ImportantLinksSheet open={importantLinksOpen} onClose={() => setImportantLinksOpen(false)} />
+
+      <TripleFloating />
 
       <GlobalModals />
     </>

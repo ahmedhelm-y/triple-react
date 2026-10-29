@@ -16,6 +16,7 @@ import { HOME_ROUTE_ID, PRODUCT_ROUTE_ID } from '../../lib/routeIds';
 import { HeaderMainMenu } from './HeaderMainMenu';
 import { HeaderNav } from './HeaderNav';
 import { HeaderTopnav } from './HeaderTopnav';
+import { ThemeToggle } from './ThemeToggle';
 
 /** Opens the Salla search modal (the `<SallaSearch />` at the end of the header). */
 const openSearch = () => window.salla?.event?.dispatch('search::open');
@@ -249,8 +250,23 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
             <a className="site-header__brand" href={store?.url || '/'}>
               <Image
                 src={store?.logo}
+                className="logo-normal"
+                noWrapper
                 alt={`${store?.name || 'Store'} logo`}
                 priority
+                width={140}
+                height={48}
+              />
+              {/* Dark-mode logo (reversed_logo): CSS swaps it in under html.dark. */}
+              <Image
+                src={
+                  ((theme?.settings as Record<string, unknown> | undefined)?.reversed_logo as
+                    | string
+                    | undefined) || store?.logo
+                }
+                className="logo-dark hidden"
+                noWrapper
+                alt={`${store?.name || 'Store'} logo`}
                 width={140}
                 height={48}
               />
@@ -267,11 +283,22 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
             )}
 
             <div className="site-header__actions">
+              {(() => {
+                const ts = theme?.settings as Record<string, unknown> | undefined;
+                return ts?.dark_mode_switcher && ts?.header_theme_mode_enabled !== false ? (
+                  <ThemeToggle toggleClass="header-action" />
+                ) : null;
+              })()}
               <SallaUserMenu avatarOnly showHeader relativeDropdown className="header-action" />
               {store?.scope && (
                 <ScopeButton label={store.scope.name || t('blocks.header.branches', 'Branches')} />
               )}
-              <SallaCartSummary className="header-action">
+              <SallaCartSummary
+                className="header-action"
+                {...((theme?.settings as Record<string, unknown> | undefined)?.enable_cart_drawer
+                  ? { 'data-drawer-id': 'cart-drawer' }
+                  : {})}
+              >
                 <ShoppingBagIcon slot="icon" aria-hidden="true" />
               </SallaCartSummary>
               <SearchButton label={searchLabel} />
