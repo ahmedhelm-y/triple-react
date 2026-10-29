@@ -1,8 +1,10 @@
 import { Suspense, useCallback } from 'react';
 import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import { product, type ProductsListSource } from '@salla.sa/twilight-theme-engine/api/product';
+import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { ProductCard } from '../product';
 import { ProductsSliderSkeleton, SallaProductsSlider } from '@salla.sa/twilight-components-react';
+import { pickLang, type MultiLang } from '../../lib/homeBlockData';
 
 interface ProductsSourceConfig {
   source?: string;
@@ -24,14 +26,15 @@ export interface SliderProductsWithHeaderProps {
 }
 
 export function SliderProductsWithHeader({ data }: SliderProductsWithHeaderProps) {
+  const { i18n } = useTranslation();
   const {
     background,
-    title,
-    description,
     display_all_url: displayAll,
     products: productsField,
     position = 1,
   } = data;
+  const title = pickLang(data.title as MultiLang, i18n.language);
+  const description = pickLang(data.description as MultiLang, i18n.language);
 
   let resolvedSource: ProductsListSource | undefined;
   let resolvedSourceValue: string | number | number[] | undefined;

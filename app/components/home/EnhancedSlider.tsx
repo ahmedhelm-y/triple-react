@@ -1,8 +1,10 @@
-import { memo, useCallback, useEffect, useRef, useState, type RefObject } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react';
 import { SallaSlider } from '@salla.sa/twilight-components-react/slider';
 import { Link } from '@salla.sa/twilight-theme-engine/common';
+import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { parseSlideVideo, youtubeEmbedUrl } from '../../lib/slideVideo';
 import { useMotionAllowed } from '../../hooks/useMotionAllowed';
+import { pickLang, collectionField, type MultiLang } from '../../lib/homeBlockData';
 
 export interface SliderBanner {
   link?: string;
@@ -226,8 +228,47 @@ function SlideText({ slide, poster }: { slide: SliderBanner; poster?: boolean })
   );
 }
 
+/**
+ * Slide fields arrive either bare (`image`, live store API) or prefixed with the
+ * collection id (`slides.image`, the editor / `twilight.preview.json`), and the text
+ * fields are a plain string or a `{ ar, en }` object. Normalize each raw slide to a
+ * clean {@link SliderBanner} so the render reads plain, localized values — mirrors
+ * `AdvancedSlider`'s `collectionField(s, 'slides', …)` handling.
+ */
+function normalizeSlides(raw: SliderBanner[], lang: string): SliderBanner[] {
+  const cf = (s: SliderBanner, key: string) =>
+    collectionField(s as Record<string, unknown>, 'slides', key);
+  const text = (s: SliderBanner, key: string) => pickLang(cf(s, key) as MultiLang, lang) || undefined;
+  const str = (s: SliderBanner, key: string) => {
+    const v = cf(s, key);
+    return typeof v === 'string' ? v : undefined;
+  };
+  return raw.map((s) => ({
+    ...s,
+    image: str(s, 'image'),
+    mobile_image: str(s, 'mobile_image'),
+    video: str(s, 'video'),
+    title: text(s, 'title'),
+    subtitle: text(s, 'subtitle'),
+    description: text(s, 'description'),
+    btnname: text(s, 'btnname'),
+    url: str(s, 'url'),
+    link: str(s, 'link'),
+    title_color: str(s, 'title_color'),
+    subtitle_color: str(s, 'subtitle_color'),
+    btnname_color: str(s, 'btnname_color'),
+    without_overlay: Boolean(cf(s, 'without_overlay')),
+    show_button: cf(s, 'show_button') as boolean | undefined,
+  }));
+}
+
 export const EnhancedSlider = memo(function EnhancedSlider({ data }: EnhancedSliderProps) {
-  const slides = data.slider_banner || data.slides || [];
+  const { i18n } = useTranslation();
+  const rawSlides = data.slider_banner || data.slides || [];
+  const slides = useMemo(
+    () => normalizeSlides(rawSlides, i18n.language),
+    [rawSlides, i18n.language]
+  );
   const position = data.position ?? 1;
   const hasMultipleSlides = slides.length > 1;
   const inContainer = Boolean(data.in_container);

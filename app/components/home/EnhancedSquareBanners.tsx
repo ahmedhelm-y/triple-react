@@ -1,12 +1,32 @@
 import { memo } from 'react';
 import { Link } from '@salla.sa/twilight-theme-engine/common';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
+import { pickLang, collectionField, asUrl, type MultiLang } from '../../lib/homeBlockData';
 
 interface BannerItem {
   image?: string;
   url?: string;
   title?: string;
   description?: string;
+}
+
+/**
+ * Banner fields arrive bare (`image`, live store API) or prefixed with the collection
+ * id (`banners.image`, the editor / `twilight.preview.json`), and the text fields are a
+ * plain string or a `{ ar, en }` object. Normalize each to plain, localized values.
+ */
+function normalizeBanner(raw: BannerItem, lang: string): BannerItem {
+  const cf = (key: string) => collectionField(raw as Record<string, unknown>, 'banners', key);
+  const str = (key: string) => {
+    const v = cf(key);
+    return typeof v === 'string' ? v : undefined;
+  };
+  return {
+    image: str('image'),
+    url: asUrl(cf('url')) || undefined,
+    title: pickLang(cf('title') as MultiLang, lang) || undefined,
+    description: pickLang(cf('description') as MultiLang, lang) || undefined,
+  };
 }
 
 export interface EnhancedSquareBannersProps {
@@ -47,8 +67,8 @@ function MosaicBanner({
 export const EnhancedSquareBanners = memo(function EnhancedSquareBanners({
   data,
 }: EnhancedSquareBannersProps) {
-  const { t } = useTranslation();
-  const { banners } = data;
+  const { t, i18n } = useTranslation();
+  const banners = (data.banners || []).map((b) => normalizeBanner(b, i18n.language));
 
   if (!banners.length) return null;
 
