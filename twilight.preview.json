@@ -1,0 +1,166 @@
+{
+  "enabled": true,
+  "settings": {},
+  "layout": [
+    {
+      "id": "b-83478bab9f6c",
+      "path": "fixed-products",
+      "fields": {
+        "products": {
+          "source": "categories",
+          "source_value": [
+            196932934
+          ]
+        },
+        "title": "أحدث المنتجات",
+        "limit": 20,
+        "isVertical": true,
+        "display_all_url": "https://demostore.salla.sa/dev-wtz3nhridyisupsv/category/egllBo",
+        "position": 1,
+        "key": null,
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
+      }
+    },
+    {
+      "id": "b-299cb5531656",
+      "path": "products-slider",
+      "fields": {
+        "products": {
+          "source": "categories",
+          "source_value": [
+            1704531015
+          ]
+        },
+        "title": "أحدث المنتجات",
+        "limit": 4,
+        "display_all_url": "https://demostore.salla.sa/dev-wtz3nhridyisupsv/category/XAddmD",
+        "position": 1,
+        "key": null,
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
+      }
+    },
+    {
+      "id": "b-dccaa28594ec",
+      "path": "enhanced-square-banners",
+      "fields": {
+        "key": "b89edc4a-ce0b-468f-8323-2da48147bb32",
+        "banners": [
+          {
+            "ar": {
+              "title": "تصفَّح حسب التصنيف",
+              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+            },
+            "url": "#",
+            "image": "https://cdn.salla.sa/mQgZlG/pzOCEw10wCfXeVSpKnL0Ifd1O9ZkTfnZ17RkE14R.jpg",
+            "title": "تصفَّح حسب التصنيف",
+            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+          },
+          {
+            "ar": {
+              "title": "تصفَّح حسب التصنيف",
+              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+            },
+            "url": "#",
+            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
+            "title": "تصفَّح حسب التصنيف",
+            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+          },
+          {
+            "ar": {
+              "title": "تصفَّح حسب التصنيف",
+              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+            },
+            "url": "#",
+            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
+            "title": "تصفَّح حسب التصنيف",
+            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+          },
+          {
+            "ar": {
+              "title": "تصفَّح حسب التصنيف",
+              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+            },
+            "url": "#",
+            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
+            "title": "تصفَّح حسب التصنيف",
+            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+          },
+          {
+            "ar": {
+              "title": "تصفَّح حسب التصنيف",
+              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+            },
+            "url": "#",
+            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
+            "title": "تصفَّح حسب التصنيف",
+            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
+          }
+        ],
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
+      }
+    },
+    {
+      "id": "b-a2493b4e3445",
+      "path": "enhanced-slider",
+      "fields": {
+        "key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab",
+        "slides": [
+          {
+            "ar": {
+              "title": "روِّج لمنتجاتك كصور متحركة",
+              "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
+            },
+            "image": "https://cdn.salla.sa/ZrBEO/MopzhoqpTkDObcKc8Q8n77AuydanfsGXdZO7iinH.jpg",
+            "__hidden": false,
+            "without_overlay": false,
+            "title": "روِّج لمنتجاتك كصور متحركة",
+            "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
+          },
+          {
+            "ar": {
+              "title": "شجّع زوار متجرك على الشراء عبر عروض خاصة",
+              "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
+            },
+            "image": "https://cdn.salla.sa/ZrBEO/3gOhYSaIhaHxhH2IHWxJYDl9JHwxP6dGKiZFSq4K.jpg",
+            "__hidden": false,
+            "without_overlay": false,
+            "title": "شجّع زوار متجرك على الشراء عبر عروض خاصة",
+            "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
+          }
+        ],
+        "versions": null,
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
+      }
+    },
+    {
+      "id": "b-b0e8d31dfd14",
+      "path": "promo_with_countdown",
+      "fields": {
+        "key": "de26f5f5-186e-4efc-a79c-5caab56e1633",
+        "bg": "",
+        "bg_color": "#004956",
+        "text_color": "#ffffff",
+        "title": "",
+        "description": "",
+        "exp_date": "2026-01-01T15:23",
+        "hide_countdown": true,
+        "btn_text": "عرض التفاصيل",
+        "btn_link": "",
+        "custom_classes": "",
+        "img_type": "bg"
+      }
+    }
+  ]
+}
