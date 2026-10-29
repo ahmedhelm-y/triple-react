@@ -82,5 +82,32 @@
   "blocks.order_options.subtitle": "Choose from the available options.",
   "blocks.order_options.continue": "Continue",
   "blocks.order_options.total": "Total",
-  "blocks.order_options.required_message": "Please fill in the required fields"
+  "blocks.order_options.required_message": "Please fill in the required fields",
+  "blocks": {
+    "home": {
+      "timeline_years": "Years",
+      "timeline_prev": "Previous year",
+      "timeline_next": "Next year",
+      "stack_shop": "Shop now",
+      "read_more": "Read more",
+      "display_all": "View All",
+      "before": "Before",
+      "after": "After"
+    },
+    "contact_form": {
+      "name": "Name",
+      "name_placeholder": "Enter your full name",
+      "email": "Email",
+      "email_placeholder": "example@email.com",
+      "mobile": "Mobile",
+      "mobile_placeholder": "+966xxxxxxxxx",
+      "subject": "Subject",
+      "subject_placeholder": "Message subject",
+      "message": "Message",
+      "message_placeholder": "Write your message here...",
+      "send": "Send",
+      "success": "Your message has been sent successfully",
+      "error": "Something went wrong"
+    }
+  }
 }

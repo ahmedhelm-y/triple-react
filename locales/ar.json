@@ -82,5 +82,32 @@
   "blocks.order_options.subtitle": "اختر من الخيارات المتاحة.",
   "blocks.order_options.continue": "متابعة",
   "blocks.order_options.total": "الإجمالي",
-  "blocks.order_options.required_message": "يرجى تعبئة الحقول المطلوبة"
+  "blocks.order_options.required_message": "يرجى تعبئة الحقول المطلوبة",
+  "blocks": {
+    "home": {
+      "timeline_years": "السنوات",
+      "timeline_prev": "السنة السابقة",
+      "timeline_next": "السنة التالية",
+      "stack_shop": "تسوق الآن",
+      "read_more": "اقرأ المزيد",
+      "display_all": "عرض الكل",
+      "before": "قبل",
+      "after": "بعد"
+    },
+    "contact_form": {
+      "name": "الاسم",
+      "name_placeholder": "ادخل اسمك الكامل",
+      "email": "البريد الإلكتروني",
+      "email_placeholder": "example@email.com",
+      "mobile": "رقم الجوال",
+      "mobile_placeholder": "+966xxxxxxxxx",
+      "subject": "الموضوع",
+      "subject_placeholder": "موضوع الرسالة",
+      "message": "الرسالة",
+      "message_placeholder": "اكتب رسالتك هنا...",
+      "send": "إرسال",
+      "success": "تم إرسال رسالتك بنجاح",
+      "error": "حدث خطأ ما"
+    }
+  }
 }
