@@ -11,6 +11,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import themeTranslations from 'virtual:twilight/theme-translations';
 import devSchema from 'virtual:twilight/schema';
 import { ThemeLayout } from '../components/layout/ThemeLayout';
+import { buildThemeVarsCss, buildColorModeScript } from '../lib/themeVars';
 import { HOME_ROUTE_ID, PRODUCT_ROUTE_ID } from '../lib/routeIds';
 import appCssUrl from '../styles/app.css?url';
 import homeCriticalCss from '../styles/critical.scss?inline';
@@ -37,15 +38,37 @@ const CRITICAL_CSS = {
 
 function RootComponent() {
   const ctx = getTwilightContext();
+
+  // Triple colour variables (from the merchant settings) + the before-paint
+  // dark-mode boot — the React port of master.twig's inline <style>/<script>.
+  let themeVarsCss = '';
+  let colorModeScript = '';
+  try {
+    const themeSettings = (ctx.settings?.theme?.settings ?? {}) as Record<string, unknown>;
+    const primary = ctx.settings?.theme?.color?.primary ?? '#000000';
+    themeVarsCss = buildThemeVarsCss(themeSettings, primary);
+    colorModeScript = buildColorModeScript(themeSettings);
+  } catch {
+    /* settings unavailable (store not resolved) — the static defaults cover it */
+  }
+
   return (
     <html lang={ctx.locale} dir={ctx.dir} suppressHydrationWarning>
       <head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Applies html.dark before first paint (no flash). */}
+        {colorModeScript ? (
+          <script data-cfasync="false" dangerouslySetInnerHTML={{ __html: colorModeScript }} />
+        ) : null}
         {/* Home and product paint from inline critical CSS; `bootClient` adds the full sheet once
             their first screen has painted. Other routes: the full sheet blocks, as before. */}
         <ThemeStylesheet href={appCssUrl} critical={CRITICAL_CSS} />
+        {/* After app.css so the merchant's real colours win over the static defaults. */}
+        {themeVarsCss ? (
+          <style data-triple="theme-vars" dangerouslySetInnerHTML={{ __html: themeVarsCss }} />
+        ) : null}
         <ThemeHeadContent />
       </head>
       <body suppressHydrationWarning>
