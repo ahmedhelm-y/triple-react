@@ -1,0 +1,19 @@
+/* ============================
+   Triple custom products (home component: home.custom-products); the rest is Tailwind in the markup
+   .products-reserve: while the server skeleton is shown, the slider sits on top of it (transparent)
+   until it renders, so the block keeps its height (no layout shift)
+   ============================ */
+
+.products-reserve{
+  position:relative}
+.products-reserve:has(>.products-skeleton-holder,>.products-skeleton):not(:has(.swiper-initialized)):not(:has(>salla-products-slider.hydrated:not([data-skeleton-init])))>salla-products-slider{
+  left:0;
+  pointer-events:none;
+  position:absolute;
+  right:0;
+  top:0}
+
+@media(max-width:767px){
+  .s-block--custom-products{
+  --block-intrinsic-height:400px}
+}

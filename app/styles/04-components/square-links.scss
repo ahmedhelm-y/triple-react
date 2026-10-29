@@ -1,0 +1,26 @@
+/* ============================
+   Triple square links (home block: home.square-links) — port of triple_twig 04-components/square-links.scss
+   Slide widths: .slide--one-fourth / .slide--one-sixth (shared slider rules)
+   ============================ */
+
+.s-block--square-links salla-slider:not(.hydrated) [slot='items'] > * {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.s-block--square-links img.lazy:not(.loaded) {
+  background-color: #eee;
+  background-color: var(--img-placeholder, #eee);
+}
+
+/* grid: as many 130px+ columns as fit the row */
+.auto-fit-grid {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+/* centered_force: slides centered on desktop when they don't fill the row */
+@media (min-width: 768px) {
+  .force-center salla-slider .swiper-wrapper {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,224 @@
+/* ============================
+   Brand timeline (home block: home.timeline) — .tr-tl
+   Port of triple_twig 04-components/timeline.scss (verbatim).
+   The picked year's panel (photo + year, title, text) on top, the years as dots on a line
+   underneath with a progress bar up to the picked year, and arrows at the end. The line
+   scrolls sideways when the years don't fit. Sides are per direction ([dir=rtl]).
+   (tr-rise keyframes live in triple-sections.scss.)
+   ============================ */
+
+.tr-tl {
+  display: block;
+}
+
+.tr-tl [hidden] {
+  display: none !important;
+}
+
+/* ---------- panel ---------- */
+.tr-tl__panel {
+  align-items: center;
+  animation: tr-rise 0.5s ease both;
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  .tr-tl__panel {
+    gap: 4rem;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    min-height: 26rem;
+  }
+
+  .tr-tl__panel--text {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.tr-tl__media {
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.tr-tl__img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.tr-tl__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 38rem;
+}
+
+.tr-tl__panel--text .tr-tl__content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tr-tl__year {
+  color: var(--color-primary);
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.tr-tl__title {
+  color: var(--store-text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .tr-tl__title {
+    font-size: 2rem;
+  }
+}
+
+.tr-tl__text {
+  color: var(--store-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ---------- years line ---------- */
+.tr-tl__nav {
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.tr-tl__line {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+}
+
+.tr-tl__line::-webkit-scrollbar {
+  display: none;
+}
+
+.tr-tl__years {
+  display: grid;
+  grid-template-columns: repeat(var(--tl-count, 2), minmax(4.5rem, 1fr));
+  position: relative;
+}
+
+/* the line runs from the first dot's centre to the last one's (over the whole scrollable width) */
+.tr-tl__track {
+  background: color-mix(in srgb, var(--store-text-primary) 14%, transparent);
+  height: 2px;
+  left: calc(50% / var(--tl-count, 2));
+  position: absolute;
+  right: calc(50% / var(--tl-count, 2));
+  top: 0.6rem;
+}
+
+.tr-tl__progress {
+  background: var(--color-primary);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: width 0.45s ease;
+  width: 0;
+}
+
+[dir='rtl'] .tr-tl__progress {
+  left: auto;
+  right: 0;
+}
+
+.tr-tl__dot {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: var(--store-text-secondary);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  gap: 0.6rem;
+  padding: 0;
+  position: relative;
+  transition: color 0.2s ease;
+  z-index: 1;
+}
+
+.tr-tl__dot:focus-visible {
+  outline: none;
+}
+
+.tr-tl__dot:focus-visible .tr-tl__mark {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
+
+.tr-tl__mark {
+  background: var(--bg-secondary, #fff);
+  border: 2px solid color-mix(in srgb, var(--store-text-primary) 25%, transparent);
+  border-radius: 50%;
+  height: 1.25rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  width: 1.25rem;
+}
+
+.tr-tl__dot.is-done .tr-tl__mark {
+  border-color: var(--color-primary);
+}
+
+.tr-tl__dot.is-active {
+  color: var(--store-text-primary);
+}
+
+.tr-tl__dot.is-active .tr-tl__mark {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.tr-tl__dot:hover {
+  color: var(--store-text-primary);
+}
+
+.tr-tl__arrows {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+.tr-tl__arrow {
+  align-items: center;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--store-text-primary) 18%, transparent);
+  border-radius: 50%;
+  color: var(--store-text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  height: 2.75rem;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  width: 2.75rem;
+}
+
+.tr-tl__arrow:hover {
+  background: var(--store-text-primary);
+  color: var(--bg-secondary, #fff);
+}
+
+@media (max-width: 640px) {
+  .tr-tl__arrows {
+    display: none;
+  }
+}

@@ -1,0 +1,271 @@
+/* ============================
+   Product comparison table (home component: home.compare-products) — .tr-cmp
+   Intro on top, then a table: one column per product (image, name, price, add to cart),
+   one row per compared feature. The table scrolls sideways on small screens with the labels column fixed.
+   ============================ */
+
+.tr-cmp {
+  display:flex;
+  flex-direction:column;
+  gap:1.75rem;
+}
+
+.tr-cmp__intro {
+  align-items:center;
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  margin:0 auto;
+  max-width:42rem;
+  text-align:center;
+}
+
+.tr-cmp__intro .tr-pill {
+  align-self:center;
+}
+
+.tr-cmp__title {
+  color:var(--store-text-primary);
+  font-size:1.75rem;
+  font-weight:700;
+  line-height:1.25;
+  margin:0;
+}
+
+@media (min-width:1024px) {
+  .tr-cmp__title {
+    font-size:2.25rem;
+  }
+}
+
+.tr-cmp__text {
+  color:var(--store-text-secondary);
+  line-height:1.8;
+  margin:0;
+}
+
+.tr-cmp__scroll {
+  background:color-mix(in srgb, var(--color-primary) 4%, var(--bg-secondary, #fff));
+  border:1px solid color-mix(in srgb, var(--store-text-primary) 8%, transparent);
+  border-radius:1.5rem;
+  display:block;
+  overflow-x:auto;
+  scrollbar-width:thin;
+}
+
+.tr-cmp__table {
+  border-collapse:separate;
+  border-spacing:0;
+  min-width:calc(9rem + var(--cmp-cols, 3) * 11rem);
+  table-layout:fixed;
+  width:100%;
+}
+
+.tr-cmp__table th,
+.tr-cmp__table td {
+  padding:1rem;
+  vertical-align:middle;
+}
+
+/* ---------- product header cells ---------- */
+.tr-cmp__corner {
+  width:9rem;
+}
+
+@media (min-width:1024px) {
+  .tr-cmp__corner {
+    width:13rem;
+  }
+}
+
+.tr-cmp__product {
+  font-weight:400;
+  padding-top:1.5rem!important;
+  position:relative;
+  text-align:center;
+  vertical-align:top!important;
+}
+
+.tr-cmp__badge {
+  background:var(--color-primary);
+  border-radius:999px;
+  color:var(--color-primary-reverse);
+  font-size:.75rem;
+  font-weight:700;
+  left:50%;
+  padding:.15rem .7rem;
+  position:absolute;
+  top:.5rem;
+  transform:translateX(-50%);
+  white-space:nowrap;
+  z-index:1;
+}
+
+.tr-cmp__media {
+  aspect-ratio:1;
+  background:color-mix(in srgb, var(--store-text-primary) 4%, transparent);
+  border-radius:1rem;
+  display:block;
+  margin:0 auto .75rem;
+  max-width:9rem;
+  overflow:hidden;
+}
+
+.tr-cmp__media img {
+  height:100%;
+  object-fit:cover;
+  transition:transform .4s ease;
+  width:100%;
+}
+
+.tr-cmp__media:hover img {
+  transform:scale(1.06);
+}
+
+.tr-cmp__name {
+  color:var(--store-text-primary);
+  display:-webkit-box;
+  font-size:.9375rem;
+  font-weight:700;
+  line-height:1.45;
+  margin-bottom:.35rem;
+  min-height:1.4em;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+
+.tr-cmp__name:hover {
+  color:var(--color-primary);
+}
+
+.tr-cmp__price {
+  display:block;
+  font-size:.9375rem;
+  font-weight:700;
+  margin-bottom:.75rem;
+  min-height:1.4em;
+}
+
+.tr-cmp__price .is-sale {
+  color:#dc2626;
+}
+
+.tr-cmp__price del {
+  color:var(--store-text-secondary);
+  font-size:.8125rem;
+  font-weight:400;
+}
+
+.tr-cmp__add {
+  display:block;
+}
+
+.tr-cmp__product.is-loading .tr-cmp__media,
+.tr-cmp__product.is-loading .tr-cmp__name,
+.tr-cmp__product.is-loading .tr-cmp__price {
+  animation:tr-cmp-shimmer 1.4s ease-in-out infinite;
+  background:color-mix(in srgb, var(--store-text-primary) 8%, transparent);
+  border-radius:.75rem;
+}
+
+.tr-cmp__product.is-missing .tr-cmp__media,
+.tr-cmp__product.is-missing .tr-cmp__price {
+  visibility:hidden;
+}
+
+@keyframes tr-cmp-shimmer {
+  0%, 100% { opacity:1; }
+  50% { opacity:.45; }
+}
+
+/* ---------- rows ---------- */
+.tr-cmp__label {
+  color:var(--store-text-primary);
+  font-size:.9375rem;
+  font-weight:700;
+  text-align:left;
+}
+
+[dir=rtl] .tr-cmp__label {
+  text-align:right;
+}
+
+.tr-cmp__cell {
+  color:var(--store-text-secondary);
+  font-size:.9375rem;
+  line-height:1.6;
+  text-align:center;
+}
+
+/* opaque stripes: the labels column scrolls over the cells on small screens */
+.tr-cmp__table tbody tr:nth-child(odd) th,
+.tr-cmp__table tbody tr:nth-child(odd) td {
+  background:color-mix(in srgb, var(--store-text-primary) 5%, var(--bg-secondary, #fff));
+}
+
+.tr-cmp__yes,
+.tr-cmp__no {
+  align-items:center;
+  border-radius:50%;
+  display:inline-flex;
+  font-size:.75rem;
+  height:1.5rem;
+  justify-content:center;
+  width:1.5rem;
+}
+
+.tr-cmp__yes {
+  background:color-mix(in srgb, #16a34a 15%, transparent);
+  color:#15803d;
+}
+
+.tr-cmp__no {
+  background:color-mix(in srgb, var(--store-text-primary) 8%, transparent);
+  color:var(--store-text-secondary);
+}
+
+/* ---------- highlighted product column ---------- */
+.tr-cmp__table .is-highlight {
+  background:color-mix(in srgb, var(--color-primary) 9%, transparent)!important;
+  box-shadow:inset 1px 0 0 color-mix(in srgb, var(--color-primary) 35%, transparent), inset -1px 0 0 color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+.tr-cmp__product.is-highlight {
+  border-radius:1rem 1rem 0 0;
+  box-shadow:inset 0 2px 0 var(--color-primary), inset 1px 0 0 color-mix(in srgb, var(--color-primary) 35%, transparent), inset -1px 0 0 color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+/* ---------- small screens: the labels column stays in place while the table scrolls ---------- */
+@media (max-width:767px) {
+  .tr-cmp__table {
+    min-width:calc(7.5rem + var(--cmp-cols, 3) * 9.5rem);
+  }
+
+  .tr-cmp__corner {
+    width:7.5rem;
+  }
+
+  .tr-cmp__table th,
+  .tr-cmp__table td {
+    padding:.75rem .5rem;
+  }
+
+  .tr-cmp__corner,
+  .tr-cmp__label {
+    background:color-mix(in srgb, var(--color-primary) 4%, var(--bg-secondary, #fff));
+    left:0;
+    position:sticky;
+    z-index:2;
+  }
+
+  [dir=rtl] .tr-cmp__corner,
+  [dir=rtl] .tr-cmp__label {
+    left:auto;
+    right:0;
+  }
+
+  .tr-cmp__label {
+    font-size:.8125rem;
+  }
+}

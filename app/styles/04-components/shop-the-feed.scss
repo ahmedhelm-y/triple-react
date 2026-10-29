@@ -1,0 +1,256 @@
+/* ============================
+   Shop the feed (home component: home.shop-the-feed) — .tr-feed
+   Head (kit .tr-head) with the account + follow button and the arrows, then the photos in a
+   scroll-snap track (4 on desktop, 1.5 on phones). Product thumbnails sit on the photos with a small tip.
+   ============================ */
+
+.tr-feed {
+  display:block;
+}
+
+.tr-feed [hidden] {
+  display:none!important;
+}
+
+.tr-feed__actions {
+  align-items:center;
+  display:flex;
+  gap:.5rem;
+}
+
+.tr-feed__follow {
+  align-items:center;
+  border:1px solid color-mix(in srgb, var(--store-text-primary) 15%, transparent);
+  border-radius:999px;
+  color:var(--store-text-primary);
+  display:inline-flex;
+  font-size:.875rem;
+  gap:.6rem;
+  padding:.3rem .35rem .3rem .9rem;
+  transition:border-color .2s ease;
+}
+
+[dir=rtl] .tr-feed__follow {
+  padding:.3rem .9rem .3rem .35rem;
+}
+
+.tr-feed__follow:hover {
+  border-color:var(--color-primary);
+}
+
+.tr-feed__account {
+  font-weight:700;
+}
+
+.tr-feed__follow-btn {
+  background:var(--store-text-primary);
+  border-radius:999px;
+  color:var(--bg-secondary, #fff);
+  font-size:.8125rem;
+  font-weight:700;
+  padding:.3rem .9rem;
+}
+
+.tr-feed__arrow {
+  align-items:center;
+  background:transparent;
+  border:1px solid color-mix(in srgb, var(--store-text-primary) 18%, transparent);
+  border-radius:50%;
+  color:var(--store-text-primary);
+  cursor:pointer;
+  display:inline-flex;
+  height:2.5rem;
+  justify-content:center;
+  transition:background-color .2s ease, color .2s ease;
+  width:2.5rem;
+}
+
+.tr-feed__arrow:hover {
+  background:var(--store-text-primary);
+  color:var(--bg-secondary, #fff);
+}
+
+@media (max-width:767px) {
+  .tr-feed__arrow {
+    display:none;
+  }
+}
+
+/* ---------- photos ---------- */
+.tr-feed__track {
+  display:grid;
+  gap:1rem;
+  grid-auto-columns:calc((100% - 3rem) / 4);
+  grid-auto-flow:column;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  position:relative;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+}
+
+.tr-feed__track::-webkit-scrollbar {
+  display:none;
+}
+
+@media (max-width:1023px) {
+  .tr-feed__track {
+    grid-auto-columns:calc((100% - 2rem) / 2.6);
+  }
+}
+
+@media (max-width:640px) {
+  .tr-feed__track {
+    gap:.75rem;
+    grid-auto-columns:66%;
+  }
+}
+
+.tr-feed__post {
+  aspect-ratio:4/5;
+  border-radius:1.25rem;
+  margin:0;
+  overflow:hidden;
+  position:relative;
+  scroll-snap-align:start;
+}
+
+.tr-feed__img {
+  height:100%;
+  inset:0;
+  object-fit:cover;
+  position:absolute;
+  transition:transform .6s ease;
+  width:100%;
+}
+
+.tr-feed__post:hover .tr-feed__img {
+  transform:scale(1.05);
+}
+
+/* dark glass: stays visible on light and dark photos */
+.tr-feed__source {
+  align-items:center;
+  background:rgba(17,17,17,.4);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  border-radius:50%;
+  color:#fff;
+  display:flex;
+  font-size:1.1rem;
+  height:2.25rem;
+  justify-content:center;
+  position:absolute;
+  right:.75rem;
+  top:.75rem;
+  width:2.25rem;
+  z-index:2;
+}
+
+[dir=rtl] .tr-feed__source {
+  left:.75rem;
+  right:auto;
+}
+
+.tr-feed__products {
+  bottom:.75rem;
+  display:flex;
+  gap:.5rem;
+  left:.75rem;
+  position:absolute;
+  z-index:2;
+}
+
+[dir=rtl] .tr-feed__products {
+  left:auto;
+  right:.75rem;
+}
+
+.tr-feed__product {
+  background:#fff;
+  border-radius:.75rem;
+  box-shadow:0 8px 20px -10px rgba(0,0,0,.45);
+  display:block;
+  height:3.25rem;
+  padding:.2rem;
+  position:relative;
+  transition:transform .2s ease;
+  width:3.25rem;
+}
+
+.tr-feed__product:hover,
+.tr-feed__product:focus-visible {
+  transform:translateY(-3px);
+}
+
+.tr-feed__thumb {
+  border-radius:.55rem;
+  display:block;
+  height:100%;
+  overflow:hidden;
+  width:100%;
+}
+
+.tr-feed__thumb img {
+  height:100%;
+  object-fit:cover;
+  width:100%;
+}
+
+.tr-feed__product.is-loading .tr-feed__thumb {
+  animation:tr-feed-shimmer 1.4s ease-in-out infinite;
+  background:#e7e5e4;
+}
+
+@keyframes tr-feed-shimmer {
+  0%, 100% { opacity:1; }
+  50% { opacity:.5; }
+}
+
+/* the tip: name + price above the thumbnail */
+.tr-feed__tip {
+  background:#fff;
+  border-radius:.6rem;
+  bottom:calc(100% + .5rem);
+  box-shadow:0 10px 24px -12px rgba(0,0,0,.45);
+  color:#111;
+  display:flex;
+  flex-direction:column;
+  font-size:.75rem;
+  gap:.1rem;
+  left:0;
+  opacity:0;
+  padding:.4rem .6rem;
+  pointer-events:none;
+  position:absolute;
+  transform:translateY(4px);
+  transition:opacity .2s ease, transform .2s ease;
+  width:max-content;
+  max-width:12rem;
+}
+
+[dir=rtl] .tr-feed__tip {
+  left:auto;
+  right:0;
+}
+
+.tr-feed__product:hover .tr-feed__tip,
+.tr-feed__product:focus-visible .tr-feed__tip {
+  opacity:1;
+  transform:none;
+}
+
+.tr-feed__tip-name {
+  font-weight:700;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.tr-feed__tip-price .is-sale {
+  color:#dc2626;
+}
+
+.tr-feed__tip-price del {
+  color:#78716c;
+}

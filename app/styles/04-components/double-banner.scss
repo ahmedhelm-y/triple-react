@@ -1,0 +1,23 @@
+/* ============================
+   Double banner (home block: home.double-banner)
+   Port of triple_twig 04-components/double-banner.scss.
+   .is-fit-height : same height for both banners
+   ============================ */
+
+.double-banner {
+  .banner[aria-disabled='true'] {
+    @apply pointer-events-none;
+  }
+
+  // the images carry inline height:auto, so the fixed height needs !important
+  &.is-fit-height .double-banner__image {
+    height: 140px !important;
+
+    @screen md {
+      height: 200px !important;
+    }
+    @screen lg {
+      height: 260px !important;
+    }
+  }
+}

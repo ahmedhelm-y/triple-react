@@ -1,0 +1,132 @@
+/* ============================
+   Bold category list (home component: home.bold-categories) — .tr-bold
+   Names in big type under each other. On hover the name's photo opens beside it and the other names fade;
+   on touch screens the photos are always shown. --bold-text / --bold-bg come from the settings.
+   ============================ */
+
+.tr-bold {
+  color:var(--bold-text, var(--store-text-primary));
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+
+.tr-bold--center {
+  align-items:center;
+  text-align:center;
+}
+
+.tr-bold--start {
+  align-items:flex-start;
+}
+
+.tr-bold--boxed {
+  background:var(--bold-bg);
+  border-radius:1.75rem;
+  padding:2.5rem 1.25rem;
+}
+
+@media (min-width:768px) {
+  .tr-bold--boxed {
+    padding:4rem 3rem;
+  }
+}
+
+.tr-bold__kicker {
+  font-size:.875rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  margin:0;
+  opacity:.7;
+  text-transform:uppercase;
+}
+
+.tr-bold__list {
+  display:flex;
+  flex-direction:column;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.tr-bold--center .tr-bold__list {
+  align-items:center;
+}
+
+.tr-bold--start .tr-bold__list {
+  align-items:flex-start;
+}
+
+.tr-bold__link {
+  align-items:center;
+  color:inherit;
+  display:inline-flex;
+  font-size:clamp(2rem, 6.5vw, 4.75rem);
+  font-weight:700;
+  gap:.2em;
+  letter-spacing:-.02em;
+  line-height:1.2;
+  padding:.05em 0;
+  transition:opacity .3s ease, color .3s ease;
+}
+
+.tr-bold__num {
+  align-self:flex-start;
+  font-size:max(.75rem, .22em);
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  margin-top:.6em;
+  opacity:.5;
+}
+
+.tr-bold__photo {
+  border-radius:999px;
+  display:inline-block;
+  flex-shrink:0;
+  height:1em;
+  opacity:0;
+  overflow:hidden;
+  transform:scale(.3) rotate(-14deg);
+  transition:width .45s cubic-bezier(.2,.8,.2,1), opacity .3s ease, transform .45s cubic-bezier(.2,.8,.2,1);
+  width:0;
+}
+
+.tr-bold__img {
+  display:block;
+  height:100%;
+  object-fit:cover;
+  width:100%;
+}
+
+@media (hover:hover) {
+  .tr-bold__list:hover .tr-bold__link {
+    opacity:.3;
+  }
+
+  .tr-bold__list:hover .tr-bold__link:hover,
+  .tr-bold__link:focus-visible {
+    opacity:1;
+  }
+
+  .tr-bold__link:hover .tr-bold__photo,
+  .tr-bold__link:focus-visible .tr-bold__photo {
+    opacity:1;
+    transform:none;
+    width:1.6em;
+  }
+}
+
+/* touch screens: no hover, so the photos stay open (smaller) */
+@media (hover:none) {
+  .tr-bold__photo {
+    height:.8em;
+    opacity:1;
+    transform:none;
+    width:1.2em;
+  }
+}
+
+.tr-bold__link:focus-visible {
+  outline:2px solid currentColor;
+  outline-offset:.15em;
+}

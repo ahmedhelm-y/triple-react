@@ -13,7 +13,7 @@ $main-text-color: var(--main-text-color);
 :root {
   // Twilight web components ship their own CSS and read only this token for the
   // default corner radius; keep it equal to Tailwind's `rounded` for this theme.
-  --s-radius: 16px;
+  --s-radius: .75rem;
   --infinte-color: #c9c9c9;
   --main-text-color: #231f1e;
   --main-text-color-dark: #2b2d34;

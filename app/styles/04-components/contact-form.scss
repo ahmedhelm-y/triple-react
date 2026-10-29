@@ -1,0 +1,42 @@
+/* ============================
+   Contact form (home block: home.contact-form) — port of triple_twig 04-components/contact-form.scss
+   + .has-top-space ("إضافة مسافة اعلى العنصر")
+   ============================ */
+
+.s-block--contact-form.has-top-space {
+  @apply mt-8 sm:mt-16;
+}
+
+.s-block--contact-form .contact-form input:focus,
+.s-block--contact-form .contact-form textarea:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 transparent);
+}
+
+.s-block--contact-form button[type='submit']:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.s-block--contact-form button[type='submit'].loading {
+  cursor: wait;
+}
+
+.s-block--contact-form .features-list .feature-item {
+  transition-duration: 0.2s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.s-block--contact-form .features-list .feature-item:hover {
+  transform: translateX(0.25rem);
+}
+
+.s-block--contact-form .contact-image img {
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

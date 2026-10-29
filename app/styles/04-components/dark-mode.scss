@@ -1,0 +1,192 @@
+/* ============================
+   Dark mode layer (html.dark, set by layouts/master.twig + js/partials/theme-mode.js)
+   The merchant's dark colors arrive as CSS variables on html.dark (layouts/master.twig):
+   --bg-primary (store_bg_dark), --bg-secondary (store_bg_secondary_dark),
+   --store-text-primary / --store-text-secondary (store_text_color(_secondary)_dark), --product-bg (product_bg_dark) …
+   This file sends the parts that still had light colors baked in to those variables.
+   Surfaces over photos / videos (hotspot buttons, slider dots, product thumbnails on images) stay white on purpose.
+   Imported last in app.scss so it wins over the light rules it replaces.
+   ============================ */
+
+html.dark {
+  --dm-line: color-mix(in srgb, var(--store-text-primary) 12%, transparent);
+  --dm-soft: color-mix(in srgb, var(--store-text-primary) 6%, transparent);
+  --dm-softer: color-mix(in srgb, var(--store-text-primary) 10%, transparent);
+
+  color-scheme: dark;
+
+  /* ---------- Tailwind light utilities used in templates and in HTML built by JS ---------- */
+  .bg-white { background-color: var(--bg-secondary); }
+  .bg-gray-50,
+  .bg-gray-100 { background-color: var(--dm-soft); }
+  .bg-gray-200 { background-color: var(--dm-softer); }
+  .hover\:bg-gray-50:hover,
+  .hover\:bg-gray-100:hover { background-color: var(--dm-soft); }
+
+  .text-gray-900,
+  .text-gray-800,
+  .text-gray-700,
+  .text-black { color: var(--store-text-primary); }
+  .text-gray-600,
+  .text-gray-500,
+  .text-gray-400 { color: var(--store-text-secondary); }
+  .text-gray-300 { color: color-mix(in srgb, var(--store-text-secondary) 70%, transparent); }
+
+  .border-gray-100,
+  .border-gray-200,
+  .border-gray-300,
+  .border-b-gray-200 { border-color: var(--dm-line); }
+  .divide-gray-100 > * + *,
+  .divide-gray-200 > * + * { border-color: var(--dm-line); }
+
+  @media (min-width: 1024px) {
+    .lg\:bg-white { background-color: var(--bg-secondary); }
+  }
+
+  /* brand logos keep a white tile: most logos are made for a light background */
+  img.bg-white { background-color: #fff; }
+
+  /* ---------- Raed / Triple surfaces styled with fixed light colors ---------- */
+  .s-add-product-toast,
+  .product-entry,
+  .share-btns-list,
+  .cart-options,
+  .dropdown__menu,
+  .slide--cat-entry,
+  .slide--offer-entry,
+  .s-block--features__item,
+  .loyalty__banner,
+  .points-ways .way-item,
+  .thankyou-block,
+  .brands-nav__item,
+  .brand-char,
+  .advanced-content-drawer .drawer-container,
+  .drawer-overlay .drawer-container,
+  .advanced-content-drawer .drawer-container .drawer-header,
+  .drawer-overlay .drawer-container .drawer-header,
+  .cart-drawer .drawer-footer,
+  salla-slider.details-slider .s-slider-container,
+  salla-slider.details-slider .swiper-slide {
+    background-color: var(--bg-secondary);
+    color: var(--store-text-primary);
+  }
+
+  .slide--cat-entry,
+  .slide--offer-entry,
+  salla-slider.details-slider .swiper-slide,
+  .cart-options { border-color: var(--dm-line); --tw-ring-color: var(--dm-line); }
+
+  .s-add-product-toast__progress,
+  .no-content-placeholder .icon,
+  .s-block--store-branches--toggle .btn-tabs-container,
+  .advanced-content-drawer .drawer-container .drawer-header .drawer-close,
+  .drawer-overlay .drawer-container .drawer-header .drawer-close,
+  .advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item,
+  .drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item,
+  .s-comments-product { background-color: var(--dm-soft); color: var(--store-text-primary); }
+
+  .advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item:hover,
+  .drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item:hover { background-color: var(--dm-softer); }
+
+  /* image boxes still loading (product thumbnails, quick view, cart drawer) */
+  .s-add-product-toast__image,
+  .cart-drawer .cart-drawer-item img,
+  .product-card__video-product-img,
+  .vpopup__product-img,
+  .s-block--features-products .product-card--horizontal .product-card__image,
+  .s-block--tabs-produtcs.as-grid .product-card--horizontal .product-card__image { background-color: var(--img-placeholder); border-color: var(--dm-line); }
+
+  /* menus: desktop dropdown and the mobile slide menu */
+  .main-menu .sub-menu { background-color: var(--bg-secondary); border-color: var(--dm-line); }
+  .mm-spn.mm-spn--light { background: var(--bg-secondary); color: var(--store-text-primary); }
+
+  /* product page option uploads */
+  .product-option-uploader .s-file-upload-wrapper .filepond--drop-label,
+  .form--user-profile .s-file-upload-wrapper .filepond--drop-label { background-color: var(--dm-soft); border-color: var(--dm-line); color: var(--store-text-primary); }
+
+  /* card action buttons (eye / heart / cart) sit on the card, not on the photo */
+  .product-card__actions div button { background-color: var(--bg-secondary); color: var(--store-text-primary); }
+
+  /* product tabs triggers and feature titles (home-blocks.scss: text-gray-800) */
+  .tab-trigger:not(.is-active),
+  .s-block--features__item h2 { color: var(--store-text-primary); }
+
+  /* pack product (home.pack-product): text that sits on the page background; the cream pack cards keep their own colors */
+  .pack-product__compare,
+  .pack-product__rating-count,
+  .pack-product__desc-label { color: var(--store-text-secondary); }
+  .pack-product__desc-text { color: var(--store-text-primary); }
+  .pack-product__sale { color: #f87171; }
+
+  /* pack product: the title and the buttons sit on the page, so they take a lighter shade of the pack color */
+  .pack-product { --pack-on-dark: color-mix(in srgb, var(--pack-primary, #042b6e) 55%, #fff); }
+  .pack-product__title { color: var(--pack-on-dark); }
+  .pack-product__btn--outline { color: var(--pack-on-dark); border-color: var(--pack-on-dark); }
+  .pack-product__btn--outline:hover,
+  .pack-product__btn--outline:focus { background: color-mix(in srgb, var(--pack-on-dark) 12%, transparent); color: var(--pack-on-dark); }
+  .pack-product__btn--solid,
+  .pack-product__btn--solid:hover,
+  .pack-product__btn--solid:focus { background: var(--pack-on-dark); border-color: var(--pack-on-dark); color: #141414; }
+  .pack-product__qty { background: transparent; border-color: var(--dm-line); }
+  .pack-product__qty-btn,
+  .pack-product__qty-input { background: transparent; color: var(--store-text-primary); border-color: var(--dm-line); }
+  .pack-product__qty-btn:hover,
+  .pack-product__qty-btn:focus-visible { background: var(--dm-soft); }
+
+  /* colors picked inside a home block are light-mode colors: in dark mode the block follows the dark store colors */
+  .tr-about:not(.tr-about--transparent) { background-color: var(--bg-primary); }
+  .tr-inline,
+  .tr-bold { color: var(--store-text-primary); }
+  .tr-inline--boxed,
+  .tr-bold--boxed { background: var(--bg-secondary); }
+  .tr-voices__panel { background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-secondary)); }
+  .mini-product { border-color: var(--dm-line); }
+
+  /* product cards over the shoppable video and the shop-the-feed photos */
+  .tr-svideo__card,
+  .tr-feed__tip { background: var(--bg-secondary); color: var(--store-text-primary); }
+  .tr-svideo__name { color: var(--store-text-primary); }
+  .tr-svideo__media { background: var(--img-placeholder); }
+  .tr-svideo__price del,
+  .tr-feed__tip-price del { color: var(--store-text-secondary); }
+  .tr-svideo__price .is-sale,
+  .tr-feed__tip-price .is-sale { color: #f87171; }
+  .tr-feed__product { background: var(--bg-secondary); }
+
+  /* white text on the (lighter, in dark mode) store color → the dark reverse text */
+  .products-lookbook__item--card__point__button:hover button,
+  .product-card__buttons > div button:hover,
+  .product-card__actions div button:hover { color: var(--color-primary-reverse); }
+
+  /* Salla product options (product page, cart): the option buttons and the quantity field come white from Salla */
+  .s-product-options-grid-mode-span { background-color: transparent; border-color: var(--dm-line); color: var(--store-text-primary); }
+  .s-product-options-grid-mode-span:hover { background-color: var(--dm-soft); }
+  .s-product-options-option-label { color: var(--store-text-primary); }
+  .s-product-options-option-label small { color: var(--store-text-secondary); }
+  .s-quantity-input-input { background-color: transparent; color: var(--store-text-primary); }
+  salla-product-options.s-product-options-wrapper { background-color: var(--dm-soft); }
+
+  /* Salla modals (search, login, rating, quick view …) come with a white body */
+  .s-modal-body { background-color: var(--bg-secondary); color: var(--store-text-primary); }
+  .s-search-input { background-color: var(--dm-soft); color: var(--store-text-primary); }
+  .s-search-input::placeholder { color: var(--store-text-secondary); }
+  .s-modal-close { background-color: var(--dm-soft); color: var(--store-text-primary); }
+  .s-modal-title,
+  .s-localization-modal-title,
+  .s-localization-modal-label { color: var(--store-text-primary); }
+
+  /* Salla form fields (option selects …) and the light outline icon buttons (wishlist, share) */
+  .s-form-control { background-color: var(--dm-soft); border-color: var(--dm-line); color: var(--store-text-primary); }
+  select.s-form-control option { background-color: var(--bg-secondary); color: var(--store-text-primary); }
+  .s-button-light-outline { background-color: var(--bg-secondary); border-color: var(--dm-line); color: var(--store-text-secondary); }
+
+  /* page scrollbar track */
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+}
+
+/* Header logo swap: the reversed (dark) logo replaces the normal one in dark mode
+   (the Twig theme toggled a `hidden` class in js; here it is pure CSS). */
+html.dark .site-header__brand {
+  .logo-normal { display: none; }
+  .logo-dark { display: inline-block; }
+}

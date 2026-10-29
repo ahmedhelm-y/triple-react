@@ -1,0 +1,104 @@
+/* ============================
+   Video products (home component: home.video-products) — .tr-reels
+   With khadamaty's classic card the video is layered over the card image by js/partials/video-products.js
+   ============================ */
+
+.s-block--video-products {
+  --video-aspect: 9 / 16;
+
+  &.video-products--square     { --video-aspect: 1 / 1; }
+  &.video-products--horizontal { --video-aspect: 16 / 9; }
+
+  &.has-top-space { @apply mt-8 sm:mt-16; }
+
+  // Cards that carry a video take the chosen video proportions
+  .has-product-video .s-product-card-image {
+    @apply relative overflow-hidden;
+    aspect-ratio: var(--video-aspect);
+    height: auto;
+  }
+
+  // "Product on video": the card body moves into the video overlay
+  &.is-product-on-video .has-product-video .s-product-card-content {
+    @apply hidden;
+  }
+}
+
+/* Triple's videos shelf: one tinted rounded panel around the head and the cards */
+.tr-reels__panel {
+  background:color-mix(in srgb, var(--color-primary) 6%, var(--bg-secondary));
+  border-radius:2rem;
+  padding:1.5rem 1rem;
+}
+
+@media (min-width:768px) {
+  .tr-reels__panel {
+    padding:2.5rem 2rem;
+  }
+}
+
+.tr-reels .s-products-slider-wrapper {
+  margin-bottom:0;
+}
+
+.video-media {
+  @apply absolute inset-0 z-[1] bg-black;
+
+  &__video {
+    @apply w-full h-full object-cover;
+  }
+
+  &__badge {
+    @apply absolute top-2.5 z-[2] inline-flex items-center gap-1 px-2 py-1 rounded-full
+           text-xs font-bold text-white bg-black/60 backdrop-blur-sm pointer-events-none;
+
+    &--left  { left: .625rem; }
+    &--right { right: .625rem; }
+  }
+
+  // Whole video is the click target; the visible icon hints that sound is available
+  &__open {
+    @apply absolute inset-0 z-[1] flex items-end justify-end p-3 bg-transparent border-none cursor-pointer;
+
+    i {
+      @apply flex items-center justify-center w-9 h-9 rounded-full text-white text-lg bg-black/50
+             transition-transform duration-200;
+    }
+
+    &:hover i { @apply scale-110; }
+  }
+
+  &__product {
+    @apply absolute inset-x-2 bottom-2 z-[2] flex items-center gap-2 p-2 rounded-xl bg-white/90 text-gray-900
+           backdrop-blur-sm;
+
+    img { @apply w-10 h-10 rounded-lg object-cover shrink-0; }
+  }
+
+  &__product-info { @apply flex flex-col min-w-0 text-start; }
+  &__product-name { @apply text-xs font-bold truncate; }
+  &__product-price { @apply text-xs opacity-80; }
+}
+
+// Sound button sits above the product overlay when both are shown
+.is-product-on-video .video-media__open {
+  @apply items-start;
+}
+
+/* Shared dialog that plays a product video with sound */
+.video-dialog {
+  @apply p-0 border-none bg-transparent max-w-[min(92vw,480px)] w-full overflow-visible;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, .8);
+  }
+
+  &__video {
+    @apply block w-full max-h-[85vh] rounded-2xl bg-black;
+  }
+
+  &__close {
+    @apply absolute -top-12 ltr:right-0 rtl:left-0 flex items-center justify-center w-10 h-10 rounded-full
+           bg-white/15 text-white text-xl border-none cursor-pointer;
+  }
+}

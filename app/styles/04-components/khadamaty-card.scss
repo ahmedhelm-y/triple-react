@@ -1,0 +1,421 @@
+/* ============================
+   Khadamaty product card (use_khadamaty_product_card -> body.khadamaty-product-card):
+   the classic .s-product-card-* card from partials/product-card.js, plus its two
+   Triple-markup layouts (full image / minimal) from renderTripleCard().
+
+   The base .s-product-card-* rules are a verbatim port of the Twig theme's
+   03-elements/product-card.scss, scoped here under body.khadamaty-product-card so
+   they only apply in khadamaty mode and win over 04-components/product.scss. The
+   full-image / minimal block below is the Twig 04-components/triple-product-card.scss.
+   ============================ */
+
+body.khadamaty-product-card {
+  /* Product card rules the theme markup uses, copied from twilight utilities.json (theme owns its markup styling). */
+
+  /* Built at runtime: s-product-card-image-${fit} */
+  .s-product-card-image-cover {
+    @apply object-cover;
+  }
+  .s-product-card-image-contain {
+    @apply object-contain;
+  }
+
+  .s-product-card {
+    &-entry {
+      @apply h-full transition-shadow duration-300 bg-white  rounded justify-between flex relative;
+    }
+
+    &-shadow {
+      &:hover {
+        box-shadow: 5px 10px 30px #2b2d340d;
+      }
+    }
+
+    &-out-of-stock {
+      img.loaded {
+        @apply grayscale;
+      }
+    }
+
+    &-overlay {
+      @apply transition-opacity duration-700 opacity-50 hover:opacity-40 absolute top-0 bottom-0 left-0 right-0 bg-black;
+    }
+
+    &-vertical {
+      @apply flex-col;
+      .s-product-card-image {
+        @apply flex-1 rounded-t;
+      }
+      .s-product-card-wishlist-btn {
+        @apply absolute top-2 md:right-2 md:rtl:left-2 md:rtl:right-[unset] right-2 rtl:left-2 rtl:right-[unset] opacity-75 hover:opacity-100;
+      }
+      .s-product-card-wishlist-btn button {
+        @apply #{'!bg-white m-0'};
+      }
+    }
+
+    &-minimal {
+      .s-product-card-wishlist-btn {
+        @apply absolute top-0 md:right-0 md:rtl:left-0 md:rtl:right-[unset] right-0 rtl:left-0 rtl:right-[unset] opacity-75 hover:opacity-100;
+      }
+      .s-product-card-image {
+        @apply w-32 sm:w-56 lg:w-28;
+      }
+      .s-product-card-content-title a {
+        @apply line-clamp-2;
+      }
+      .s-product-card-content {
+        @apply flex flex-col flex-1 overflow-hidden p-5;
+      }
+      .s-product-card-wishlist-btn button {
+        @apply bg-transparent m-0;
+      }
+    }
+
+    &-wishlist-btn {
+      button:hover svg {
+        @apply fill-gray-600;
+      }
+    }
+
+    &-fit-height {
+      .s-product-card-image {
+        @apply h-44 max-h-60;
+      }
+    }
+
+    &-quantity {
+      @apply absolute bottom-1 z-1 font-bold px-2.5 py-1.5 md:py-2 text-xs bg-red-400 text-white rounded left-1/2 transform -translate-x-1/2 max-w-[calc(100%-60px)];
+    }
+
+    &-promotion-title {
+      @apply absolute top-4 left-0 rtl:right-0 rtl:left-[unset] z-1 font-bold px-2.5 py-1.5 md:py-2 text-xs bg-red-400 text-white rounded-r rtl:rounded-l rtl:rounded-r-none max-w-[calc(100%-60px)];
+    }
+
+    &-out-badge {
+      @apply absolute bottom-2 z-1 font-bold px-2.5 py-1.5 md:py-2 text-xs bg-gray-100 text-[#999999] rounded-md left-1/2 transform -translate-x-1/2 max-w-[calc(100%-60px)];
+    }
+
+    &-image {
+      @apply bg-gray-100 relative overflow-hidden hover:opacity-90 w-full h-full shrink-0 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:inline-block before:text-gray-200 before:text-3xl;
+      img {
+        @apply transition-opacity duration-500 h-full w-full;
+      }
+      img.lazy {
+        @apply opacity-0;
+      }
+      img.loaded {
+        @apply opacity-100 relative;
+      }
+    }
+
+    &-content {
+      @apply p-3 sm:p-5 flex flex-col relative;
+    }
+
+    &-content-title {
+      @apply mb-2.5 leading-6 max-w-full;
+      a {
+        @apply block text-sm font-bold text-gray-800 hover:text-primary;
+      }
+    }
+
+    &-content-subtitle {
+      @apply text-sm text-gray-600 leading-6 mb-2.5;
+    }
+
+    &-donation-input {
+      @apply flex-1;
+      label {
+        @apply block text-sm mb-2.5;
+      }
+      label span {
+        @apply text-red-500;
+      }
+    }
+
+    &-content-sub {
+      @apply w-full flex justify-between items-center mb-5;
+    }
+
+    &-rating {
+      @apply flex items-center text-sm text-gray-400 space-x-1 rtl:space-x-reverse;
+      span svg {
+        @apply fill-amber-400 w-4 h-4 mb-[3px];
+      }
+    }
+
+    &-content-footer {
+      @apply flex items-center mt-auto;
+    }
+
+    &-sale-price {
+      @apply space-x-1 rtl:space-x-reverse;
+      h4 {
+        @apply text-red-400 font-bold text-sm inline-block;
+      }
+      span {
+        @apply text-sm text-gray-400 line-through;
+      }
+    }
+
+    &-starting-price {
+      @apply w-full flex justify-between items-center;
+      h4 {
+        @apply text-red-400 font-bold text-sm inline-block;
+      }
+    }
+
+    &-price {
+      @apply font-bold text-sm;
+    }
+
+    &-content-pie {
+      @apply w-[72px] h-[72px] absolute top-2.5 right-5 rtl:left-5 rtl:right-[unset] text-primary flex items-center justify-center;
+      span {
+        @apply flex flex-col items-center justify-center -translate-y-1/2 -translate-x-1/2 text-xs text-[#7c8082] text-center absolute top-[43%] left-1/2 leading-none;
+      }
+      span b {
+        @apply text-xl text-primary font-bold;
+      }
+    }
+
+    &-content-extra-padding {
+      @apply pr-24 rtl:pl-24 rtl:pr-0;
+    }
+
+    &-wishlist-added {
+      svg {
+        @apply fill-red-500;
+      }
+    }
+
+    &-horizontal {
+      .s-product-card-image {
+        @apply h-auto w-32 sm:w-56 rtl:rounded-r ltr:rounded-l;
+      }
+      .s-product-card-quantity {
+        @apply max-w-[unset];
+      }
+      .s-product-card-content-title a {
+        @apply line-clamp-2;
+      }
+      .s-product-card-promotion-title {
+        @apply max-w-[unset];
+      }
+      .s-product-card-out-badge {
+        @apply max-w-[unset];
+      }
+      .s-product-card-content {
+        @apply mb-2.5 w-full;
+      }
+    }
+
+    &-full-image {
+      @apply h-80 md:h-auto overflow-hidden;
+      .s-product-card-content {
+        @apply absolute z-10 bottom-0 px-10 w-full pt-5 pb-7;
+      }
+      img {
+        @apply relative overflow-hidden rounded hover:opacity-90 w-full h-full;
+      }
+      .s-product-card-image a {
+        @apply w-full h-full;
+      }
+      .s-product-card-content-title a {
+        @apply text-white hover:text-primary;
+      }
+      .s-product-card-content-subtitle {
+        @apply text-white;
+      }
+      .s-product-card-price {
+        @apply text-white;
+      }
+      .s-product-card-sale-price {
+        @apply text-white;
+      }
+      .s-product-card-sale-price span {
+        @apply text-white;
+      }
+    }
+
+    &-image-full {
+      @apply w-full;
+    }
+
+    &-compact {
+      .s-product-card-content-footer {
+        @apply flex-shrink-0 mt-0;
+      }
+      .s-product-card-content {
+        @apply flex-1 min-w-0 text-right p-0;
+      }
+      .s-product-card-content-main {
+        @apply mb-1;
+      }
+      .s-product-card-content-title {
+        @apply text-sm font-semibold text-gray-700 leading-tight;
+      }
+      .s-product-card-content-title a {
+        @apply block line-clamp-2;
+      }
+      .s-product-card-content-subtitle {
+        @apply text-xs text-gray-500 mt-1 hidden;
+      }
+      .s-product-card-content-sub {
+        @apply flex items-center gap-2 text-xs text-gray-500 justify-start;
+      }
+      .s-product-card-content-sub h4 {
+        @apply m-0 font-normal;
+      }
+      .s-product-card-content-sub .s-product-card-price {
+        @apply font-normal;
+      }
+      .s-product-card-image {
+        @apply flex-shrink-0 rounded-md w-20 h-20;
+      }
+      .s-product-card-image img {
+        @apply w-full h-full object-cover rounded-md;
+      }
+      .s-product-card-promotion-title {
+        @apply hidden;
+      }
+    }
+
+  }
+
+  .s-product-card-minimal .s-product-card-wishlist-btn button svg, .s-product-card-full-image .s-product-card-wishlist-btn button svg {
+    @apply w-4 h-4 fill-white;
+  }
+
+  .s-product-card-special .s-product-card-content-main, special .s-product-card-content-sub {
+    @apply pr-24 rtl:pl-24 rtl:pr-0;
+  }
+}
+
+/* ============================
+   Triple product cards: full image + minimal horizontal (featured-products-style3)
+   Markup from partials/product-card.js → renderTripleCard()
+   ============================ */
+// Only with khadamaty's own card (extra setting use_khadamaty_product_card → body.khadamaty-product-card);
+// Triple's card is styled by triple-card.scss
+body.khadamaty-product-card {
+
+  // only Triple's two card types here; the lookbook card (.product-card on the theme's normal card) keeps its own look
+  .product-card--minimal,
+  .product-card__full-image {
+    &.product-card--rounded { @apply rounded-lg overflow-hidden; }
+
+    @apply relative block bg-white border border-gray-200/70 transition-shadow duration-300;
+
+    // product_bg_dark (--product-bg on html.dark, layouts/master.twig)
+    .dark & {
+      background-color: var(--product-bg);
+      border-color: color-mix(in srgb, var(--store-text-primary) 12%, transparent);
+
+      .s-button-element { background-color: transparent; border-color: color-mix(in srgb, var(--store-text-primary) 20%, transparent); color: var(--store-text-primary); }
+      .total-price { color: var(--store-text-secondary); }
+      .product-card__image { background-color: var(--img-placeholder); }
+    }
+    &.product-card__full-image { .dark & { background-color: var(--img-placeholder); } }
+
+    &[shadow-on-hover]:hover { @apply shadow-lg; }
+
+    // round outline icon buttons (eye / cart / heart)
+    .s-button-element {
+      @apply w-9 h-9 min-w-0 p-0 rounded-full border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 flex items-center justify-center;
+    }
+
+    .product-card__title {
+      @apply text-sm font-bold leading-6 line-clamp-1;
+    }
+
+    .total-price { @apply text-base text-gray-400; }
+  }
+
+  /* Minimal horizontal card: image on the side, title / price / buttons */
+  .product-card--minimal {
+    @apply flex h-full min-h-[148px];
+
+    .product-card__image {
+      @apply relative w-[34%] shrink-0 bg-gray-100 overflow-hidden;
+
+      a { @apply block h-full; }
+
+      .second-image { @apply absolute inset-0 opacity-0 transition-opacity duration-500; }
+    }
+
+    &:hover .second-image { @apply opacity-100; }
+
+    .product-card__content {
+      @apply flex-1 p-4 flex;
+    }
+
+    .product-card__content-wrapper {
+      @apply flex flex-col w-full text-start;
+    }
+
+    .product-card__price { @apply justify-start mt-2; }
+
+    .product-card__buttons {
+      @apply mt-auto pt-3 hidden md:flex items-center gap-2 justify-end;
+    }
+
+    .product-card__addToCart.mobile {
+      @apply mt-3 md:hidden;
+
+      .s-button-element { @apply w-full h-9 rounded-md bg-primary text-primary-reverse border-0 gap-2; }
+    }
+  }
+
+  /* Full image card: image fills the card, title / price / buttons over it */
+  .product-card__full-image {
+    @apply flex flex-col h-full min-h-[400px] bg-gray-100;
+
+    .s-product-card-image-full {
+      @apply absolute inset-0;
+
+      > a:first-child { @apply block h-full; }
+      img { @apply object-contain; }
+    }
+
+    .s-product-card-overlay {
+      @apply absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-transparent to-black/40;
+    }
+
+    .product-card__actions {
+      @apply absolute top-3 rtl:left-3 ltr:right-3 z-[2] opacity-0 transition-opacity duration-300;
+    }
+
+    &:hover .product-card__actions { @apply opacity-100; }
+
+    .product-card__content {
+      @apply relative z-[2] mt-auto p-4 text-center text-white pointer-events-none;
+
+      a, salla-button, salla-add-product-button { @apply pointer-events-auto; }
+    }
+
+    .product-card__title a { @apply text-white; }
+    .total-price { @apply text-white; }
+
+    .product-card__full-image-actions .s-button-element {
+      @apply bg-transparent text-white border-white/60 hover:bg-white/10;
+    }
+  }
+
+  /* Quick view modal (eye button) */
+  .quick-view {
+    @apply grid md:grid-cols-2 gap-6;
+
+    &__loading { @apply flex justify-center py-16; }
+    &__image img { @apply w-full rounded-md object-contain bg-gray-50 max-h-[420px]; }
+    &__content { @apply flex flex-col gap-3; }
+    &__title { @apply text-xl font-bold; }
+    &__price { @apply text-lg; }
+    &__description { @apply text-sm opacity-80 line-clamp-5; }
+    &__actions { @apply mt-auto flex flex-col gap-3; }
+    &__more { @apply text-sm text-center underline; }
+  }
+
+}
+

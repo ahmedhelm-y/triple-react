@@ -1,0 +1,251 @@
+/* ============================
+   Side drawer — opened by the advanced-content block's button (and reusable as .drawer-overlay).
+   Port of the .advanced-content-drawer / .drawer-overlay rules from triple_twig
+   04-components/triple-extras.scss (lines ~418-675). Open/close is React state (is-open / is-closing).
+   ============================ */
+
+.advanced-content-drawer {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility 0s linear 0.3s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 99999;
+}
+
+.advanced-content-drawer.is-open {
+  transition: visibility 0s linear 0s;
+  visibility: visible;
+}
+
+.advanced-content-drawer.is-open .drawer-backdrop,
+.drawer-overlay.is-open .drawer-backdrop {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.advanced-content-drawer.is-open .drawer-container,
+.drawer-overlay.is-open .drawer-container {
+  transform: translateX(0) !important;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.advanced-content-drawer .drawer-backdrop,
+.drawer-overlay .drawer-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.3s ease;
+  width: 100%;
+  z-index: 99998;
+}
+
+.advanced-content-drawer .drawer-container,
+.drawer-overlay .drawer-container {
+  background: var(--bg-primary, #fff);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 450px;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 90%;
+  will-change: transform;
+  z-index: 99999;
+}
+
+[dir='rtl'] .advanced-content-drawer .drawer-container,
+[dir='rtl'] .drawer-overlay .drawer-container {
+  left: 0;
+  right: auto;
+  transform: translateX(-100%);
+}
+
+.advanced-content-drawer .drawer-container .drawer-header,
+.drawer-overlay .drawer-container .drawer-header {
+  align-items: center;
+  background: var(--bg-primary, #fff);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+}
+
+.advanced-content-drawer .drawer-container .drawer-header .drawer-title,
+.drawer-overlay .drawer-container .drawer-header .drawer-title {
+  color: var(--store-text-primary);
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.advanced-content-drawer .drawer-container .drawer-header .drawer-close,
+.drawer-overlay .drawer-container .drawer-header .drawer-close {
+  align-items: center;
+  background: var(--bg-secondary, #f5f5f5);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  height: 1.5rem;
+  justify-content: center;
+  transition: all 0.2s ease;
+  width: 1.5rem;
+}
+
+.advanced-content-drawer .drawer-container .drawer-header .drawer-close:hover,
+.drawer-overlay .drawer-container .drawer-header .drawer-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.advanced-content-drawer .drawer-container .drawer-header .drawer-close i,
+.drawer-overlay .drawer-container .drawer-header .drawer-close i {
+  color: var(--store-text-primary);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .advanced-content-drawer .drawer-container .drawer-header .drawer-close,
+  .drawer-overlay .drawer-container .drawer-header .drawer-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 10;
+  }
+  [dir='rtl'] .advanced-content-drawer .drawer-container .drawer-header .drawer-close,
+  [dir='rtl'] .drawer-overlay .drawer-container .drawer-header .drawer-close {
+    left: 1rem;
+    right: auto;
+  }
+}
+
+.advanced-content-drawer .drawer-container .drawer-body,
+.drawer-overlay .drawer-container .drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  scrollbar-color: var(--color-primary) transparent;
+  scrollbar-width: thin;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body::-webkit-scrollbar,
+.drawer-overlay .drawer-container .drawer-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body::-webkit-scrollbar-track,
+.drawer-overlay .drawer-container .drawer-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body::-webkit-scrollbar-thumb,
+.drawer-overlay .drawer-container .drawer-body::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body::-webkit-scrollbar-thumb:hover,
+.drawer-overlay .drawer-container .drawer-body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items,
+.drawer-overlay .drawer-container .drawer-body .drawer-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item,
+.drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item {
+  background: var(--bg-secondary, #fafafa);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.375rem;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  transition: background 0.2s ease;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item:hover,
+.drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item:hover {
+  background: var(--bg-primary, #fff);
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item .item-icon,
+.drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item .item-icon {
+  align-items: center;
+  background: var(--color-primary, #3b82f6);
+  border-radius: 0.375rem;
+  display: flex;
+  flex-shrink: 0;
+  height: 2.5rem;
+  justify-content: center;
+  width: 2.5rem;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item .item-icon i,
+.drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item .item-icon i {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item .item-content,
+.drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item .item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item .item-content .item-title,
+.drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item .item-content .item-title {
+  color: var(--store-text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item .item-content .item-description,
+.drawer-overlay .drawer-container .drawer-body .drawer-items .drawer-item .item-content .item-description {
+  color: var(--store-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.advanced-content-drawer.is-closing .drawer-backdrop,
+.drawer-overlay.is-closing .drawer-backdrop {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.advanced-content-drawer.is-closing .drawer-container,
+.drawer-overlay.is-closing .drawer-container {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[dir='rtl'] .advanced-content-drawer.is-closing .drawer-container,
+[dir='rtl'] .drawer-overlay.is-closing .drawer-container {
+  transform: translateX(-100%);
+}
+
+@media (max-width: 768px) {
+  .advanced-content-drawer .drawer-container {
+    max-width: 100%;
+    width: 100%;
+  }
+}

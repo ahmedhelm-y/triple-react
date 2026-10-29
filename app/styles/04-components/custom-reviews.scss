@@ -1,0 +1,66 @@
+/* ============================
+   Custom reviews (home block: home.reviews) — port of triple_twig 04-components/reviews.scss
+   (In a separate file from the engine's product-reviews restyle in reviews.scss.)
+   Triple shares these rules with its enhanced testimonials block; .has-bg uses --faq-bg.
+   ============================ */
+
+.s-block--custom-reviews .swiper-wrapper,
+.s-block--testimonials.enhanced .swiper-wrapper {
+  height: auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.s-block--custom-reviews .swiper-pagination-bullet,
+.s-block--testimonials.enhanced .swiper-pagination-bullet {
+  --tw-bg-opacity: 1;
+  background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
+  border-radius: 9999px;
+  height: 0.5rem;
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0.5rem;
+}
+
+.s-block--custom-reviews .swiper-pagination-bullet-active,
+.s-block--testimonials.enhanced .swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+  width: 1.5rem;
+}
+
+.s-block--custom-reviews .review,
+.s-block--testimonials.enhanced .review {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .s-block--custom-reviews .review,
+  .s-block--testimonials.enhanced .review {
+    max-width: 33.333333%;
+    width: 33.333333%;
+  }
+}
+
+.s-block--custom-reviews,
+.s-block--faq,
+.s-block--testimonials.enhanced,
+.special-product.has-bg {
+  z-index: 1;
+}
+
+.s-block--custom-reviews.has-bg:before,
+.s-block--faq.has-bg:before,
+.s-block--testimonials.enhanced:before,
+.special-product.has-bg:before {
+  background-image: var(--faq-bg);
+  bottom: 0;
+  content: '';
+  left: 0;
+  -webkit-mask-image: linear-gradient(0deg, #000 50%, transparent 70%);
+  opacity: 0.4;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}

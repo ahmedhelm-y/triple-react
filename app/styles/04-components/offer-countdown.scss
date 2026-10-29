@@ -1,0 +1,214 @@
+/* ============================
+   Offer countdown (home block: home.offer-countdown) — .tr-offer
+   Port of triple_twig 04-components/offer-countdown.scss (verbatim).
+   --bg-color / --content-color / --overlay-opacity come from the component settings.
+   Texts at the start, the countdown + button in a frosted panel at the end (stacked on mobile).
+   (tr-pulse keyframes live in triple-sections.scss.)
+   ============================ */
+
+.tr-offer {
+  background-color: var(--bg-color, #111827);
+  color: var(--content-color, #fff);
+  overflow: hidden;
+  position: relative;
+}
+
+.tr-offer--boxed {
+  border-radius: 1.75rem;
+}
+
+.tr-offer__bg {
+  inset: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.tr-offer__bg-media {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+/* darker on the text side so the texts stay readable over any media */
+.tr-offer__shade {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, var(--overlay-opacity, 0.25)),
+    rgba(0, 0, 0, calc(var(--overlay-opacity, 0.25) * 0.35))
+  );
+  inset: 0;
+  position: absolute;
+}
+
+[dir='rtl'] .tr-offer__shade {
+  background: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, var(--overlay-opacity, 0.25)),
+    rgba(0, 0, 0, calc(var(--overlay-opacity, 0.25) * 0.35))
+  );
+}
+
+.tr-offer__inner {
+  align-items: center;
+  display: grid;
+  gap: 1.75rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .tr-offer__inner {
+    gap: 3rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 3.5rem 3rem;
+  }
+}
+
+.tr-offer__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: start;
+}
+
+.tr-offer__kicker {
+  align-items: center;
+  align-self: flex-start;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.35rem 0.9rem;
+}
+
+.tr-offer__kicker:before {
+  animation: tr-pulse 1.8s infinite;
+  background: var(--color-primary);
+  border-radius: 50%;
+  content: '';
+  flex-shrink: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.tr-offer__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .tr-offer__title {
+    font-size: 2.5rem;
+  }
+}
+
+.tr-offer__desc {
+  line-height: 1.75;
+  margin: 0;
+  max-width: 36rem;
+  opacity: 0.85;
+}
+
+.tr-offer__panel {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .tr-offer__panel {
+    min-width: 24rem;
+    padding: 1.5rem 1.75rem;
+  }
+}
+
+/* Salla's countdown: open digits split by thin rules instead of boxes */
+.tr-offer__timer {
+  display: block;
+  margin: 0;
+}
+
+.tr-offer__timer .s-count-down-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.tr-offer__timer .s-count-down-item {
+  align-items: center;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: var(--content-color, #fff);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.25rem;
+  height: auto;
+  padding: 0.25rem 0.5rem;
+  width: auto;
+}
+
+.tr-offer__timer .s-count-down-item + .s-count-down-item {
+  border-left: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+
+[dir='rtl'] .tr-offer__timer .s-count-down-item + .s-count-down-item {
+  border-left: 0;
+  border-right: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.tr-offer__timer .s-count-down-item-value {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+@media (min-width: 1024px) {
+  .tr-offer__timer .s-count-down-item-value {
+    font-size: 2.5rem;
+  }
+}
+
+.tr-offer__timer .s-count-down-item-label {
+  color: var(--content-color, #fff);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
+.tr-offer__cta {
+  align-items: center;
+  background: var(--color-primary);
+  border-radius: 999px;
+  color: var(--color-primary-reverse);
+  display: flex;
+  font-weight: 700;
+  gap: 0.625rem;
+  justify-content: center;
+  padding: 0.8rem 1.25rem;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.tr-offer__cta:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}

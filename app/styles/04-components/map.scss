@@ -1,0 +1,8 @@
+/* ============================
+   Triple Google map (home block: home.map) — port of triple_twig 04-components/map.scss.
+   The rest is Tailwind in the markup. map_dark_mode: the map follows the store's dark mode.
+   ============================ */
+
+html.dark .s-block--map.map--dark .s-block--map__element {
+  filter: invert(90%) hue-rotate(180deg);
+}

@@ -1,0 +1,183 @@
+/* ============================
+   Banner with category tabs (home component: home.category-tabs)
+   State classes set by js/partials/category-tabs.js: .category-tabs__tab.is-active, .category-tabs__tabs.is-sticky
+   ============================ */
+
+.category-tabs {
+  display: block;
+}
+
+.category-tabs__area {
+  position: relative;
+  width: 100%;
+}
+
+.category-tabs__banner {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+}
+
+@media (min-width: 768px) {
+  .category-tabs__banner {
+    height: 650px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-tabs__banner {
+    height: 300px;
+  }
+}
+
+.category-tabs__banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  transition: opacity 0.2s ease;
+}
+
+.category-tabs__tabs {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 10;
+  width: calc(100% - 20px);
+  max-width: 45rem;
+  padding: 0 10px;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 991px) {
+  .category-tabs__tabs {
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: none;
+  }
+}
+
+.category-tabs__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 8px;
+  width: 100%;
+  padding: 8px;
+}
+
+.category-tabs__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 10px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  span {
+    display: block;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &.is-active {
+    background: rgba(20, 20, 20, 0.7);
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    span {
+      font-weight: 500;
+    }
+
+    .category-tabs__icon {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.category-tabs__icon {
+  display: block;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: 0.3s all ease;
+}
+
+@media (min-width: 768px) {
+  .category-tabs__icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .category-tabs__tab span {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-tabs__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .category-tabs__tab {
+    padding: 6px 4px;
+
+    span {
+      font-size: 9px;
+    }
+  }
+}
+
+/* Stuck under the header after the banner scrolls past */
+.category-tabs__tabs.is-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  z-index: 1000;
+  width: 100%;
+  max-width: 100%;
+  padding: 6px 16px;
+  transform: none;
+  background-color: var(--color-primary);
+  animation: category-tabs-slide-down 0.3s ease;
+
+  .category-tabs__list {
+    max-width: 45rem;
+    margin: 0 auto;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+
+@keyframes category-tabs-slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.category-tabs__content {
+  padding-top: 20px;
+}

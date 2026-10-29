@@ -1,0 +1,262 @@
+/* ============================
+   Hero slider (home block: home.advanced-slider) — .tr-hero
+   Port of triple_twig 04-components/advanced-slider.scss (verbatim).
+   --sliderHeight / --mobileSliderHeight : vh heights or auto (auto_height)
+   --btnBg / --btnColor                  : slide button colors (set inline on the slider/slide)
+   (tr-rise keyframes live in triple-sections.scss. slider_has_overlay rules: triple-globals, later.)
+   ============================ */
+
+.tr-hero {
+  position: relative;
+}
+
+.tr-hero__slide {
+  width: 100%;
+}
+
+.tr-hero--auto .swiper-wrapper {
+  height: auto !important;
+}
+
+/* before salla-slider hydrates: the first slide only, at the final height */
+.tr-hero salla-slider:not(.hydrated) {
+  display: block;
+  height: var(--sliderHeight);
+  overflow: hidden;
+}
+
+.tr-hero salla-slider:not(.hydrated) > div {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.tr-hero salla-slider:not(.hydrated) > div > .tr-hero__slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+.tr-hero salla-slider:not(.hydrated) .tr-hero__caption,
+.tr-hero salla-slider:not(.hydrated) img,
+.tr-hero salla-slider:not(.hydrated) video,
+.tr-hero salla-slider [slot='items'],
+.tr-hero .swiper {
+  height: var(--sliderHeight);
+}
+
+@media (max-width: 991px) {
+  .tr-hero salla-slider:not(.hydrated),
+  .tr-hero salla-slider:not(.hydrated) .tr-hero__caption,
+  .tr-hero salla-slider:not(.hydrated) img,
+  .tr-hero salla-slider:not(.hydrated) video,
+  .tr-hero salla-slider [slot='items'],
+  .tr-hero .swiper {
+    height: var(--mobileSliderHeight);
+  }
+}
+
+.tr-hero .swiper:not(.swiper-initialized) .tr-hero__slide + .tr-hero__slide {
+  display: none;
+}
+
+.tr-hero:not(.tr-hero--auto) .swiper .swiper-slide {
+  height: 100%;
+}
+
+/* captions: shown on the active slide; single slide + auto height waits for the media (slide-ready) */
+.tr-hero__caption {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.swiper-slide-active .tr-hero__caption,
+.tr-hero salla-slider[static-when-single] .tr-hero__caption {
+  opacity: 1;
+}
+
+.tr-hero--auto salla-slider[static-when-single] .tr-hero__caption {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tr-hero--auto salla-slider[static-when-single] .slide-ready .tr-hero__caption {
+  opacity: 1;
+}
+
+.tr-hero__align {
+  display: flex;
+  padding-inline: 0.5rem;
+}
+
+.tr-hero__align--left {
+  justify-content: flex-start;
+}
+
+.tr-hero__align--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.tr-hero__align--right {
+  justify-content: flex-end;
+}
+
+[dir='rtl'] .tr-hero__align--left {
+  justify-content: flex-end;
+}
+
+[dir='rtl'] .tr-hero__align--right {
+  justify-content: flex-start;
+}
+
+.tr-hero--controls .tr-hero__align {
+  padding-inline: 3.5rem;
+}
+
+.tr-hero__panel {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(12, 12, 14, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1.5rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  max-width: 34rem;
+  padding: 1.5rem 1.75rem;
+}
+
+.tr-hero__align--center .tr-hero__panel {
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .tr-hero__panel {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.tr-hero__title {
+  color: inherit;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .tr-hero__title {
+    font-size: 2.75rem;
+  }
+}
+
+.tr-hero__text {
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  opacity: 0.9;
+}
+
+@media (min-width: 1024px) {
+  .tr-hero__text {
+    font-size: 1.125rem;
+  }
+}
+
+.tr-hero__btn {
+  align-items: center;
+  align-self: flex-start;
+  background-color: var(--btnBg);
+  border: 1px solid var(--btnBg);
+  border-radius: 999px;
+  color: var(--btnColor);
+  display: inline-flex;
+  font-weight: 700;
+  gap: 0.625rem;
+  margin-top: 0.375rem;
+  padding: 0.7rem 1.4rem;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.tr-hero__align--center .tr-hero__btn {
+  align-self: center;
+}
+
+.tr-hero__btn.is-outlined {
+  background-color: transparent;
+  border-color: var(--btnColor);
+}
+
+.tr-hero__btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.tr-hero__link {
+  color: inherit;
+}
+
+/* entrance on the active slide: the panel rises, then its texts one by one */
+.tr-hero .swiper-slide-active .tr-hero__panel {
+  animation: tr-rise 0.55s ease-out backwards;
+}
+
+.tr-hero .swiper-slide-active .tr-hero__title {
+  animation: tr-rise 0.5s ease-out 0.15s backwards;
+}
+
+.tr-hero .swiper-slide-active .tr-hero__text {
+  animation: tr-rise 0.5s ease-out 0.3s backwards;
+}
+
+.tr-hero .swiper-slide-active .tr-hero__btn {
+  animation: tr-rise 0.5s ease-out 0.45s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr-hero .swiper-slide-active .tr-hero__panel,
+  .tr-hero .swiper-slide-active .tr-hero__title,
+  .tr-hero .swiper-slide-active .tr-hero__text,
+  .tr-hero .swiper-slide-active .tr-hero__btn {
+    animation: none;
+  }
+}
+
+/* arrows: round glass buttons */
+.tr-hero .s-slider-v-centered .s-slider-block__title-nav {
+  width: 98%;
+}
+
+.tr-hero .s-slider-nav-arrow {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.22) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 999px;
+  color: #fff;
+  height: 2.75rem;
+  width: 2.75rem;
+}
+
+/* pagination: bars, the active one longer */
+.tr-hero .swiper-pagination-bullet {
+  background: #fff;
+  border-radius: 2px;
+  height: 4px;
+  opacity: 0.5;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  width: 1.5rem;
+}
+
+.tr-hero .swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 2.75rem;
+}

@@ -1,0 +1,91 @@
+/*
+ * Triple color variables.
+ * Port of the inline <style> blocks in triple_twig `views/layouts/master.twig`.
+ *
+ * These are the STATIC DEFAULTS only. In the Twig theme every value below was written
+ * from the merchant settings (store_bg, header_bg, footer_bg, …). Wiring the
+ * settings-driven overrides (read via useTheme and injected in <head>) is a FOUNDATION
+ * task still to do — see PROGRESS.md. Until then these defaults keep every
+ * `storeBG` / `store-text-primary` / … Tailwind token resolving.
+ *
+ * `--color-primary` and `--color-primary-dark` are injected by the engine from the
+ * store color, so they are NOT redefined here (light mode). Only Triple's own
+ * additions (`--color-primary-light`, `--color-primary-reverse`) and the chrome
+ * variables are defined.
+ */
+
+:root {
+  /* primary shades Triple adds on top of the engine's --color-primary */
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 85%, #fff);
+  --color-primary-reverse: #ffffff;
+
+  /* store surfaces + text */
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --store-text-primary: #111827;
+  --store-text-secondary: #4b5563;
+  --main-text-color: var(--store-text-primary);
+
+  /* header */
+  --header-bg: #ffffff;
+  --header-text-color: #111827;
+
+  /* product card */
+  --product-bg: #ffffff;
+  --product-border-color: #eeeeee;
+  --product-image-height: 17rem;
+  --products-per-row: 4;
+
+  /* countdown */
+  --countdown-border-color: #f3f4f6;
+  --countdown-bg: #f3f4f6;
+  --countdown-color: #111827;
+
+  /* enhanced add-to-cart button */
+  --product-enhanced-btn-bg: #ffffff;
+  --product-enhanced-btn-color: #ffffff;
+
+  /* bottom nav */
+  --bottom-nav-bg: #ffffff;
+  --bottom-nav-text-color: #111827;
+
+  /* floating whatsapp button */
+  --wa-btn-bg: #22c55e;
+  --wa-btn-text-color: #ffffff;
+
+  /* faq / special-product decorative background (pattern; wired with settings later) */
+  --faq-bg: none;
+
+  /* footer */
+  --footer-bg: #f3f4f6;
+  --footer-text-color: #374151;
+  --bottom-footer-bg: #f9fafb;
+}
+
+html.dark {
+  --bg-primary: #1d1f1f;
+  --bg-secondary: #0e0f0f;
+  --store-text-primary: #ffffff;
+  --store-text-secondary: #cccccc;
+  --main-text-color: var(--store-text-primary);
+
+  /* the store color as text on a dark page: a lighter shade, dark text on primary buttons */
+  --color-primary: color-mix(in srgb, var(--color-primary) 58%, #fff);
+  --color-primary-dark: color-mix(in srgb, var(--color-primary) 72%, #fff);
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 45%, #fff);
+  --color-primary-reverse: #141414;
+
+  --header-bg: #0e0f0f;
+  --header-text-color: #ffffff;
+  --product-bg: #1d1f1f;
+  --footer-bg: #0e0f0f;
+  --footer-text-color: #ffffff;
+  --bottom-footer-bg: #0e0f0f;
+  --bottom-nav-bg: #1d1f1f;
+  --bottom-nav-text-color: #ffffff;
+
+  --product-border-color: color-mix(in srgb, var(--store-text-primary) 12%, transparent);
+  --countdown-border-color: color-mix(in srgb, var(--store-text-primary) 14%, transparent);
+  --countdown-bg: color-mix(in srgb, var(--store-text-primary) 8%, transparent);
+  --countdown-color: var(--store-text-primary);
+}

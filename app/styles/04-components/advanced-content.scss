@@ -1,0 +1,328 @@
+/* ============================
+   Triple advanced content (home block: home.advanced-content) — port of triple_twig 04-components/advanced-content.scss
+   Normal: title, description, countdown, media, button.  Banner (.s-block--background-layout): media as background
+   (--overlay-opacity, --text-color), .s-block--bg-horizontal / --bg-vertical, .s-block--bg-contained when not full width.
+   Drawer styles are in advanced-content-drawer.scss.
+   ============================ */
+
+.s-block--advanced-content .advanced-content-media {
+  margin: 0 auto;
+  max-width: 600px;
+  position: relative;
+  width: 100%;
+}
+
+.s-block--advanced-content .advanced-content-media .media-wrapper {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.s-block--advanced-content .advanced-content-media .media-wrapper img,
+.s-block--advanced-content .advanced-content-media .media-wrapper video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.s-block--advanced-content-normal .s-count-down-list {
+  margin-top: 0 !important;
+  justify-content: center;
+}
+
+.s-block--advanced-content-normal .s-count-down-list .s-count-down-item {
+  flex: initial;
+  width: 5rem;
+}
+
+.s-block--advanced-content .advanced-content-text.text-center .prose {
+  text-align: center;
+}
+
+.s-block--advanced-content .advanced-content-text .content-wrapper .prose {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.s-block--advanced-content .advanced-content-text .content-wrapper .prose p {
+  color: var(--store-text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.s-block--advanced-content .advanced-content-text .content-wrapper .button-wrapper .advanced-content-btn {
+  font-weight: 500;
+  position: relative;
+}
+
+.s-block--advanced-content .advanced-content-text .content-wrapper .button-wrapper .advanced-content-btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.s-block--advanced-content salla-count-down {
+  margin-bottom: 0;
+}
+
+.s-block--advanced-content salla-count-down .s-count-down-list {
+  margin-bottom: 0;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .s-block--advanced-content .advanced-content-media .media-wrapper {
+    border-radius: 1rem;
+  }
+  .s-block--advanced-content .advanced-content-text .content-wrapper .prose,
+  .s-block--advanced-content .advanced-content-text .content-wrapper .prose p {
+    font-size: 1rem;
+  }
+  .s-block--advanced-content .advanced-content-text .content-wrapper .button-wrapper .advanced-content-btn,
+  .s-block--advanced-content .advanced-content-text .content-wrapper .button-wrapper a.advanced-content-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+}
+
+/* ---------- banner layout ---------- */
+.s-block--advanced-content.s-block--background-layout {
+  min-height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.s-block--advanced-content.s-block--background-layout .s-count-down-item {
+  background-color: rgba(0, 0, 0, 0.43);
+  color: var(--text-color, #fff);
+  flex: initial;
+  height: 4rem;
+  width: 5rem;
+}
+
+.s-block--advanced-content.s-block--background-layout .s-count-down-item .s-count-down-item-label {
+  color: var(--text-color, #fff);
+  opacity: 0.8;
+}
+
+.s-block--advanced-content.s-block--background-layout .background-media-wrapper {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.s-block--advanced-content.s-block--background-layout .background-media-wrapper:before {
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.s-block--advanced-content.s-block--background-layout .background-media-wrapper .background-media {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.s-block--advanced-content.s-block--background-layout .background-media-wrapper video.background-media {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+.s-block--advanced-content.s-block--background-layout .background-media-wrapper .background-overlay {
+  background: rgba(0, 0, 0, var(--overlay-opacity, 0.5));
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.s-block--advanced-content.s-block--background-layout .background-content-wrapper {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text,
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper {
+  width: 100%;
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-content-area {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-content-area {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-text-content {
+  flex: 1;
+  width: 100%;
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-text-content .bg-title {
+  color: var(--text-color, #fff);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-text-content .bg-subtitle {
+  color: var(--text-color, #fff);
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.95;
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-text-content .bg-description {
+  color: var(--text-color, #fff);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-text-content .bg-title {
+    font-size: 1.5rem;
+  }
+  .s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-text-content .bg-subtitle {
+    font-size: 1rem;
+  }
+  .s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-text-content .bg-description {
+    font-size: 0.9375rem;
+  }
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper {
+  flex-shrink: 0;
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper .advanced-content-btn,
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper a.advanced-content-btn {
+  align-items: center;
+  background: var(--text-color, #fff);
+  border: 2px solid var(--text-color, #fff);
+  border-radius: 0.5rem;
+  color: var(--color-primary, #000);
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  padding: 0.3rem 0.4rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper .advanced-content-btn,
+  .s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper a.advanced-content-btn {
+    font-size: 0.9375rem;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+  }
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper .advanced-content-btn:hover,
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper a.advanced-content-btn:hover {
+  background: transparent;
+  border-color: var(--text-color, #fff);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--text-color, #fff);
+  transform: translateY(-2px);
+}
+
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper .advanced-content-btn i,
+.s-block--advanced-content.s-block--background-layout .advanced-content-text .content-wrapper .bg-button-wrapper a.advanced-content-btn i {
+  color: inherit;
+}
+
+.s-block--advanced-content.s-block--background-layout.s-block--bg-contained .background-media-wrapper {
+  border-radius: 1rem;
+  left: 50%;
+  max-width: 1200px;
+  overflow: hidden;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem);
+}
+
+@media (min-width: 1024px) {
+  .s-block--advanced-content.s-block--background-layout.s-block--bg-contained .background-media-wrapper {
+    width: calc(100% - 4rem);
+  }
+}
+
+.s-block--advanced-content.s-block--background-layout.s-block--bg-contained .background-media-wrapper .background-media {
+  border-radius: 1rem;
+}
+
+.s-block--advanced-content.s-block--background-layout.s-block--bg-vertical .bg-content-area {
+  flex-direction: column;
+  text-align: center;
+}
+
+.s-block--advanced-content.s-block--background-layout.s-block--bg-vertical .bg-content-area .bg-text-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.s-block--advanced-content.s-block--background-layout.s-block--bg-vertical .s-count-down-list {
+  justify-content: center;
+}
+
+.s-block--advanced-content.s-block--background-layout.s-block--bg-horizontal .bg-content-area {
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .s-block--advanced-content.s-block--background-layout.s-block--bg-horizontal .bg-content-area {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (min-width: 991px) {
+  .s-block--advanced-content.s-block--background-layout.s-block--bg-horizontal .bg-content-area .s-count-down-list {
+    justify-content: flex-start;
+  }
+}
+
+[dir='rtl'] .s-block--advanced-content.s-block--background-layout.s-block--bg-horizontal .bg-content-area {
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  [dir='rtl'] .s-block--advanced-content.s-block--background-layout.s-block--bg-horizontal .bg-content-area {
+    flex-direction: column;
+  }
+}

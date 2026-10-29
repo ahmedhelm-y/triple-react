@@ -1,0 +1,317 @@
+/* ============================
+   Store branches (home block: home.store_branches) — port of triple_twig 04-components/store-branches.scss
+   .s-block--store-branches--buttons / --toggle / --underline : tab shape
+   ============================ */
+
+.s-block--store-branches .btn-tabs-container {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 1024px) {
+  .s-block--store-branches .btn-tabs-container {
+    flex-wrap: wrap;
+  }
+}
+
+.s-block--store-branches .btn-tab-primary {
+  align-items: center;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  box-shadow: none;
+  color: var(--store-text-primary);
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  justify-content: center;
+  line-height: 1.25rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.s-block--store-branches .btn-tab-primary i {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.s-block--store-branches .btn-tab-primary span {
+  white-space: nowrap;
+}
+
+.s-block--store-branches .btn-tab-primary:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-reverse);
+  transform: translateY(-1px);
+}
+
+.s-block--store-branches .btn-tab-primary.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-reverse);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .s-block--store-branches .btn-tabs-container {
+    justify-content: flex-start;
+    justify-content: safe center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .s-block--store-branches .btn-tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+  .s-block--store-branches .btn-tab-primary {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    min-width: 100px;
+    padding: 0.625rem 1rem;
+  }
+  .s-block--store-branches .btn-tab-primary i {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .s-block--store-branches .btn-tabs-container {
+    gap: 0.5rem;
+  }
+  .s-block--store-branches .btn-tab-primary {
+    font-size: 0.75rem;
+    min-width: 85px;
+    padding: 0.5rem 0.875rem;
+  }
+  .s-block--store-branches .btn-tab-primary i {
+    font-size: 0.75rem;
+  }
+}
+
+/* toggle shape */
+.s-block--store-branches--toggle .btn-tabs-container {
+  background: var(--bg-primary, #f5f5f5);
+  border: 0.5px solid #eee;
+  border-radius: 9999px;
+  display: inline-flex;
+  filter: brightness(0.92);
+  gap: 0.25rem;
+  padding: 0.3rem;
+  width: auto;
+}
+
+.s-block--store-branches--toggle .city-tabs-container,
+.s-block--store-branches--toggle .country-tabs-container,
+.s-block--store-branches--toggle .product-tabs-container {
+  display: flex;
+  justify-content: center;
+}
+
+.s-block--store-branches--toggle .btn-tab-primary {
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  color: var(--store-text-primary);
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.25s ease;
+}
+
+.s-block--store-branches--toggle .btn-tab-primary:hover {
+  background: transparent;
+  border: none;
+  color: var(--store-text-primary);
+  transform: none;
+}
+
+.s-block--store-branches--toggle .btn-tab-primary.active {
+  background: var(--color-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  color: var(--color-primary-reverse);
+  filter: brightness(1.08);
+  transform: none;
+}
+
+/* underline shape */
+.s-block--store-branches--underline .btn-tabs-container {
+  border-bottom: 2px solid #eee;
+  gap: 0;
+  padding-bottom: 0;
+}
+
+.s-block--store-branches--underline .btn-tab-primary {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--store-text-secondary);
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.s-block--store-branches--underline .btn-tab-primary:after {
+  background: var(--color-primary);
+  bottom: -2px;
+  content: '';
+  height: 3px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.s-block--store-branches--underline .btn-tab-primary:hover {
+  background: transparent;
+  border: none;
+  color: var(--store-text-primary);
+  transform: none;
+}
+
+.s-block--store-branches--underline .btn-tab-primary.active {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  transform: none;
+}
+
+.s-block--store-branches--underline .btn-tab-primary.active:after {
+  transform: scaleX(1);
+}
+
+/* vertical city tabs (multi-country mode) */
+.s-block--store-branches .btn-tabs-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .s-block--store-branches .btn-tabs-vertical {
+    max-height: 20rem;
+    overflow-y: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.s-block--store-branches .btn-tab-secondary {
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  color: var(--store-text-primary);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  line-height: 1.25rem;
+  outline: none;
+  padding: 0.5rem;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+.s-block--store-branches .btn-tab-secondary i {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.s-block--store-branches .btn-tab-secondary:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  color: var(--color-primary-reverse);
+  transform: translateX(2px);
+}
+
+.s-block--store-branches .btn-tab-secondary.active {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: var(--color-primary-reverse);
+  transform: translateX(4px);
+}
+
+.s-block--store-branches .btn-tab-secondary.active i {
+  color: var(--color-primary-reverse);
+  opacity: 1;
+}
+
+.s-block--store-branches .btn-tab-secondary.active:hover {
+  transform: translateX(4px);
+}
+
+.s-block--store-branches .map-container {
+  transition: transform 0.2s ease;
+}
+
+.s-block--store-branches .map-container:hover {
+  transform: scale(1.02);
+}
+
+.s-block--store-branches .map-container iframe {
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .s-block--store-branches .btn-tabs-vertical {
+    flex-direction: row;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.5rem;
+  }
+  .s-block--store-branches .btn-tabs-vertical::-webkit-scrollbar {
+    display: none;
+  }
+  .s-block--store-branches .btn-tab-secondary {
+    width: auto !important;
+    flex-shrink: 0;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .s-block--store-branches .btn-tab-secondary {
+    font-size: 0.8125rem;
+    min-width: 120px;
+    padding: 0.75rem 0.875rem;
+  }
+  .s-block--store-branches .btn-tab-secondary i {
+    font-size: 0.75rem;
+  }
+  .s-block--store-branches .map-container {
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .s-block--store-branches .btn-tab-secondary {
+    font-size: 0.75rem;
+    min-width: 100px;
+    padding: 0.25rem 0.75rem;
+  }
+  .s-block--store-branches .btn-tab-secondary i {
+    font-size: 0.6875rem;
+  }
+}

@@ -1,0 +1,147 @@
+/* ============================
+   About the store (home block: home.about) — .tr-about
+   Port of triple_twig 04-components/about.scss (verbatim; `.tr-about` is now the component's
+   inner wrapper that carries `--about-bg`). Media in a rounded frame over an offset color plate;
+   the text card overlaps the media edge. Kit: triple-sections.scss.
+   ============================ */
+
+.tr-about {
+  background-color: var(--about-bg, #eeeeee); /* component_bg (light mode; dark mode uses store colors) */
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .tr-about {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+  }
+}
+
+.tr-about__grid {
+  align-items: center;
+  display: grid;
+}
+
+.tr-about__frame {
+  position: relative;
+}
+
+/* the plate is offset toward the bottom and the end side */
+.tr-about__frame:before {
+  background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  border-radius: 2rem;
+  bottom: -1.25rem;
+  content: '';
+  left: 1.25rem;
+  position: absolute;
+  right: -1.25rem;
+  top: 1.25rem;
+  z-index: 0;
+}
+
+[dir='rtl'] .tr-about__frame:before {
+  left: -1.25rem;
+  right: 1.25rem;
+}
+
+.tr-about__visual {
+  aspect-ratio: 4 / 3;
+  border-radius: 2rem;
+  display: block;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.tr-about__card {
+  background: var(--bg-secondary);
+  border-radius: 1.75rem;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.tr-about--media .tr-about__card {
+  margin: -3rem 1rem 0;
+}
+
+.tr-about__title {
+  color: var(--store-text-primary);
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.tr-about__text {
+  color: var(--store-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.tr-about__btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* no media: one centered card */
+.tr-about--text .tr-about__card {
+  align-items: center;
+  margin: 0 auto;
+  max-width: 48rem;
+  text-align: center;
+}
+
+.tr-about--text .tr-about__kicker,
+.tr-about--text .tr-about__btn {
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .tr-about--media .tr-about__grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  }
+
+  /* the card overlaps the media: toward the media's side in each direction */
+  .tr-about--media .tr-about__card {
+    margin: 0 0 0 -5rem;
+    padding: 2.5rem;
+  }
+
+  [dir='rtl'] .tr-about--media .tr-about__card {
+    margin: 0 -5rem 0 0;
+  }
+
+  .tr-about--reverse .tr-about__media {
+    order: 2;
+  }
+
+  .tr-about--reverse .tr-about__card {
+    margin: 0 -5rem 0 0;
+    order: 1;
+  }
+
+  [dir='rtl'] .tr-about--reverse .tr-about__card {
+    margin: 0 0 0 -5rem;
+  }
+
+  .tr-about--reverse .tr-about__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+
+  .tr-about__visual {
+    aspect-ratio: 5 / 4;
+  }
+
+  .tr-about__title {
+    font-size: 2.25rem;
+  }
+}

@@ -1,0 +1,113 @@
+/* ============================
+   Special product (home component: home.special_product)
+   Base rules + the mobile "mini" card size
+   ============================ */
+
+.special-product {
+  @apply relative;
+
+  // "تصغير المنتج في الجوال"
+  @media (max-width: 990px) {
+    &.mini .special-product__wrapper { @apply max-w-xs mx-auto; }
+  }
+}
+
+/* ---- base rules ---- */
+// one selected product through salla-products-list: full width instead of the list's grid columns
+.special-product__wrapper .s-products-list-wrapper {
+  display:block!important;
+}
+
+.special-product.hide_remaining .pie-wrapper {
+  display:none!important;
+}
+
+@media (min-width:991px) {
+  .special-product.mini-desktop .special-product__wrapper {
+    margin:0 auto;
+    width:40%;
+  }
+}
+
+.special-product.mini .pie-wrapper {
+  bottom:.5rem;
+  height:50px;
+  left:.25rem;
+  width:50px;
+}
+
+.special-product.mini .pie-wrapper span {
+  font-size:10px;
+}
+
+.special-products-slider__button {
+  display:inline-block;
+  margin-top:1rem;
+  padding:7px 15px;
+  position:relative;
+}
+
+@media (min-width:1024px) {
+  .special-products-slider__button {
+    margin-top:1.5rem;
+  }
+}
+
+@media (min-width:1280px) {
+  .special-products-slider__button {
+    margin-top:2rem;
+  }
+}
+
+.special-products-slider__button {
+  transition:all .3s ease;
+}
+
+.special-products-slider__button span {
+  color:var(--btnColor)!important;
+}
+
+.special-products-slider__button span {
+  position:relative;
+  transition:all .3s ease;
+  z-index:1;
+}
+
+.special-products-slider__button:before {
+  background:var(--btnColor);
+  content:"";
+  height:100%;
+  position:absolute;
+  right:0;
+  top:0;
+  transition:all .3s ease;
+  width:0;
+  z-index:1;
+}
+
+.special-products-slider__button:hover span {
+  color:var(--btnBg)!important;
+}
+
+.special-products-slider__button:hover:before {
+  left:0;
+  width:100%;
+}
+
+
+.s-block--custom-reviews,.s-block--faq,.s-block--testimonials.enhanced,.special-product.has-bg {
+  z-index:1;
+}
+
+.s-block--custom-reviews.has-bg:before,.s-block--faq.has-bg:before,.s-block--testimonials.enhanced:before,.special-product.has-bg:before {
+  background-image:var(--faq-bg);
+  bottom:0;
+  content:"";
+  left:0;
+  -webkit-mask-image:linear-gradient(0deg,#000 50%,transparent 70%);
+  opacity:.4;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:-1;
+}

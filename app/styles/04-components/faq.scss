@@ -1,0 +1,16 @@
+/* ============================
+   FAQ (home block: home.faq) — port of triple_twig 04-components/faq.scss
+   The question card toggles `.open` (React state); the answer height animates.
+   `.has-bg` uses --faq-bg (a decorative background; wired with the settings later).
+   ============================ */
+
+.single-faq .faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.single-faq.open .faq-content {
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in-out;
+}

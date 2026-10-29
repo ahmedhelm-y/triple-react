@@ -1,0 +1,114 @@
+/* ============================
+   Banners slider (home block: home.banners-slider) — port of triple_twig 04-components/banners-slider.scss
+   .is-fit-height : same height for all banners
+   .is-object-fit : with fit height, show the whole banner instead of cropping
+   ============================ */
+
+.banners-slider {
+  &.has-top-space {
+    @apply mt-8 sm:mt-16;
+  }
+
+  .swiper-slide[aria-disabled='true'] {
+    @apply pointer-events-none;
+  }
+
+  // the images carry inline height:auto, so the fixed height needs !important
+  &.is-fit-height .banners-slider__image {
+    height: 180px !important;
+    @apply object-cover;
+
+    @screen md {
+      height: 280px !important;
+    }
+    @screen lg {
+      height: 320px !important;
+    }
+  }
+
+  &.is-object-fit .banners-slider__image {
+    @apply object-contain;
+  }
+
+  // fade/cube/flip stack the slides; give them the page background so they don't show through
+  &.fade .swiper-slide,
+  &.cube .swiper-slide,
+  &.flip .swiper-slide {
+    @apply bg-storeBG;
+  }
+}
+
+/* ---- base rules ---- */
+.banners-slider salla-slider div[slot='items'] a {
+  flex: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .banners-slider.cards,
+  .banners-slider.cube {
+    overflow: hidden;
+  }
+}
+
+.s-block.banners-slider + .s-block.banners-slider,
+.s-block.banners-slider + .s-block.double-banner,
+.s-block.banners-slider + .s-block.s-block--fixed-banner,
+.s-block.banners-slider + .s-block.three-banners,
+.s-block.double-banner + .s-block.banners-slider,
+.s-block.double-banner + .s-block.double-banner,
+.s-block.double-banner + .s-block.s-block--fixed-banner,
+.s-block.double-banner + .s-block.three-banners,
+.s-block.s-block--fixed-banner + .s-block.banners-slider,
+.s-block.s-block--fixed-banner + .s-block.double-banner,
+.s-block.s-block--fixed-banner + .s-block.s-block--fixed-banner,
+.s-block.s-block--fixed-banner + .s-block.three-banners,
+.s-block.three-banners + .s-block.banners-slider,
+.s-block.three-banners + .s-block.double-banner,
+.s-block.three-banners + .s-block.s-block--fixed-banner,
+.s-block.three-banners + .s-block.three-banners {
+  margin-top: 0.75rem;
+}
+
+.banners-slider .swiper-pagination-horizontal {
+  bottom: 0.75rem !important;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.banners-slider .swiper-pagination-horizontal:where([dir='ltr'], [dir='ltr'] *) {
+  padding-left: 0.5rem;
+}
+
+.banners-slider .swiper-pagination-horizontal:where([dir='rtl'], [dir='rtl'] *) {
+  padding-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .banners-slider .swiper-pagination-horizontal {
+    bottom: 0.5rem !important;
+  }
+}
+
+.banners-slider salla-slider .swiper-pagination-bullet {
+  background-color: #b0b0b0;
+  width: 7px;
+}
+
+.banners-slider .s-slider-nav-arrow {
+  height: 2rem;
+  width: 2rem;
+}
+
+@media (max-width: 767px) {
+  .banners-slider .s-slider-nav-arrow {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.banners-slider .s-slider-v-centered .s-slider-block__title-nav {
+  width: 98%;
+}

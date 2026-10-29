@@ -51,6 +51,7 @@
 // Note: Tailwind directives are in app.css, not here
 
 @import './01-settings/global';
+@import './01-settings/triple-colors';
 @import './01-settings/breakpoints';
 
 @import './02-generic/reset';
@@ -82,8 +83,61 @@
 @import './04-components/mobile-account-sheet';
 @import './04-components/user-pages';
 @import './04-components/home-blocks';
+@import './04-components/triple-sections';
+@import './04-components/faq';
+@import './04-components/timeline';
+@import './04-components/about';
+@import './04-components/enhanced-features';
+@import './04-components/inline-images-text';
+@import './04-components/stacked-cards';
+@import './04-components/double-banner';
+@import './04-components/three-banners';
+@import './04-components/map';
+@import './04-components/offer-countdown';
+@import './04-components/promo-with-countdown';
+@import './04-components/contact-form';
+@import './04-components/store-branches';
+@import './04-components/square-links';
+@import './04-components/custom-reviews';
+@import './04-components/triple-testimonials';
+@import './04-components/banners-slider';
+@import './04-components/before-after';
+@import './04-components/advanced-slider';
+@import './04-components/advanced-content';
+@import './04-components/advanced-content-drawer';
+@import './04-components/images-grid';
 @import './04-components/slider';
 @import './04-components/product';
+// Triple's custom product card (default non-khadamaty card): base layout +
+// hover styles / quick view / video popup. After raed's product.scss so the
+// `.product-card__*` namespace rules win over the engine `.s-product-card-*`.
+@import './04-components/triple-card-base';
+@import './04-components/triple-card';
+// Khadamaty card (use_khadamaty_product_card): classic .s-product-card-* markup,
+// scoped to body.khadamaty-product-card. After triple-card so its full-image /
+// minimal overrides win. Port of 03-elements/product-card.scss + triple-product-card.scss.
+@import './04-components/khadamaty-card';
+@import './04-components/special-product';
+@import './04-components/custom-products';
+@import './04-components/special-products';
+@import './04-components/product-tabs';
+@import './04-components/category-tabs';
+@import './04-components/special-categories';
+@import './04-components/bold-categories';
+@import './04-components/products-lookbook';
+@import './04-components/product-quiz';
+@import './04-components/review-products';
+@import './04-components/complete-set';
+@import './04-components/compare-products';
+@import './04-components/pack-product';
+@import './04-components/shop-the-feed';
+@import './04-components/mini-product-details';
+@import './04-components/outfit-builder';
+@import './04-components/shoppable-video';
+@import './04-components/video-products';
+@import './04-components/video-popup';
+@import './04-components/offers-drawer';
+@import './04-components/tire-filter';
 @import './04-components/product-list';
 @import './04-components/cart';
 @import './04-components/reviews';
@@ -95,11 +149,22 @@
 @import './04-components/loyalty';
 @import './04-components/virtooal';
 @import './04-components/add-product-toast';
+// Triple store "extras": promotion bar, loading overlay, scroll-to-top, phone /
+// WhatsApp floating buttons, discount popup + side strip, bottom nav.
+@import './04-components/triple-extras';
+
+// Lite YouTube embed facade styles (the `youtube` home block); the custom
+// element is registered on the client by importing the package in Youtube.tsx.
+@import 'lite-youtube-embed/src/lite-yt-embed.css';
 
 @import './05-utilities/chat-bots';
 @import './05-utilities/swal';
 @import './05-utilities/safari-fixes';
 @import './05-utilities/font-customization';
+
+// Dark mode layer (html.dark) — imported last so it wins over the light rules it
+// replaces. Port of triple_twig 04-components/dark-mode.scss.
+@import './04-components/dark-mode';
 
 
 // For Dev Only

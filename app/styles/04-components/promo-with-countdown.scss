@@ -1,0 +1,71 @@
+/* ============================
+   Promo with countdown (home block: home.promo_with_countdown)
+   Port of triple_twig 04-components/promo-with-countdown.scss (verbatim).
+   .as-img : image beside the content / .as-bg : image as the background
+   ============================ */
+
+.promo_with_countdown .s-count-down-list {
+  justify-content: center;
+  margin-top: 2.625rem;
+}
+
+.promo_with_countdown .s-count-down-item {
+  background: transparent;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  color: #fff;
+  flex: initial;
+  width: 5rem;
+}
+
+.promo_with_countdown .as-img .s-count-down-list {
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.cat-content-wrapper--content.promo_with_countdown .as-img .s-count-down-list {
+  flex-direction: column;
+  text-align: center;
+}
+
+.cat-content-wrapper--content.promo_with_countdown .as-img .s-count-down-list .cat-content-wrapper--content-img {
+  width: 100%;
+}
+
+.cat-content-wrapper--content.promo_with_countdown .as-img .s-count-down-list .cat-content-wrapper--content-img img {
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .promo_with_countdown .as-img .s-count-down-list:where([dir='ltr'], [dir='ltr'] *) {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 768px) {
+  .promo_with_countdown .as-img .s-count-down-list:where([dir='rtl'], [dir='rtl'] *) {
+    justify-content: flex-start;
+  }
+}
+
+.promo_with_countdown .s-count-down-item-label {
+  color: #eee;
+}
+
+.promo_with_countdown .as-img .s-count-down-end-text {
+  left: auto !important;
+}
+
+.promo_with_countdown .as-img .s-count-down-end-text {
+  width: 100%;
+}
+
+.promo_with_countdown .as-img salla-count-down .s-count-down-item {
+  border-color: currentColor;
+  color: currentColor;
+}
+
+.promo_with_countdown .as-img salla-count-down .s-count-down-item-label {
+  color: currentColor;
+}

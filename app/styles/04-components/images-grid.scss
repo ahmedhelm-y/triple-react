@@ -1,0 +1,14 @@
+/* ============================
+   Images grid (home block: home.images-grid) — port of triple_twig 04-components/images-grid.scss
+   Layout comes from Tailwind classes in the markup.
+   ============================ */
+
+.s-block--images-grid {
+  &.has-top-space {
+    @apply mt-8 sm:mt-16;
+  }
+
+  .images-grid__item[aria-disabled='true'] {
+    @apply pointer-events-none;
+  }
+}

@@ -1,0 +1,311 @@
+/* ============================
+   Offers & coupons drawer (home component: home.offers-drawer) — .tr-offers
+   A vertical tab fixed on the side of the screen (end side by default, .tr-offers--start for the other side)
+   and a drawer sliding from that side. --offers-tab-bg / --offers-tab-color come from the settings.
+   Sides are written per direction: end = right in LTR, left in RTL.
+   ============================ */
+
+.tr-offers-block {
+  height:0;
+  margin:0;
+  padding:0;
+}
+
+.tr-offers {
+  --offers-panel-width:min(24rem, 92vw);
+  display:block;
+}
+
+/* ---------- side tab ---------- */
+.tr-offers__tab-wrap {
+  align-items:center;
+  display:flex;
+  flex-direction:column;
+  gap:.375rem;
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  transition:transform .3s ease, opacity .3s ease;
+  z-index:25;
+}
+
+.tr-offers.is-dismissed .tr-offers__tab-wrap,
+.tr-offers.is-open .tr-offers__tab-wrap {
+  opacity:0;
+  pointer-events:none;
+}
+
+.tr-offers__tab {
+  align-items:center;
+  background:var(--offers-tab-bg, var(--color-primary));
+  border:0;
+  box-shadow:0 10px 24px -12px rgba(0,0,0,.45);
+  color:var(--offers-tab-color, var(--color-primary-reverse));
+  cursor:pointer;
+  display:flex;
+  font-size:.8125rem;
+  font-weight:700;
+  gap:.5rem;
+  letter-spacing:.02em;
+  padding:.875rem .5rem;
+  writing-mode:vertical-rl;
+}
+
+.tr-offers__tab i {
+  font-size:1rem;
+  transform:rotate(90deg);
+}
+
+.tr-offers__tab-count {
+  align-items:center;
+  background:var(--offers-tab-color, var(--color-primary-reverse));
+  border-radius:50%;
+  color:var(--offers-tab-bg, var(--color-primary));
+  display:inline-flex;
+  font-size:.6875rem;
+  height:1.25rem;
+  justify-content:center;
+  width:1.25rem;
+  writing-mode:horizontal-tb;
+}
+
+.tr-offers__dismiss {
+  align-items:center;
+  background:var(--bg-secondary, #fff);
+  border:1px solid color-mix(in srgb, var(--store-text-primary) 15%, transparent);
+  border-radius:50%;
+  color:var(--store-text-secondary);
+  cursor:pointer;
+  display:inline-flex;
+  font-size:.625rem;
+  height:1.375rem;
+  justify-content:center;
+  width:1.375rem;
+}
+
+/* end side: right in LTR, left in RTL */
+[dir=ltr] .tr-offers--end .tr-offers__tab-wrap,
+[dir=rtl] .tr-offers--start .tr-offers__tab-wrap {
+  right:0;
+}
+
+[dir=rtl] .tr-offers--end .tr-offers__tab-wrap,
+[dir=ltr] .tr-offers--start .tr-offers__tab-wrap {
+  left:0;
+}
+
+[dir=ltr] .tr-offers--end .tr-offers__tab,
+[dir=rtl] .tr-offers--start .tr-offers__tab {
+  border-radius:.75rem 0 0 .75rem;
+}
+
+[dir=rtl] .tr-offers--end .tr-offers__tab,
+[dir=ltr] .tr-offers--start .tr-offers__tab {
+  border-radius:0 .75rem .75rem 0;
+}
+
+/* ---------- drawer ---------- */
+.tr-offers__overlay {
+  background:rgba(0,0,0,.45);
+  inset:0;
+  opacity:0;
+  position:fixed;
+  transition:opacity .3s ease, visibility .3s ease;
+  visibility:hidden;
+  z-index:1001;
+}
+
+.tr-offers__panel {
+  background:var(--bg-secondary, #fff);
+  bottom:0;
+  box-shadow:0 0 40px rgba(0,0,0,.2);
+  color:var(--store-text-primary);
+  display:flex;
+  flex-direction:column;
+  max-width:100%;
+  overflow-y:auto;
+  position:fixed;
+  top:0;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), visibility .35s ease;
+  visibility:hidden;
+  width:var(--offers-panel-width);
+  z-index:1002;
+}
+
+[dir=ltr] .tr-offers--end .tr-offers__panel,
+[dir=rtl] .tr-offers--start .tr-offers__panel {
+  right:0;
+  transform:translateX(100%);
+}
+
+[dir=rtl] .tr-offers--end .tr-offers__panel,
+[dir=ltr] .tr-offers--start .tr-offers__panel {
+  left:0;
+  transform:translateX(-100%);
+}
+
+.tr-offers.is-open .tr-offers__overlay {
+  opacity:1;
+  visibility:visible;
+}
+
+.tr-offers.is-open .tr-offers__panel {
+  transform:none;
+  visibility:visible;
+}
+
+html.tr-offers-open {
+  overflow:hidden;
+}
+
+.tr-offers__note {
+  background:var(--color-primary);
+  color:var(--color-primary-reverse);
+  font-size:.8125rem;
+  font-weight:700;
+  margin:0;
+  padding:.625rem 1rem;
+  text-align:center;
+}
+
+.tr-offers__head {
+  align-items:center;
+  border-bottom:1px solid color-mix(in srgb, var(--store-text-primary) 10%, transparent);
+  display:flex;
+  gap:1rem;
+  justify-content:space-between;
+  padding:1.125rem 1.25rem;
+}
+
+.tr-offers__title {
+  font-size:1.125rem;
+  font-weight:700;
+  margin:0;
+}
+
+.tr-offers__title-count {
+  color:var(--store-text-secondary);
+  font-weight:400;
+}
+
+.tr-offers__close {
+  align-items:center;
+  background:color-mix(in srgb, var(--store-text-primary) 6%, transparent);
+  border:0;
+  border-radius:50%;
+  color:var(--store-text-primary);
+  cursor:pointer;
+  display:inline-flex;
+  height:2.25rem;
+  justify-content:center;
+  transition:background-color .2s ease;
+  width:2.25rem;
+}
+
+.tr-offers__close:hover {
+  background:color-mix(in srgb, var(--store-text-primary) 12%, transparent);
+}
+
+.tr-offers__list {
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  list-style:none;
+  margin:0;
+  padding:1.25rem;
+}
+
+.tr-offers__item {
+  align-items:center;
+  background:color-mix(in srgb, var(--color-primary) 5%, var(--bg-secondary, #fff));
+  border:1px solid color-mix(in srgb, var(--store-text-primary) 8%, transparent);
+  border-radius:1rem;
+  display:flex;
+  gap:.875rem;
+  padding:.875rem 1rem;
+}
+
+.tr-offers__icon {
+  align-items:center;
+  background:color-mix(in srgb, var(--color-primary) 14%, transparent);
+  border-radius:50%;
+  color:var(--color-primary);
+  display:inline-flex;
+  flex-shrink:0;
+  height:2.25rem;
+  justify-content:center;
+  width:2.25rem;
+}
+
+.tr-offers__text {
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  gap:.2rem;
+  min-width:0;
+}
+
+.tr-offers__name {
+  font-size:.9375rem;
+  line-height:1.4;
+}
+
+.tr-offers__desc {
+  color:var(--store-text-secondary);
+  font-size:.8125rem;
+  line-height:1.5;
+}
+
+.tr-offers__code {
+  align-self:flex-start;
+  border:1px dashed color-mix(in srgb, var(--color-primary) 60%, transparent);
+  border-radius:.4rem;
+  color:var(--color-primary);
+  font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size:.8125rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  margin-top:.2rem;
+  padding:.1rem .5rem;
+}
+
+.tr-offers__action {
+  align-items:center;
+  background:var(--store-text-primary);
+  border:0;
+  border-radius:999px;
+  color:var(--bg-secondary, #fff);
+  cursor:pointer;
+  display:inline-flex;
+  flex-shrink:0;
+  font-size:.8125rem;
+  font-weight:700;
+  gap:.35rem;
+  padding:.5rem 1rem;
+  transition:background-color .2s ease, transform .2s ease;
+  white-space:nowrap;
+}
+
+.tr-offers__action:hover {
+  transform:translateY(-1px);
+}
+
+.tr-offers__action i {
+  display:none;
+}
+
+.tr-offers__action.is-copied {
+  background:#16a34a;
+  color:#fff;
+}
+
+.tr-offers__action.is-copied i {
+  display:inline-block;
+}
+
+@media (max-width:767px) {
+  .tr-offers__tab {
+    font-size:.75rem;
+    padding:.75rem .4rem;
+  }
+}

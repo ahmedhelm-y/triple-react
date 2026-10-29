@@ -1,0 +1,75 @@
+/* ============================
+   Tire size filter (home component: home.tire-filter)
+   State classes are set on <tire-wrapper> by js/partials/tire-filter.js:
+   select2-disabled / select3-disabled, can-srch, srch-loading, srch-help (hint arrows after 3s)
+   ============================ */
+
+.filter-dropdown {
+  width: 100%;
+}
+
+tire-wrapper {
+  display: block;
+
+  .tires-filter {
+    opacity: .6;
+    pointer-events: none;
+    transition: .4s;
+  }
+
+  &.can-srch .tires-filter {
+    opacity: 1;
+    pointer-events: revert;
+  }
+
+  &.select2-disabled .t-h .filter-dropdown,
+  &.select3-disabled .t-r .filter-dropdown {
+    pointer-events: none;
+    opacity: .6;
+  }
+
+  .tire-filter__loader {
+    display: none;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  &.srch-loading .tire-filter__loader {
+    display: flex;
+  }
+
+  .note i {
+    transition: .7s cubic-bezier(0.17, 0.67, 1, 1.23);
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    opacity: 0;
+  }
+
+  &.srch-help .note {
+    opacity: 1;
+  }
+
+  // the arrow points at the next step: width, then height, then rim, then the search button
+  &.srch-help.select2-disabled.select3-disabled .t-1 .note i,
+  &.srch-help.select3-disabled:not(.select2-disabled) .t-2 .note i,
+  &.srch-help:not(.select2-disabled):not(.select3-disabled):not(.can-srch) .t-3 .note i,
+  &.srch-help.can-srch .filter-btn .note i {
+    animation: tire-filter-hint 1s infinite;
+  }
+}
+
+@keyframes tire-filter-hint {
+  0% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

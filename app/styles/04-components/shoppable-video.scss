@@ -1,0 +1,339 @@
+/* ============================
+   Shoppable video (home component: home.shoppable-video) — .tr-svideo
+   A wide rounded video, texts at the bottom start, play / sound buttons at the top end and the products
+   card at the bottom end (one product at a time). --svideo-text / --svideo-shade come from the settings.
+   ============================ */
+
+.tr-svideo {
+  background:#111;
+  border-radius:1.75rem;
+  color:var(--svideo-text, #fff);
+  display:block;
+  overflow:hidden;
+  position:relative;
+}
+
+.tr-svideo--tall {
+  height:min(82vh, 46rem);
+}
+
+.tr-svideo--medium {
+  height:min(64vh, 34rem);
+}
+
+/* phones: the texts and the products card stack at the bottom of a taller box */
+@media (max-width:767px) {
+  .tr-svideo--tall,
+  .tr-svideo--medium {
+    display:flex;
+    flex-direction:column;
+    height:auto;
+    justify-content:flex-end;
+    min-height:34rem;
+  }
+}
+
+.tr-svideo__video {
+  height:100%;
+  inset:0;
+  object-fit:cover;
+  position:absolute;
+  width:100%;
+}
+
+.tr-svideo__shade {
+  background:linear-gradient(0deg, rgba(0,0,0,calc(var(--svideo-shade, .25) + .3)) 0%, rgba(0,0,0,var(--svideo-shade, .25)) 45%, rgba(0,0,0,calc(var(--svideo-shade, .25) * .4)) 100%);
+  inset:0;
+  pointer-events:none;
+  position:absolute;
+}
+
+/* ---------- texts ---------- */
+.tr-svideo__text {
+  bottom:0;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  left:0;
+  max-width:36rem;
+  padding:2rem;
+  position:absolute;
+  z-index:1;
+}
+
+[dir=rtl] .tr-svideo__text {
+  left:auto;
+  right:0;
+}
+
+@media (max-width:767px) {
+  .tr-svideo__text {
+    bottom:auto;
+    padding:1.25rem;
+    position:relative;
+  }
+}
+
+.tr-svideo__kicker {
+  font-size:.8125rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  margin:0;
+  opacity:.85;
+  text-transform:uppercase;
+}
+
+.tr-svideo__title {
+  color:inherit;
+  font-size:1.75rem;
+  font-weight:700;
+  line-height:1.2;
+  margin:0;
+}
+
+@media (min-width:1024px) {
+  .tr-svideo__title {
+    font-size:2.75rem;
+  }
+}
+
+.tr-svideo__desc {
+  line-height:1.7;
+  margin:0;
+  opacity:.9;
+}
+
+.tr-svideo__btn {
+  align-items:center;
+  align-self:flex-start;
+  background:var(--svideo-text, #fff);
+  border-radius:999px;
+  color:#111;
+  display:inline-flex;
+  font-weight:700;
+  gap:.5rem;
+  margin-top:.5rem;
+  padding:.7rem 1.4rem;
+  transition:transform .2s ease;
+}
+
+.tr-svideo__btn:hover {
+  transform:translateY(-2px);
+}
+
+/* ---------- play / sound ---------- */
+.tr-svideo__controls {
+  display:flex;
+  gap:.5rem;
+  position:absolute;
+  right:1.25rem;
+  top:1.25rem;
+  z-index:2;
+}
+
+[dir=rtl] .tr-svideo__controls {
+  left:1.25rem;
+  right:auto;
+}
+
+.tr-svideo__control {
+  align-items:center;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:50%;
+  color:#fff;
+  cursor:pointer;
+  display:inline-flex;
+  height:2.5rem;
+  justify-content:center;
+  transition:background-color .2s ease;
+  width:2.5rem;
+}
+
+.tr-svideo__control:hover {
+  background:rgba(255,255,255,.32);
+}
+
+/* ---------- products card ---------- */
+.tr-svideo__shop {
+  bottom:1.25rem;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  position:absolute;
+  right:1.25rem;
+  width:min(22rem, calc(100% - 2.5rem));
+  z-index:2;
+}
+
+[dir=rtl] .tr-svideo__shop {
+  left:1.25rem;
+  right:auto;
+}
+
+@media (max-width:767px) {
+  .tr-svideo__shop {
+    bottom:auto;
+    margin:0 1.25rem 1.25rem;
+    position:relative;
+    right:auto;
+    width:auto;
+  }
+
+  [dir=rtl] .tr-svideo__shop {
+    left:auto;
+  }
+}
+
+.tr-svideo__cards {
+  display:grid;
+}
+
+.tr-svideo__card {
+  align-items:center;
+  background:#fff;
+  border-radius:1.1rem;
+  box-shadow:0 18px 40px -20px rgba(0,0,0,.6);
+  color:#111;
+  display:flex;
+  gap:.75rem;
+  grid-area:1 / 1;
+  opacity:0;
+  padding:.6rem;
+  transform:translateY(8px);
+  transition:opacity .4s ease, transform .4s ease, visibility .4s ease;
+  visibility:hidden;
+}
+
+.tr-svideo__card.is-active {
+  opacity:1;
+  transform:none;
+  visibility:visible;
+}
+
+.tr-svideo__media {
+  background:#f5f5f4;
+  border-radius:.8rem;
+  flex-shrink:0;
+  height:4.25rem;
+  overflow:hidden;
+  width:4.25rem;
+}
+
+.tr-svideo__media img {
+  height:100%;
+  object-fit:cover;
+  width:100%;
+}
+
+.tr-svideo__info {
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  gap:.2rem;
+  min-width:0;
+}
+
+.tr-svideo__name {
+  color:#111;
+  font-size:.9rem;
+  font-weight:700;
+  line-height:1.4;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.tr-svideo__price {
+  font-size:.875rem;
+  font-weight:700;
+}
+
+.tr-svideo__price .is-sale {
+  color:#dc2626;
+}
+
+.tr-svideo__price del {
+  color:#78716c;
+  font-size:.75rem;
+  font-weight:400;
+}
+
+.tr-svideo__card.is-loading .tr-svideo__media,
+.tr-svideo__card.is-loading .tr-svideo__name,
+.tr-svideo__card.is-loading .tr-svideo__price {
+  animation:tr-svideo-shimmer 1.4s ease-in-out infinite;
+  background:#e7e5e4;
+  border-radius:.5rem;
+  min-height:.8rem;
+}
+
+@keyframes tr-svideo-shimmer {
+  0%, 100% { opacity:1; }
+  50% { opacity:.5; }
+}
+
+.tr-svideo__add {
+  align-items:center;
+  background:var(--color-primary);
+  border:0;
+  border-radius:50%;
+  color:var(--color-primary-reverse);
+  cursor:pointer;
+  display:inline-flex;
+  flex-shrink:0;
+  height:2.6rem;
+  justify-content:center;
+  transition:transform .2s ease;
+  width:2.6rem;
+}
+
+.tr-svideo__add:hover {
+  transform:scale(1.06);
+}
+
+.tr-svideo__spinner {
+  animation:tr-svideo-spin .7s linear infinite;
+  border:2px solid currentColor;
+  border-radius:50%;
+  border-top-color:transparent;
+  display:none;
+  height:1rem;
+  width:1rem;
+}
+
+.tr-svideo__add.is-atc-loading .tr-svideo__spinner {
+  display:inline-block;
+}
+
+.tr-svideo__add.is-atc-loading i {
+  display:none;
+}
+
+@keyframes tr-svideo-spin {
+  to { transform:rotate(360deg); }
+}
+
+.tr-svideo__dots {
+  display:flex;
+  gap:.35rem;
+  justify-content:center;
+}
+
+.tr-svideo__dot {
+  background:rgba(255,255,255,.45);
+  border:0;
+  border-radius:999px;
+  cursor:pointer;
+  height:.4rem;
+  padding:0;
+  transition:width .3s ease, background-color .3s ease;
+  width:.4rem;
+}
+
+.tr-svideo__dot.is-active {
+  background:#fff;
+  width:1.4rem;
+}
