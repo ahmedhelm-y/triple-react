@@ -3,163 +3,145 @@
   "settings": {},
   "layout": [
     {
-      "id": "b-83478bab9f6c",
-      "path": "fixed-products",
-      "fields": {
-        "products": {
-          "source": "categories",
-          "source_value": [
-            196932934
-          ]
-        },
-        "title": "أحدث المنتجات",
-        "limit": 20,
-        "isVertical": true,
-        "display_all_url": "https://demostore.salla.sa/dev-wtz3nhridyisupsv/category/egllBo",
-        "position": 1,
-        "key": null,
-        "channel_visibility": {
-          "desktop": true,
-          "mobile": true
-        }
-      }
-    },
-    {
-      "id": "b-299cb5531656",
-      "path": "products-slider",
-      "fields": {
-        "products": {
-          "source": "categories",
-          "source_value": [
-            1704531015
-          ]
-        },
-        "title": "أحدث المنتجات",
-        "limit": 4,
-        "display_all_url": "https://demostore.salla.sa/dev-wtz3nhridyisupsv/category/XAddmD",
-        "position": 1,
-        "key": null,
-        "channel_visibility": {
-          "desktop": true,
-          "mobile": true
-        }
-      }
-    },
-    {
-      "id": "b-dccaa28594ec",
-      "path": "enhanced-square-banners",
-      "fields": {
-        "key": "b89edc4a-ce0b-468f-8323-2da48147bb32",
-        "banners": [
-          {
-            "ar": {
-              "title": "تصفَّح حسب التصنيف",
-              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-            },
-            "url": "#",
-            "image": "https://cdn.salla.sa/mQgZlG/pzOCEw10wCfXeVSpKnL0Ifd1O9ZkTfnZ17RkE14R.jpg",
-            "title": "تصفَّح حسب التصنيف",
-            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-          },
-          {
-            "ar": {
-              "title": "تصفَّح حسب التصنيف",
-              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-            },
-            "url": "#",
-            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
-            "title": "تصفَّح حسب التصنيف",
-            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-          },
-          {
-            "ar": {
-              "title": "تصفَّح حسب التصنيف",
-              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-            },
-            "url": "#",
-            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
-            "title": "تصفَّح حسب التصنيف",
-            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-          },
-          {
-            "ar": {
-              "title": "تصفَّح حسب التصنيف",
-              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-            },
-            "url": "#",
-            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
-            "title": "تصفَّح حسب التصنيف",
-            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-          },
-          {
-            "ar": {
-              "title": "تصفَّح حسب التصنيف",
-              "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-            },
-            "url": "#",
-            "image": "https://cdn.salla.sa/mQgZlG/lkyDjYwvWJNmAQoGnLALLcUkm66rCCDbTyVlSGdH.jpg",
-            "title": "تصفَّح حسب التصنيف",
-            "description": "سهِّل تجربة التسوُّق والوصول لمنتجاتك"
-          }
-        ],
-        "channel_visibility": {
-          "desktop": true,
-          "mobile": true
-        }
-      }
-    },
-    {
-      "id": "b-a2493b4e3445",
+      "id": "b-hero-stage",
       "path": "enhanced-slider",
       "fields": {
-        "key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab",
+        "in_container": false,
+        "auto_play": true,
         "slides": [
           {
-            "ar": {
-              "title": "روِّج لمنتجاتك كصور متحركة",
-              "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
+            "image": "https://cdn.files.salla.network/homepage/1384584890/d754d607-9198-4533-b882-ab16cbdc47ea-original.webp",
+            "title": { "ar": "عطرٌ يروي حكاية فخامة", "en": "A Scent That Tells a Story of Luxury" },
+            "description": {
+              "ar": "مزيجٌ شرقيٌّ دافئ من العود والعنبر يرافقك من الصباح حتى المساء.",
+              "en": "A warm oriental blend of oud and amber that stays with you from morning to night."
             },
-            "image": "https://cdn.salla.sa/ZrBEO/MopzhoqpTkDObcKc8Q8n77AuydanfsGXdZO7iinH.jpg",
-            "__hidden": false,
-            "without_overlay": false,
-            "title": "روِّج لمنتجاتك كصور متحركة",
-            "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
-          },
-          {
-            "ar": {
-              "title": "شجّع زوار متجرك على الشراء عبر عروض خاصة",
-              "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
-            },
-            "image": "https://cdn.salla.sa/ZrBEO/3gOhYSaIhaHxhH2IHWxJYDl9JHwxP6dGKiZFSq4K.jpg",
-            "__hidden": false,
-            "without_overlay": false,
-            "title": "شجّع زوار متجرك على الشراء عبر عروض خاصة",
-            "description": "اعرض المنتجات التي تود إبرازها لزوّار متجرك في هذه المساحة"
+            "btnname": { "ar": "اكتشف العطر", "en": "Discover the scent" },
+            "url": "#",
+            "without_overlay": false
           }
         ],
-        "versions": null,
-        "channel_visibility": {
-          "desktop": true,
-          "mobile": true
-        }
+        "position": 1,
+        "channel_visibility": { "desktop": true, "mobile": true }
       }
     },
     {
-      "id": "b-b0e8d31dfd14",
+      "id": "b-perks",
+      "path": "enhanced-features",
+      "fields": {
+        "mini_features": true,
+        "features": [
+          { "icon": "sicon-shipping-fast", "title": { "ar": "شحن سريع", "en": "Fast shipping" }, "sub_title": { "ar": "", "en": "" } },
+          { "icon": "sicon-credit-card", "title": { "ar": "دفع آمن", "en": "Secure payment" }, "sub_title": { "ar": "", "en": "" } },
+          { "icon": "sicon-rotate-left", "title": { "ar": "إرجاع سهل", "en": "Easy returns" }, "sub_title": { "ar": "", "en": "" } },
+          { "icon": "sicon-gift", "title": { "ar": "عينة مجانية مع كل طلب", "en": "Free sample with every order" }, "sub_title": { "ar": "", "en": "" } }
+        ],
+        "position": 2,
+        "channel_visibility": { "desktop": true, "mobile": true }
+      }
+    },
+    {
+      "id": "b-categories",
+      "path": "enhanced-square-banners",
+      "fields": {
+        "banners": [
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/0c88b9a5-61ab-4e7e-9533-5f8d6d72fae6-original.webp",
+            "title": { "ar": "عطور نسائية", "en": "Women's Perfumes" },
+            "description": { "ar": "لمساتٌ زهريةٌ ناعمة", "en": "Soft floral scents" },
+            "url": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/bb9b0bb4-0c1c-436d-82d4-cfc23d89c66a-original.webp",
+            "title": { "ar": "عطور رجالية", "en": "Men's Perfumes" },
+            "description": { "ar": "لمساتٌ خشبيةٌ جريئة", "en": "Bold woody scents" },
+            "url": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/4d579b27-3792-4977-af6c-c0df24fa98f0-original.webp",
+            "title": { "ar": "زيت عود وبخور", "en": "Oud Oil & Incense" },
+            "description": { "ar": "عودٌ طبيعيٌّ نقي", "en": "Pure natural oud" },
+            "url": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/edb98603-e544-4302-935a-1fb4adc85efc-original.webp",
+            "title": { "ar": "هدايا", "en": "Gifts" },
+            "description": { "ar": "تغليفٌ فاخر", "en": "Luxury wrapping" },
+            "url": "#"
+          }
+        ],
+        "position": 3,
+        "channel_visibility": { "desktop": true, "mobile": true }
+      }
+    },
+    {
+      "id": "b-triple-picks",
+      "path": "product-tabs",
+      "fields": {
+        "add_top_space": true,
+        "title": { "ar": "مختارات تريبل", "en": "Triple Picks" },
+        "subtitle": { "ar": "عطورٌ مختارةٌ بعنايةٍ لكل ذوق", "en": "Carefully chosen scents for every taste" },
+        "tabs": [
+          { "tab_label": { "ar": "وصل حديثًا", "en": "New Arrivals" }, "type": "latest_products", "limit": 8 },
+          { "tab_label": { "ar": "الأكثر مبيعًا", "en": "Best Sellers" }, "type": "most_sales", "limit": 8 },
+          { "tab_label": { "ar": "تخفيضات", "en": "On Sale" }, "type": "offers", "limit": 8 }
+        ],
+        "position": 4,
+        "channel_visibility": { "desktop": true, "mobile": true }
+      }
+    },
+    {
+      "id": "b-trending",
+      "path": "slider-products-with-header",
+      "fields": {
+        "background": "https://cdn.files.salla.network/other/1384584890/2c288bae-b574-4193-93bc-f6fdede8c6a6-original.webp",
+        "title": { "ar": "الأكثر رواجًا", "en": "Trending Now" },
+        "description": {
+          "ar": "العطور الأكثر طلبًا من عملائنا هذا الأسبوع.",
+          "en": "Our customers' most requested perfumes this week."
+        },
+        "products": { "source": "latest" },
+        "position": 5,
+        "channel_visibility": { "desktop": true, "mobile": true }
+      }
+    },
+    {
+      "id": "b-three-banners",
+      "path": "three-banners",
+      "fields": {
+        "fit_height": true,
+        "rounded": true,
+        "col_in_mobile": true,
+        "first_banner_image": "https://cdn.files.salla.network/homepage/1384584890/a32c6c06-f928-4665-a96e-d8ca64cf192e-original.webp",
+        "first_banner_image_en": "https://cdn.files.salla.network/homepage/1384584890/a32c6c06-f928-4665-a96e-d8ca64cf192e-original.webp",
+        "first_banner_url": "#",
+        "second_banner_image": "https://cdn.files.salla.network/homepage/1384584890/2d747e90-4bab-4381-8537-bb8de33bd85c-original.webp",
+        "second_banner_image_en": "https://cdn.files.salla.network/homepage/1384584890/2d747e90-4bab-4381-8537-bb8de33bd85c-original.webp",
+        "second_banner_url": "#",
+        "third_banner_image": "https://cdn.files.salla.network/homepage/1384584890/64640281-38f2-4d95-9d0f-5d2fe1c7d30d-original.webp",
+        "third_banner_image_en": "https://cdn.files.salla.network/homepage/1384584890/64640281-38f2-4d95-9d0f-5d2fe1c7d30d-original.webp",
+        "third_banner_url": "#",
+        "position": 6,
+        "channel_visibility": { "desktop": true, "mobile": true }
+      }
+    },
+    {
+      "id": "b-weekend-offer",
       "path": "promo_with_countdown",
       "fields": {
-        "key": "de26f5f5-186e-4efc-a79c-5caab56e1633",
-        "bg": "",
-        "bg_color": "#004956",
+        "bg_color": "#1c140d",
         "text_color": "#ffffff",
-        "title": "",
-        "description": "",
-        "exp_date": "2026-01-01T15:23",
-        "hide_countdown": true,
-        "btn_text": "عرض التفاصيل",
-        "btn_link": "",
-        "custom_classes": "",
-        "img_type": "bg"
+        "title": { "ar": "خصم ٢٠٪ على كل عطر", "en": "20% off every perfume" },
+        "description": {
+          "ar": "عرض نهاية الأسبوع — استخدم الكود TRIPLE20 عند الدفع.",
+          "en": "Weekend offer — use code TRIPLE20 at checkout."
+        },
+        "exp_date": "2026-11-09 23:59:00",
+        "hide_countdown": false,
+        "btn_text": { "ar": "تسوّق العرض", "en": "Shop the offer" },
+        "btn_link": "#",
+        "position": 7,
+        "channel_visibility": { "desktop": true, "mobile": true }
       }
     }
   ]
