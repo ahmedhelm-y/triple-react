@@ -1,16 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouterState } from '@tanstack/react-router';
 import { SallaSearch } from '@salla.sa/twilight-components-react/search';
-import { SallaSocial } from '@salla.sa/twilight-components-react/social';
 import { SallaUserMenu } from '@salla.sa/twilight-components-react/user-menu';
 import { SallaCartSummary } from '@salla.sa/twilight-components-react/cart-summary';
-import { useTwilight, useIsHome } from '@salla.sa/twilight-theme-engine/providers';
+import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { HookSlot } from '@salla.sa/twilight-theme-engine/hooks';
 import { Image } from '@salla.sa/twilight-theme-engine/common';
 import { PageAdvertisements } from '@salla.sa/twilight-theme-engine/layout';
 import { MapPinIcon, SearchIcon, ShoppingBagIcon } from '../icons';
-import { useHydrated } from '../../hooks/useHydrated';
 import { useAppSafeAreaTop } from '../../hooks/useAppSafeAreaTop';
 import { HOME_ROUTE_ID, PRODUCT_ROUTE_ID } from '../../lib/routeIds';
 import { HeaderMainMenu } from './HeaderMainMenu';
@@ -23,10 +21,6 @@ import { ThemeToggle } from './ThemeToggle';
 const openSearch = () => window.salla?.event?.dispatch('search::open');
 
 const openScopes = () => window.salla?.event?.dispatch('scopes::open');
-
-// What the component will render: <salla-social> skips WhatsApp.
-const hasSocialLinks = (social?: object) =>
-  Object.entries(social ?? {}).some(([key, value]) => Boolean(value) && key !== 'whatsapp');
 
 /** Search trigger — opens the Salla search modal via the `search::open` event.
  *  `icon` (header_search_icon) swaps the default glyph for a Salla sicon. */
@@ -58,38 +52,6 @@ function ScopeButton({ label }: { label: string }) {
     >
       <MapPinIcon aria-hidden="true" />
     </button>
-  );
-}
-
-/** Store name, description and social links, under the main bar. The store's
- *  phone and email are in the footer, under its description. */
-function HeaderIntro() {
-  const { store } = useTwilight();
-  const isHome = useIsHome();
-  const hydrated = useHydrated();
-  // `useIsHome()` can resolve differently on the server (e.g. on a 404), and an
-  // `<h1>` ⇄ `<p>` swap is an unrecoverable hydration mismatch. Render `<p>`
-  // through SSR + first paint, then upgrade to `<h1>` on the home page.
-  const Title = hydrated && isHome ? 'h1' : 'p';
-  const hasSocial = hasSocialLinks(store?.social);
-
-  return (
-    <div className="site-header__intro">
-      <div className="container site-header__intro-inner">
-        <Title className="site-header__intro-title">{store?.name}</Title>
-        {store?.description && (
-          <div
-            className="site-header__intro-text"
-            // Merchant-authored HTML, mirrors the Twig theme's `store.description|raw`.
-            dangerouslySetInnerHTML={{ __html: store.description }}
-          />
-        )}
-        {/* The slot reserves the loaded row's space in the SSR HTML (header.scss). */}
-        <div className={`site-header__social-slot${hasSocial ? ' has-links' : ''}`}>
-          <SallaSocial className="site-header__social" />
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -171,16 +133,6 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   const isHomePage = useRouterState({
     select: (state) => state.matches.some((match) => match.routeId === HOME_ROUTE_ID),
   });
-  // Store name, description, social and contacts under the logo: lite layout only,
-  // when `header_show_store_info` is on, and on the home page alone unless
-  // `header_store_info_home_only` is turned off.
-  const introSettings = theme?.settings as
-    | { header_show_store_info?: boolean; header_store_info_home_only?: boolean }
-    | undefined;
-  const showIntro =
-    !isDefaultLayout &&
-    introSettings?.header_show_store_info !== false &&
-    (introSettings?.header_store_info_home_only === false || isHomePage);
   // Marker in the flow, right where the main bar sits. The bar pins once this
   // scrolls out the top of the viewport (see below).
   const stickySentinelRef = useRef<HTMLDivElement>(null);
@@ -353,8 +305,6 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
           </div>
         </div>
       </div>
-
-      {showIntro && <HeaderIntro />}
 
       <HeaderNav open={navOpen} onClose={() => setNavOpen(false)} />
 

@@ -94,8 +94,7 @@
      catches up. */
   .site-header:not(.site-header--home),
   .site-header--product {
-    .site-header__ad,
-    .site-header__intro {
+    .site-header__ad {
       display: none;
     }
 
@@ -373,52 +372,6 @@
     opacity: 1;
     transform: none;
   }
-}
-
-/* Row 2 — store intro */
-.site-header__intro-inner {
-  @apply flex flex-col items-center gap-3 py-5 text-center;
-}
-
-.site-header__intro-title {
-  @apply text-lg font-semibold text-gray-900;
-}
-
-.site-header__intro-text {
-  @apply max-w-xl text-base leading-6 text-gray-500;
-}
-
-/* Loaded height, reserved from SSR: the social skeleton is 40px and the element is
-   empty until hydrated. */
-.site-header__social-slot.has-links {
-  min-height: 48px;
-}
-
-.site-header__social-slot:not(.has-links) .s-skeleton-wrapper {
-  display: none;
-}
-
-.site-header__social .s-social-list {
-  @apply flex items-center gap-3;
-}
-
-.site-header__social .s-social-link a {
-  @apply inline-grid place-items-center w-12 h-12 rounded-full text-primary transition-colors border-none;
-  /* primary at 5% — the `primary` token is a hex var, so the `/5` opacity
-     modifier can't be used; mix it down instead. */
-  background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
-
-  svg {
-    @apply w-5 h-5 fill-current;
-  }
-
-  &:hover .s-social-icon {
-    @apply bg-transparent text-primary;
-  }
-}
-
-.site-header__social a:hover .s-social-icon {
-  @apply bg-primary text-white;
 }
 
 /* Nav drawer — slide-in side panel (markup: app/components/layout/HeaderNav.tsx) */
@@ -947,12 +900,6 @@ body.topnav-is-dark .site-header--lite .site-header__bar {
   .site-header--default .site-header__brand {
     @apply justify-self-start;
   }
-
-  /* The store-name / description / social row isn't part of this layout. */
-  .site-header--default .site-header__intro {
-    @apply hidden;
-  }
-
 
   /* The main menu (HeaderMainMenu.tsx, rendered by the theme): a centred row
      of `.s-menu-root-level` items, each with an absolutely-positioned
