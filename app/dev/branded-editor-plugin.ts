@@ -40,11 +40,10 @@ function readSectionLabels(root: string): string[] {
 }
 
 const CSS = `
-/* ---- Triple branded editor (dev) — matched to the Salla customizer ---- */
-.te-panel, .te-panel__body { background:#09090d !important; }
-.te-panel__head, .te-panel__foot { background:#09090d !important; border-color:rgba(142,240,18,.14) !important; }
-.te-panel__head, .te-panel__head *, .te-panel__foot * { color:#dfe3ea !important; }
-.te-panel__body { padding:14px !important; }
+/* ---- Triple branded editor (dev) — matched to the Salla customizer ----
+   Only the hero + section cards are dark/branded; the panel background and the
+   ordinary fields keep the customizer's natural (light) look, as in the Twig
+   theme. */
 
 /* Hero card (quick_actions_1) */
 .tr-ed-hero{ position:relative; overflow:hidden; border-radius:18px; margin:2px 0 16px; padding:22px 18px 18px;
@@ -95,14 +94,6 @@ const CSS = `
   border-radius:50%; background:#fff; transition:transform .2s; }
 .te-field.tr-ed-section .te-checkbox:checked{ background:#8EF012 !important; border-color:#8EF012 !important; }
 .te-field.tr-ed-section .te-checkbox:checked::after{ transform:translateX(19px); }
-
-/* Regular fields */
-.te-field{ color:#e5e7eb; margin-top:9px; }
-.te-field__label{ color:#cfd3da !important; }
-.te-field__help{ color:#7f8794 !important; }
-.te-input, select.te-input, .te-field input[type=text], .te-field input[type=number], .te-field textarea, .te-field select{
-  background:#111318 !important; border:1px solid rgba(255,255,255,.12) !important; color:#fff !important; border-radius:9px !important; }
-.te-link-btn, .te-btn--quiet { color:#8EF012 !important; }
 `;
 
 function buildScript(sections: string[]): string {
