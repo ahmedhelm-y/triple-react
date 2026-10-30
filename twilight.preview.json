@@ -254,43 +254,33 @@
         "tabs": [
           {
             "title": {
-              "ar": "الفساتين",
-              "en": "Dresses"
+              "ar": "العطور",
+              "en": "Perfumes"
             },
-            "icon": "sicon-t-shirt",
-            "category": 208385064,
+            "icon": "sicon-spray",
+            "category": 1637543073,
             "banner": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp",
             "banner_en": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp"
           },
           {
             "title": {
-              "ar": "التنانير",
-              "en": "Skirts"
+              "ar": "العود",
+              "en": "Oud"
             },
-            "icon": "sicon-tag",
-            "category": 673051178,
+            "icon": "sicon-leaf",
+            "category": 223095459,
             "banner": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp",
             "banner_en": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp"
           },
           {
             "title": {
-              "ar": "البلايز",
-              "en": "Tops"
+              "ar": "الزيوت العطرية",
+              "en": "Perfume Oils"
             },
-            "icon": "sicon-shopping-bag",
-            "category": 1580258089,
+            "icon": "sicon-drop",
+            "category": 862391202,
             "banner": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp",
             "banner_en": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp"
-          },
-          {
-            "title": {
-              "ar": "الجاكيتات",
-              "en": "Jackets"
-            },
-            "icon": "sicon-star",
-            "category": 100274475,
-            "banner": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp",
-            "banner_en": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp"
           }
         ],
         "position": 7,
@@ -812,39 +802,39 @@
       "path": "outfit-builder",
       "fields": {
         "kicker": {
-          "ar": "نسّق إطلالتك",
-          "en": "Build Your Look"
+          "ar": "نسّق هديتك",
+          "en": "Build Your Gift"
         },
         "title": {
-          "ar": "٣ خطوات وإطلالتك جاهزة",
-          "en": "3 steps and your look is ready"
+          "ar": "٣ خطوات وهديتك جاهزة",
+          "en": "3 steps and your gift is ready"
         },
         "note": {
-          "ar": "اختر قطع إطلالتك وأضفها للسلة دفعة واحدة.",
-          "en": "Pick your outfit pieces and add them to the cart all at once."
+          "ar": "اختر مكوّنات هديتك وأضفها للسلة دفعة واحدة.",
+          "en": "Pick your gift components and add them to the cart all at once."
         },
         "products_limit": 6,
         "steps": [
           {
             "title": {
-              "ar": "اختر الفستان",
-              "en": "Choose a dress"
+              "ar": "اختر العطر",
+              "en": "Choose the perfume"
             },
-            "category": 208385064
+            "category": 1637543073
           },
           {
             "title": {
-              "ar": "أضف التنورة",
-              "en": "Add a skirt"
+              "ar": "أضف دهن العود",
+              "en": "Add oud oil"
             },
-            "category": 673051178
+            "category": 223095459
           },
           {
             "title": {
-              "ar": "أكمل بالجاكيت",
-              "en": "Finish with a jacket"
+              "ar": "كمّل بلمسة الهدية",
+              "en": "Finish with a gift touch"
             },
-            "category": 100274475
+            "category": 1596541356
           }
         ],
         "position": 19,
