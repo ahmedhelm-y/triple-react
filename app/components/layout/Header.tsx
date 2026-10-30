@@ -28,8 +28,9 @@ const openScopes = () => window.salla?.event?.dispatch('scopes::open');
 const hasSocialLinks = (social?: object) =>
   Object.entries(social ?? {}).some(([key, value]) => Boolean(value) && key !== 'whatsapp');
 
-/** Search trigger — opens the Salla search modal via the `search::open` event. */
-function SearchButton({ label }: { label: string }) {
+/** Search trigger — opens the Salla search modal via the `search::open` event.
+ *  `icon` (header_search_icon) swaps the default glyph for a Salla sicon. */
+function SearchButton({ label, icon }: { label: string; icon?: string }) {
   return (
     <button
       type="button"
@@ -37,7 +38,7 @@ function SearchButton({ label }: { label: string }) {
       aria-label={label}
       onClick={openSearch}
     >
-      <SearchIcon aria-hidden="true" />
+      {icon ? <i className={icon} aria-hidden="true" /> : <SearchIcon aria-hidden="true" />}
     </button>
   );
 }
@@ -135,6 +136,14 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   const localizationPosition = (hs?.header_localization_position as string) || 'end';
   const localizationInBar = localizationEnabled && localizationPosition !== 'topbar';
   const localizationMobile = hs?.header_localization_mobile !== false;
+  // Custom header icons: only override the theme's own glyph when the merchant
+  // actually changed it away from the Twig default (keep the nicer SVG otherwise).
+  const searchIconSetting = (hs?.header_search_icon as string) || '';
+  const customSearchIcon =
+    searchIconSetting && searchIconSetting !== 'sicon-search' ? searchIconSetting : '';
+  const cartIconSetting = (hs?.header_cart_icon as string) || '';
+  const customCartIcon =
+    cartIconSetting && cartIconSetting !== 'sicon-shopping-bag' ? cartIconSetting : '';
   const logoWidth = Number(hs?.header_logo_width) || 140;
   const logoHeight = Number(hs?.header_logo_height) || 48;
   const [navOpenState, setNavOpenState] = useState(false);
@@ -326,10 +335,14 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
                     ? { 'data-drawer-id': 'cart-drawer' }
                     : {})}
                 >
-                  <ShoppingBagIcon slot="icon" aria-hidden="true" />
+                  {customCartIcon ? (
+                    <i className={customCartIcon} slot="icon" aria-hidden="true" />
+                  ) : (
+                    <ShoppingBagIcon slot="icon" aria-hidden="true" />
+                  )}
                 </SallaCartSummary>
               )}
-              {showSearch && <SearchButton label={searchLabel} />}
+              {showSearch && <SearchButton label={searchLabel} icon={customSearchIcon} />}
             </div>
           </div>
         </div>

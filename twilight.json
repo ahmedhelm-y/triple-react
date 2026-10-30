@@ -1077,6 +1077,48 @@
             ]
         },
         {
+            "id": "header_search_icon",
+            "type": "string",
+            "format": "icon",
+            "icon": "sicon-search",
+            "label": "أيقونة البحث",
+            "value": "sicon-search",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_search_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_cart_icon",
+            "type": "string",
+            "format": "icon",
+            "icon": "sicon-shopping-bag",
+            "label": "أيقونة السلة",
+            "value": "sicon-shopping-bag",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_cart_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "id": "header_icons_size",
             "type": "items",
             "format": "dropdown-list",
