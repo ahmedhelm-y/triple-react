@@ -136,6 +136,17 @@
   }
 }
 
+/* panel_header — header icon size (sm / md / lg). `md` is the base size above;
+   sm / lg resize only the action-button icons, not the user-menu dropdown. */
+.site-header--icons-sm .header-action svg:not(.s-user-menu-dropdown-item *) {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+.site-header--icons-lg .header-action svg:not(.s-user-menu-dropdown-item *) {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
 /* Phones: the bottom bar (`mobile-bottom-bar.scss`, same breakpoint) has its
    own search tab, so the header's search button goes. */
 @media (max-width: 767px) {

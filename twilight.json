@@ -984,11 +984,13 @@
             "key": "26b2443c-8546-4d97-82b6-317a74f253b1"
         },
         {
-            "type": "static",
-            "format": "title",
-            "id": "static-label2",
-            "value": "<div class='rounded-lg' style='background-color: #21636d; display: flex; justify-content: center; align-items: center;padding: 15px;margin-bottom: 20px !important; flex-direction: column;gap: 15px;'><h6 style='color: #ffffff;font-size: 15px; font-weight: bold;'> خيارات الهيدر</h6></div>",
-            "variant": "h6"
+            "id": "panel_header",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
+            "label": "خيارات أعلى الصفحة (الهيدر)",
+            "value": false,
+            "required": false
         },
         {
             "id": "header_layout",
@@ -1017,6 +1019,132 @@
                     "value": "default",
                     "key": "header-layout-default"
                 }
+            ],
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_account_enabled",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-user",
+            "label": "إظهار أيقونة حساب العميل",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_search_enabled",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-search",
+            "label": "إظهار أيقونة البحث",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_cart_enabled",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-shopping-bag",
+            "label": "إظهار أيقونة السلة",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_icons_size",
+            "type": "items",
+            "format": "dropdown-list",
+            "icon": "sicon-maximize",
+            "label": "حجم أيقونات الهيدر",
+            "required": true,
+            "source": "Manual",
+            "options": [
+                {
+                    "label": "صغير",
+                    "value": "sm",
+                    "key": "his-sm"
+                },
+                {
+                    "label": "متوسط",
+                    "value": "md",
+                    "key": "his-md"
+                },
+                {
+                    "label": "كبير",
+                    "value": "lg",
+                    "key": "his-lg"
+                }
+            ],
+            "selected": [
+                {
+                    "label": "متوسط",
+                    "value": "md",
+                    "key": "his-md"
+                }
+            ],
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_logo_width",
+            "type": "number",
+            "format": "integer",
+            "icon": "sicon-move-horizontal",
+            "label": "عرض شعار الموقع (بكسل)",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_logo_height",
+            "type": "number",
+            "format": "integer",
+            "icon": "sicon-move-vertical",
+            "label": "ارتفاع شعار الموقع (بكسل)",
+            "value": 48,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
             ]
         },
         {
@@ -1034,6 +1162,11 @@
                     "id": "header_layout",
                     "operation": "=",
                     "value": "default"
+                },
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
                 }
             ]
         },
@@ -1052,6 +1185,11 @@
                     "id": "header_layout",
                     "operation": "=",
                     "value": "lite"
+                },
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
                 }
             ]
         },
@@ -1075,6 +1213,11 @@
                     "id": "header_show_store_info",
                     "operation": "=",
                     "value": true
+                },
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
                 }
             ]
         },
@@ -1087,7 +1230,14 @@
             "format": "switch",
             "required": false,
             "value": false,
-            "selected": false
+            "selected": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
         {
             "type": "boolean",
@@ -1098,7 +1248,14 @@
             "format": "switch",
             "required": false,
             "value": true,
-            "selected": false
+            "selected": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
         {
             "type": "boolean",
@@ -1109,7 +1266,14 @@
             "format": "switch",
             "required": false,
             "value": true,
-            "selected": true
+            "selected": true,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
         },
         {
             "type": "boolean",

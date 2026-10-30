@@ -122,6 +122,15 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   const { t } = useTranslation();
   const isDefaultLayout = theme?.settings?.header_layout === 'default';
   const stickyEnabled = theme?.settings?.header_is_sticky !== false;
+  // Header icon/logo options (panel_header). Each icon shows unless explicitly
+  // turned off; icon size and logo centering/size are settings-driven too.
+  const hs = theme?.settings as Record<string, unknown> | undefined;
+  const showAccount = hs?.header_account_enabled !== false;
+  const showSearch = hs?.header_search_enabled !== false;
+  const showCart = hs?.header_cart_enabled !== false;
+  const iconsSize = ((hs?.header_icons_size as string) || 'md').toLowerCase();
+  const logoWidth = Number(hs?.header_logo_width) || 140;
+  const logoHeight = Number(hs?.header_logo_height) || 48;
   const [navOpenState, setNavOpenState] = useState(false);
   const navOpen = navOpenProp ?? navOpenState;
   const setNavOpen = (open: boolean) => {
@@ -195,7 +204,7 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
 
   return (
     <header
-      className={`site-header site-header--${isDefaultLayout ? 'default' : 'lite'}${
+      className={`site-header site-header--${isDefaultLayout ? 'default' : 'lite'} site-header--icons-${iconsSize}${
         isProductPage ? ' site-header--product' : ''
       }${isHomePage ? ' site-header--home' : ''}`}
       suppressHydrationWarning
@@ -254,8 +263,8 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
                 noWrapper
                 alt={`${store?.name || 'Store'} logo`}
                 priority
-                width={140}
-                height={48}
+                width={logoWidth}
+                height={logoHeight}
               />
               {/* Dark-mode logo (reversed_logo): CSS swaps it in under html.dark. */}
               <Image
@@ -267,8 +276,8 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
                 className="logo-dark hidden"
                 noWrapper
                 alt={`${store?.name || 'Store'} logo`}
-                width={140}
-                height={48}
+                width={logoWidth}
+                height={logoHeight}
               />
               <span className="sr-only">{store?.name || 'Store'}</span>
             </a>
@@ -289,19 +298,23 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
                   <ThemeToggle toggleClass="header-action" />
                 ) : null;
               })()}
-              <SallaUserMenu avatarOnly showHeader relativeDropdown className="header-action" />
+              {showAccount && (
+                <SallaUserMenu avatarOnly showHeader relativeDropdown className="header-action" />
+              )}
               {store?.scope && (
                 <ScopeButton label={store.scope.name || t('blocks.header.branches', 'Branches')} />
               )}
-              <SallaCartSummary
-                className="header-action"
-                {...((theme?.settings as Record<string, unknown> | undefined)?.enable_cart_drawer
-                  ? { 'data-drawer-id': 'cart-drawer' }
-                  : {})}
-              >
-                <ShoppingBagIcon slot="icon" aria-hidden="true" />
-              </SallaCartSummary>
-              <SearchButton label={searchLabel} />
+              {showCart && (
+                <SallaCartSummary
+                  className="header-action"
+                  {...((theme?.settings as Record<string, unknown> | undefined)?.enable_cart_drawer
+                    ? { 'data-drawer-id': 'cart-drawer' }
+                    : {})}
+                >
+                  <ShoppingBagIcon slot="icon" aria-hidden="true" />
+                </SallaCartSummary>
+              )}
+              {showSearch && <SearchButton label={searchLabel} />}
             </div>
           </div>
         </div>
