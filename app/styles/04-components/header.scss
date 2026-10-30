@@ -53,6 +53,17 @@
   transition: min-height 0.25s ease;
 }
 
+/* centered_logo off — the logo moves to the inline-start (nav-toggle · logo ·
+   …actions). mobile_only_centered_logo keeps it centred on phones. */
+.site-header--logo-start .site-header__bar-inner {
+  grid-template-columns: auto auto 1fr;
+}
+@media (max-width: 767px) {
+  .site-header--logo-start.site-header--logo-centered-mobile .site-header__bar-inner {
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
 .site-header__bar.is-scrolled .site-header__bar-inner {
   @apply min-h-[56px] lg:min-h-[64px];
 }
@@ -629,6 +640,23 @@
   @apply block h-10 w-10 max-w-none shrink-0 rounded-full object-cover;
 }
 
+/* `square_menu_images` (on by default) — square the menu thumbnails + placeholder
+   instead of the round crop. */
+.site-nav-drawer--square-images .site-nav-drawer__link-img,
+.site-nav-drawer--square-images .site-nav-drawer__link-img-placeholder {
+  @apply rounded-lg;
+}
+
+/* `side_menu_links` — the footer menu rendered as a secondary links block under
+   the categories. */
+.site-nav-drawer__links {
+  @apply block shrink-0 border-t border-gray-100 px-2 py-2;
+
+  a {
+    @apply block rounded-lg px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-primary;
+  }
+}
+
 /* Same box as `.site-nav-drawer__link-img`, for an image-less root row: a grey
    circle with the page's icon, so the row still has a thumbnail and its title
    lines up with its siblings that have an image. See NavLabel in HeaderNav.tsx. */
@@ -689,7 +717,7 @@
    Fades + slides up once `is-in` is set — the 0.42s delay lets the root links
    finish staggering first. */
 .site-nav-drawer__foot {
-  @apply flex shrink-0 flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-3.5;
+  @apply flex shrink-0 flex-col items-center gap-2 px-4 py-3.5;
   opacity: 0;
   transform: translateY(10px);
   transition:
@@ -702,6 +730,17 @@
     /* delay only on the way in, so it lands after the links have staggered */
     transition-delay: 0.42s;
   }
+}
+
+/* The switcher row + the (optional, `side_menu_contacts`) phone/email row. */
+.site-nav-drawer__foot-switchers {
+  @apply flex flex-wrap items-center justify-center gap-x-3 gap-y-1;
+}
+.site-nav-drawer__foot-contacts {
+  @apply flex flex-wrap items-center justify-center gap-x-4 gap-y-1;
+}
+.site-nav-drawer__foot-contact {
+  @apply inline-flex items-center gap-1.5 text-sm text-gray-600 transition-colors hover:text-primary;
 }
 
 .site-nav-drawer__loc {

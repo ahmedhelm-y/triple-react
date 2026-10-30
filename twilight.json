@@ -1318,6 +1318,102 @@
             ]
         },
         {
+            "id": "centered_logo",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-align-center",
+            "label": "توسيط الشعار أعلى الصفحة",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "mobile_only_centered_logo",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-smartphone",
+            "label": "توسيط الشعار في الجوال فقط",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "enable_menu_images",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-image",
+            "label": "عرض الصور المصغرة في القائمة الجانبية",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "square_menu_images",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-square",
+            "label": "صور القائمة مربعة بدلاً من دائرية",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "side_menu_links",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-link",
+            "label": "عرض الروابط الهامة في القائمة الجانبية",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "side_menu_contacts",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-phone",
+            "label": "عرض وسائل التواصل في القائمة الجانبية",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "id": "header_topbar_enabled",
             "type": "boolean",
             "format": "switch",

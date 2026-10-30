@@ -14,18 +14,21 @@ import { createPortal } from 'react-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
+import { SallaMenu } from '@salla.sa/twilight-components-react/menu';
 import { Image, Link } from '@salla.sa/twilight-theme-engine/common';
 import { menu } from '@salla.sa/twilight-theme-engine/api/menu';
 import type { MenuItem } from '@salla.sa/twilight-theme-engine/types';
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
+  Call02Icon,
   ChevronDownIcon,
   CloseIcon,
   CrownIcon,
   DashboardSquare01Icon,
   DiscountTagIcon,
   LanguagesIcon,
+  Mail01Icon,
   MapPinIcon,
   Money01Icon,
   NoteIcon,
@@ -231,6 +234,8 @@ interface NavColumnsProps {
   columns: Column[];
   itemsIn: boolean;
   menuLabel: string;
+  /** `enable_menu_images` — when off, titles render flush with no thumbnails. */
+  enableImages: boolean;
   /** On phones this is the single scroller for the whole column stack. */
   viewportRef: React.RefObject<HTMLDivElement | null>;
   onOpenChild: (level: number, item: MenuItem) => void;
@@ -242,14 +247,15 @@ function NavColumns({
   columns,
   itemsIn,
   menuLabel,
+  enableImages,
   viewportRef,
   onOpenChild,
   onClose,
 }: NavColumnsProps) {
-  // Whether the image/placeholder slot renders at all -- only when the root
-  // level actually mixes items that do and don't have one; a menu with no
-  // images anywhere just renders every title flush, with nothing reserved.
-  const hasImages = columns[0]?.items.some((item) => !!item.image) ?? false;
+  // Whether the image/placeholder slot renders at all -- only when menu images
+  // are enabled (`enable_menu_images`) and the root level actually has one; a
+  // menu with none (or images turned off) renders every title flush.
+  const hasImages = enableImages && (columns[0]?.items.some((item) => !!item.image) ?? false);
 
   return (
     <div ref={viewportRef} className="site-nav-drawer__viewport">
@@ -303,7 +309,15 @@ function LocButton({
  * only when the store has that feature (more than one language / currency, or a
  * scope).
  */
-function NavFooter({ onClose, entered }: { onClose: () => void; entered: boolean }) {
+function NavFooter({
+  onClose,
+  entered,
+  showContacts,
+}: {
+  onClose: () => void;
+  entered: boolean;
+  showContacts: boolean;
+}) {
   const { t, languageName } = useTranslation();
   const { store, currency } = useTwilight();
 
@@ -334,16 +348,43 @@ function NavFooter({ onClose, entered }: { onClose: () => void; entered: boolean
     },
   ];
   const visible = items.filter((item) => item.show);
-  if (!visible.length) return null;
+  // `side_menu_contacts` — the store's phone / email under the switchers.
+  const phone = showContacts ? store?.contacts?.phone : undefined;
+  const email = showContacts ? store?.contacts?.email : undefined;
+  const hasContacts = !!(phone || email);
+
+  if (!visible.length && !hasContacts) return null;
 
   return (
     <div className={`site-nav-drawer__foot${entered ? ' is-in' : ''}`}>
-      {visible.map((item, index) => (
-        <Fragment key={item.key}>
-          {index > 0 && <span className="site-nav-drawer__foot-sep" aria-hidden="true" />}
-          <LocButton icon={item.icon} label={item.label} onClick={open(item.key)} />
-        </Fragment>
-      ))}
+      {visible.length > 0 && (
+        <div className="site-nav-drawer__foot-switchers">
+          {visible.map((item, index) => (
+            <Fragment key={item.key}>
+              {index > 0 && <span className="site-nav-drawer__foot-sep" aria-hidden="true" />}
+              <LocButton icon={item.icon} label={item.label} onClick={open(item.key)} />
+            </Fragment>
+          ))}
+        </div>
+      )}
+      {hasContacts && (
+        <div className="site-nav-drawer__foot-contacts">
+          {phone && (
+            <a href={`tel:${phone}`} className="site-nav-drawer__foot-contact">
+              <Call02Icon className="site-nav-drawer__loc-icon" aria-hidden="true" />
+              <span className="unicode" dir="ltr">
+                {phone}
+              </span>
+            </a>
+          )}
+          {email && (
+            <a href={`mailto:${email}`} className="site-nav-drawer__foot-contact">
+              <Mail01Icon className="site-nav-drawer__loc-icon" aria-hidden="true" />
+              <span>{email}</span>
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -446,6 +487,13 @@ interface HeaderNavDrawerProps {
  */
 function HeaderNavDrawer({ items, rootRef, entered, itemsIn, onClose }: HeaderNavDrawerProps) {
   const { t } = useTranslation();
+  const { theme } = useTwilight();
+  // Side-menu (drawer) options — panel_header.
+  const ns = theme?.settings as Record<string, unknown> | undefined;
+  const enableMenuImages = ns?.enable_menu_images !== false;
+  const squareImages = ns?.square_menu_images !== false;
+  const sideMenuLinks = ns?.side_menu_links !== false;
+  const sideMenuContacts = ns?.side_menu_contacts !== false;
   const drawerRef = useRef<HTMLDivElement>(null);
   // On phones the viewport is the single scroller for the whole column stack.
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -531,7 +579,7 @@ function HeaderNavDrawer({ items, rootRef, entered, itemsIn, onClose }: HeaderNa
       <div
         ref={drawerRef}
         tabIndex={-1}
-        className="site-nav-drawer"
+        className={`site-nav-drawer${squareImages ? ' site-nav-drawer--square-images' : ''}`}
         style={{ '--col-count': columns.length } as CSSProperties}
       >
         <NavHead canGoBack={path.length > 0} onBack={goBack} onClose={onClose} />
@@ -539,11 +587,19 @@ function HeaderNavDrawer({ items, rootRef, entered, itemsIn, onClose }: HeaderNa
           columns={columns}
           itemsIn={itemsIn}
           menuLabel={menuLabel}
+          enableImages={enableMenuImages}
           viewportRef={viewportRef}
           onOpenChild={openChild}
           onClose={onClose}
         />
-        <NavFooter onClose={onClose} entered={itemsIn} />
+        {sideMenuLinks && (
+          <SallaMenu
+            source="footer"
+            className="site-nav-drawer__links"
+            suppressHydrationWarning
+          />
+        )}
+        <NavFooter onClose={onClose} entered={itemsIn} showContacts={sideMenuContacts} />
       </div>
     </div>,
     portalTarget

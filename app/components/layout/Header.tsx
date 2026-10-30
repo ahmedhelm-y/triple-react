@@ -132,6 +132,10 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   const showCart = hs?.header_cart_enabled !== false;
   const iconsSize = ((hs?.header_icons_size as string) || 'md').toLowerCase();
   const topbarEnabled = hs?.header_topbar_enabled !== false;
+  // Logo alignment: centred (the default grid) unless centered_logo is off, which
+  // pulls it to the inline-start — kept centred on mobile when mobile_only is on.
+  const centeredLogo = hs?.centered_logo !== false;
+  const mobileCenteredLogo = hs?.mobile_only_centered_logo !== false;
   const localizationEnabled = hs?.header_localization_enabled !== false;
   const localizationPosition = (hs?.header_localization_position as string) || 'end';
   const localizationInBar = localizationEnabled && localizationPosition !== 'topbar';
@@ -220,8 +224,10 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   return (
     <header
       className={`site-header site-header--${isDefaultLayout ? 'default' : 'lite'} site-header--icons-${iconsSize}${
-        isProductPage ? ' site-header--product' : ''
-      }${isHomePage ? ' site-header--home' : ''}`}
+        centeredLogo
+          ? ''
+          : ` site-header--logo-start${mobileCenteredLogo ? ' site-header--logo-centered-mobile' : ''}`
+      }${isProductPage ? ' site-header--product' : ''}${isHomePage ? ' site-header--home' : ''}`}
       suppressHydrationWarning
     >
       <HookSlot name="header:start" />
