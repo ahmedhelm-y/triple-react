@@ -1,6 +1,17 @@
 {
   "enabled": true,
-  "settings": {},
+  "settings": {
+    "notify_when_available_in_card": true,
+    "section_colors": false,
+    "section_home": false,
+    "section_product_card": false,
+    "important_links": true,
+    "section_general": false,
+    "section_popup": false,
+    "panel_colors": false,
+    "panel_header": false,
+    "panel_loading": false
+  },
   "layout": [
     {
       "id": "b-00-hero",
@@ -11,15 +22,27 @@
         "slides": [
           {
             "image": "https://cdn.files.salla.network/homepage/1384584890/d754d607-9198-4533-b882-ab16cbdc47ea-original.webp",
-            "title": { "ar": "عطرٌ يروي حكاية الفخامة", "en": "A Scent That Tells a Story of Luxury" },
-            "description": { "ar": "مزيجٌ شرقيٌّ دافئ من العود والعنبر يرافقك من الصباح حتى المساء.", "en": "A warm oriental blend of oud and amber that stays with you from morning to night." },
-            "btnname": { "ar": "اكتشف العطر", "en": "Discover the scent" },
+            "title": {
+              "ar": "عطرٌ يروي حكاية الفخامة",
+              "en": "A Scent That Tells a Story of Luxury"
+            },
+            "description": {
+              "ar": "مزيجٌ شرقيٌّ دافئ من العود والعنبر يرافقك من الصباح حتى المساء.",
+              "en": "A warm oriental blend of oud and amber that stays with you from morning to night."
+            },
+            "btnname": {
+              "ar": "اكتشف العطر",
+              "en": "Discover the scent"
+            },
             "url": "#",
             "without_overlay": false
           }
         ],
         "position": 1,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
@@ -28,13 +51,40 @@
       "fields": {
         "mini_features": true,
         "features": [
-          { "icon": "sicon-shipping-fast", "title": { "ar": "شحن سريع", "en": "Fast shipping" } },
-          { "icon": "sicon-credit-card", "title": { "ar": "دفع آمن", "en": "Secure payment" } },
-          { "icon": "sicon-rotate-left", "title": { "ar": "إرجاع سهل", "en": "Easy returns" } },
-          { "icon": "sicon-gift", "title": { "ar": "عينة مجانية مع كل طلب", "en": "Free sample with every order" } }
+          {
+            "icon": "sicon-shipping-fast",
+            "title": {
+              "ar": "شحن سريع",
+              "en": "Fast shipping"
+            }
+          },
+          {
+            "icon": "sicon-credit-card",
+            "title": {
+              "ar": "دفع آمن",
+              "en": "Secure payment"
+            }
+          },
+          {
+            "icon": "sicon-rotate-left",
+            "title": {
+              "ar": "إرجاع سهل",
+              "en": "Easy returns"
+            }
+          },
+          {
+            "icon": "sicon-gift",
+            "title": {
+              "ar": "عينة مجانية مع كل طلب",
+              "en": "Free sample with every order"
+            }
+          }
         ],
         "position": 2,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
@@ -42,13 +92,60 @@
       "path": "enhanced-square-banners",
       "fields": {
         "banners": [
-          { "image": "https://cdn.files.salla.network/products/1384584890/0c88b9a5-61ab-4e7e-9533-5f8d6d72fae6-original.webp", "title": { "ar": "عطور نسائية", "en": "Women's Perfumes" }, "description": { "ar": "لمساتٌ زهريةٌ ناعمة", "en": "Soft floral scents" }, "url": "#" },
-          { "image": "https://cdn.files.salla.network/products/1384584890/bb9b0bb4-0c1c-436d-82d4-cfc23d89c66a-original.webp", "title": { "ar": "عطور رجالية", "en": "Men's Perfumes" }, "description": { "ar": "لمساتٌ خشبيةٌ جريئة", "en": "Bold woody scents" }, "url": "#" },
-          { "image": "https://cdn.files.salla.network/products/1384584890/4d579b27-3792-4977-af6c-c0df24fa98f0-original.webp", "title": { "ar": "زيت عود وبخور", "en": "Oud Oil & Incense" }, "description": { "ar": "عودٌ طبيعيٌّ نقي", "en": "Pure natural oud" }, "url": "#" },
-          { "image": "https://cdn.files.salla.network/products/1384584890/edb98603-e544-4302-935a-1fb4adc85efc-original.webp", "title": { "ar": "هدايا", "en": "Gifts" }, "description": { "ar": "تغليفٌ فاخر", "en": "Luxury wrapping" }, "url": "#" }
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/0c88b9a5-61ab-4e7e-9533-5f8d6d72fae6-original.webp",
+            "title": {
+              "ar": "عطور نسائية",
+              "en": "Women's Perfumes"
+            },
+            "description": {
+              "ar": "لمساتٌ زهريةٌ ناعمة",
+              "en": "Soft floral scents"
+            },
+            "url": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/bb9b0bb4-0c1c-436d-82d4-cfc23d89c66a-original.webp",
+            "title": {
+              "ar": "عطور رجالية",
+              "en": "Men's Perfumes"
+            },
+            "description": {
+              "ar": "لمساتٌ خشبيةٌ جريئة",
+              "en": "Bold woody scents"
+            },
+            "url": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/4d579b27-3792-4977-af6c-c0df24fa98f0-original.webp",
+            "title": {
+              "ar": "زيت عود وبخور",
+              "en": "Oud Oil & Incense"
+            },
+            "description": {
+              "ar": "عودٌ طبيعيٌّ نقي",
+              "en": "Pure natural oud"
+            },
+            "url": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/products/1384584890/edb98603-e544-4302-935a-1fb4adc85efc-original.webp",
+            "title": {
+              "ar": "هدايا",
+              "en": "Gifts"
+            },
+            "description": {
+              "ar": "تغليفٌ فاخر",
+              "en": "Luxury wrapping"
+            },
+            "url": "#"
+          }
         ],
         "position": 3,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
@@ -56,22 +153,54 @@
       "path": "product-tabs",
       "fields": {
         "add_top_space": true,
-        "title": { "ar": "اختيارات تريبل", "en": "Triple Picks" },
-        "subtitle": { "ar": "عطورٌ مختارةٌ بعنايةٍ لكل ذوق", "en": "Carefully chosen scents for every taste" },
+        "title": {
+          "ar": "اختيارات تريبل",
+          "en": "Triple Picks"
+        },
+        "subtitle": {
+          "ar": "عطورٌ مختارةٌ بعنايةٍ لكل ذوق",
+          "en": "Carefully chosen scents for every taste"
+        },
         "tabs": [
-          { "tab_label": { "ar": "وصل حديثًا", "en": "New Arrivals" }, "type": "latest_products", "limit": 8 },
-          { "tab_label": { "ar": "الأكثر مبيعًا", "en": "Best Sellers" }, "type": "most_sales", "limit": 8 },
-          { "tab_label": { "ar": "تخفيضات", "en": "On Sale" }, "type": "offers", "limit": 8 }
+          {
+            "tab_label": {
+              "ar": "وصل حديثًا",
+              "en": "New Arrivals"
+            },
+            "type": "latest_products",
+            "limit": 8
+          },
+          {
+            "tab_label": {
+              "ar": "الأكثر مبيعًا",
+              "en": "Best Sellers"
+            },
+            "type": "most_sales",
+            "limit": 8
+          },
+          {
+            "tab_label": {
+              "ar": "تخفيضات",
+              "en": "On Sale"
+            },
+            "type": "offers",
+            "limit": 8
+          }
         ],
         "position": 4,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-04-3banners",
       "path": "three-banners",
       "fields": {
-        "fit_height": true, "rounded": true, "col_in_mobile": true,
+        "fit_height": true,
+        "rounded": true,
+        "col_in_mobile": true,
         "first_banner_image": "https://cdn.files.salla.network/homepage/1384584890/a32c6c06-f928-4665-a96e-d8ca64cf192e-original.webp",
         "first_banner_image_en": "https://cdn.files.salla.network/homepage/1384584890/a32c6c06-f928-4665-a96e-d8ca64cf192e-original.webp",
         "first_banner_url": "#",
@@ -82,79 +211,178 @@
         "third_banner_image_en": "https://cdn.files.salla.network/homepage/1384584890/64640281-38f2-4d95-9d0f-5d2fe1c7d30d-original.webp",
         "third_banner_url": "#",
         "position": 5,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-05-deal",
       "path": "promo_with_countdown",
       "fields": {
-        "bg_color": "#1c140d", "text_color": "#ffffff",
-        "title": { "ar": "خصم ٢٠٪ على كل العطور", "en": "20% off every perfume" },
-        "description": { "ar": "عرض نهاية الأسبوع — استخدم الكود TRIPLE20 عند الدفع.", "en": "Weekend offer — use code TRIPLE20 at checkout." },
-        "exp_date": "2026-11-16 23:59:00", "hide_countdown": false,
-        "btn_text": { "ar": "تسوّق العرض", "en": "Shop the offer" }, "btn_link": "#",
+        "bg_color": "#1c140d",
+        "text_color": "#ffffff",
+        "title": {
+          "ar": "خصم ٢٠٪ على كل العطور",
+          "en": "20% off every perfume"
+        },
+        "description": {
+          "ar": "عرض نهاية الأسبوع — استخدم الكود TRIPLE20 عند الدفع.",
+          "en": "Weekend offer — use code TRIPLE20 at checkout."
+        },
+        "exp_date": "2026-11-16 23:59:00",
+        "hide_countdown": false,
+        "btn_text": {
+          "ar": "تسوّق العرض",
+          "en": "Shop the offer"
+        },
+        "btn_link": "#",
         "position": 6,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-06-cattabs",
       "path": "category-tabs",
       "fields": {
-        "products_limit": 6, "sticky_tabs": false,
+        "products_limit": 6,
+        "sticky_tabs": false,
         "tabs": [
-          { "title": { "ar": "الفساتين", "en": "Dresses" }, "icon": "sicon-t-shirt", "category": 208385064, "banner": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp", "banner_en": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp" },
-          { "title": { "ar": "التنانير", "en": "Skirts" }, "icon": "sicon-tag", "category": 673051178, "banner": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp", "banner_en": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp" },
-          { "title": { "ar": "البلايز", "en": "Tops" }, "icon": "sicon-shopping-bag", "category": 1580258089, "banner": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp", "banner_en": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp" },
-          { "title": { "ar": "الجاكيتات", "en": "Jackets" }, "icon": "sicon-star", "category": 100274475, "banner": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp", "banner_en": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp" }
+          {
+            "title": {
+              "ar": "الفساتين",
+              "en": "Dresses"
+            },
+            "icon": "sicon-t-shirt",
+            "category": 208385064,
+            "banner": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp",
+            "banner_en": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp"
+          },
+          {
+            "title": {
+              "ar": "التنانير",
+              "en": "Skirts"
+            },
+            "icon": "sicon-tag",
+            "category": 673051178,
+            "banner": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp",
+            "banner_en": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp"
+          },
+          {
+            "title": {
+              "ar": "البلايز",
+              "en": "Tops"
+            },
+            "icon": "sicon-shopping-bag",
+            "category": 1580258089,
+            "banner": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp",
+            "banner_en": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp"
+          },
+          {
+            "title": {
+              "ar": "الجاكيتات",
+              "en": "Jackets"
+            },
+            "icon": "sicon-star",
+            "category": 100274475,
+            "banner": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp",
+            "banner_en": "https://cdn.files.salla.network/other/1384584890/8088f7c8-e2b6-42f9-b308-2ae7a2f464c2-original.webp"
+          }
         ],
         "position": 7,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-07-spotlight",
       "path": "special_product",
       "fields": {
-        "title": { "ar": "اختيارنا لك", "en": "Our pick for you" },
-        "has_bg": true, "mini": false, "hide_remaining": false, "hide_countdown": false,
+        "title": {
+          "ar": "اختيارنا لك",
+          "en": "Our pick for you"
+        },
+        "has_bg": true,
+        "mini": false,
+        "hide_remaining": false,
+        "hide_countdown": false,
         "product": 1456761697,
         "position": 8,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-08-stories-grid",
       "path": "images-grid",
       "fields": {
-        "add_top_space": true, "rounded_images": true, "bottom_titles": false,
-        "image_one_title": { "ar": "دهن العود", "en": "Oud Oil" },
+        "add_top_space": true,
+        "rounded_images": true,
+        "bottom_titles": false,
+        "image_one_title": {
+          "ar": "دهن العود",
+          "en": "Oud Oil"
+        },
         "image_one": "https://cdn.files.salla.network/products/1384584890/4d579b27-3792-4977-af6c-c0df24fa98f0-original.webp",
         "image_one_link": "#",
-        "image_two_title": { "ar": "ليالي الورد", "en": "Rose Nights" },
+        "image_two_title": {
+          "ar": "ليالي الورد",
+          "en": "Rose Nights"
+        },
         "image_two": "https://cdn.files.salla.network/products/1384584890/bb9b0bb4-0c1c-436d-82d4-cfc23d89c66a-original.webp",
         "image_two_link": "#",
-        "image_three_title": { "ar": "هدايا الفخامة", "en": "Luxury Gifts" },
+        "image_three_title": {
+          "ar": "هدايا الفخامة",
+          "en": "Luxury Gifts"
+        },
         "image_three": "https://cdn.files.salla.network/products/1384584890/edb98603-e544-4302-935a-1fb4adc85efc-original.webp",
         "image_three_link": "#",
         "position": 9,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-09-campaign",
       "path": "special-products-slider",
       "fields": {
-        "add_top_space": true, "bg_color": "#1c140d", "text_color": "#ffffff",
+        "add_top_space": true,
+        "bg_color": "#1c140d",
+        "text_color": "#ffffff",
         "image": "https://cdn.files.salla.network/other/1384584890/342fb4c8-dfdb-480d-b299-1b9eea272561-original.webp",
-        "has_overlay": true, "overlay_opacity": 55,
-        "title": { "ar": "موسم العود", "en": "Oud Season" },
-        "desc": { "ar": "تشكيلة من أجود أنواع العود والبخور بأسعار خاصة لفترة محدودة.", "en": "A selection of the finest oud and incense at special prices for a limited time." },
-        "button_text": { "ar": "تسوّق الحملة", "en": "Shop the campaign" }, "button_url": "#",
-        "use_dynamic_source": true, "type": "offers", "limit": 8,
+        "has_overlay": true,
+        "overlay_opacity": 55,
+        "title": {
+          "ar": "موسم العود",
+          "en": "Oud Season"
+        },
+        "desc": {
+          "ar": "تشكيلة من أجود أنواع العود والبخور بأسعار خاصة لفترة محدودة.",
+          "en": "A selection of the finest oud and incense at special prices for a limited time."
+        },
+        "button_text": {
+          "ar": "تسوّق الحملة",
+          "en": "Shop the campaign"
+        },
+        "button_url": "#",
+        "use_dynamic_source": true,
+        "type": "offers",
+        "limit": 8,
         "position": 10,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
@@ -162,82 +390,291 @@
       "path": "slider-products-with-header",
       "fields": {
         "background": "https://cdn.files.salla.network/other/1384584890/2c288bae-b574-4144-93bc-f6fdede8c6a6-original.webp",
-        "title": { "ar": "الأكثر رواجًا", "en": "Trending Now" },
-        "description": { "ar": "العطور الأكثر طلبًا من عملائنا هذا الأسبوع.", "en": "Our customers' most requested perfumes this week." },
-        "products": { "source": "latest" },
+        "title": {
+          "ar": "الأكثر رواجًا",
+          "en": "Trending Now"
+        },
+        "description": {
+          "ar": "العطور الأكثر طلبًا من عملائنا هذا الأسبوع.",
+          "en": "Our customers' most requested perfumes this week."
+        },
+        "products": {
+          "source": "latest"
+        },
         "position": 11,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
-      "id": "b-11-minidetails",
-      "path": "mini-product-details",
+      "id": "b-11-packs",
+      "path": "pack-product",
       "fields": {
-        "title": { "ar": "تفاصيل تهمّك", "en": "Details that matter" },
-        "subtitle": { "ar": "كل ما تريد معرفته قبل الشراء", "en": "Everything you want to know before buying" },
-        "add_top_space": true,
-        "items": [
-          { "product": 84888672, "show_sold": true, "sold_count": "1,240", "custom_rating": true, "rating_value": "4.8", "rating_count": "386", "show_description": true, "show_buy_now": true }
+        "product": 1456761697,
+        "sold_count": "1,240",
+        "reviews_count": "386",
+        "shipping_text": {
+          "ar": "عطرٌ نسائيٌّ فاخر يفتح بنفحات الورد الدمشقي والبرغموت، ويستقرّ على قلبٍ من الياسمين والفاوانيا فوق قاعدة دافئة من المسك الأبيض والعنبر.",
+          "en": "A luxurious women’s perfume that opens with notes of Damask rose and bergamot, settling on a heart of jasmine and peony over a warm base of white musk and amber."
+        },
+        "primary_color": "#8a5a44",
+        "packs": [
+          {
+            "product": 1456761697,
+            "image": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp",
+            "badge": {
+              "ar": "الأكثر مبيعاً",
+              "en": "Best Sellers"
+            },
+            "badge_color": "#ffffff",
+            "badge_bg_color": "#8a5a44",
+            "top_line": {
+              "ar": "عبوة 100 مل",
+              "en": "100 ml bottle"
+            },
+            "sub_line": {
+              "ar": "تكفيك ثلاثة أشهر",
+              "en": "Lasts you three months"
+            },
+            "promo": {
+              "ar": "وفّر 150",
+              "en": "Save 150"
+            },
+            "footer": {
+              "ar": "شحن مجاني",
+              "en": "Free shipping"
+            },
+            "featured": true,
+            "highlight": true
+          },
+          {
+            "product": 1456761697,
+            "image": "https://cdn.files.salla.network/other/1384584890/84c60ead-66a3-4ce7-ba0e-4ea7bc3bec8c-original.webp",
+            "badge": {
+              "ar": "للإهداء",
+              "en": "For gifting"
+            },
+            "badge_color": "#ffffff",
+            "badge_bg_color": "#b08968",
+            "top_line": {
+              "ar": "علبة هدية 50 مل",
+              "en": "50 ml gift box"
+            },
+            "sub_line": {
+              "ar": "مغلّفة وجاهزة للإهداء",
+              "en": "Wrapped and ready to gift"
+            },
+            "promo": {
+              "ar": "بطاقة إهداء مجانية",
+              "en": "Free gift card"
+            },
+            "footer": {
+              "ar": "توصيل سريع",
+              "en": "Fast delivery"
+            }
+          }
         ],
         "position": 12,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-12-set",
       "path": "complete-set",
       "fields": {
-        "kicker": { "ar": "الطقم الكامل", "en": "The full set" },
-        "title": { "ar": "أكمل حضورك بالطقم الكامل", "en": "Complete your look with the full set" },
+        "kicker": {
+          "ar": "الطقم الكامل",
+          "en": "The full set"
+        },
+        "title": {
+          "ar": "أكمل حضورك بالطقم الكامل",
+          "en": "Complete your look with the full set"
+        },
         "image": "https://cdn.files.salla.network/other/1384584890/5f73eafe-0da3-4575-acfc-ba54c9fd8fb6-original.webp",
         "items": [
-          { "product": 1456761697, "x": 28, "y": 32 },
-          { "product": 84888672, "x": 62, "y": 48 },
-          { "product": 723660135, "x": 44, "y": 72 }
+          {
+            "product": 1456761697,
+            "x": 28,
+            "y": 32
+          },
+          {
+            "product": 84888672,
+            "x": 62,
+            "y": 48
+          },
+          {
+            "product": 723660135,
+            "x": 44,
+            "y": 72
+          }
         ],
         "position": 13,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-13-quiz",
       "path": "product-quiz",
       "fields": {
-        "kicker": { "ar": "اختبار العطر", "en": "Perfume Quiz" },
-        "title": { "ar": "محتار تختار عطرك؟", "en": "Can't decide on a perfume?" },
-        "subtitle": { "ar": "أجب عن سؤالين بسيطين ونرشّح لك العطور الأنسب لذوقك.", "en": "Answer two simple questions and we'll recommend the perfumes that suit your taste." },
+        "kicker": {
+          "ar": "اختبار العطر",
+          "en": "Perfume Quiz"
+        },
+        "title": {
+          "ar": "محتار تختار عطرك؟",
+          "en": "Can't decide on a perfume?"
+        },
+        "subtitle": {
+          "ar": "أجب عن سؤالين بسيطين ونرشّح لك العطور الأنسب لذوقك.",
+          "en": "Answer two simple questions and we'll recommend the perfumes that suit your taste."
+        },
         "image": "https://cdn.files.salla.network/other/1384584890/489e8ded-0fd0-43bb-a425-b0f5961d1c69-original.webp",
-        "start_text": { "ar": "ابدأ الاختبار", "en": "Start the quiz" },
-        "result_title": { "ar": "عطورك المقترحة", "en": "Your suggested perfumes" },
+        "start_text": {
+          "ar": "ابدأ الاختبار",
+          "en": "Start the quiz"
+        },
+        "result_title": {
+          "ar": "عطورك المقترحة",
+          "en": "Your suggested perfumes"
+        },
         "products_limit": 4,
         "questions": [
-          { "question": { "ar": "لمن تبحث عن عطر؟", "en": "Who are you looking for a perfume for?" }, "answer_1": { "ar": "عطر نسائي", "en": "Women's perfume" }, "answer_2": { "ar": "عطر رجالي", "en": "Men's perfume" } },
-          { "question": { "ar": "أي طابع تفضّل؟", "en": "Which character do you prefer?" }, "answer_1": { "ar": "شرقي دافئ", "en": "Warm oriental" }, "answer_2": { "ar": "زهري منعش", "en": "Fresh floral" } }
+          {
+            "question": {
+              "ar": "لمن تبحث عن عطر؟",
+              "en": "Who are you looking for a perfume for?"
+            },
+            "answer_1": {
+              "ar": "عطر نسائي",
+              "en": "Women's perfume"
+            },
+            "answer_2": {
+              "ar": "عطر رجالي",
+              "en": "Men's perfume"
+            }
+          },
+          {
+            "question": {
+              "ar": "أي طابع تفضّل؟",
+              "en": "Which character do you prefer?"
+            },
+            "answer_1": {
+              "ar": "شرقي دافئ",
+              "en": "Warm oriental"
+            },
+            "answer_2": {
+              "ar": "زهري منعش",
+              "en": "Fresh floral"
+            }
+          }
         ],
         "position": 14,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-14-compare",
       "path": "compare-products",
       "fields": {
-        "kicker": { "ar": "قارن واختر", "en": "Compare & Choose" },
-        "title": { "ar": "أي عطر يناسب ذوقك؟", "en": "Which perfume suits your taste?" },
-        "subtitle": { "ar": "قارن بين أشهر عطورنا من حيث التركيز والثبات والمناسبة.", "en": "Compare our most popular perfumes by concentration, longevity and occasion." },
+        "kicker": {
+          "ar": "قارن واختر",
+          "en": "Compare & Choose"
+        },
+        "title": {
+          "ar": "أي عطر يناسب ذوقك؟",
+          "en": "Which perfume suits your taste?"
+        },
+        "subtitle": {
+          "ar": "قارن بين أشهر عطورنا من حيث التركيز والثبات والمناسبة.",
+          "en": "Compare our most popular perfumes by concentration, longevity and occasion."
+        },
         "highlight": 2,
         "products": [
-          { "product": 1456761697, "badge": { "ar": "جديد", "en": "New" } },
-          { "product": 84888672, "badge": { "ar": "الأكثر مبيعًا", "en": "Best Seller" } },
-          { "product": 723660135, "badge": { "ar": "فخم", "en": "Premium" } }
+          {
+            "product": 1456761697,
+            "badge": {
+              "ar": "جديد",
+              "en": "New"
+            }
+          },
+          {
+            "product": 84888672,
+            "badge": {
+              "ar": "الأكثر مبيعًا",
+              "en": "Best Seller"
+            }
+          },
+          {
+            "product": 723660135,
+            "badge": {
+              "ar": "فخم",
+              "en": "Premium"
+            }
+          }
         ],
         "rows": [
-          { "label": { "ar": "التركيز", "en": "Concentration" }, "value_1": "EDP", "value_2": "EDP", "value_3": "Extrait" },
-          { "label": { "ar": "الثبات", "en": "Longevity" }, "value_1": { "ar": "٦ ساعات", "en": "6 hours" }, "value_2": { "ar": "٨ ساعات", "en": "8 hours" }, "value_3": { "ar": "١٠+ ساعات", "en": "10+ hours" } },
-          { "label": { "ar": "المناسبة", "en": "Occasion" }, "value_1": { "ar": "يومي", "en": "Daily" }, "value_2": { "ar": "يومي ومسائي", "en": "Day & evening" }, "value_3": { "ar": "مناسبات خاصة", "en": "Special occasions" } }
+          {
+            "label": {
+              "ar": "التركيز",
+              "en": "Concentration"
+            },
+            "value_1": "EDP",
+            "value_2": "EDP",
+            "value_3": "Extrait"
+          },
+          {
+            "label": {
+              "ar": "الثبات",
+              "en": "Longevity"
+            },
+            "value_1": {
+              "ar": "٦ ساعات",
+              "en": "6 hours"
+            },
+            "value_2": {
+              "ar": "٨ ساعات",
+              "en": "8 hours"
+            },
+            "value_3": {
+              "ar": "١٠+ ساعات",
+              "en": "10+ hours"
+            }
+          },
+          {
+            "label": {
+              "ar": "المناسبة",
+              "en": "Occasion"
+            },
+            "value_1": {
+              "ar": "يومي",
+              "en": "Daily"
+            },
+            "value_2": {
+              "ar": "يومي ومسائي",
+              "en": "Day & evening"
+            },
+            "value_3": {
+              "ar": "مناسبات خاصة",
+              "en": "Special occasions"
+            }
+          }
         ],
         "position": 15,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
@@ -245,14 +682,39 @@
       "path": "inline-images-text",
       "fields": {
         "text_color": "#1c140d",
-        "btn_text": { "ar": "اكتشف المجموعة", "en": "Discover the collection" }, "btn_link": "#",
+        "btn_text": {
+          "ar": "اكتشف المجموعة",
+          "en": "Discover the collection"
+        },
+        "btn_link": "#",
         "parts": [
-          { "text": { "ar": "اكتشف عطرك الذي", "en": "Discover your perfume" }, "image": "https://cdn.files.salla.network/products/1384584890/0c88b9a5-61ab-4e7e-9533-5f8d6d72fae6-original.webp" },
-          { "text": { "ar": "يعبّر عنك", "en": "that expresses who you are" }, "image": "https://cdn.files.salla.network/products/1384584890/bb9b0bb4-0c1c-436d-82d4-cfc23d89c66a-original.webp" },
-          { "text": { "ar": "ويدوم معك طوال اليوم", "en": "and stays with you all day" }, "image": "https://cdn.files.salla.network/products/1384584890/4d579b27-3792-4977-af6c-c0df24fa98f0-original.webp" }
+          {
+            "text": {
+              "ar": "اكتشف عطرك الذي",
+              "en": "Discover your perfume"
+            },
+            "image": "https://cdn.files.salla.network/products/1384584890/0c88b9a5-61ab-4e7e-9533-5f8d6d72fae6-original.webp"
+          },
+          {
+            "text": {
+              "ar": "يعبّر عنك",
+              "en": "that expresses who you are"
+            },
+            "image": "https://cdn.files.salla.network/products/1384584890/bb9b0bb4-0c1c-436d-82d4-cfc23d89c66a-original.webp"
+          },
+          {
+            "text": {
+              "ar": "ويدوم معك طوال اليوم",
+              "en": "and stays with you all day"
+            },
+            "image": "https://cdn.files.salla.network/products/1384584890/4d579b27-3792-4977-af6c-c0df24fa98f0-original.webp"
+          }
         ],
         "position": 16,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
@@ -261,240 +723,808 @@
       "fields": {
         "video_url": "https://github.com/ahmedhelm-y/Video/raw/refs/heads/main/15072906_1920_1080_50fps.mp4",
         "poster": "https://cdn.files.salla.network/other/1384584890/5f73eafe-0da3-4575-acfc-ba54c9fd8fb6-original.webp",
-        "kicker": { "ar": "عطر اليوم", "en": "Perfume of the Day" },
-        "title": { "ar": "شاهد العطر قبل أن تختاره", "en": "See the perfume before you choose it" },
-        "text": { "ar": "لقطات قريبة للزجاجة والتغليف لتتخيّل عطرك قبل الطلب.", "en": "Close-up shots of the bottle and packaging so you can picture your scent before ordering." },
-        "btn_text": { "ar": "تسوّق المجموعة", "en": "Shop the Collection" }, "btn_link": "#",
-        "overlay_opacity": 35, "text_color": "#ffffff",
-        "products": [ { "product": 1456761697 }, { "product": 84888672 }, { "product": 723660135 } ],
+        "kicker": {
+          "ar": "عطر اليوم",
+          "en": "Perfume of the Day"
+        },
+        "title": {
+          "ar": "شاهد العطر قبل أن تختاره",
+          "en": "See the perfume before you choose it"
+        },
+        "text": {
+          "ar": "لقطات قريبة للزجاجة والتغليف لتتخيّل عطرك قبل الطلب.",
+          "en": "Close-up shots of the bottle and packaging so you can picture your scent before ordering."
+        },
+        "btn_text": {
+          "ar": "تسوّق المجموعة",
+          "en": "Shop the Collection"
+        },
+        "btn_link": "#",
+        "overlay_opacity": 35,
+        "text_color": "#ffffff",
+        "products": [
+          {
+            "product": 1456761697
+          },
+          {
+            "product": 84888672
+          },
+          {
+            "product": 723660135
+          }
+        ],
         "position": 17,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-17-bold",
       "path": "bold-categories",
       "fields": {
-        "kicker": { "ar": "تسوّق حسب القسم", "en": "Shop by Category" },
-        "show_numbers": true, "text_color": "#1c140d",
+        "kicker": {
+          "ar": "تسوّق حسب القسم",
+          "en": "Shop by Category"
+        },
+        "show_numbers": true,
+        "text_color": "#1c140d",
         "items": [
-          { "title": { "ar": "عطور نسائية", "en": "Women's Perfumes" }, "link": "#" },
-          { "title": { "ar": "عطور رجالية", "en": "Men's Perfumes" }, "link": "#" },
-          { "title": { "ar": "دهن العود", "en": "Oud Oil" }, "link": "#" },
-          { "title": { "ar": "هدايا", "en": "Gifts" }, "link": "#" }
+          {
+            "title": {
+              "ar": "عطور نسائية",
+              "en": "Women's Perfumes"
+            },
+            "link": "#"
+          },
+          {
+            "title": {
+              "ar": "عطور رجالية",
+              "en": "Men's Perfumes"
+            },
+            "link": "#"
+          },
+          {
+            "title": {
+              "ar": "دهن العود",
+              "en": "Oud Oil"
+            },
+            "link": "#"
+          },
+          {
+            "title": {
+              "ar": "هدايا",
+              "en": "Gifts"
+            },
+            "link": "#"
+          }
         ],
         "position": 18,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-18-outfit",
       "path": "outfit-builder",
       "fields": {
-        "kicker": { "ar": "نسّق إطلالتك", "en": "Build Your Look" },
-        "title": { "ar": "٣ خطوات وإطلالتك جاهزة", "en": "3 steps and your look is ready" },
-        "note": { "ar": "اختر قطع إطلالتك وأضفها للسلة دفعة واحدة.", "en": "Pick your outfit pieces and add them to the cart all at once." },
+        "kicker": {
+          "ar": "نسّق إطلالتك",
+          "en": "Build Your Look"
+        },
+        "title": {
+          "ar": "٣ خطوات وإطلالتك جاهزة",
+          "en": "3 steps and your look is ready"
+        },
+        "note": {
+          "ar": "اختر قطع إطلالتك وأضفها للسلة دفعة واحدة.",
+          "en": "Pick your outfit pieces and add them to the cart all at once."
+        },
         "products_limit": 6,
         "steps": [
-          { "title": { "ar": "اختر الفستان", "en": "Choose a dress" }, "category": 208385064 },
-          { "title": { "ar": "أضف التنورة", "en": "Add a skirt" }, "category": 673051178 },
-          { "title": { "ar": "أكمل بالجاكيت", "en": "Finish with a jacket" }, "category": 100274475 }
+          {
+            "title": {
+              "ar": "اختر الفستان",
+              "en": "Choose a dress"
+            },
+            "category": 208385064
+          },
+          {
+            "title": {
+              "ar": "أضف التنورة",
+              "en": "Add a skirt"
+            },
+            "category": 673051178
+          },
+          {
+            "title": {
+              "ar": "أكمل بالجاكيت",
+              "en": "Finish with a jacket"
+            },
+            "category": 100274475
+          }
         ],
         "position": 19,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-19-beforeafter",
       "path": "before-after",
       "fields": {
-        "title": { "ar": "من العود الخام إلى الدهن الصافي", "en": "From raw oud to pure oil" },
-        "description": { "ar": "اسحب الفاصل لترى رحلة العود.", "en": "Drag the divider to see the journey of oud." },
-        "add_top_space": true, "rounded": true, "start_position": 50,
+        "title": {
+          "ar": "من العود الخام إلى الدهن الصافي",
+          "en": "From raw oud to pure oil"
+        },
+        "description": {
+          "ar": "اسحب الفاصل لترى رحلة العود.",
+          "en": "Drag the divider to see the journey of oud."
+        },
+        "add_top_space": true,
+        "rounded": true,
+        "start_position": 50,
         "before_image": "https://cdn.files.salla.network/other/1384584890/342fb4c8-dfdb-480d-b299-1b9eea272561-original.webp",
         "after_image": "https://cdn.files.salla.network/other/1384584890/1d9f0198-9d62-4741-8334-768130f72d76-original.webp",
         "show_labels": true,
-        "before_label": { "ar": "العود الخام", "en": "Raw oud" },
-        "after_label": { "ar": "الدهن الصافي", "en": "Pure oil" },
+        "before_label": {
+          "ar": "العود الخام",
+          "en": "Raw oud"
+        },
+        "after_label": {
+          "ar": "الدهن الصافي",
+          "en": "Pure oil"
+        },
         "position": 20,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-20-advslider",
       "path": "advanced-slider",
       "fields": {
-        "auto_height": false, "slider_height": 70, "mobile_slider_height": 80,
-        "slider_delay": 5, "slider_speed": 2, "effect": "fade",
-        "show_controls": true, "show_pagination": true,
+        "auto_height": false,
+        "slider_height": 70,
+        "mobile_slider_height": 80,
+        "slider_delay": 5,
+        "slider_speed": 2,
+        "effect": "fade",
+        "show_controls": true,
+        "show_pagination": true,
         "slides": [
-          { "image": "https://cdn.files.salla.network/other/1384584890/5f73eafe-0da3-4575-acfc-ba54c9fd8fb6-original.webp", "title": { "ar": "عطور تُشبهك", "en": "Perfumes that feel like you" }, "desc": { "ar": "تشكيلة مختارة من العطور الشرقية والفرنسية بثبات وفوحان يدوم طوال اليوم.", "en": "A curated collection of Oriental and French perfumes with longevity and projection that last all day." }, "btn_text": { "ar": "تسوّق الآن", "en": "Shop now" }, "btn_link": "#", "content_position": "center" },
-          { "image": "https://cdn.files.salla.network/other/1384584890/98e9fc58-706b-45be-887f-c554d7422d67-original.webp", "title": { "ar": "نعومة الزهور في زجاجة", "en": "The softness of flowers in a bottle" }, "desc": { "ar": "عطور نسائية بلمسات الورد والياسمين والمسك الأبيض.", "en": "Women's perfumes with touches of rose, jasmine and white musk." }, "btn_text": { "ar": "تسوّق النسائي", "en": "Shop women's" }, "btn_link": "#", "content_position": "center" },
-          { "image": "https://cdn.files.salla.network/other/1384584890/36787ac2-f7c5-4831-88be-0a53863e4bfc-original.webp", "title": { "ar": "زيوت مركّزة بقطرة واحدة", "en": "Concentrated oils, one drop at a time" }, "desc": { "ar": "زيوت عطرية نقية بتركيز عالٍ، مثالية للاستخدام اليومي والسفر.", "en": "Pure, highly concentrated perfume oils, perfect for daily wear and travel." }, "btn_text": { "ar": "تسوّق الزيوت", "en": "Shop oils" }, "btn_link": "#", "content_position": "center" }
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/5f73eafe-0da3-4575-acfc-ba54c9fd8fb6-original.webp",
+            "title": {
+              "ar": "عطور تُشبهك",
+              "en": "Perfumes that feel like you"
+            },
+            "desc": {
+              "ar": "تشكيلة مختارة من العطور الشرقية والفرنسية بثبات وفوحان يدوم طوال اليوم.",
+              "en": "A curated collection of Oriental and French perfumes with longevity and projection that last all day."
+            },
+            "btn_text": {
+              "ar": "تسوّق الآن",
+              "en": "Shop now"
+            },
+            "btn_link": "#",
+            "content_position": "center"
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/98e9fc58-706b-45be-887f-c554d7422d67-original.webp",
+            "title": {
+              "ar": "نعومة الزهور في زجاجة",
+              "en": "The softness of flowers in a bottle"
+            },
+            "desc": {
+              "ar": "عطور نسائية بلمسات الورد والياسمين والمسك الأبيض.",
+              "en": "Women's perfumes with touches of rose, jasmine and white musk."
+            },
+            "btn_text": {
+              "ar": "تسوّق النسائي",
+              "en": "Shop women's"
+            },
+            "btn_link": "#",
+            "content_position": "center"
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/36787ac2-f7c5-4831-88be-0a53863e4bfc-original.webp",
+            "title": {
+              "ar": "زيوت مركّزة بقطرة واحدة",
+              "en": "Concentrated oils, one drop at a time"
+            },
+            "desc": {
+              "ar": "زيوت عطرية نقية بتركيز عالٍ، مثالية للاستخدام اليومي والسفر.",
+              "en": "Pure, highly concentrated perfume oils, perfect for daily wear and travel."
+            },
+            "btn_text": {
+              "ar": "تسوّق الزيوت",
+              "en": "Shop oils"
+            },
+            "btn_link": "#",
+            "content_position": "center"
+          }
         ],
         "position": 21,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-21-stack",
       "path": "stacked-cards",
       "fields": {
-        "kicker": { "ar": "مجموعاتنا", "en": "Our Collections" },
-        "title": { "ar": "اكتشف عالم تريبل", "en": "Discover the world of Triple" },
+        "kicker": {
+          "ar": "مجموعاتنا",
+          "en": "Our Collections"
+        },
+        "title": {
+          "ar": "اكتشف عالم تريبل",
+          "en": "Discover the world of Triple"
+        },
         "text_color": "#ffffff",
         "cards": [
-          { "image": "https://cdn.files.salla.network/other/1384584890/36787ac2-f7c5-4831-88be-0a53863e4bfc-original.webp", "label": { "ar": "وصل حديثًا", "en": "Just Arrived" }, "title": { "ar": "مجموعة الشتاء", "en": "Winter Collection" }, "text": { "ar": "روائح دافئة من العنبر والفانيليا والعود.", "en": "Warm scents of amber, vanilla and oud." }, "btn_text": { "ar": "تسوّق المجموعة", "en": "Shop the Collection" }, "link": "#" },
-          { "image": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp", "label": { "ar": "الأكثر طلبًا", "en": "Most Requested" }, "title": { "ar": "مجموعة العود", "en": "Oud Collection" }, "text": { "ar": "عود فاخر معتّق لمن يفضّل الروائح القوية.", "en": "Premium aged oud for those who love bold scents." }, "btn_text": { "ar": "تسوّق المجموعة", "en": "Shop the Collection" }, "link": "#" },
-          { "image": "https://cdn.files.salla.network/other/1384584890/bb9310c3-9390-4a9b-8a66-9d0d04b04084-original.webp", "label": { "ar": "هدايا", "en": "Gifts" }, "title": { "ar": "مجموعة الهدايا", "en": "Gift Collection" }, "text": { "ar": "أطقم فاخرة بتغليف أنيق جاهزة للإهداء.", "en": "Luxury sets with elegant wrapping, ready to gift." }, "btn_text": { "ar": "تسوّق المجموعة", "en": "Shop the Collection" }, "link": "#" }
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/36787ac2-f7c5-4831-88be-0a53863e4bfc-original.webp",
+            "label": {
+              "ar": "وصل حديثًا",
+              "en": "Just Arrived"
+            },
+            "title": {
+              "ar": "مجموعة الشتاء",
+              "en": "Winter Collection"
+            },
+            "text": {
+              "ar": "روائح دافئة من العنبر والفانيليا والعود.",
+              "en": "Warm scents of amber, vanilla and oud."
+            },
+            "btn_text": {
+              "ar": "تسوّق المجموعة",
+              "en": "Shop the Collection"
+            },
+            "link": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp",
+            "label": {
+              "ar": "الأكثر طلبًا",
+              "en": "Most Requested"
+            },
+            "title": {
+              "ar": "مجموعة العود",
+              "en": "Oud Collection"
+            },
+            "text": {
+              "ar": "عود فاخر معتّق لمن يفضّل الروائح القوية.",
+              "en": "Premium aged oud for those who love bold scents."
+            },
+            "btn_text": {
+              "ar": "تسوّق المجموعة",
+              "en": "Shop the Collection"
+            },
+            "link": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/bb9310c3-9390-4a9b-8a66-9d0d04b04084-original.webp",
+            "label": {
+              "ar": "هدايا",
+              "en": "Gifts"
+            },
+            "title": {
+              "ar": "مجموعة الهدايا",
+              "en": "Gift Collection"
+            },
+            "text": {
+              "ar": "أطقم فاخرة بتغليف أنيق جاهزة للإهداء.",
+              "en": "Luxury sets with elegant wrapping, ready to gift."
+            },
+            "btn_text": {
+              "ar": "تسوّق المجموعة",
+              "en": "Shop the Collection"
+            },
+            "link": "#"
+          }
         ],
         "position": 22,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-22-feed",
       "path": "shop-the-feed",
       "fields": {
-        "kicker": { "ar": "من حسابنا على انستجرام", "en": "From our Instagram" },
-        "title": { "ar": "تسوّق العطور من صورنا", "en": "Shop perfumes from our photos" },
-        "account_name": "@triple.store", "account_link": "#",
+        "kicker": {
+          "ar": "من حسابنا على انستجرام",
+          "en": "From our Instagram"
+        },
+        "title": {
+          "ar": "تسوّق العطور من صورنا",
+          "en": "Shop perfumes from our photos"
+        },
+        "account_name": "@triple.store",
+        "account_link": "#",
         "posts": [
-          { "image": "https://cdn.files.salla.network/other/1384584890/489e8ded-0fd0-43bb-a425-b0f5961d1c69-original.webp", "product_1": 1456761697, "link": "#" },
-          { "image": "https://cdn.files.salla.network/other/1384584890/ea754e84-9999-4f87-bdbc-5f53c364cdcb-original.webp", "product_1": 84888672, "link": "#" },
-          { "image": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp", "product_1": 723660135, "link": "#" },
-          { "image": "https://cdn.files.salla.network/other/1384584890/55ba3082-e92e-471f-a468-2f4b8295daf6-original.webp", "product_1": 1497697894, "link": "#" }
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/489e8ded-0fd0-43bb-a425-b0f5961d1c69-original.webp",
+            "product_1": 1456761697,
+            "link": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/ea754e84-9999-4f87-bdbc-5f53c364cdcb-original.webp",
+            "product_1": 84888672,
+            "link": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/73c3f8ff-c4fd-4d2b-aed2-0fb8e11bf55c-original.webp",
+            "product_1": 723660135,
+            "link": "#"
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/55ba3082-e92e-471f-a468-2f4b8295daf6-original.webp",
+            "product_1": 1497697894,
+            "link": "#"
+          }
         ],
         "position": 23,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-23-about",
       "path": "about",
       "fields": {
-        "subtitle": { "ar": "حكايتنا", "en": "Our story" },
-        "title": { "ar": "عطور تُصنع بشغف", "en": "Scents crafted with passion" },
-        "description": { "ar": "من فريق تريبل: نختار أجود المكوّنات ونصنع عطورًا تبقى في الذاكرة. أكثر من ١٠ سنوات خبرة، ٢٥ ألف عميل، و١٥٠ عطرًا مميزًا.", "en": "From the Triple team: we pick the finest ingredients and craft scents that stay in memory. Over 10 years of experience, 25k customers and 150 signature perfumes." },
-        "component_bg": "#f7f3ee", "transparent_bg": false, "is_video": false, "reverse_layout": false,
-        "btn_text": { "ar": "اعرف أكثر", "en": "Learn more" },
+        "subtitle": {
+          "ar": "حكايتنا",
+          "en": "Our story"
+        },
+        "title": {
+          "ar": "عطور تُصنع بشغف",
+          "en": "Scents crafted with passion"
+        },
+        "description": {
+          "ar": "من فريق تريبل: نختار أجود المكوّنات ونصنع عطورًا تبقى في الذاكرة. أكثر من ١٠ سنوات خبرة، ٢٥ ألف عميل، و١٥٠ عطرًا مميزًا.",
+          "en": "From the Triple team: we pick the finest ingredients and craft scents that stay in memory. Over 10 years of experience, 25k customers and 150 signature perfumes."
+        },
+        "component_bg": "#f7f3ee",
+        "transparent_bg": false,
+        "is_video": false,
+        "reverse_layout": false,
+        "btn_text": {
+          "ar": "اعرف أكثر",
+          "en": "Learn more"
+        },
         "position": 24,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-24-timeline",
       "path": "timeline",
       "fields": {
-        "kicker": { "ar": "قصتنا", "en": "Our Story" },
-        "title": { "ar": "رحلتنا من البداية", "en": "Our journey from the start" },
+        "kicker": {
+          "ar": "قصتنا",
+          "en": "Our Story"
+        },
+        "title": {
+          "ar": "رحلتنا من البداية",
+          "en": "Our journey from the start"
+        },
         "events": [
-          { "year": "2020", "title": { "ar": "البداية من شغف", "en": "It started with a passion" }, "text": { "ar": "بدأنا بفكرة بسيطة ومجموعة عطور مختارة بعناية.", "en": "We started with a simple idea and a carefully chosen set of perfumes." }, "image": "https://cdn.files.salla.network/other/1384584890/9e1c505c-c2d4-4c4a-998b-394743a48843-original.webp" },
-          { "year": "2022", "title": { "ar": "أول ألف عميل", "en": "Our first thousand customers" }, "text": { "ar": "وصلنا لأول ألف عميل ووسّعنا تشكيلتنا.", "en": "We reached our first thousand customers and expanded our collection." }, "image": "https://cdn.files.salla.network/other/1384584890/5f73eafe-0da3-4575-acfc-ba54c9fd8fb6-original.webp" },
-          { "year": "2024", "title": { "ar": "متجرنا الجديد", "en": "Our new store" }, "text": { "ar": "أطلقنا متجرنا الإلكتروني بتجربة تسوّق أسهل.", "en": "We launched our online store with an easier shopping experience." }, "image": "https://cdn.files.salla.network/other/1384584890/84c60ead-66a3-4ce7-ba0e-4ea7bc3bec8c-original.webp" },
-          { "year": "2026", "title": { "ar": "مجموعة تريبل الخاصة", "en": "The Triple Private Collection" }, "text": { "ar": "أطلقنا مجموعتنا الخاصة من العطور الحصرية.", "en": "We launched our private collection of exclusive perfumes." }, "image": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp" }
+          {
+            "year": "2020",
+            "title": {
+              "ar": "البداية من شغف",
+              "en": "It started with a passion"
+            },
+            "text": {
+              "ar": "بدأنا بفكرة بسيطة ومجموعة عطور مختارة بعناية.",
+              "en": "We started with a simple idea and a carefully chosen set of perfumes."
+            },
+            "image": "https://cdn.files.salla.network/other/1384584890/9e1c505c-c2d4-4c4a-998b-394743a48843-original.webp"
+          },
+          {
+            "year": "2022",
+            "title": {
+              "ar": "أول ألف عميل",
+              "en": "Our first thousand customers"
+            },
+            "text": {
+              "ar": "وصلنا لأول ألف عميل ووسّعنا تشكيلتنا.",
+              "en": "We reached our first thousand customers and expanded our collection."
+            },
+            "image": "https://cdn.files.salla.network/other/1384584890/5f73eafe-0da3-4575-acfc-ba54c9fd8fb6-original.webp"
+          },
+          {
+            "year": "2024",
+            "title": {
+              "ar": "متجرنا الجديد",
+              "en": "Our new store"
+            },
+            "text": {
+              "ar": "أطلقنا متجرنا الإلكتروني بتجربة تسوّق أسهل.",
+              "en": "We launched our online store with an easier shopping experience."
+            },
+            "image": "https://cdn.files.salla.network/other/1384584890/84c60ead-66a3-4ce7-ba0e-4ea7bc3bec8c-original.webp"
+          },
+          {
+            "year": "2026",
+            "title": {
+              "ar": "مجموعة تريبل الخاصة",
+              "en": "The Triple Private Collection"
+            },
+            "text": {
+              "ar": "أطلقنا مجموعتنا الخاصة من العطور الحصرية.",
+              "en": "We launched our private collection of exclusive perfumes."
+            },
+            "image": "https://cdn.files.salla.network/other/1384584890/cf83672c-85fd-41e1-98ee-ec1407d42699-original.webp"
+          }
         ],
         "position": 25,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-25-reviews",
       "path": "reviews",
       "fields": {
-        "title": { "ar": "آراء عملائنا", "en": "What our customers say" },
-        "subtitle": { "ar": "تقييمات حقيقية من عملاء تريبل", "en": "Real ratings from Triple customers" },
+        "title": {
+          "ar": "آراء عملائنا",
+          "en": "What our customers say"
+        },
+        "subtitle": {
+          "ar": "تقييمات حقيقية من عملاء تريبل",
+          "en": "Real ratings from Triple customers"
+        },
         "has_bg": true,
         "items": [
-          { "name": { "ar": "سارة — الرياض", "en": "Sarah — Riyadh" }, "rate": 5, "review": { "ar": "العطر رائحته ناعمة وثباته طوال اليوم، ووصلني خلال يومين فقط!", "en": "The scent is soft and lasts all day, and it arrived in just two days!" } },
-          { "name": { "ar": "محمد — جدة", "en": "Mohammed — Jeddah" }, "rate": 5, "review": { "ar": "دهن العود فخم جدًا، والتغليف أنيق ومناسب للإهداء.", "en": "The oud oil is very luxurious, and the packaging is elegant and great for gifting." } },
-          { "name": { "ar": "نورة — الدمام", "en": "Noura — Dammam" }, "rate": 5, "review": { "ar": "تجربة تسوّق ممتازة وخدمة عملاء سريعة. سأطلب مرة أخرى بالتأكيد.", "en": "Excellent shopping experience and fast customer service. I'll definitely order again." } }
+          {
+            "name": {
+              "ar": "سارة — الرياض",
+              "en": "Sarah — Riyadh"
+            },
+            "rate": 5,
+            "review": {
+              "ar": "العطر رائحته ناعمة وثباته طوال اليوم، ووصلني خلال يومين فقط!",
+              "en": "The scent is soft and lasts all day, and it arrived in just two days!"
+            }
+          },
+          {
+            "name": {
+              "ar": "محمد — جدة",
+              "en": "Mohammed — Jeddah"
+            },
+            "rate": 5,
+            "review": {
+              "ar": "دهن العود فخم جدًا، والتغليف أنيق ومناسب للإهداء.",
+              "en": "The oud oil is very luxurious, and the packaging is elegant and great for gifting."
+            }
+          },
+          {
+            "name": {
+              "ar": "نورة — الدمام",
+              "en": "Noura — Dammam"
+            },
+            "rate": 5,
+            "review": {
+              "ar": "تجربة تسوّق ممتازة وخدمة عملاء سريعة. سأطلب مرة أخرى بالتأكيد.",
+              "en": "Excellent shopping experience and fast customer service. I'll definitely order again."
+            }
+          }
         ],
         "position": 26,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-26-reviewproducts",
       "path": "review-products",
       "fields": {
-        "kicker": { "ar": "منتجات يحبها عملاؤنا", "en": "Products our customers love" },
+        "kicker": {
+          "ar": "منتجات يحبها عملاؤنا",
+          "en": "Products our customers love"
+        },
         "panel_bg": "#f7f3ee",
         "slides": [
-          { "image": "https://cdn.files.salla.network/other/1384584890/6f539bc1-7627-4cda-a6d4-f21d59e35570-original.webp", "product": 1456761697, "quote": { "ar": "العطر رائحته ناعمة وثباته طوال اليوم، ووصلني خلال يومين فقط!", "en": "The scent is soft and lasts all day, and it arrived in just two days!" }, "name": { "ar": "سارة", "en": "Sarah" }, "city": { "ar": "الرياض", "en": "Riyadh" }, "rating": 5 },
-          { "image": "https://cdn.files.salla.network/other/1384584890/1d9f0198-9d62-4741-8334-768130f72d76-original.webp", "product": 84888672, "quote": { "ar": "دهن العود فخم جدًا، والتغليف أنيق ومناسب للإهداء.", "en": "The oud oil is very luxurious, and the packaging is elegant and great for gifting." }, "name": { "ar": "نورة", "en": "Noura" }, "city": { "ar": "جدة", "en": "Jeddah" }, "rating": 5 }
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/6f539bc1-7627-4cda-a6d4-f21d59e35570-original.webp",
+            "product": 1456761697,
+            "quote": {
+              "ar": "العطر رائحته ناعمة وثباته طوال اليوم، ووصلني خلال يومين فقط!",
+              "en": "The scent is soft and lasts all day, and it arrived in just two days!"
+            },
+            "name": {
+              "ar": "سارة",
+              "en": "Sarah"
+            },
+            "city": {
+              "ar": "الرياض",
+              "en": "Riyadh"
+            },
+            "rating": 5
+          },
+          {
+            "image": "https://cdn.files.salla.network/other/1384584890/1d9f0198-9d62-4741-8334-768130f72d76-original.webp",
+            "product": 84888672,
+            "quote": {
+              "ar": "دهن العود فخم جدًا، والتغليف أنيق ومناسب للإهداء.",
+              "en": "The oud oil is very luxurious, and the packaging is elegant and great for gifting."
+            },
+            "name": {
+              "ar": "نورة",
+              "en": "Noura"
+            },
+            "city": {
+              "ar": "جدة",
+              "en": "Jeddah"
+            },
+            "rating": 5
+          }
         ],
         "position": 27,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-27-faq",
       "path": "faq",
       "fields": {
-        "title": { "ar": "أسئلة متكررة", "en": "Common questions" },
-        "subtitle": { "ar": "كل ما تحتاج معرفته عن الطلب والشحن والاسترجاع", "en": "Everything you need to know about orders, shipping and returns" },
+        "title": {
+          "ar": "أسئلة متكررة",
+          "en": "Common questions"
+        },
+        "subtitle": {
+          "ar": "كل ما تحتاج معرفته عن الطلب والشحن والاسترجاع",
+          "en": "Everything you need to know about orders, shipping and returns"
+        },
         "has_bg": true,
         "items": [
-          { "question": { "ar": "كم تستغرق مدة التوصيل؟", "en": "How long does delivery take?" }, "answer": { "ar": "عادةً من يومين إلى أربعة أيام عمل داخل المملكة، مع شحن مجاني للطلبات فوق ٣٠٠ ريال.", "en": "Usually 2–4 business days within the Kingdom, with free shipping on orders over 300 SAR." } },
-          { "question": { "ar": "هل العطور أصلية؟", "en": "Are the perfumes authentic?" }, "answer": { "ar": "نعم، جميع عطورنا أصلية ١٠٠٪ ومصدرها موثوق.", "en": "Yes, all our perfumes are 100% authentic and sourced from trusted suppliers." } },
-          { "question": { "ar": "هل يمكنني استرجاع المنتج؟", "en": "Can I return a product?" }, "answer": { "ar": "يمكنك الاسترجاع خلال ٧ أيام طالما المنتج لم يُفتح وبحالته الأصلية.", "en": "You can return within 7 days as long as the product is unopened and in its original condition." } },
-          { "question": { "ar": "هل تقدّمون تغليف هدايا؟", "en": "Do you offer gift wrapping?" }, "answer": { "ar": "نعم، نوفّر تغليف هدايا فاخر مع بطاقة إهداء مجانية.", "en": "Yes, we offer luxury gift wrapping with a free gift card." } }
+          {
+            "question": {
+              "ar": "كم تستغرق مدة التوصيل؟",
+              "en": "How long does delivery take?"
+            },
+            "answer": {
+              "ar": "عادةً من يومين إلى أربعة أيام عمل داخل المملكة، مع شحن مجاني للطلبات فوق ٣٠٠ ريال.",
+              "en": "Usually 2–4 business days within the Kingdom, with free shipping on orders over 300 SAR."
+            }
+          },
+          {
+            "question": {
+              "ar": "هل العطور أصلية؟",
+              "en": "Are the perfumes authentic?"
+            },
+            "answer": {
+              "ar": "نعم، جميع عطورنا أصلية ١٠٠٪ ومصدرها موثوق.",
+              "en": "Yes, all our perfumes are 100% authentic and sourced from trusted suppliers."
+            }
+          },
+          {
+            "question": {
+              "ar": "هل يمكنني استرجاع المنتج؟",
+              "en": "Can I return a product?"
+            },
+            "answer": {
+              "ar": "يمكنك الاسترجاع خلال ٧ أيام طالما المنتج لم يُفتح وبحالته الأصلية.",
+              "en": "You can return within 7 days as long as the product is unopened and in its original condition."
+            }
+          },
+          {
+            "question": {
+              "ar": "هل تقدّمون تغليف هدايا؟",
+              "en": "Do you offer gift wrapping?"
+            },
+            "answer": {
+              "ar": "نعم، نوفّر تغليف هدايا فاخر مع بطاقة إهداء مجانية.",
+              "en": "Yes, we offer luxury gift wrapping with a free gift card."
+            }
+          }
         ],
         "position": 28,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-28-branches",
       "path": "store_branches",
       "fields": {
-        "title": { "ar": "زورونا في فروعنا", "en": "Visit our stores" },
-        "subtitle": { "ar": "جرّب عطورك المفضلة قبل الشراء في أقرب فرع لك.", "en": "Try your favourite scents before you buy at the branch nearest you." },
+        "title": {
+          "ar": "زورونا في فروعنا",
+          "en": "Visit our stores"
+        },
+        "subtitle": {
+          "ar": "جرّب عطورك المفضلة قبل الشراء في أقرب فرع لك.",
+          "en": "Try your favourite scents before you buy at the branch nearest you."
+        },
         "multiple_countries": false,
         "cities_single": [
-          { "city_name": { "ar": "الرياض", "en": "Riyadh" }, "map_code": "https://maps.google.com/maps?q=Riyadh%20Olaya&z=13&output=embed" },
-          { "city_name": { "ar": "جدة", "en": "Jeddah" }, "map_code": "https://maps.google.com/maps?q=Jeddah%20Tahlia&z=13&output=embed" },
-          { "city_name": { "ar": "الدمام", "en": "Dammam" }, "map_code": "https://maps.google.com/maps?q=Dammam%20Corniche&z=13&output=embed" }
+          {
+            "city_name": {
+              "ar": "الرياض",
+              "en": "Riyadh"
+            },
+            "map_code": "https://maps.google.com/maps?q=Riyadh%20Olaya&z=13&output=embed"
+          },
+          {
+            "city_name": {
+              "ar": "جدة",
+              "en": "Jeddah"
+            },
+            "map_code": "https://maps.google.com/maps?q=Jeddah%20Tahlia&z=13&output=embed"
+          },
+          {
+            "city_name": {
+              "ar": "الدمام",
+              "en": "Dammam"
+            },
+            "map_code": "https://maps.google.com/maps?q=Dammam%20Corniche&z=13&output=embed"
+          }
         ],
         "add_top_space": true,
         "position": 29,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-29-contact",
       "path": "contact-form",
       "fields": {
-        "title": { "ar": "راسلنا مباشرة", "en": "Message us directly" },
-        "subtitle": { "ar": "اكتب رسالتك واختر طريقة الإرسال، وسنرد عليك في أقرب وقت.", "en": "Write your message and choose how to send it, and we'll reply as soon as possible." },
-        "content": { "ar": "فريق خدمة العملاء متاح يوميًا لمساعدتك في اختيار عطرك أو الاستفسار عن طلبك.", "en": "Our customer-care team is available daily to help you choose your scent or ask about your order." },
+        "title": {
+          "ar": "راسلنا مباشرة",
+          "en": "Message us directly"
+        },
+        "subtitle": {
+          "ar": "اكتب رسالتك واختر طريقة الإرسال، وسنرد عليك في أقرب وقت.",
+          "en": "Write your message and choose how to send it, and we'll reply as soon as possible."
+        },
+        "content": {
+          "ar": "فريق خدمة العملاء متاح يوميًا لمساعدتك في اختيار عطرك أو الاستفسار عن طلبك.",
+          "en": "Our customer-care team is available daily to help you choose your scent or ask about your order."
+        },
         "features_list": [
-          { "icon": "sicon-whatsapp", "title": { "ar": "واتساب", "en": "WhatsApp" }, "description": "+966 50 000 0000" },
-          { "icon": "sicon-envelope", "title": { "ar": "البريد", "en": "Email" }, "description": "support@triple.store" },
-          { "icon": "sicon-phone", "title": { "ar": "الهاتف", "en": "Phone" }, "description": "+966 11 000 0000" }
+          {
+            "icon": "sicon-whatsapp",
+            "title": {
+              "ar": "واتساب",
+              "en": "WhatsApp"
+            },
+            "description": "+966 50 000 0000"
+          },
+          {
+            "icon": "sicon-envelope",
+            "title": {
+              "ar": "البريد",
+              "en": "Email"
+            },
+            "description": "support@triple.store"
+          },
+          {
+            "icon": "sicon-phone",
+            "title": {
+              "ar": "الهاتف",
+              "en": "Phone"
+            },
+            "description": "+966 11 000 0000"
+          }
         ],
-        "success_message": { "ar": "تم استلام رسالتك، شكرًا لتواصلك!", "en": "Your message has been received, thank you for reaching out!" },
+        "success_message": {
+          "ar": "تم استلام رسالتك، شكرًا لتواصلك!",
+          "en": "Your message has been received, thank you for reaching out!"
+        },
         "add_top_space": true,
         "position": 30,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     },
     {
       "id": "b-30-offers",
       "path": "offers-drawer",
       "fields": {
-        "tab_text": { "ar": "عروض لك", "en": "Offers for you" },
-        "tab_bg": "#1c140d", "tab_color": "#ffffff", "side": "right",
-        "title": { "ar": "العروض الخاصة", "en": "Special offers" },
-        "note": { "ar": "استخدم الأكواد التالية عند الدفع.", "en": "Use the following codes at checkout." },
+        "tab_text": {
+          "ar": "عروض لك",
+          "en": "Offers for you"
+        },
+        "tab_bg": "#1c140d",
+        "tab_color": "#ffffff",
+        "side": "right",
+        "title": {
+          "ar": "العروض الخاصة",
+          "en": "Special offers"
+        },
+        "note": {
+          "ar": "استخدم الأكواد التالية عند الدفع.",
+          "en": "Use the following codes at checkout."
+        },
         "offers": [
-          { "title": { "ar": "شحن مجاني", "en": "Free shipping" }, "description": { "ar": "للطلبات فوق ٣٠٠ ريال", "en": "On orders over 300 SAR" }, "code": "FREE300", "link": "#", "link_text": { "ar": "تسوّق الآن", "en": "Shop now" } },
-          { "title": { "ar": "خصم ٢٠٪", "en": "20% off" }, "description": { "ar": "على كل العطور لفترة محدودة", "en": "On all perfumes for a limited time" }, "code": "TRIPLE20", "link": "#", "link_text": { "ar": "تسوّق العرض", "en": "Shop the offer" } },
-          { "title": { "ar": "عينة مجانية", "en": "Free sample" }, "description": { "ar": "عبوة عطر هدية مع كل طلب", "en": "A gift perfume sample with every order" }, "code": "GIFT", "link": "#", "link_text": { "ar": "اعرف أكثر", "en": "Learn more" } }
+          {
+            "title": {
+              "ar": "شحن مجاني",
+              "en": "Free shipping"
+            },
+            "description": {
+              "ar": "للطلبات فوق ٣٠٠ ريال",
+              "en": "On orders over 300 SAR"
+            },
+            "code": "FREE300",
+            "link": "#",
+            "link_text": {
+              "ar": "تسوّق الآن",
+              "en": "Shop now"
+            }
+          },
+          {
+            "title": {
+              "ar": "خصم ٢٠٪",
+              "en": "20% off"
+            },
+            "description": {
+              "ar": "على كل العطور لفترة محدودة",
+              "en": "On all perfumes for a limited time"
+            },
+            "code": "TRIPLE20",
+            "link": "#",
+            "link_text": {
+              "ar": "تسوّق العرض",
+              "en": "Shop the offer"
+            }
+          },
+          {
+            "title": {
+              "ar": "عينة مجانية",
+              "en": "Free sample"
+            },
+            "description": {
+              "ar": "عبوة عطر هدية مع كل طلب",
+              "en": "A gift perfume sample with every order"
+            },
+            "code": "GIFT",
+            "link": "#",
+            "link_text": {
+              "ar": "اعرف أكثر",
+              "en": "Learn more"
+            }
+          }
         ],
         "position": 31,
-        "channel_visibility": { "desktop": true, "mobile": true }
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
       }
     }
   ]
