@@ -26,6 +26,741 @@
     ],
     "settings": [
         {
+            "type": "boolean",
+            "icon": "sicon-toggle-off",
+            "label": "ألوان المتجر والوضع الداكن",
+            "description": null,
+            "id": "section_colors",
+            "format": "switch",
+            "required": false,
+            "value": false,
+            "selected": false,
+            "key": "a2655747-8c2d-4f2d-9dbf-a89fc8fd3ce4"
+        },
+        {
+            "id": "dark_mode_switcher",
+            "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "label": "تفعيل زر التنقل بين الوضع الداكن والوضع الفاتح",
+            "value": true,
+            "format": "switch",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "selected": false,
+            "labelHTML": null,
+            "description": "برجاء رفع شعار بديل للوضع الداكن في قسم خيارات أعلى الصفحة (الهيدر)",
+            "key": "e7d2859e-943c-41c1-8ced-d98dffead5b3",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "default_mode",
+            "icon": "sicon-moon",
+            "type": "items",
+            "label": "الوضع الافتراضي",
+            "format": "dropdown-list",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "source": "Manual",
+            "options": [
+                {
+                    "key": "d09cbed5-0349-4dd8-8ebd-df8f7cb8d610",
+                    "label": "الوضع الفاتح",
+                    "value": "light"
+                },
+                {
+                    "key": "45e037eb-285c-45d1-9f6a-1cd6b256751c",
+                    "label": "الوضع الداكن",
+                    "value": "dark"
+                },
+                {
+                    "key": "2badb822-6fc3-4adf-b9bb-c5f6164d516b",
+                    "label": "حسب نظام التشغيل لدى العميل",
+                    "value": "system"
+                }
+            ],
+            "required": true,
+            "selected": [
+                {
+                    "key": "d09cbed5-0349-4dd8-8ebd-df8f7cb8d610",
+                    "label": "الوضع الفاتح",
+                    "value": "light"
+                }
+            ],
+            "labelHTML": null,
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode_switcher",
+                    "value": true,
+                    "operation": "="
+                }
+            ],
+            "searchable": false,
+            "description": "في حالة تفعيل زر الوضع الداكن",
+            "multichoice": false,
+            "key": "13fca081-38f9-47a3-b1b3-3f6d73f5c055"
+        },
+        {
+            "id": "dark_mode",
+            "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "label": "تثبيت الوضع الداكن للمتجر",
+            "value": true,
+            "format": "switch",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "selected": false,
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:8px; direction:rtl; padding:8px 10px; border-radius:8px; background:rgba(142,240,18,.08);\"><span style=\"flex:none; margin-top:1px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 3.5l9 15.5H3l9-15.5z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M12 10v4M12 17h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.6; color:#2F5204;\">* تنبيه: يجب تعطيل هذا الخيار في حال الرغبة في تفعيل زر الوضع الداكن للعملاء</span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode_switcher",
+                    "value": false,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "key": "92a00681-d89e-4878-9f3c-d3a4d65ea02c"
+        },
+        {
+            "id": "sub_colors_1",
+            "key": "b1019d0a-285f-4763-aad7-8163cc7fa52a",
+            "type": "static",
+            "format": "title",
+            "variant": "h6",
+            "label": null,
+            "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">ألوان الوضع الفاتح</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "store_bg",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية المتجر (أساسي)",
+            "value": "#ffffff",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode",
+                    "value": false,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "key": "4ff0995e-8e26-4047-8d3a-335d250c6e09"
+        },
+        {
+            "id": "store_bg_secondary",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية المتجر (ثانوي)",
+            "value": "#ffffff",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode",
+                    "value": false,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "key": "41e2bcbe-be36-46fd-af78-2789f7f0e79b"
+        },
+        {
+            "id": "store_text_color",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون النصوص الرئيسية",
+            "value": "#111827",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">العناوين واسماء المنتجات والتصنيفات وخلافه من النصوص الرئيسية</span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode",
+                    "value": false,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "key": "0a0fb797-7cb3-4cc9-a4fe-feeb9bd1c2c7"
+        },
+        {
+            "id": "store_text_color_secondary",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون النصوص الفرعية",
+            "value": "#4b5563",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">العناوين الفرعية للمنتجات ومكونات الصفحة الرئيسية .. إلخ</span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode",
+                    "value": false,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "key": "61b9b8b9-432f-448e-b20a-5fe5cf2ca274"
+        },
+        {
+            "id": "force_text_color",
+            "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "label": "تطبيق لون النصوص الرئيسي على نصوص تفاصيل المنتج والصفحات التعريفية ومقالات المدونة",
+            "value": true,
+            "format": "switch",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "selected": false,
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:8px; direction:rtl; padding:8px 10px; border-radius:8px; background:rgba(142,240,18,.08);\"><span style=\"flex:none; margin-top:1px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 3.5l9 15.5H3l9-15.5z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M12 10v4M12 17h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.6; color:#2F5204;\">تنبيه: سيتم تجاهل التنسيقات المدخلة يدويا من لوحة التحكم في حالة تفعيل هذا الخيار</span></div>",
+            "description": null,
+            "key": "0a505cb7-50d9-4004-aff8-6e828737434c",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_bg",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية أعلى الصفحة (الهيدر)",
+            "value": "#ffffff",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode",
+                    "value": false,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "key": "a7f27e5a-3d9e-42bd-b709-a7ba89209a5d"
+        },
+        {
+            "id": "header_text_color",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون نصوص أعلى الصفحة (الهيدر)",
+            "value": "#111827",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "dark_mode",
+                    "value": false,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "key": "c840562c-6805-4d9f-b232-4a11dcec2119"
+        },
+        {
+            "id": "product_bg",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية بطاقة المنتج",
+            "value": "#ffffff",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "",
+            "description": null,
+            "key": "a43e485c-9583-4b6f-8339-e8ff82a1b1c9",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "product_promo_bg",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية العنوان الترويجي للمنتجات",
+            "value": "#ef4444",
+            "format": "color",
+            "groups": [
+                "general",
+                "colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": null,
+            "description": null,
+            "key": "1a495a59-7539-43ae-a413-133d7e8cdeda",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "sub_colors_2",
+            "key": "23c834be-1daf-413f-8a9c-29b00fb17728",
+            "type": "static",
+            "format": "title",
+            "variant": "h6",
+            "label": null,
+            "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">ألوان الوضع الداكن</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "store_bg_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية المتجر (أساسي) في الوضع الداكن",
+            "value": "#1d1f1f",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "",
+            "description": null,
+            "key": "d2ca0893-8ab3-4765-8131-504bd2e5fe6e",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "store_bg_secondary_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية المتجر (ثانوي) في الوضع الداكن",
+            "value": "#0e0f0f",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "",
+            "description": null,
+            "key": "2c657bbd-09b3-4c3b-841f-d623758f7a28",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "store_text_color_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون النصوص  الرئيسية في الوضع الداكن",
+            "value": "#ffffff",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">العناوين واسماء المنتجات والتصنيفات وخلافه من النصوص الرئيسية</span></div>",
+            "description": null,
+            "key": "16a516e8-974c-4f1e-b94c-74e954e74c75",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "store_text_color_secondary_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون النصوص الفرعية في الوضع الداكن",
+            "value": "#cccccc",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">العناوين الفرعية للمنتجات ومكونات الصفحة الرئيسية .. إلخ</span></div>",
+            "description": null,
+            "key": "97b182d6-0e7e-4c17-b5c8-77f6c67c5b56",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_bg_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية أعلى الصفحة (الهيدر) في الوضع الداكن",
+            "value": "#0e0f0f",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": null,
+            "description": null,
+            "key": "351adee4-c78c-40bc-93e9-8ece9ecb31ce",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_text_color_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون نصوص أعلى الصفحة (الهيدر) في الوضع الداكن",
+            "value": "#ffffff",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": null,
+            "description": null,
+            "key": "51427819-520f-4b51-9187-c08cd6171bee",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "footer_bg_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية أسفل الصفحة (الفوتر) في الوضع الداكن",
+            "value": "#0e0f0f",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": null,
+            "description": null,
+            "key": "6f86034c-95a6-40d9-9547-3f3c8957fd4a",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "footer_text_color_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون نصوص أسفل الموقع",
+            "value": "#ffffff",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": null,
+            "description": null,
+            "key": "9223cb8b-50d6-4fff-b9d2-7b9fc06ee471",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "bottom_footer_bg_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية الشريط السفلي (شريط الحقوق ووسائل الدفع) في الوضع الداكن",
+            "value": "#0e0f0f",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": null,
+            "description": null,
+            "key": "a53973c6-2a99-43ab-adad-2369bbcc2f67",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "product_bg_dark",
+            "icon": "sicon-format-fill",
+            "type": "string",
+            "label": "لون خلفية بطاقة المنتج في الوضع الداكن",
+            "value": "#1d1f1f",
+            "format": "color",
+            "groups": [
+                "general",
+                "dark_colors"
+            ],
+            "required": false,
+            "inputType": "color",
+            "labelHTML": null,
+            "description": null,
+            "key": "0a4ff6ac-754b-4aa7-b4c2-d51ab8999358",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "sub_colors_3",
+            "key": "793ee539-12cb-49e0-b799-4a06d570fa6a",
+            "type": "static",
+            "format": "title",
+            "variant": "h6",
+            "label": null,
+            "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">خلفية المتجر (باترن)</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "enable_pattern",
+            "icon": null,
+            "type": "boolean",
+            "label": "تفعيل خلفية الباترن",
+            "value": true,
+            "format": "switch",
+            "groups": [
+                "general",
+                "pattern"
+            ],
+            "required": false,
+            "selected": false,
+            "description": null,
+            "key": "afc8a65d-bb0e-4e90-9342-8c06dd89e272",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "pattern_img",
+            "icon": "sicon-image",
+            "type": "string",
+            "label": "صورة الباترن",
+            "value": null,
+            "format": "image",
+            "groups": [
+                "general",
+                "pattern"
+            ],
+            "required": false,
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9.5 18h5M10 21.5h4M12 2.5a6.5 6.5 0 00-3.8 11.8c.5.4.8 1 .8 1.6V17h6v-1.1c0-.6.3-1.2.8-1.6A6.5 6.5 0 0012 2.5z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">ملاحظة: يفضل ان تكون شفافة وقابلة للتكرار</span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "enable_pattern",
+                    "value": true,
+                    "operation": "="
+                }
+            ],
+            "description": null,
+            "placeholder": "e.g. https://hostname.com/image.png",
+            "key": "d8ba48ea-190f-41f6-bacb-715a66f06ed1"
+        },
+        {
+            "id": "patterm_opacity",
+            "icon": "sicon-pencil-ruler",
+            "step": 0.1,
+            "type": "string",
+            "label": "درجة شفافية الخلفية",
+            "value": 0.5,
+            "format": "text",
+            "groups": [
+                "general",
+                "pattern"
+            ],
+            "required": false,
+            "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">القيمة الافتراضية هي 0.5 - حيث 0 تعني شفاف تماما و 1 تعني غير شفاف</span></div>",
+            "conditions": [
+                {
+                    "id": "section_colors",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "enable_pattern",
+                    "value": true,
+                    "operation": "="
+                }
+            ],
+            "description": "يرجى اختيار قيمة عشرية بين 0 و 1",
+            "placeholder": "القيمة",
+            "key": "26b2443c-8546-4d97-82b6-317a74f253b1"
+        },
+        {
             "type": "static",
             "format": "title",
             "id": "static-label2",
