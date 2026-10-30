@@ -1,0 +1,14 @@
+/*
+ * Salla web-component helper utilities.
+ *
+ * `<salla-*>` components (modals, dropdowns, …) toggle their visibility by
+ * adding/removing the `s-hidden` class, but the rule that backs it lives in
+ * `@salla.sa/twilight-components`' injected `BASE_CSS`, which this React theme
+ * doesn't carry. Without it every normally-hidden modal in the layout (search,
+ * login, offers, localization) renders as a blank white overlay on top of the
+ * page. `.s-hidden` is Salla's own "display:none" utility, defined here so the
+ * components' show/hide toggling works.
+ */
+.s-hidden {
+  display: none !important;
+}
