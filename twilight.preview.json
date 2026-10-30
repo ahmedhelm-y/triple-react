@@ -953,17 +953,11 @@
       }
     },
     {
-      "id": "b-20-advslider",
-      "path": "advanced-slider",
+      "id": "b-20-slider",
+      "path": "enhanced-slider",
       "fields": {
-        "auto_height": false,
-        "slider_height": 70,
-        "mobile_slider_height": 80,
-        "slider_delay": 5,
-        "slider_speed": 2,
-        "effect": "fade",
-        "show_controls": true,
-        "show_pagination": true,
+        "in_container": false,
+        "auto_play": true,
         "slides": [
           {
             "image": "https://cdn.files.salla.network/other/1384584890/5f73eafe-0da3-4575-acfc-ba54c9fd8fb6-original.webp",
@@ -971,16 +965,16 @@
               "ar": "عطور تُشبهك",
               "en": "Perfumes that feel like you"
             },
-            "desc": {
+            "description": {
               "ar": "تشكيلة مختارة من العطور الشرقية والفرنسية بثبات وفوحان يدوم طوال اليوم.",
               "en": "A curated collection of Oriental and French perfumes with longevity and projection that last all day."
             },
-            "btn_text": {
+            "btnname": {
               "ar": "تسوّق الآن",
               "en": "Shop now"
             },
-            "btn_link": "#",
-            "content_position": "center"
+            "url": "#",
+            "without_overlay": false
           },
           {
             "image": "https://cdn.files.salla.network/other/1384584890/98e9fc58-706b-45be-887f-c554d7422d67-original.webp",
@@ -988,16 +982,16 @@
               "ar": "نعومة الزهور في زجاجة",
               "en": "The softness of flowers in a bottle"
             },
-            "desc": {
+            "description": {
               "ar": "عطور نسائية بلمسات الورد والياسمين والمسك الأبيض.",
               "en": "Women's perfumes with touches of rose, jasmine and white musk."
             },
-            "btn_text": {
+            "btnname": {
               "ar": "تسوّق النسائي",
               "en": "Shop women's"
             },
-            "btn_link": "#",
-            "content_position": "center"
+            "url": "#",
+            "without_overlay": false
           },
           {
             "image": "https://cdn.files.salla.network/other/1384584890/36787ac2-f7c5-4831-88be-0a53863e4bfc-original.webp",
@@ -1005,16 +999,16 @@
               "ar": "زيوت مركّزة بقطرة واحدة",
               "en": "Concentrated oils, one drop at a time"
             },
-            "desc": {
+            "description": {
               "ar": "زيوت عطرية نقية بتركيز عالٍ، مثالية للاستخدام اليومي والسفر.",
               "en": "Pure, highly concentrated perfume oils, perfect for daily wear and travel."
             },
-            "btn_text": {
+            "btnname": {
               "ar": "تسوّق الزيوت",
               "en": "Shop oils"
             },
-            "btn_link": "#",
-            "content_position": "center"
+            "url": "#",
+            "without_overlay": false
           }
         ],
         "position": 21,
