@@ -34,13 +34,24 @@ export interface ComponentLang {
  */
 export function fillComponentTranslations(lang: ComponentLang, theme: ThemeTranslations): void {
   for (const key of COMPONENT_TRANSLATION_KEYS) {
-    if (lang.get(key) !== key) continue;
+    // `lang.add` writes the key into each locale's dictionary via the SDK's
+    // nested setter, which throws if that dictionary doesn't exist yet. This
+    // runs from a `salla.lang` subscriber the SDK invokes *during* its own
+    // init (before the store pack is loaded), and a throw there aborts
+    // `loadStoreTranslations` — "failed to initite twilight", which leaves the
+    // drawers/modals stuck. A subscriber must never throw: swallow it and let
+    // the next pack-load fire this again, when the dictionary is ready.
+    try {
+      if (lang.get(key) !== key) continue;
 
-    const messages: Record<string, string> = {};
-    for (const [bucket, strings] of Object.entries(theme)) {
-      const value = strings?.[key];
-      if (value) messages[bucket.replace(/\.trans$/, '')] = value;
+      const messages: Record<string, string> = {};
+      for (const [bucket, strings] of Object.entries(theme)) {
+        const value = strings?.[key];
+        if (value) messages[bucket.replace(/\.trans$/, '')] = value;
+      }
+      if (Object.keys(messages).length) lang.add(key, messages);
+    } catch {
+      // Dictionary not ready yet — a later `subscribe` run will add this key.
     }
-    if (Object.keys(messages).length) lang.add(key, messages);
   }
 }
