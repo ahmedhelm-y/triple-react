@@ -1384,6 +1384,265 @@
             ]
         },
         {
+            "id": "header_localization_enabled",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-earth",
+            "label": "إظهار زر اللغة والعملة في الهيدر",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_localization_content",
+            "type": "items",
+            "format": "dropdown-list",
+            "icon": "sicon-list",
+            "label": "الأزرار المعروضة",
+            "required": true,
+            "source": "Manual",
+            "options": [
+                {
+                    "label": "الاثنين",
+                    "value": "both",
+                    "key": "loc-both"
+                },
+                {
+                    "label": "اللغة فقط",
+                    "value": "language",
+                    "key": "loc-language"
+                },
+                {
+                    "label": "العملة فقط",
+                    "value": "currency",
+                    "key": "loc-currency"
+                }
+            ],
+            "selected": [
+                {
+                    "label": "الاثنين",
+                    "value": "both",
+                    "key": "loc-both"
+                }
+            ],
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_localization_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_localization_display",
+            "type": "items",
+            "format": "dropdown-list",
+            "icon": "sicon-eye",
+            "label": "طريقة العرض",
+            "required": true,
+            "source": "Manual",
+            "options": [
+                {
+                    "label": "أيقونة ونص",
+                    "value": "icon_text",
+                    "key": "loc-icon_text"
+                },
+                {
+                    "label": "أيقونة فقط",
+                    "value": "icon",
+                    "key": "loc-icon"
+                },
+                {
+                    "label": "نص فقط",
+                    "value": "text",
+                    "key": "loc-text"
+                }
+            ],
+            "selected": [
+                {
+                    "label": "أيقونة ونص",
+                    "value": "icon_text",
+                    "key": "loc-icon_text"
+                }
+            ],
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_localization_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_localization_style",
+            "type": "items",
+            "format": "dropdown-list",
+            "icon": "sicon-brush",
+            "label": "شكل الزر",
+            "required": true,
+            "source": "Manual",
+            "options": [
+                {
+                    "label": "بسيط",
+                    "value": "plain",
+                    "key": "loc-plain"
+                },
+                {
+                    "label": "إطار",
+                    "value": "outline",
+                    "key": "loc-outline"
+                },
+                {
+                    "label": "ممتلئ",
+                    "value": "filled",
+                    "key": "loc-filled"
+                }
+            ],
+            "selected": [
+                {
+                    "label": "بسيط",
+                    "value": "plain",
+                    "key": "loc-plain"
+                }
+            ],
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_localization_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_localization_position",
+            "type": "items",
+            "format": "dropdown-list",
+            "icon": "sicon-move",
+            "label": "مكان الزر",
+            "required": true,
+            "source": "Manual",
+            "options": [
+                {
+                    "label": "نهاية الهيدر",
+                    "value": "end",
+                    "key": "loc-end"
+                },
+                {
+                    "label": "بداية الهيدر",
+                    "value": "start",
+                    "key": "loc-start"
+                },
+                {
+                    "label": "الشريط العلوي",
+                    "value": "topbar",
+                    "key": "loc-topbar"
+                }
+            ],
+            "selected": [
+                {
+                    "label": "نهاية الهيدر",
+                    "value": "end",
+                    "key": "loc-end"
+                }
+            ],
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_localization_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_localization_icon",
+            "type": "string",
+            "format": "icon",
+            "icon": "sicon-earth",
+            "label": "أيقونة زر اللغة",
+            "value": "sicon-earth",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_localization_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_currency_icon",
+            "type": "string",
+            "format": "icon",
+            "icon": "sicon-dollar-coin-stack",
+            "label": "أيقونة زر العملة",
+            "value": "sicon-dollar-coin-stack",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_localization_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_localization_mobile",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-smartphone",
+            "label": "إظهار زر اللغة والعملة على الجوال",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_localization_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "الإعلان الترويجي المتحرك",

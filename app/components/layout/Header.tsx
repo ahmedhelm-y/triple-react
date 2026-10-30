@@ -16,6 +16,7 @@ import { HOME_ROUTE_ID, PRODUCT_ROUTE_ID } from '../../lib/routeIds';
 import { HeaderMainMenu } from './HeaderMainMenu';
 import { HeaderNav } from './HeaderNav';
 import { HeaderTopnav } from './HeaderTopnav';
+import { HeaderLocalization } from './HeaderLocalization';
 import { ThemeToggle } from './ThemeToggle';
 
 /** Opens the Salla search modal (the `<SallaSearch />` at the end of the header). */
@@ -130,6 +131,10 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   const showCart = hs?.header_cart_enabled !== false;
   const iconsSize = ((hs?.header_icons_size as string) || 'md').toLowerCase();
   const topbarEnabled = hs?.header_topbar_enabled !== false;
+  const localizationEnabled = hs?.header_localization_enabled !== false;
+  const localizationPosition = (hs?.header_localization_position as string) || 'end';
+  const localizationInBar = localizationEnabled && localizationPosition !== 'topbar';
+  const localizationMobile = hs?.header_localization_mobile !== false;
   const logoWidth = Number(hs?.header_logo_width) || 140;
   const logoHeight = Number(hs?.header_logo_height) || 48;
   const [navOpenState, setNavOpenState] = useState(false);
@@ -293,6 +298,15 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
             )}
 
             <div className="site-header__actions">
+              {localizationInBar && (
+                <div
+                  className={`site-header__loc-wrap site-header__loc-wrap--${localizationPosition}${
+                    localizationMobile ? '' : ' site-header__loc-wrap--desktop'
+                  }`}
+                >
+                  <HeaderLocalization />
+                </div>
+              )}
               {(() => {
                 const ts = theme?.settings as Record<string, unknown> | undefined;
                 return ts?.dark_mode_switcher && ts?.header_theme_mode_enabled !== false ? (

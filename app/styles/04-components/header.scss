@@ -147,6 +147,57 @@
   height: 1.6rem;
 }
 
+/* panel_header — in-header language / currency button (header_localization_*). */
+.site-header__loc-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+.site-header__loc-wrap--start {
+  order: -1;
+}
+@media (max-width: 1023px) {
+  .site-header__loc-wrap--desktop {
+    display: none;
+  }
+}
+.site-header__loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.site-header__loc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1;
+  color: inherit;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.site-header__loc-btn i {
+  font-size: 17px;
+}
+.site-header__loc-btn:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.site-header__loc-btn--outline {
+  border-color: color-mix(in srgb, currentColor 28%, transparent);
+}
+.site-header__loc-btn--filled {
+  background: color-mix(in srgb, var(--color-primary, #000) 12%, transparent);
+  color: var(--color-primary, inherit);
+}
+.site-header__loc-btn--filled:hover {
+  background: color-mix(in srgb, var(--color-primary, #000) 20%, transparent);
+}
+
 /* Phones: the bottom bar (`mobile-bottom-bar.scss`, same breakpoint) has its
    own search tab, so the header's search button goes. */
 @media (max-width: 767px) {
