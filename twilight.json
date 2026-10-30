@@ -1282,6 +1282,101 @@
             ]
         },
         {
+            "id": "reversed_logo",
+            "type": "string",
+            "format": "image",
+            "icon": "sicon-image",
+            "label": "شعار بديل (للوضع الداكن / فوق البنر)",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "show_original_logo_on_scroll",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-image",
+            "label": "عرض الشعار الأساسي عند التمرير في الرئيسية",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "trans_header",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-eye",
+            "label": "دمج أعلى الصفحة مع العنصر الأول في الرئيسية",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "slider_has_overlay",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-format-fill",
+            "label": "طبقة شفافة داكنة على السلايدر المتقدم والهيدر",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "enable_desktop_sidemenu",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-menu",
+            "label": "تفعيل القائمة الجانبية في متصفح الكمبيوتر",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_theme_mode_enabled",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-moon",
+            "label": "إظهار زر الوضع الليلي في الهيدر",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "شريط علوي داكن",
