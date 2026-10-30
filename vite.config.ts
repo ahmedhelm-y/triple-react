@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { twilightReact } from '@salla.sa/twilight-theme-engine/vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import path from 'path';
+import { brandedEditor } from './app/dev/branded-editor-plugin';
 
 export default defineConfig(async () => ({
   plugins: [
@@ -10,6 +11,9 @@ export default defineConfig(async () => ({
     ...(await twilightReact({
       localesDir: './locales',
     })),
+    // DEV only: brands the local theme-editor panel (dark section cards + hero)
+    // to match the Twig theme. No-op in production builds and on the storefront.
+    brandedEditor(),
     visualizer({
       open: false,
       gzipSize: true,
