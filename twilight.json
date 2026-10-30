@@ -1029,6 +1029,151 @@
             ]
         },
         {
+            "id": "use_khadamaty_header",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-layout-01",
+            "label": "استخدام الهيدر الكلاسيكي (khadamaty) بدلاً من هيدر تريبل",
+            "value": false,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_logo_alt",
+            "type": "string",
+            "format": "image",
+            "icon": "sicon-image",
+            "label": "شعار بديل (فوق البنر / الوضع الداكن)",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "use_khadamaty_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_transparent",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-eye",
+            "label": "دمج الهيدر مع أول عنصر في الصفحة الرئيسية",
+            "value": false,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "use_khadamaty_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_bg_color",
+            "type": "string",
+            "format": "color",
+            "icon": "sicon-format-fill",
+            "label": "لون خلفية الهيدر",
+            "value": "#16122b",
+            "required": false,
+            "inputType": "color",
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "use_khadamaty_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_icons_color",
+            "type": "string",
+            "format": "color",
+            "icon": "sicon-format-color",
+            "label": "لون أيقونات ونصوص الهيدر",
+            "value": "#ffffff",
+            "required": false,
+            "inputType": "color",
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "use_khadamaty_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_menu_color",
+            "type": "string",
+            "format": "color",
+            "icon": "sicon-format-color",
+            "label": "لون روابط القائمة الرئيسية",
+            "value": "#ffffff",
+            "required": false,
+            "inputType": "color",
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "use_khadamaty_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_transparent_fg",
+            "type": "string",
+            "format": "color",
+            "icon": "sicon-format-color",
+            "label": "لون النصوص والأيقونات فوق البنر",
+            "value": "#ffffff",
+            "required": false,
+            "inputType": "color",
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "use_khadamaty_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "id": "header_account_enabled",
             "type": "boolean",
             "format": "switch",

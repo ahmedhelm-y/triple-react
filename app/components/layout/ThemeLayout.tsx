@@ -7,7 +7,7 @@ import { useDocumentClass } from '@salla.sa/twilight-theme-engine/hooks/useDocum
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { useUser } from '@salla.sa/twilight-theme-engine/hooks/useUser';
 import { Footer } from '@salla.sa/twilight-theme-engine/layout';
-import { Header } from './Header';
+import { HeaderSwitch } from './HeaderSwitch';
 import { PromotionBar } from './PromotionBar';
 import { LoadingOverlay } from './LoadingOverlay';
 import { TripleFloating } from './TripleFloating';
@@ -184,7 +184,7 @@ export function ThemeLayout({ children }: ThemeLayoutProps) {
         suppressHydrationWarning
       >
         <PromotionBar />
-        <Header navOpen={navOpen} onNavOpenChange={setNavOpen} />
+        <HeaderSwitch navOpen={navOpen} onNavOpenChange={setNavOpen} />
         <CartDrawer />
         <MobilePageTitleBar />
         <main id="main-content" className="flex-1">
