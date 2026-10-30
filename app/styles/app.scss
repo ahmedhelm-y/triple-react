@@ -84,6 +84,24 @@
 @import './04-components/user-pages';
 @import './04-components/home-blocks';
 @import './04-components/triple-sections';
+// Triple redesign (2026-10) — new "tr-*" home sections ported from the latest Twig.
+@import './04-components/triple-block-title';
+@import './04-components/triple-globals';
+@import './04-components/hero-stage';
+@import './04-components/perks-ticker';
+@import './04-components/category-arches';
+@import './04-components/product-shelves';
+@import './04-components/banner-mosaic';
+@import './04-components/deal-clock';
+@import './04-components/product-spotlight';
+@import './04-components/product-stories';
+@import './04-components/campaign-products';
+@import './04-components/brand-story';
+@import './04-components/review-wall';
+@import './04-components/help-desk';
+@import './04-components/visit-us';
+@import './04-components/message-us';
+@import './04-components/journal';
 @import './04-components/faq';
 @import './04-components/timeline';
 @import './04-components/about';

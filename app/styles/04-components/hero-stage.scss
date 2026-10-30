@@ -1,0 +1,354 @@
+/* ============================
+   Hero stage (home component: home.hero-stage) — .tr-stage
+   Stacked scenes that cross-fade, texts in a column at the start / center / end / bottom,
+   and the chapters bar: numbered chapters on one hairline, the active one fills (--fill from hero-stage.js).
+   --stage-ink comes from the settings.
+   ============================ */
+
+.tr-stage {
+  --stage-h:100svh;
+  color:var(--stage-ink, #fff);
+  overflow-x:clip;
+  position:relative;
+}
+
+.tr-stage--tall {
+  --stage-h:min(82svh, 52rem);
+}
+
+.tr-stage--compact {
+  --stage-h:min(60svh, 36rem);
+}
+
+@media (max-width:767px) {
+  .tr-stage--compact {
+    --stage-h:min(70svh, 32rem);
+  }
+}
+
+.tr-stage__frame {
+  background:#111;
+  display:block;
+  height:var(--stage-h);
+  overflow:hidden;
+  position:relative;
+}
+
+.tr-stage--natural .tr-stage__frame {
+  height:auto;
+}
+
+.tr-stage__scene {
+  inset:0;
+  opacity:0;
+  position:absolute;
+  transition:opacity .9s ease, visibility 0s linear .9s;
+  visibility:hidden;
+}
+
+.tr-stage__scene.is-on {
+  opacity:1;
+  transition:opacity .9s ease;
+  visibility:visible;
+  z-index:1;
+}
+
+/* natural height: the first scene sits in the flow and gives the stage its height */
+.tr-stage--natural .tr-stage__scene:first-child {
+  position:relative;
+}
+
+.tr-stage__media {
+  height:100%;
+  object-fit:cover;
+  width:100%;
+}
+
+.tr-stage--natural .tr-stage__scene:first-child .tr-stage__media {
+  height:auto;
+}
+
+.tr-stage__scene.is-on .tr-stage__media {
+  animation:tr-stage-drift 14s ease-out both;
+}
+
+@keyframes tr-stage-drift {
+  from { transform:scale(1.06); }
+  to { transform:scale(1); }
+}
+
+.tr-stage__cover {
+  inset:0;
+  position:absolute;
+  z-index:2;
+}
+
+/* texts */
+.tr-stage__copy {
+  display:flex;
+  inset:0;
+  padding:5.5rem 0 6rem;
+  pointer-events:none;
+  position:absolute;
+  z-index:2;
+}
+
+.tr-stage__copy .container {
+  display:flex;
+  width:100%;
+}
+
+.tr-stage--shade-soft .tr-stage__copy {
+  background:linear-gradient(90deg, rgba(0,0,0,.45), rgba(0,0,0,0) 65%);
+}
+
+.tr-stage--shade-strong .tr-stage__copy {
+  background:rgba(0,0,0,.45);
+}
+
+[dir=rtl] .tr-stage--shade-soft .tr-stage__copy {
+  background:linear-gradient(-90deg, rgba(0,0,0,.45), rgba(0,0,0,0) 65%);
+}
+
+.tr-stage--shade-soft .tr-stage__copy--center,
+[dir=rtl] .tr-stage--shade-soft .tr-stage__copy--center {
+  background:radial-gradient(60% 70% at 50% 50%, rgba(0,0,0,.4), rgba(0,0,0,0));
+}
+
+.tr-stage--shade-soft .tr-stage__copy--bottom,
+[dir=rtl] .tr-stage--shade-soft .tr-stage__copy--bottom {
+  background:linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,0) 60%);
+}
+
+.tr-stage__copy--start .container,
+.tr-stage__copy--end .container,
+.tr-stage__copy--center .container {
+  align-items:center;
+}
+
+.tr-stage__copy--center .container {
+  justify-content:center;
+  text-align:center;
+}
+
+.tr-stage__copy--end .container {
+  justify-content:flex-end;
+}
+
+.tr-stage__copy--bottom .container {
+  align-items:flex-end;
+}
+
+.tr-stage__words {
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  max-width:36rem;
+  pointer-events:auto;
+}
+
+.tr-stage__copy--center .tr-stage__words {
+  align-items:center;
+}
+
+.tr-stage__copy--bottom .tr-stage__words {
+  max-width:46rem;
+}
+
+.tr-stage__count {
+  align-items:center;
+  display:inline-flex;
+  font-size:.8125rem;
+  font-weight:700;
+  gap:.6rem;
+  letter-spacing:.2em;
+  opacity:.85;
+}
+
+.tr-stage__count::after {
+  background:currentColor;
+  content:"";
+  height:1px;
+  width:2.5rem;
+}
+
+.tr-stage__headline {
+  color:inherit;
+  font-size:clamp(2rem, 5.2vw, 4.25rem);
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  margin:0;
+}
+
+.tr-stage__lead {
+  font-size:1rem;
+  line-height:1.75;
+  margin:0;
+  opacity:.9;
+}
+
+@media (min-width:768px) {
+  .tr-stage__lead {
+    font-size:1.125rem;
+  }
+}
+
+.tr-stage__cta {
+  align-items:center;
+  align-self:flex-start;
+  border-bottom:2px solid currentColor;
+  color:inherit;
+  display:inline-flex;
+  font-weight:700;
+  gap:.6rem;
+  margin-top:.5rem;
+  padding:.35rem 0;
+}
+
+.tr-stage__copy--center .tr-stage__cta {
+  align-self:center;
+}
+
+.tr-stage__cta i {
+  transition:transform .25s ease;
+}
+
+[dir=rtl] .tr-stage__cta:hover i {
+  transform:translateX(-5px);
+}
+
+[dir=ltr] .tr-stage__cta:hover i {
+  transform:translateX(5px) rotate(180deg);
+}
+
+/* texts rise in with their scene */
+.tr-stage__scene.is-on .tr-stage__words > * {
+  animation:tr-stage-rise .8s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.tr-stage__scene.is-on .tr-stage__words > :nth-child(2) { animation-delay:.08s; }
+.tr-stage__scene.is-on .tr-stage__words > :nth-child(3) { animation-delay:.16s; }
+.tr-stage__scene.is-on .tr-stage__words > :nth-child(4) { animation-delay:.24s; }
+
+@keyframes tr-stage-rise {
+  from { opacity:0; transform:translateY(18px); }
+  to { opacity:1; transform:none; }
+}
+
+/* chapters bar */
+.tr-stage__chapters {
+  bottom:0;
+  left:0;
+  padding-bottom:1.25rem;
+  position:absolute;
+  right:0;
+  z-index:3;
+}
+
+.tr-stage__track {
+  display:grid;
+  gap:.75rem;
+  grid-auto-columns:minmax(0, 1fr);
+  grid-auto-flow:column;
+}
+
+.tr-stage__chapter {
+  color:inherit;
+  display:flex;
+  flex-direction:column;
+  gap:.55rem;
+  opacity:.65;
+  padding-top:.9rem;
+  position:relative;
+  text-align:left;
+  transition:opacity .3s ease;
+}
+
+[dir=rtl] .tr-stage__chapter {
+  text-align:right;
+}
+
+.tr-stage__chapter::before {
+  background:currentColor;
+  content:"";
+  height:2px;
+  left:0;
+  opacity:.35;
+  position:absolute;
+  right:0;
+  top:0;
+}
+
+.tr-stage__chapter.is-on,
+.tr-stage__chapter:hover {
+  opacity:1;
+}
+
+.tr-stage__fill {
+  background:currentColor;
+  height:2px;
+  left:0;
+  position:absolute;
+  top:0;
+  transform:scaleX(var(--fill, 0));
+  transform-origin:left;
+  width:100%;
+}
+
+[dir=rtl] .tr-stage__fill {
+  transform-origin:right;
+}
+
+.tr-stage__chapter.is-past .tr-stage__fill {
+  transform:none;
+}
+
+.tr-stage__chapter-name {
+  font-size:.875rem;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.tr-stage__chapter-name b {
+  font-weight:800;
+  margin-right:.35rem;
+}
+
+[dir=rtl] .tr-stage__chapter-name b {
+  margin-left:.35rem;
+  margin-right:0;
+}
+
+@media (max-width:767px) {
+  .tr-stage__chapter-name {
+    display:none;
+  }
+
+  .tr-stage__track {
+    gap:.4rem;
+  }
+}
+
+/* "bare" = the chapters are hidden in the settings: the hairline still shows the progress */
+.tr-stage__chapters.is-bare .tr-stage__chapter-name {
+  display:none;
+}
+
+.tr-stage__chapter:focus-visible {
+  outline:2px solid currentColor;
+  outline-offset:4px;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .tr-stage__scene,
+  .tr-stage__scene.is-on {
+    transition:none;
+  }
+
+  .tr-stage__scene.is-on .tr-stage__media,
+  .tr-stage__scene.is-on .tr-stage__words > * {
+    animation:none;
+  }
+}

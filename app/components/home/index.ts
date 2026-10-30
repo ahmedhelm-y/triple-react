@@ -53,3 +53,19 @@ export { VideoProducts, videoProductsConfig } from './VideoProducts';
 export { Youtube, youtubeConfig } from './Youtube';
 export { LatestProducts, latestProductsConfig } from './LatestProducts';
 export { Testimonials, testimonialsConfig } from './Testimonials';
+
+// Triple redesign (2026-10) — new "tr-*" home sections ported from the latest Twig.
+export { HeroStage, heroStageConfig } from './HeroStage';
+export { PerksTicker, perksTickerConfig } from './PerksTicker';
+export { CategoryArches, categoryArchesConfig } from './CategoryArches';
+export { ProductShelves, productShelvesConfig } from './ProductShelves';
+export { BannerMosaic, bannerMosaicConfig } from './BannerMosaic';
+export { DealClock, dealClockConfig } from './DealClock';
+export { ProductSpotlight, productSpotlightConfig } from './ProductSpotlight';
+export { ProductStories, productStoriesConfig } from './ProductStories';
+export { CampaignProducts, campaignProductsConfig } from './CampaignProducts';
+export { BrandStory, brandStoryConfig } from './BrandStory';
+export { ReviewWall, reviewWallConfig } from './ReviewWall';
+export { HelpDesk, helpDeskConfig } from './HelpDesk';
+export { VisitUs, visitUsConfig } from './VisitUs';
+export { MessageUs, messageUsConfig } from './MessageUs';

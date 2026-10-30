@@ -1,0 +1,220 @@
+/* ============================
+   Deal clock (home component: home.deal-clock) — .tr-deal
+   A rounded band (--deal-tone / --deal-ink, optional backdrop picture under a tint):
+   texts, the clock tiles, then the coupon ticket (dashed, notched sides) and the button.
+   Desktop: three zones on one row; phones: under each other.
+   ============================ */
+
+.tr-deal {
+  align-items:center;
+  background:var(--deal-tone);
+  border-radius:1.75rem;
+  color:var(--deal-ink);
+  display:grid;
+  gap:1.75rem;
+  isolation:isolate;
+  overflow:hidden;
+  padding:2rem 1.5rem;
+  position:relative;
+}
+
+@media (min-width:1024px) {
+  .tr-deal {
+    gap:2.5rem;
+    grid-template-columns:minmax(0, 1.1fr) auto minmax(0, .9fr);
+    padding:2.75rem 3rem;
+  }
+}
+
+.tr-deal__backdrop {
+  height:100%;
+  inset:0;
+  object-fit:cover;
+  position:absolute;
+  width:100%;
+  z-index:-2;
+}
+
+.tr-deal.has-backdrop::before {
+  background:var(--deal-tone);
+  content:"";
+  inset:0;
+  opacity:.72;
+  position:absolute;
+  z-index:-1;
+}
+
+.tr-deal__words {
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+}
+
+.tr-deal__kicker {
+  font-size:.8125rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  opacity:.8;
+  text-transform:uppercase;
+}
+
+.tr-deal__headline {
+  color:inherit;
+  font-size:clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight:800;
+  line-height:1.2;
+  margin:0;
+}
+
+.tr-deal__detail {
+  line-height:1.7;
+  margin:0;
+  opacity:.85;
+}
+
+.tr-deal__clock {
+  display:flex;
+  gap:.6rem;
+  justify-content:center;
+}
+
+.tr-deal__clock[hidden],
+.tr-deal__over[hidden] {
+  display:none;
+}
+
+.tr-deal__tile {
+  align-items:center;
+  background:color-mix(in srgb, var(--deal-ink) 12%, transparent);
+  border:1px solid color-mix(in srgb, var(--deal-ink) 22%, transparent);
+  border-radius:1rem;
+  display:flex;
+  flex-direction:column;
+  min-width:4.25rem;
+  padding:.75rem .5rem .6rem;
+  position:relative;
+}
+
+/* the fold line across the middle of each tile */
+.tr-deal__tile::after {
+  background:color-mix(in srgb, var(--deal-ink) 18%, transparent);
+  content:"";
+  height:1px;
+  left:0;
+  position:absolute;
+  right:0;
+  top:42%;
+}
+
+@media (min-width:768px) {
+  .tr-deal__tile {
+    min-width:5.5rem;
+  }
+}
+
+.tr-deal__tile b {
+  font-size:clamp(1.75rem, 4vw, 2.75rem);
+  font-variant-numeric:tabular-nums;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.tr-deal__tile small {
+  font-size:.75rem;
+  margin-top:.2rem;
+  opacity:.8;
+}
+
+.tr-deal__over {
+  font-size:1.125rem;
+  font-weight:700;
+  margin:0;
+  text-align:center;
+}
+
+.tr-deal__actions {
+  align-items:stretch;
+  display:flex;
+  flex-direction:column;
+  gap:.85rem;
+}
+
+.tr-deal__ticket {
+  align-items:center;
+  border:2px dashed color-mix(in srgb, var(--deal-ink) 55%, transparent);
+  border-radius:.85rem;
+  display:flex;
+  gap:.75rem;
+  padding:.65rem .75rem .65rem 1.1rem;
+  position:relative;
+}
+
+[dir=rtl] .tr-deal__ticket {
+  padding:.65rem 1.1rem .65rem .75rem;
+}
+
+/* the notches on both sides of the ticket */
+.tr-deal__ticket::before,
+.tr-deal__ticket::after {
+  background:var(--deal-tone);
+  border-radius:50%;
+  content:"";
+  height:1rem;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:1rem;
+}
+
+.tr-deal__ticket::before {
+  left:-.6rem;
+}
+
+.tr-deal__ticket::after {
+  right:-.6rem;
+}
+
+.tr-deal__ticket-label {
+  font-size:.75rem;
+  opacity:.8;
+}
+
+.tr-deal__ticket code {
+  flex:1;
+  font-family:inherit;
+  font-size:1.125rem;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+
+.tr-deal__copy {
+  background:var(--deal-ink);
+  border-radius:.6rem;
+  color:var(--deal-tone);
+  font-size:.875rem;
+  font-weight:700;
+  padding:.45rem .9rem;
+  transition:opacity .2s ease;
+}
+
+.tr-deal__copy.is-done {
+  opacity:.75;
+}
+
+.tr-deal__cta {
+  align-items:center;
+  border:1px solid currentColor;
+  border-radius:999px;
+  color:inherit;
+  display:flex;
+  font-weight:700;
+  gap:.5rem;
+  justify-content:center;
+  padding:.75rem 1.25rem;
+  transition:background-color .25s ease, color .25s ease;
+}
+
+.tr-deal__cta:hover {
+  background:var(--deal-ink);
+  color:var(--deal-tone);
+}

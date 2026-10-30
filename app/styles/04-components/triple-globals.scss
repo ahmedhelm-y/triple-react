@@ -1,0 +1,310 @@
+/* ============================
+   Triple global theme settings
+   rules for the body classes master.twig sets from theme settings:
+   slider-scrollbar, slider_has_overlay, trans_header, font-harir, products-has-border, disable-out-products, hide-quickview-on-mobile, hide-inventory-status, enhanced_add_btn_in_mobile, free-images-height, show_subtitle_on_mini, mini_top_promotion, fit-slider-products, force_text_color, has-pattern, content-copyright
+   ============================ */
+
+.force_text_color .content--single-page h1,
+.force_text_color .content--single-page h2,
+.force_text_color .content--single-page h3,
+.force_text_color .content--single-page h4,
+.force_text_color .content--single-page h5,
+.force_text_color .content--single-page h6,
+.force_text_color .content--single-page p,
+.force_text_color .content--single-page span {
+  color:var(--store-text-primary)!important;
+}
+
+.force_text_color .content--single-page b,
+.force_text_color .content--single-page li,
+.force_text_color .content--single-page strong {
+  color:var(--store-text-secondary)!important;
+}
+
+.app-inner.has-pattern {
+  position:relative;
+  z-index:1;
+}
+
+.app-inner.has-pattern:before {
+  background-image:var(--pattern-bg);
+  bottom:0;
+  content:"";
+  left:0;
+  -webkit-mask-image:linear-gradient(0deg,#000 50%,transparent);
+  opacity:0;
+  opacity:var(--pattern-opacity);
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:-1;
+}
+
+body.font-harir .s-app-install-banner-title {
+  font-size:1.2rem;
+}
+
+body.font-harir .s-block--categories__title {
+  font-size:1.2rem;
+}
+
+.force_text_color .blog-category article * {
+  color:var(--store-text-primary)!important;
+}
+
+body.slider-scrollbar .s-products-slider-slider .swiper-pagination,
+body.slider-scrollbar .s-scrollbar-slider .swiper-pagination {
+  display:none!important;
+}
+
+body.slider-scrollbar .s-products-slider-slider .s-slider-container,
+body.slider-scrollbar .s-scrollbar-slider .s-slider-container {
+  padding-bottom:1.5rem;
+}
+
+body.slider-scrollbar .s-products-slider-slider .swiper-scrollbar,
+body.slider-scrollbar .s-scrollbar-slider .swiper-scrollbar {
+  background:color-mix(in srgb,var(--store-text-primary) 10%,transparent);
+  border-radius:10px;
+  bottom:2px;
+  display:block;
+  height:.125rem;
+  left:1%;
+  opacity:1;
+  position:absolute;
+  width:98%;
+  z-index:10;
+}
+
+body.slider-scrollbar .s-products-slider-slider .swiper-scrollbar-drag,
+body.slider-scrollbar .s-scrollbar-slider .swiper-scrollbar-drag {
+  background:var(--color-primary);
+  border-radius:10px;
+  cursor:grab;
+  height:100%;
+}
+
+body.slider-scrollbar .s-products-slider-slider .swiper-scrollbar-drag:active,
+body.slider-scrollbar .s-scrollbar-slider .swiper-scrollbar-drag:active {
+  cursor:grabbing;
+}
+
+body.disable-out-products .out-of-stock .product-card__image img {
+  filter:none!important;
+}
+
+body.disable-out-products .product-card__out-label {
+  display:none!important;
+}
+
+.fit-slider-products .s-slider-swiper-wrapper .swiper-slide {
+  align-items:stretch;
+  align-self:stretch;
+  display:flex;
+}
+
+.fit-slider-products .s-slider-swiper-wrapper .swiper-slide custom-salla-product-card {
+  flex:1 1 0%;
+  justify-content:space-between;
+  min-height:100%;
+}
+
+@media (max-width:991px) {
+  .fit-slider-products .s-slider-swiper-wrapper .swiper-slide .product-card--vertical.product-card--fit-height .product-card__content {
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    justify-content:space-between;
+  }
+}
+
+@media (max-width:767px) {
+  body:not(.free-images-height) .simplified-products .s-products-list-wrapper .product-card--simplified .product-card__image,
+  body:not(.free-images-height) .simplified-products .s-products-slider-card .product-card--simplified .product-card__image,
+  body:not(.free-images-height) salla-offer .product-card--simplified .product-card__image {
+    max-height:12rem;
+  }
+}
+
+@media (max-width:991px) {
+  body:not(.enhanced_add_btn_in_mobile) .simplified-products .s-products-list-wrapper .product-card--simplified .product-card__content,
+  body:not(.enhanced_add_btn_in_mobile) .simplified-products .s-products-slider-card .product-card--simplified .product-card__content,
+  body:not(.enhanced_add_btn_in_mobile) salla-offer .product-card--simplified .product-card__content {
+    padding:6px!important;
+  }
+}
+
+@media (max-width:991px) {
+  body.enhanced_add_btn_in_mobile .simplified-products .s-products-list-wrapper .product-card--simplified .product-card__content,
+  body.enhanced_add_btn_in_mobile .simplified-products .s-products-slider-card .product-card--simplified .product-card__content,
+  body.enhanced_add_btn_in_mobile salla-offer .product-card--simplified .product-card__content {
+    padding:0!important;
+  }
+}
+
+@media (max-width:991px) {
+  body.enhanced_add_btn_in_mobile .product-card__content-wrapper {
+    padding:6px 6px 0!important;
+  }
+}
+
+@media (max-width:991px) {
+  body:not(.show_subtitle_on_mini) .simplified-products .s-products-list-wrapper .product-card--simplified .product-card__subtitle,
+  body:not(.show_subtitle_on_mini) .simplified-products .s-products-slider-card .product-card--simplified .product-card__subtitle,
+  body:not(.show_subtitle_on_mini) salla-offer .product-card--simplified .product-card__subtitle {
+    display:none;
+  }
+}
+
+body.hide-quickview-on-mobile .product-card__actions {
+  display:none!important;
+}
+
+body.products-has-border .product-card {
+  border:1px solid var(--product-border-color);
+}
+
+@media (max-width:991px) {
+  .free-images-height .product-card--vertical.product-card--simplified:not(.product-card--fit-height):not(.product-card--special) .product-card__content {
+    min-height:0;
+    min-height:auto;
+  }
+}
+
+.fit-slider-products .product-card--vertical.product-card--fit-height {
+  justify-content:space-between;
+}
+
+@media (max-width:991px) {
+  .free-images-height .simplified-products .s-products-slider-card .product-card--simplified .product-card__image,
+  .free-images-height salla-products-list .product-card--vertical.product-card--simplified:not(.product-card--fit-height):not(.product-card--special) .product-card__image {
+    height:auto!important;
+  }
+}
+
+body:not(.free-images-height) .swiper-slide .product-card:not(.product-card--fit-height):not(.product-card__full-image):not(.product-card--minimal):not(.product-card--horizontal) {
+  height:-moz-max-content;
+  height:max-content;
+}
+
+@media (max-width:991px) {
+  .mini_top_promotion .simplified-products .product-card.product-card--simplified .product-card__promotion {
+    bottom:auto;
+    left:0;
+    right:auto;
+    top:0;
+  }
+}
+
+body.hide-inventory-status .inventory-content {
+  display:none;
+}
+
+body.products-has-border .products-skeleton__inner {
+  border:1px solid var(--product-border-color);
+}
+
+body.font-harir .no-content-placeholder p {
+  font-size:1.2rem;
+}
+
+/* the merged header stays in the flow (after the promotion bar and Salla's advertisements) with no height,
+   so it lies over the first block without JS measuring what is above it */
+body.trans_header .store-header {
+  position:relative;
+  height:0;
+  width:100%;
+  z-index:40; /* above the blocks' own layers (cards, reels, video products); below the drawers and modals */
+}
+
+body.trans_header .store-header .main-menu-row,
+body.trans_header .store-header .main-nav-container,
+body.trans_header .store-header .top-navbar {
+  background-color:transparent;
+}
+
+body.trans_header.slider_has_overlay .store-header .s-cart-summary-wrapper .sicon-cart:not(custom-salla-product-card *),
+body.trans_header.slider_has_overlay .store-header :not(custom-salla-product-card *) {
+  color:#fff;
+}
+
+body.trans_header.slider_has_overlay .store-header .main-nav-container.fixed-header :not(custom-salla-product-card *) {
+  color:var(--header-text-color);
+}
+
+body.trans_header.slider_has_overlay .store-header .s-user-menu-dropdown-header-content p,
+body.trans_header.slider_has_overlay .store-header .s-user-menu-dropdown-header-content span,
+body.trans_header.slider_has_overlay .store-header .s-user-menu-dropdown-item-title,
+body.trans_header.slider_has_overlay .store-header .sub-menu ul li,
+body.trans_header.slider_has_overlay .store-header .sub-menu ul li a,
+body.trans_header.slider_has_overlay .store-header .sub-menu ul li a span {
+  color:var(--header-text-color)!important;
+}
+
+body.trans_header.slider_has_overlay .store-header .s-cart-summary-count {
+  color:#111!important;
+}
+
+body.trans_header.slider_has_overlay .store-header .s-cart-summary-count {
+  background-color:#fff;
+}
+
+body.slider_has_overlay .tr-stage__scene:before {
+  background:linear-gradient(180deg,rgba(0,0,0,.3),transparent 40%);
+  content:"";
+  height:100%;
+  left:0;
+  pointer-events:none;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:1;
+}
+
+body.font-harir .tr-stage__lead {
+  font-size:1.2rem;
+}
+
+@media (min-width:768px) {
+  body.font-harir .s-add-product-toast__price {
+    font-size:1.2rem;
+  }
+}
+
+body.font-harir .main-menu li>a,
+body.font-harir .product-card__title a,
+body.font-harir .product-entry__title a {
+  font-size:1rem!important;
+}
+
+body.font-harir .text-base {
+  font-size:1.2rem!important;
+}
+
+/* Background of images still waiting for their lazy source (circle / rectangular links, banners) */
+:root{
+  --img-placeholder:#eee}
+html.dark{
+  --img-placeholder:#2b2b2b}
+
+/* Page container: wider side padding on laptop screens (the 1440px max width is in tailwind.config.js) */
+@media (max-width: 1510px) and (min-width: 1200px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Page scrollbar: thin, in the store's primary color */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 5px;
+}

@@ -89,6 +89,35 @@ import {
   latestProductsConfig,
   Testimonials,
   testimonialsConfig,
+  // Triple redesign (2026-10) — new "tr-*" home sections.
+  HeroStage,
+  heroStageConfig,
+  PerksTicker,
+  perksTickerConfig,
+  CategoryArches,
+  categoryArchesConfig,
+  ProductShelves,
+  productShelvesConfig,
+  BannerMosaic,
+  bannerMosaicConfig,
+  DealClock,
+  dealClockConfig,
+  ProductSpotlight,
+  productSpotlightConfig,
+  ProductStories,
+  productStoriesConfig,
+  CampaignProducts,
+  campaignProductsConfig,
+  BrandStory,
+  brandStoryConfig,
+  ReviewWall,
+  reviewWallConfig,
+  HelpDesk,
+  helpDeskConfig,
+  VisitUs,
+  visitUsConfig,
+  MessageUs,
+  messageUsConfig,
 } from './components/home';
 import { Blog } from './components/home/Blog';
 import {
@@ -222,6 +251,23 @@ registerHomeComponents({
   'offers-drawer': OffersDrawer,
   'tire-filter': TireFilter,
   'video-products': VideoProducts,
+  // Triple redesign (2026-10) — new "tr-*" home sections (latest Twig).
+  'hero-stage': HeroStage,
+  'perks-ticker': PerksTicker,
+  'category-arches': CategoryArches,
+  'product-shelves': ProductShelves,
+  'banner-mosaic': BannerMosaic,
+  'deal-clock': DealClock,
+  'product-spotlight': ProductSpotlight,
+  'product-stories': ProductStories,
+  'campaign-products': CampaignProducts,
+  'brand-story': BrandStory,
+  'review-wall': ReviewWall,
+  'help-desk': HelpDesk,
+  'visit-us': VisitUs,
+  'message-us': MessageUs,
+  // `journal` replaces the old `blog` block in the redesign; reuse the Blog view until ported.
+  journal: Blog,
   // Engine-default blocks whose view Triple replaces 1:1.
   youtube: Youtube,
   'latest-products': LatestProducts,
@@ -392,7 +438,13 @@ registerHomeComponentConfig({
   // Triple before-after block (the .tr-compare modifier classes; --compare-divider is inside).
   'before-after': {
     className: (data) =>
-      ['tr-compare', (data.add_top_space ?? true) ? 's-block' : '', data.title || data.description ? 'tr-compare--with-text' : '', data.vertical ? 'tr-compare--vertical' : '', data.custom_classes]
+      [
+        'tr-compare',
+        ((data.top_gap ?? data.add_top_space) ?? true) ? 's-block' : '',
+        (data.heading ?? data.title) || (data.blurb ?? data.description) ? 'tr-compare--with-text' : '',
+        (data.upright_split ?? data.vertical) ? 'tr-compare--vertical' : '',
+        data.custom_classes,
+      ]
         .filter(Boolean)
         .join(' '),
   },
@@ -454,6 +506,21 @@ registerHomeComponentConfig({
         .filter(Boolean)
         .join(' '),
   },
+  // Triple redesign (2026-10) — new "tr-*" home sections.
+  'hero-stage': heroStageConfig,
+  'perks-ticker': perksTickerConfig,
+  'category-arches': categoryArchesConfig,
+  'product-shelves': productShelvesConfig,
+  'banner-mosaic': bannerMosaicConfig,
+  'deal-clock': dealClockConfig,
+  'product-spotlight': productSpotlightConfig,
+  'product-stories': productStoriesConfig,
+  'campaign-products': campaignProductsConfig,
+  'brand-story': brandStoryConfig,
+  'review-wall': reviewWallConfig,
+  'help-desk': helpDeskConfig,
+  'visit-us': visitUsConfig,
+  'message-us': messageUsConfig,
 });
 
 // Singleton for client-side (preserves QueryClient cache across navigations)

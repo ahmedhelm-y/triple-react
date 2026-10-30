@@ -121,74 +121,6 @@
   }
 }
 
-.special-product.hide_remaining .pie-wrapper {
-  display:none!important;
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.active .product-card {
-    transform:translateY(0)!important;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box .product-card {
-    transform:translateY(0)!important;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box .product-card {
-    box-shadow:none;
-    margin:auto;
-    max-width:100%;
-    padding:35px;
-    transition:all .3s ease;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.position-top-left .product-card:before {
-    display:none;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.position-top-right .product-card:before {
-    display:none;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.position-center-left .product-card:before {
-    display:none;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.position-center-top .product-card:before {
-    display:none;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.position-center-bottom .product-card:before {
-    display:none;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.position-bottom-left .product-card:before {
-    display:none;
-  }
-}
-
-@media (max-width:767px) {
-  .products-lookbook .product-box.position-bottom-right .product-card:before {
-    display:none;
-  }
-}
-
 .pie-wrapper {
   align-items:center;
   border-radius:9999px;
@@ -271,10 +203,6 @@ input[type=radio].sr-only:checked~div.pie-wrapper {
   transition-duration:.3s;
   transition-property:box-shadow;
   transition-timing-function:cubic-bezier(.4,0,.2,1);
-}
-
-.s-block--advanced-content .advanced-content-text.product-card .prose {
-  text-align:center;
 }
 
 .product-card.product-card--has-second-image:hover .second-image {
@@ -811,17 +739,6 @@ input[type=radio].sr-only:checked~div.pie-wrapper {
 
 .product-card .s-product-options-thumbnails-stock-badge {
   display:none;
-}
-
-.special-product.mini .pie-wrapper {
-  bottom:.5rem;
-  height:50px;
-  left:.25rem;
-  width:50px;
-}
-
-.special-product.mini .pie-wrapper span {
-  font-size:10px;
 }
 
 @media (min-width:991px) {
@@ -1385,11 +1302,6 @@ input[type=radio].sr-only:checked~div.pie-wrapper {
 body.trans_header.slider_has_overlay .store-header .s-cart-summary-wrapper .sicon-cart:not(custom-salla-product-card *),
 body.trans_header.slider_has_overlay .store-header :not(custom-salla-product-card *) {
   color:#fff;
-}
-
-.mini-product__price .starting-price-title {
-  color:var(--store-text-secondary);
-  font-size:.8125rem;
 }
 
 @keyframes scale{0%{opacity:.5;transform:scale(.8)}to{opacity:0;transform:scale(1.8)}}

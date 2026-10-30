@@ -1,97 +1,96 @@
 /* ============================
-   Text with inline images (home block: home.inline-images-text) — .tr-inline
-   Port of triple_twig 04-components/inline-images-text.scss (verbatim).
+   Text with inline images (home component: home.inline-images-text) — .tr-inline
    One big sentence, small rounded photos sit between its words like words of their own.
-   --inline-text / --inline-bg come from the settings (set inline on .tr-inline).
+   --inline-text / --inline-bg come from the settings.
    ============================ */
 
 .tr-inline {
-  color: var(--inline-text, var(--store-text-primary));
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  color:var(--inline-text, var(--store-text-primary));
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
 }
 
 .tr-inline--center {
-  align-items: center;
-  text-align: center;
+  align-items:center;
+  text-align:center;
 }
 
 .tr-inline--start {
-  align-items: flex-start;
-  text-align: left;
+  align-items:flex-start;
+  text-align:left;
 }
 
-[dir='rtl'] .tr-inline--start {
-  text-align: right;
+[dir=rtl] .tr-inline--start {
+  text-align:right;
 }
 
 .tr-inline--boxed {
-  background: var(--inline-bg);
-  border-radius: 1.75rem;
-  padding: 2.5rem 1.25rem;
+  background:var(--inline-bg);
+  border-radius:1.75rem;
+  padding:2.5rem 1.25rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .tr-inline--boxed {
-    padding: 4rem 3rem;
+    padding:4rem 3rem;
   }
 }
 
 .tr-inline__text {
-  color: inherit;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.45;
-  margin: 0;
-  max-width: 68rem;
+  color:inherit;
+  font-weight:700;
+  letter-spacing:-.01em;
+  line-height:1.45;
+  margin:0;
+  max-width:68rem;
 }
 
 .tr-inline--large .tr-inline__text {
-  font-size: clamp(1.5rem, 4.2vw, 2.75rem);
+  font-size:clamp(1.5rem, 4.2vw, 2.75rem);
 }
 
 .tr-inline--xlarge .tr-inline__text {
-  font-size: clamp(1.75rem, 5.6vw, 4rem);
+  font-size:clamp(1.75rem, 5.6vw, 4rem);
 }
 
 .tr-inline__words {
-  margin: 0 0.15em;
+  margin:0 .15em;
 }
 
 .tr-inline__photo {
-  border-radius: 999px;
-  box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.45);
-  display: inline-block;
-  height: 1.2em;
-  margin: 0 0.15em;
-  overflow: hidden;
-  transform-origin: center;
-  vertical-align: middle;
-  width: 2.3em;
+  border-radius:999px;
+  box-shadow:0 12px 30px -18px rgba(0,0,0,.45);
+  display:inline-block;
+  height:1.2em;
+  margin:0 .15em;
+  overflow:hidden;
+  transform-origin:center;
+  vertical-align:middle;
+  width:2.3em;
 }
 
 .tr-inline--circle .tr-inline__photo {
-  width: 1.2em;
+  width:1.2em;
 }
 
 .tr-inline__img {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-  width: 100%;
+  display:block;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s ease;
+  width:100%;
 }
 
 .tr-inline__photo:hover .tr-inline__img {
-  transform: scale(1.12);
+  transform:scale(1.12);
 }
 
 /* a little tilt every other photo, like stickers */
 .tr-inline__photo.is-tilt-a {
-  rotate: -3deg;
+  rotate:-3deg;
 }
 
 .tr-inline__photo.is-tilt-b {
-  rotate: 3deg;
+  rotate:3deg;
 }

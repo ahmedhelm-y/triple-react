@@ -1,0 +1,117 @@
+/* ============================
+   Campaign with products (home component: home.campaign-products) — .tr-campaign
+   Desktop: a sticky poster column (start or end) + the products in two columns.
+   Phones: the poster on top, the products under it.
+   --campaign-panel (optional) paints the block background.
+   ============================ */
+
+.tr-campaign.has-panel {
+  background:var(--campaign-panel);
+  padding-bottom:2.5rem;
+  padding-top:2.5rem;
+}
+
+.tr-campaign__grid {
+  display:grid;
+  gap:1.5rem;
+}
+
+@media (min-width:1024px) {
+  .tr-campaign__grid {
+    align-items:start;
+    gap:2.5rem;
+    grid-template-columns:minmax(0, 5fr) minmax(0, 7fr);
+  }
+
+  .tr-campaign--end .tr-campaign__poster {
+    order:2;
+  }
+
+  .tr-campaign__poster {
+    position:sticky;
+    top:6rem;
+  }
+}
+
+.tr-campaign__poster {
+  background:#111;
+  border-radius:1.5rem;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:22rem;
+  overflow:hidden;
+  position:relative;
+}
+
+@media (min-width:1024px) {
+  .tr-campaign__poster {
+    min-height:min(78vh, 42rem);
+  }
+}
+
+.tr-campaign__media {
+  height:100%;
+  inset:0;
+  object-fit:cover;
+  position:absolute;
+  width:100%;
+}
+
+.tr-campaign__words {
+  background:linear-gradient(0deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 100%);
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  padding:4rem 1.75rem 1.75rem;
+  position:relative;
+}
+
+.tr-campaign__kicker {
+  align-self:flex-start;
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:999px;
+  font-size:.8125rem;
+  font-weight:700;
+  padding:.25rem .85rem;
+}
+
+.tr-campaign__headline {
+  color:inherit;
+  font-size:clamp(1.6rem, 3vw, 2.5rem);
+  font-weight:800;
+  line-height:1.15;
+  margin:0;
+}
+
+.tr-campaign__story {
+  line-height:1.7;
+  margin:0;
+  opacity:.9;
+}
+
+.tr-campaign__cta {
+  align-items:center;
+  align-self:flex-start;
+  background:#fff;
+  border-radius:999px;
+  color:#111;
+  display:inline-flex;
+  font-weight:700;
+  gap:.5rem;
+  margin-top:.25rem;
+  padding:.7rem 1.4rem;
+  transition:gap .25s ease;
+}
+
+.tr-campaign__cta:hover {
+  gap:.85rem;
+}
+
+/* the list's own grid becomes two columns next to the poster */
+.tr-campaign__products .s-products-list-wrapper {
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+}

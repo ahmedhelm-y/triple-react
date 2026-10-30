@@ -1,0 +1,147 @@
+/* ============================
+   Visit us (home component: home.visit-us) — .tr-visit
+   City chips, then the branch cards (the shown one outlined) beside the map; phones: the map under the cards.
+   ============================ */
+
+.tr-visit__top {
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+  margin-bottom:1.25rem;
+}
+
+.tr-visit__heading {
+  color:var(--store-text-primary);
+  font-size:clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight:800;
+  margin:0;
+}
+
+.tr-visit__intro {
+  color:var(--store-text-secondary);
+  line-height:1.75;
+  margin:0;
+  max-width:42rem;
+}
+
+.tr-visit__cities {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin-bottom:1.25rem;
+}
+
+.tr-visit__cities button {
+  border:1px solid var(--border-color, #e5e7eb);
+  border-radius:999px;
+  color:var(--store-text-primary);
+  font-size:.875rem;
+  font-weight:600;
+  padding:.4rem 1rem;
+}
+
+.tr-visit__cities button[aria-pressed=true] {
+  background:var(--color-primary);
+  border-color:var(--color-primary);
+  color:var(--color-primary-reverse, #fff);
+}
+
+.tr-visit {
+  display:grid;
+  gap:1.25rem;
+}
+
+@media (min-width:1024px) {
+  .tr-visit {
+    grid-template-columns:minmax(0, 5fr) minmax(0, 7fr);
+  }
+}
+
+.tr-visit__list {
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  list-style:none;
+  margin:0;
+  max-height:30rem;
+  overflow-y:auto;
+  padding:0;
+}
+
+.tr-visit__branch {
+  border:1px solid var(--border-color, #e5e7eb);
+  border-radius:1rem;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+.tr-visit__branch[hidden] {
+  display:none;
+}
+
+.tr-visit__branch.is-on {
+  border-color:var(--color-primary);
+  box-shadow:0 0 0 1px var(--color-primary);
+}
+
+.tr-visit__pick {
+  display:flex;
+  flex-direction:column;
+  gap:.4rem;
+  padding:1rem 1.15rem .5rem;
+  text-align:left;
+  width:100%;
+}
+
+[dir=rtl] .tr-visit__pick {
+  text-align:right;
+}
+
+.tr-visit__place {
+  color:var(--store-text-primary);
+  font-weight:800;
+}
+
+.tr-visit__line {
+  align-items:flex-start;
+  color:var(--store-text-secondary);
+  display:flex;
+  font-size:.875rem;
+  gap:.45rem;
+  line-height:1.6;
+}
+
+.tr-visit__line i {
+  margin-top:.2rem;
+}
+
+.tr-visit__links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  padding:0 1.15rem 1rem;
+}
+
+.tr-visit__links a {
+  color:var(--color-primary);
+  font-size:.875rem;
+  font-weight:700;
+}
+
+.tr-visit__map {
+  border-radius:1.25rem;
+  min-height:20rem;
+  overflow:hidden;
+  position:relative;
+}
+
+.tr-visit__map iframe {
+  border:0;
+  height:100%;
+  inset:0;
+  position:absolute;
+  width:100%;
+}
+
+.tr-visit__map.is-muted iframe {
+  filter:grayscale(1) contrast(1.05);
+}

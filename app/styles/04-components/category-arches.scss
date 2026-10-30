@@ -1,0 +1,112 @@
+/* ============================
+   Category arches (home component: home.category-arches) — .tr-arches
+   Each photo sits in a shaped frame (arch / circle / leaf / ticket) on --arch-tint.
+   Desktop: --arch-cols per row. Phones: one row that scrolls sideways (swipe) or two columns (grid).
+   ============================ */
+
+.tr-arches__heading {
+  color:var(--store-text-primary);
+  font-size:clamp(1.5rem, 2.6vw, 2rem);
+  font-weight:800;
+  margin:0 0 1.5rem;
+  text-align:center;
+}
+
+.tr-arches {
+  --arch-radius:999px 999px 1rem 1rem;
+  display:grid;
+  gap:1.5rem 1.25rem;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.tr-arches--circle { --arch-radius:50%; }
+.tr-arches--leaf { --arch-radius:2.5rem .4rem 2.5rem .4rem; }
+.tr-arches--ticket { --arch-radius:1.25rem; }
+
+@media (min-width:768px) {
+  .tr-arches {
+    grid-template-columns:repeat(var(--arch-cols), minmax(0, 1fr));
+  }
+}
+
+@media (max-width:767px) {
+  .tr-arches--grid {
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .tr-arches--swipe {
+    display:flex;
+    overflow-x:auto;
+    position:relative;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+
+  .tr-arches--swipe::-webkit-scrollbar {
+    display:none;
+  }
+
+  .tr-arches--swipe li {
+    flex:0 0 40%;
+    scroll-snap-align:start;
+  }
+}
+
+.tr-arches__item {
+  align-items:center;
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  text-align:center;
+}
+
+.tr-arches__frame {
+  aspect-ratio:3 / 4;
+  background:var(--arch-tint);
+  border-radius:var(--arch-radius);
+  display:block;
+  margin-bottom:.5rem;
+  overflow:hidden;
+  position:relative;
+  width:100%;
+}
+
+.tr-arches--circle .tr-arches__frame {
+  aspect-ratio:1;
+}
+
+/* ticket: two notches on the sides */
+.tr-arches--ticket .tr-arches__frame {
+  -webkit-mask:radial-gradient(circle at 0 50%, transparent .7rem, #000 .75rem) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 50%, transparent .7rem, #000 .75rem) right / 51% 100% no-repeat;
+  mask:radial-gradient(circle at 0 50%, transparent .7rem, #000 .75rem) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 50%, transparent .7rem, #000 .75rem) right / 51% 100% no-repeat;
+}
+
+.tr-arches__frame img {
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1);
+  width:100%;
+}
+
+a.tr-arches__item:hover .tr-arches__frame img {
+  transform:scale(1.08) translateY(-3%);
+}
+
+.tr-arches__label {
+  color:var(--store-text-primary);
+  font-weight:700;
+  line-height:1.4;
+}
+
+a.tr-arches__item:hover .tr-arches__label {
+  color:var(--color-primary);
+}
+
+.tr-arches__hint {
+  color:var(--store-text-secondary);
+  font-size:.8125rem;
+}

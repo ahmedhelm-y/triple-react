@@ -1,151 +1,150 @@
 /* ============================
-   Stacked cards (home block: home.stacked-cards) — .tr-stack
-   Port of triple_twig 04-components/stacked-cards.scss (verbatim).
-   Big photo cards with position: sticky: each sticks a little lower than the previous one (--i)
-   so the next card slides over it while scrolling. CSS only. --stack-text comes from settings.
+   Stacked cards (home component: home.stacked-cards) — .tr-stack
+   Big photo cards with position: sticky: each one sticks a little lower than the previous one (--i)
+   so the next card slides over it while scrolling. CSS only. --stack-text comes from the settings.
    ============================ */
 
 .tr-stack {
-  --stack-top: 5.5rem;
-  --stack-gap: 1rem;
-  --stack-height: min(76vh, 40rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  --stack-top:5.5rem;
+  --stack-gap:1rem;
+  --stack-height:min(76vh, 40rem);
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
 }
 
 .tr-stack--medium {
-  --stack-height: min(60vh, 30rem);
+  --stack-height:min(60vh, 30rem);
 }
 
-@media (max-width: 767px) {
+@media (max-width:767px) {
   .tr-stack {
-    --stack-top: 4.5rem;
-    --stack-gap: 0.6rem;
-    --stack-height: min(70vh, 32rem);
+    --stack-top:4.5rem;
+    --stack-gap:.6rem;
+    --stack-height:min(70vh, 32rem);
   }
 }
 
 .tr-stack__card {
-  border-radius: 1.75rem;
-  box-shadow: 0 -18px 40px -24px rgba(0, 0, 0, 0.45);
-  color: var(--stack-text, #fff);
-  height: var(--stack-height);
-  overflow: hidden;
-  position: sticky;
-  top: calc(var(--stack-top) + var(--i, 0) * var(--stack-gap));
+  border-radius:1.75rem;
+  box-shadow:0 -18px 40px -24px rgba(0,0,0,.45);
+  color:var(--stack-text, #fff);
+  height:var(--stack-height);
+  overflow:hidden;
+  position:sticky;
+  top:calc(var(--stack-top) + var(--i, 0) * var(--stack-gap));
 }
 
 .tr-stack__img {
-  height: 100%;
-  inset: 0;
-  object-fit: cover;
-  position: absolute;
-  width: 100%;
+  height:100%;
+  inset:0;
+  object-fit:cover;
+  position:absolute;
+  width:100%;
 }
 
 .tr-stack__shade {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0.05) 100%);
-  inset: 0;
-  position: absolute;
+  background:linear-gradient(0deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,.05) 100%);
+  inset:0;
+  position:absolute;
 }
 
 .tr-stack__num {
-  font-size: clamp(3rem, 9vw, 7rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  opacity: 0.35;
-  position: absolute;
-  right: 1.75rem;
-  top: 1.5rem;
+  font-size:clamp(3rem, 9vw, 7rem);
+  font-weight:700;
+  letter-spacing:-.04em;
+  line-height:1;
+  opacity:.35;
+  position:absolute;
+  right:1.75rem;
+  top:1.5rem;
 }
 
-[dir='rtl'] .tr-stack__num {
-  left: 1.75rem;
-  right: auto;
+[dir=rtl] .tr-stack__num {
+  left:1.75rem;
+  right:auto;
 }
 
 .tr-stack__body {
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  left: 0;
-  max-width: 38rem;
-  padding: 2rem;
-  position: absolute;
+  bottom:0;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  left:0;
+  max-width:38rem;
+  padding:2rem;
+  position:absolute;
 }
 
-[dir='rtl'] .tr-stack__body {
-  left: auto;
-  right: 0;
+[dir=rtl] .tr-stack__body {
+  left:auto;
+  right:0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width:1024px) {
   .tr-stack__body {
-    padding: 3rem;
+    padding:3rem;
   }
 }
 
 .tr-stack__label {
-  align-self: flex-start;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  margin: 0;
-  padding: 0.3rem 0.9rem;
+  align-self:flex-start;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  background:rgba(255,255,255,.18);
+  border-radius:999px;
+  font-size:.8125rem;
+  font-weight:700;
+  margin:0;
+  padding:.3rem .9rem;
 }
 
 .tr-stack__title {
-  color: inherit;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0;
+  color:inherit;
+  font-size:1.75rem;
+  font-weight:700;
+  line-height:1.2;
+  margin:0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width:1024px) {
   .tr-stack__title {
-    font-size: 2.75rem;
+    font-size:2.75rem;
   }
 }
 
 .tr-stack__text {
-  line-height: 1.7;
-  margin: 0;
-  opacity: 0.9;
+  line-height:1.7;
+  margin:0;
+  opacity:.9;
 }
 
 .tr-stack__btn {
-  align-items: center;
-  align-self: flex-start;
-  background: var(--stack-text, #fff);
-  border-radius: 999px;
-  color: #111;
-  display: inline-flex;
-  font-weight: 700;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  padding: 0.7rem 1.4rem;
-  transition: transform 0.2s ease;
+  align-items:center;
+  align-self:flex-start;
+  background:var(--stack-text, #fff);
+  border-radius:999px;
+  color:#111;
+  display:inline-flex;
+  font-weight:700;
+  gap:.5rem;
+  margin-top:.5rem;
+  padding:.7rem 1.4rem;
+  transition:transform .2s ease;
 }
 
 .tr-stack__btn:hover {
-  transform: translateY(-2px);
+  transform:translateY(-2px);
 }
 
-[dir='rtl'] .tr-stack__btn:hover i {
-  transform: translateX(-4px);
+[dir=rtl] .tr-stack__btn:hover i {
+  transform:translateX(-4px);
 }
 
-[dir='ltr'] .tr-stack__btn:hover i {
-  transform: translateX(4px) rotate(180deg);
+[dir=ltr] .tr-stack__btn:hover i {
+  transform:translateX(4px) rotate(180deg);
 }
 
 .tr-stack__btn i {
-  transition: transform 0.25s ease;
+  transition:transform .25s ease;
 }

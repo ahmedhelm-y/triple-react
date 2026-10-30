@@ -1,0 +1,105 @@
+/* ============================
+   Perks ticker (home component: home.perks-ticker) — .tr-perks
+   A full width band (--perks-bg / --perks-ink); .tr-perks__run holds the list twice and slides by half its
+   width, so the loop has no seam. The tilted band is wider than the screen and cut by the block (overflow-x:clip).
+   ============================ */
+
+.tr-perks {
+  --perks-time:38s;
+  overflow-x:clip;
+}
+
+.tr-perks--slow { --perks-time:60s; }
+.tr-perks--fast { --perks-time:22s; }
+
+.tr-perks--tilted {
+  padding:1.25rem 0;
+}
+
+.tr-perks__band {
+  background:var(--perks-bg);
+  color:var(--perks-ink);
+  overflow:hidden;
+  padding:1rem 0;
+}
+
+.tr-perks--tilted .tr-perks__band {
+  margin:0 -3%;
+  transform:rotate(-2deg);
+}
+
+[dir=rtl] .tr-perks--tilted .tr-perks__band {
+  transform:rotate(2deg);
+}
+
+.tr-perks__run {
+  animation:tr-perks-run var(--perks-time) linear infinite;
+  display:flex;
+  width:max-content;
+}
+
+[dir=rtl] .tr-perks__run {
+  animation-name:tr-perks-run-rtl;
+}
+
+.tr-perks__band:hover .tr-perks__run {
+  animation-play-state:paused;
+}
+
+@keyframes tr-perks-run {
+  to { transform:translateX(-50%); }
+}
+
+@keyframes tr-perks-run-rtl {
+  to { transform:translateX(50%); }
+}
+
+.tr-perks__list {
+  display:flex;
+  flex-shrink:0;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.tr-perks__list li {
+  align-items:center;
+  display:flex;
+  font-size:1rem;
+  font-weight:700;
+  gap:.6rem;
+  padding:0 1.75rem;
+  position:relative;
+  white-space:nowrap;
+}
+
+@media (min-width:768px) {
+  .tr-perks__list li {
+    font-size:1.125rem;
+    padding:0 2.5rem;
+  }
+}
+
+/* a small star between the perks */
+.tr-perks__list li::after {
+  content:"✦";
+  font-size:.75rem;
+  opacity:.55;
+  position:absolute;
+  right:-.4rem;
+}
+
+[dir=rtl] .tr-perks__list li::after {
+  left:-.4rem;
+  right:auto;
+}
+
+.tr-perks__list i {
+  font-size:1.35rem;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .tr-perks__run {
+    animation:none;
+  }
+}

@@ -13,6 +13,20 @@ import { pickLang, type MultiLang } from '../../lib/homeBlockData';
  */
 
 export interface BeforeAfterData {
+  // New (2026-10 redesign) field names, with the pre-redesign names kept as fallbacks.
+  heading?: MultiLang;
+  blurb?: MultiLang;
+  top_gap?: boolean;
+  edge_to_edge?: boolean;
+  soft_corners?: boolean;
+  upright_split?: boolean;
+  handle_tint?: string;
+  handle_start?: number | string;
+  photo_then?: string;
+  photo_now?: string;
+  show_tags?: boolean;
+  then_tag?: MultiLang;
+  now_tag?: MultiLang;
   title?: MultiLang;
   description?: MultiLang;
   add_top_space?: boolean;
@@ -39,15 +53,20 @@ export const BeforeAfter = memo(function BeforeAfter({ data }: BeforeAfterProps)
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
-  const title = pickLang(data.title, lang);
-  const description = pickLang(data.description, lang);
-  const beforeLabel = pickLang(data.before_label, lang) || t('blocks.home.before', 'Before');
-  const afterLabel = pickLang(data.after_label, lang) || t('blocks.home.after', 'After');
-  const vertical = Boolean(data.vertical);
-  const divider = data.divider_color || '#ffffff';
-  const startRaw = data.start_position;
+  const title = pickLang(data.heading ?? data.title, lang);
+  const description = pickLang(data.blurb ?? data.description, lang);
+  const beforeLabel = pickLang(data.then_tag ?? data.before_label, lang) || t('blocks.home.before', 'Before');
+  const afterLabel = pickLang(data.now_tag ?? data.after_label, lang) || t('blocks.home.after', 'After');
+  const vertical = Boolean(data.upright_split ?? data.vertical);
+  const divider = data.handle_tint || data.divider_color || '#ffffff';
+  const startRaw = data.handle_start ?? data.start_position;
   const start =
     startRaw !== null && startRaw !== undefined && startRaw !== '' ? Number(startRaw) : 50;
+  const beforeImage = data.photo_then ?? data.before_image;
+  const afterImage = data.photo_now ?? data.after_image;
+  const showLabels = data.show_tags ?? data.show_labels;
+  const rounded = data.soft_corners ?? data.rounded;
+  const fullWidth = data.edge_to_edge ?? data.full_width;
 
   const hasText = Boolean(title || description);
   const [value, setValue] = useState(Number.isFinite(start) ? start : 50);
@@ -88,7 +107,7 @@ export const BeforeAfter = memo(function BeforeAfter({ data }: BeforeAfterProps)
     dragging.current = false;
   };
 
-  if (!data.before_image || !data.after_image) return null;
+  if (!beforeImage || !afterImage) return null;
 
   // The "after" side is the overlay revealed from the divider; clip it to `value`.
   const afterClip: CSSProperties = vertical
@@ -98,7 +117,7 @@ export const BeforeAfter = memo(function BeforeAfter({ data }: BeforeAfterProps)
     ? { top: `${value}%`, left: 0, right: 0 }
     : { insetInlineStart: `${value}%`, top: 0, bottom: 0 };
 
-  const containerClass = data.full_width && !hasText ? 'w-full' : 'container';
+  const containerClass = fullWidth && !hasText ? 'w-full' : 'container';
 
   return (
     <div className={containerClass} style={{ '--compare-divider': divider } as CSSProperties}>
@@ -107,7 +126,7 @@ export const BeforeAfter = memo(function BeforeAfter({ data }: BeforeAfterProps)
           <div className="tr-compare__text">
             {title && <h2 className="tr-compare__title">{title}</h2>}
             {description && <p className="tr-compare__desc">{description}</p>}
-            {data.show_labels && (
+            {showLabels && (
               <ul className="tr-compare__legend">
                 <li className="tr-compare__legend-item tr-compare__legend-item--before">
                   {beforeLabel}
@@ -120,7 +139,7 @@ export const BeforeAfter = memo(function BeforeAfter({ data }: BeforeAfterProps)
           </div>
         )}
 
-        <div className={`tr-compare__stage${data.rounded ? ' is-rounded' : ''}`}>
+        <div className={`tr-compare__stage${rounded ? ' is-rounded' : ''}`}>
           <div
             ref={sliderRef}
             className="tr-compare__slider rendered"
@@ -138,12 +157,12 @@ export const BeforeAfter = memo(function BeforeAfter({ data }: BeforeAfterProps)
             <figure className="tr-compare__side tr-compare__side--before" style={{ margin: 0 }}>
               <img
                 className="tr-compare__image"
-                src={data.before_image}
+                src={beforeImage}
                 alt={beforeLabel}
                 loading="lazy"
                 draggable={false}
               />
-              {data.show_labels && <figcaption className="tr-compare__tag">{beforeLabel}</figcaption>}
+              {showLabels && <figcaption className="tr-compare__tag">{beforeLabel}</figcaption>}
             </figure>
 
             <figure
@@ -152,12 +171,12 @@ export const BeforeAfter = memo(function BeforeAfter({ data }: BeforeAfterProps)
             >
               <img
                 className="tr-compare__image"
-                src={data.after_image}
+                src={afterImage}
                 alt={afterLabel}
                 loading="lazy"
                 draggable={false}
               />
-              {data.show_labels && <figcaption className="tr-compare__tag">{afterLabel}</figcaption>}
+              {showLabels && <figcaption className="tr-compare__tag">{afterLabel}</figcaption>}
             </figure>
 
             <div

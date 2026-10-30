@@ -1,0 +1,207 @@
+/* ============================
+   Review wall (home component: home.review-wall) — .tr-wall
+   Desktop: the summary card + three columns of cards in a fixed height window with faded edges;
+   .tr-wall--moving columns glide by half their height (the cards are printed twice), the middle one the other way.
+   Phones: every card on one row that scrolls sideways (the copies are hidden).
+   ============================ */
+
+.tr-wall {
+  display:grid;
+  gap:1.5rem;
+}
+
+.tr-wall__summary {
+  align-items:flex-start;
+  background:var(--store-text-primary);
+  border-radius:1.5rem;
+  color:var(--bg-primary, #fff);
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+  padding:1.75rem;
+}
+
+.tr-wall__heading {
+  color:inherit;
+  font-size:1.5rem;
+  font-weight:800;
+  line-height:1.25;
+  margin:0 0 .5rem;
+}
+
+.tr-wall__average {
+  align-items:baseline;
+  display:flex;
+  gap:.25rem;
+  margin:0;
+}
+
+.tr-wall__average b {
+  font-size:3.5rem;
+  font-weight:800;
+  line-height:1;
+}
+
+.tr-wall__average span {
+  opacity:.6;
+}
+
+.tr-wall__stars {
+  color:#d1d5db;
+  display:inline-flex;
+  font-size:.9rem;
+  gap:.15rem;
+}
+
+.tr-wall__stars .is-on {
+  color:#f5a524;
+}
+
+.tr-wall__stars--big {
+  font-size:1.25rem;
+}
+
+.tr-wall__count {
+  margin:0;
+  opacity:.75;
+}
+
+.tr-wall__all {
+  border-bottom:1px solid currentColor;
+  font-weight:700;
+  margin-top:auto;
+  padding-top:1rem;
+}
+
+.tr-wall__card {
+  background:var(--store-bg-secondary, #f9fafb);
+  border-radius:1.25rem;
+  display:flex;
+  flex-direction:column;
+  gap:.85rem;
+  margin:0;
+  padding:1.35rem;
+}
+
+.tr-wall__card blockquote {
+  color:var(--store-text-primary);
+  line-height:1.75;
+  margin:0;
+}
+
+.tr-wall__card figcaption {
+  align-items:center;
+  display:flex;
+  gap:.65rem;
+}
+
+.tr-wall__card figcaption img,
+.tr-wall__initial {
+  border-radius:50%;
+  flex-shrink:0;
+  height:2.5rem;
+  object-fit:cover;
+  width:2.5rem;
+}
+
+.tr-wall__initial {
+  align-items:center;
+  background:var(--color-primary);
+  color:var(--color-primary-reverse, #fff);
+  display:flex;
+  font-weight:800;
+  justify-content:center;
+}
+
+.tr-wall__card figcaption > span {
+  display:flex;
+  flex-direction:column;
+}
+
+.tr-wall__card b {
+  color:var(--store-text-primary);
+  font-size:.9375rem;
+}
+
+.tr-wall__card small {
+  color:var(--store-text-secondary);
+}
+
+@media (max-width:1023px) {
+  .tr-wall__columns {
+    display:flex;
+    gap:1rem;
+    overflow-x:auto;
+    position:relative;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+
+  .tr-wall__columns::-webkit-scrollbar {
+    display:none;
+  }
+
+  .tr-wall__column,
+  .tr-wall__run {
+    display:contents;
+  }
+
+  .tr-wall__card {
+    flex:0 0 min(80%, 22rem);
+    scroll-snap-align:start;
+  }
+
+  .tr-wall__card[aria-hidden=true] {
+    display:none;
+  }
+}
+
+@media (min-width:1024px) {
+  .tr-wall {
+    align-items:stretch;
+    gap:1.25rem;
+    grid-template-columns:minmax(0, 3fr) minmax(0, 9fr);
+  }
+
+  .tr-wall__columns {
+    display:grid;
+    gap:1rem;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+  }
+
+  .tr-wall__run {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+
+  .tr-wall--moving .tr-wall__columns {
+    height:34rem;
+    -webkit-mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+    overflow:hidden;
+  }
+
+  .tr-wall--moving .tr-wall__run {
+    animation:tr-wall-glide var(--wall-time, 30s) linear infinite;
+  }
+
+  .tr-wall--moving .tr-wall__column:nth-child(2) .tr-wall__run {
+    animation-direction:reverse;
+  }
+
+  .tr-wall--moving .tr-wall__columns:hover .tr-wall__run {
+    animation-play-state:paused;
+  }
+}
+
+/* half the run + half a gap = exactly one set of cards */
+@keyframes tr-wall-glide {
+  to { transform:translateY(calc(-50% - .5rem)); }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .tr-wall--moving .tr-wall__run {
+    animation:none;
+  }
+}

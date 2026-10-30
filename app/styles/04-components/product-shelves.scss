@@ -1,0 +1,138 @@
+/* ============================
+   Product shelves (home component: home.product-shelves) — .tr-shelves
+   Head on the start side, the shelf names as an index on the end side (big words, the open one underlined),
+   then the open shelf's products and its "more" link.
+   ============================ */
+
+.tr-shelves__top {
+  align-items:flex-end;
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem 2.5rem;
+  justify-content:space-between;
+  margin-bottom:1.5rem;
+}
+
+.tr-shelves__intro {
+  display:flex;
+  flex-direction:column;
+  gap:.4rem;
+  max-width:36rem;
+}
+
+.tr-shelves__heading {
+  color:var(--store-text-primary);
+  font-size:1.625rem;
+  font-weight:800;
+  line-height:1.2;
+  margin:0;
+}
+
+@media (min-width:768px) {
+  .tr-shelves__heading {
+    font-size:2.125rem;
+  }
+}
+
+.tr-shelves__blurb {
+  color:var(--store-text-secondary);
+  line-height:1.65;
+  margin:0;
+}
+
+.tr-shelves__index {
+  display:flex;
+  gap:1.5rem;
+  max-width:100%;
+  overflow-x:auto;
+  padding-bottom:.35rem;
+  position:relative;
+  scrollbar-width:none;
+}
+
+.tr-shelves__index::-webkit-scrollbar {
+  display:none;
+}
+
+.tr-shelves__name {
+  align-items:flex-start;
+  color:var(--store-text-secondary);
+  display:inline-flex;
+  flex-shrink:0;
+  font-size:1.0625rem;
+  font-weight:700;
+  gap:.3rem;
+  padding:.2rem 0;
+  position:relative;
+  transition:color .25s ease;
+  white-space:nowrap;
+}
+
+@media (min-width:768px) {
+  .tr-shelves__name {
+    font-size:1.25rem;
+  }
+}
+
+.tr-shelves__name small {
+  font-size:.6875rem;
+  font-weight:700;
+  opacity:.7;
+}
+
+.tr-shelves__name::after {
+  background:var(--color-primary);
+  border-radius:2px;
+  bottom:-.2rem;
+  content:"";
+  height:3px;
+  left:0;
+  position:absolute;
+  right:0;
+  transform:scaleX(0);
+  transition:transform .3s ease;
+}
+
+.tr-shelves__name:hover,
+.tr-shelves__name[aria-selected=true] {
+  color:var(--store-text-primary);
+}
+
+.tr-shelves__name[aria-selected=true]::after {
+  transform:scaleX(1);
+}
+
+.tr-shelves__shelf:not([hidden]) {
+  animation:tr-shelf-in .45s ease both;
+}
+
+@keyframes tr-shelf-in {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:none; }
+}
+
+.tr-shelves__more {
+  align-items:center;
+  border:1px solid var(--color-primary);
+  border-radius:999px;
+  color:var(--color-primary);
+  display:flex;
+  font-weight:700;
+  gap:.5rem;
+  justify-content:center;
+  margin:1.5rem auto 0;
+  max-width:20rem;
+  padding:.65rem 1.25rem;
+  transition:background-color .25s ease, color .25s ease;
+}
+
+.tr-shelves__more:hover {
+  background:var(--color-primary);
+  color:var(--color-primary-reverse, #fff);
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .tr-shelves__shelf:not([hidden]) {
+    animation:none;
+  }
+}

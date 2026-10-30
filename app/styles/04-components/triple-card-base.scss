@@ -1229,28 +1229,6 @@
   display:none;
 }
 
-.s-block--video-products--product-on-video .product-card--has-video .product-card__actions,
-.s-block--video-products--product-on-video .product-card--has-video .product-card__addToCart,
-.s-block--video-products--product-on-video .product-card--has-video .product-card__buttons,
-.s-block--video-products--product-on-video .product-card--has-video .product-card__content,
-.s-block--video-products--product-on-video .product-card--has-video .product-card__enhanced-mini-cart,
-.s-block--video-products--product-on-video .product-card--has-video .product-card__mini-cart,
-.s-block--video-products--product-on-video .product-card--has-video .product-card__normal-cart {
-  display:none!important;
-}
-
-.s-block--video-products--product-on-video .product-card--has-video .product-card__video-wrap:before {
-  background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);
-  bottom:0;
-  content:"";
-  height:45%;
-  left:0;
-  pointer-events:none;
-  position:absolute;
-  right:0;
-  z-index:1;
-}
-
 [dir=ltr] .product-card__video-product {
   text-align:left;
 }

@@ -50,6 +50,9 @@
   border-radius:1.5rem;
   display:block;
   overflow-x:auto;
+  /* the containing block of the cells' absolute .sr-only texts: without it they escape the scroll clip and
+     widen the page by the hidden columns (to the left in RTL, so the whole page slides sideways on phones) */
+  position:relative;
   scrollbar-width:thin;
 }
 

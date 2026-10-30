@@ -78,7 +78,6 @@ html.dark {
 
   .s-add-product-toast__progress,
   .no-content-placeholder .icon,
-  .s-block--store-branches--toggle .btn-tabs-container,
   .advanced-content-drawer .drawer-container .drawer-header .drawer-close,
   .drawer-overlay .drawer-container .drawer-header .drawer-close,
   .advanced-content-drawer .drawer-container .drawer-body .drawer-items .drawer-item,
@@ -134,13 +133,11 @@ html.dark {
   .pack-product__qty-btn:focus-visible { background: var(--dm-soft); }
 
   /* colors picked inside a home block are light-mode colors: in dark mode the block follows the dark store colors */
-  .tr-about:not(.tr-about--transparent) { background-color: var(--bg-primary); }
   .tr-inline,
   .tr-bold { color: var(--store-text-primary); }
   .tr-inline--boxed,
   .tr-bold--boxed { background: var(--bg-secondary); }
   .tr-voices__panel { background: color-mix(in srgb, var(--color-primary) 10%, var(--bg-secondary)); }
-  .mini-product { border-color: var(--dm-line); }
 
   /* product cards over the shoppable video and the shop-the-feed photos */
   .tr-svideo__card,
@@ -154,7 +151,6 @@ html.dark {
   .tr-feed__product { background: var(--bg-secondary); }
 
   /* white text on the (lighter, in dark mode) store color → the dark reverse text */
-  .products-lookbook__item--card__point__button:hover button,
   .product-card__buttons > div button:hover,
   .product-card__actions div button:hover { color: var(--color-primary-reverse); }
 
@@ -182,11 +178,4 @@ html.dark {
 
   /* page scrollbar track */
   ::-webkit-scrollbar-track { background: var(--bg-primary); }
-}
-
-/* Header logo swap: the reversed (dark) logo replaces the normal one in dark mode
-   (the Twig theme toggled a `hidden` class in js; here it is pure CSS). */
-html.dark .site-header__brand {
-  .logo-normal { display: none; }
-  .logo-dark { display: inline-block; }
 }

@@ -1,0 +1,175 @@
+/* ============================
+   Banner mosaic (home component: home.banner-mosaic) — .tr-mosaic
+   One grid, three arrangements (row / lead / bento) laid out per tiles count (.tr-mosaic--n2 … n6).
+   Phones: the tiles go under each other (stack) or on one row that scrolls sideways (swipe).
+   ============================ */
+
+.tr-mosaic {
+  --mosaic-gap:.75rem;
+  --mosaic-radius:.875rem;
+  --mosaic-row:clamp(10rem, 17vw, 16rem);
+  display:grid;
+  gap:var(--mosaic-gap);
+  position:relative;
+}
+
+.tr-mosaic--gap-none { --mosaic-gap:0; }
+.tr-mosaic--gap-wide { --mosaic-gap:1.5rem; }
+.tr-mosaic--sharp { --mosaic-radius:0; }
+.tr-mosaic--round { --mosaic-radius:1.75rem; }
+
+.tr-mosaic__tile {
+  border-radius:var(--mosaic-radius);
+  display:block;
+  isolation:isolate;
+  overflow:hidden;
+  position:relative;
+}
+
+.tr-mosaic__img {
+  display:block;
+  height:auto;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+  width:100%;
+}
+
+a.tr-mosaic__tile:hover .tr-mosaic__img {
+  transform:scale(1.04);
+}
+
+.tr-mosaic__caption {
+  align-items:center;
+  background:rgba(255,255,255,.92);
+  border-radius:999px;
+  bottom:.85rem;
+  color:#111;
+  display:inline-flex;
+  font-size:.875rem;
+  font-weight:700;
+  gap:.5rem;
+  left:.85rem;
+  max-width:calc(100% - 1.7rem);
+  padding:.45rem 1rem;
+  position:absolute;
+}
+
+[dir=rtl] .tr-mosaic__caption {
+  left:auto;
+  right:.85rem;
+}
+
+.tr-mosaic__caption span {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* phones */
+@media (max-width:767px) {
+  .tr-mosaic--stack {
+    grid-template-columns:minmax(0, 1fr);
+  }
+
+  .tr-mosaic--swipe {
+    align-items:start;
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+
+  .tr-mosaic--swipe::-webkit-scrollbar {
+    display:none;
+  }
+
+  .tr-mosaic--swipe .tr-mosaic__tile {
+    flex:0 0 82%;
+    scroll-snap-align:start;
+  }
+}
+
+/* desktop */
+@media (min-width:768px) {
+  .tr-mosaic--row {
+    align-items:start;
+    grid-template-columns:repeat(var(--tiles), minmax(0, 1fr));
+  }
+
+  .tr-mosaic--lead,
+  .tr-mosaic--bento {
+    grid-auto-rows:var(--mosaic-row);
+  }
+
+  .tr-mosaic--lead .tr-mosaic__img,
+  .tr-mosaic--bento .tr-mosaic__img {
+    height:100%;
+    object-fit:cover;
+  }
+
+  /* lead: the first tile is the big one on the start side */
+  .tr-mosaic--lead {
+    grid-template-columns:minmax(0, 1.6fr) repeat(2, minmax(0, 1fr));
+  }
+
+  .tr-mosaic--lead .tr-mosaic__tile:first-child {
+    grid-row:span 2;
+  }
+
+  .tr-mosaic--lead.tr-mosaic--n2 {
+    grid-auto-rows:clamp(16rem, 30vw, 28rem);
+    grid-template-columns:minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+
+  .tr-mosaic--lead.tr-mosaic--n2 .tr-mosaic__tile:first-child {
+    grid-row:auto;
+  }
+
+  .tr-mosaic--lead.tr-mosaic--n3 {
+    grid-template-columns:minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+
+  .tr-mosaic--lead.tr-mosaic--n4 .tr-mosaic__tile:last-child {
+    grid-column:span 2;
+  }
+
+  .tr-mosaic--lead.tr-mosaic--n6 .tr-mosaic__tile:last-child {
+    grid-column:1 / -1;
+  }
+
+  /* bento: 4 columns, a 2×2 tile, then smaller ones */
+  .tr-mosaic--bento {
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+  }
+
+  .tr-mosaic--bento .tr-mosaic__tile:first-child {
+    grid-column:span 2;
+    grid-row:span 2;
+  }
+
+  .tr-mosaic--bento.tr-mosaic--n4 .tr-mosaic__tile:nth-child(2) {
+    grid-column:span 2;
+  }
+
+  .tr-mosaic--bento.tr-mosaic--n6 .tr-mosaic__tile:last-child {
+    grid-column:1 / -1;
+  }
+}
+
+/* phones: lead / bento tiles keep a calm 4:3 frame */
+@media (max-width:767px) {
+  .tr-mosaic--lead.tr-mosaic--stack .tr-mosaic__img,
+  .tr-mosaic--bento.tr-mosaic--stack .tr-mosaic__img {
+    aspect-ratio:4 / 3;
+    object-fit:cover;
+  }
+
+  .tr-mosaic--bento.tr-mosaic--stack {
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .tr-mosaic--bento.tr-mosaic--stack .tr-mosaic__tile:first-child,
+  .tr-mosaic--bento.tr-mosaic--stack.tr-mosaic--n4 .tr-mosaic__tile:last-child,
+  .tr-mosaic--bento.tr-mosaic--stack.tr-mosaic--n6 .tr-mosaic__tile:last-child {
+    grid-column:1 / -1;
+  }
+}
