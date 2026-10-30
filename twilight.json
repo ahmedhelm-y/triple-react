@@ -8727,6 +8727,25 @@
                             "selected": false
                         }
                     ]
+                },
+                {
+                    "id": "custom-classes-line",
+                    "type": "static",
+                    "format": "line",
+                    "key": "b93ec424-df92-4d3b-9c4a-34ef3f80e69c"
+                },
+                {
+                    "id": "custom_classes",
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "كلاس CSS مخصص",
+                    "format": "text",
+                    "value": "",
+                    "required": false,
+                    "multilanguage": false,
+                    "description": "حقل خاص بالمطورين ومصممي المتاجر",
+                    "placeholder": "custom-class",
+                    "key": "02a4201b-7159-405d-97f4-d4913e48dbfc"
                 }
             ]
         },
@@ -10292,6 +10311,25 @@
                     "searchable": true,
                     "minLength": 1,
                     "maxLength": 10
+                },
+                {
+                    "id": "custom-classes-line",
+                    "type": "static",
+                    "format": "line",
+                    "key": "7fdfc0bc-0784-453b-9206-b9d3e061e022"
+                },
+                {
+                    "id": "custom_classes",
+                    "type": "string",
+                    "icon": "sicon-format-text-alt",
+                    "label": "كلاس CSS مخصص",
+                    "format": "text",
+                    "value": "",
+                    "required": false,
+                    "multilanguage": false,
+                    "description": "حقل خاص بالمطورين ومصممي المتاجر",
+                    "placeholder": "custom-class",
+                    "key": "63514c44-b8aa-470b-82cd-b9f4ed57a305"
                 }
             ]
         },

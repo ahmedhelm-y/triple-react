@@ -237,7 +237,8 @@ registerHomeComponentConfig({
   'featured-products-special-product': featuredProductsConfig,
   // Gray band edge to edge; the height is a card plus the heading and controls.
   blog: {
-    className: 's-block s-block--blog s-block--full-bg',
+    className: (data) =>
+      `s-block s-block--blog s-block--full-bg${data.custom_classes ? ` ${data.custom_classes}` : ''}`,
     height: 'clamp(480px, 45vw, 660px)',
   },
   'custom-testimonials': {
@@ -252,7 +253,9 @@ registerHomeComponentConfig({
     // The boxed variant (`in_container`) is capped at the container width, so
     // its skeleton must be too (home-blocks.scss) or the reservation oversizes.
     className: (data) =>
-      `s-block s-block--enhanced-slider${data.in_container ? ' s-block--enhanced-slider-boxed' : ''}`,
+      `s-block s-block--enhanced-slider${data.in_container ? ' s-block--enhanced-slider-boxed' : ''}${
+        data.custom_classes ? ` ${data.custom_classes}` : ''
+      }`,
   },
   'main-links': {
     height: '112px',
