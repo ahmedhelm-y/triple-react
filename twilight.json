@@ -1276,6 +1276,114 @@
             ]
         },
         {
+            "id": "header_topbar_enabled",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-layout-top",
+            "label": "إظهار الشريط العلوي",
+            "value": true,
+            "required": false,
+            "description": "الشريط العلوي يظهر في تخطيط الهيدر الافتراضي",
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_layout",
+                    "operation": "=",
+                    "value": "default"
+                }
+            ]
+        },
+        {
+            "id": "header_topbar_links",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-link",
+            "label": "عرض روابط الصفحات الهامة في الشريط العلوي",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_layout",
+                    "operation": "=",
+                    "value": "default"
+                }
+            ]
+        },
+        {
+            "id": "header_topbar_contacts",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-phone",
+            "label": "عرض بيانات التواصل في الشريط العلوي",
+            "value": true,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_layout",
+                    "operation": "=",
+                    "value": "default"
+                }
+            ]
+        },
+        {
+            "id": "header_topbar_bg",
+            "type": "string",
+            "format": "color",
+            "icon": "sicon-format-fill",
+            "label": "لون خلفية الشريط العلوي",
+            "value": "#0e0b1d",
+            "required": false,
+            "inputType": "color",
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_layout",
+                    "operation": "=",
+                    "value": "default"
+                }
+            ]
+        },
+        {
+            "id": "header_topbar_fg",
+            "type": "string",
+            "format": "color",
+            "icon": "sicon-format-color",
+            "label": "لون نصوص الشريط العلوي",
+            "value": "#d9d5e6",
+            "required": false,
+            "inputType": "color",
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_layout",
+                    "operation": "=",
+                    "value": "default"
+                }
+            ]
+        },
+        {
             "type": "boolean",
             "icon": "sicon-toggle-off",
             "label": "الإعلان الترويجي المتحرك",

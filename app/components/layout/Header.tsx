@@ -129,6 +129,7 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   const showSearch = hs?.header_search_enabled !== false;
   const showCart = hs?.header_cart_enabled !== false;
   const iconsSize = ((hs?.header_icons_size as string) || 'md').toLowerCase();
+  const topbarEnabled = hs?.header_topbar_enabled !== false;
   const logoWidth = Number(hs?.header_logo_width) || 140;
   const logoHeight = Number(hs?.header_logo_height) || 48;
   const [navOpenState, setNavOpenState] = useState(false);
@@ -221,7 +222,7 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
       <div className="site-header__bullet lg:hidden">
         <salla-bullet-delivery-tag data-testid="store-header-bullet-delivery-mobile" />
       </div>
-      {isDefaultLayout ? (
+      {isDefaultLayout && topbarEnabled ? (
         <HeaderTopnav />
       ) : (
         <div className="site-header__bullet site-header__bullet--desktop hidden lg:block">

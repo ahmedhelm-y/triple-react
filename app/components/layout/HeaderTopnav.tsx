@@ -75,7 +75,19 @@ function TopnavContacts({ phone, email }: { phone?: string; email?: string }) {
  */
 export function HeaderTopnav() {
   const { t, languageName } = useTranslation();
-  const { store, currency } = useTwilight();
+  const { store, currency, theme } = useTwilight();
+
+  // Top-bar options (panel_header): show/hide the links + contacts and recolour
+  // the bar. Each shows unless explicitly turned off.
+  const ts = theme?.settings as Record<string, unknown> | undefined;
+  const showLinks = ts?.header_topbar_links !== false;
+  const showContacts = ts?.header_topbar_contacts !== false;
+  const topbarBg = (ts?.header_topbar_bg as string) || undefined;
+  const topbarFg = (ts?.header_topbar_fg as string) || undefined;
+  const topbarStyle =
+    topbarBg || topbarFg
+      ? ({ backgroundColor: topbarBg, color: topbarFg } as const)
+      : undefined;
 
   const currencyLabel = currency?.name || currency?.symbol || currency?.code || 'SAR';
   const scopeLabel = store?.scope?.name || t('blocks.header.branches', 'Branches');
@@ -102,14 +114,18 @@ export function HeaderTopnav() {
   ];
 
   return (
-    <div className="site-header__topnav">
+    <div className="site-header__topnav" style={topbarStyle}>
       <div className="container site-header__topnav-inner">
-        <SallaMenu
-          source="footer"
-          topnav
-          className="site-header__topnav-menu"
-          suppressHydrationWarning
-        />
+        {showLinks ? (
+          <SallaMenu
+            source="footer"
+            topnav
+            className="site-header__topnav-menu"
+            suppressHydrationWarning
+          />
+        ) : (
+          <span />
+        )}
 
         <div className="site-header__topnav-actions">
           <salla-bullet-delivery-tag data-testid="store-header-bullet-delivery-desktop" />
@@ -123,7 +139,9 @@ export function HeaderTopnav() {
                 onClick={() => openStoreSwitcher(action.key)}
               />
             ))}
-          <TopnavContacts phone={store?.contacts?.phone} email={store?.contacts?.email} />
+          {showContacts && (
+            <TopnavContacts phone={store?.contacts?.phone} email={store?.contacts?.email} />
+          )}
         </div>
       </div>
     </div>
