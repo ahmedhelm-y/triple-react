@@ -49,7 +49,7 @@
             "icon": "sicon-toggle-off",
             "label": "الإعدادات العامة",
             "description": null,
-            "id": "section_general",
+            "id": "panel_general",
             "format": "switch",
             "required": false,
             "value": false,
@@ -66,7 +66,7 @@
             "key": "b6f7a8d3-1cf9-4ce7-b2d9-c2f28d0a08a9",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 }
@@ -83,7 +83,7 @@
             "key": "2117455f-e0d6-494c-8941-01815be32484",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 }
@@ -99,7 +99,7 @@
             "key": "2c224045-f224-443e-8694-1b5770752df7",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 }
@@ -115,7 +115,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">خطوط المتجر</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 }
@@ -138,7 +138,7 @@
             "key": "82f5f027-54b5-4008-85bd-5f95cabb9afe",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 }
@@ -160,7 +160,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 },
@@ -188,7 +188,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:8px; direction:rtl; padding:8px 10px; border-radius:8px; background:rgba(142,240,18,.08);\"><span style=\"flex:none; margin-top:1px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 3.5l9 15.5H3l9-15.5z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M12 10v4M12 17h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.6; color:#2F5204;\">في حال وجود مسافات في اسم الخط يجب استبداله ب علامة ال +</span></div>",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 },
@@ -218,7 +218,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">صفحات العميل</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 }
@@ -242,7 +242,7 @@
             "key": "d5cd93cb-67a1-4b3c-a2b8-e605d4cfe700",
             "conditions": [
                 {
-                    "id": "section_general",
+                    "id": "panel_general",
                     "operation": "=",
                     "value": true
                 }
@@ -253,7 +253,7 @@
             "icon": "sicon-toggle-off",
             "label": "ألوان المتجر والوضع الداكن",
             "description": null,
-            "id": "section_colors",
+            "id": "panel_colors",
             "format": "switch",
             "required": false,
             "value": false,
@@ -278,7 +278,7 @@
             "key": "e7d2859e-943c-41c1-8ced-d98dffead5b3",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -323,7 +323,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -354,7 +354,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:8px; direction:rtl; padding:8px 10px; border-radius:8px; background:rgba(142,240,18,.08);\"><span style=\"flex:none; margin-top:1px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 3.5l9 15.5H3l9-15.5z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M12 10v4M12 17h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.6; color:#2F5204;\">* تنبيه: يجب تعطيل هذا الخيار في حال الرغبة في تفعيل زر الوضع الداكن للعملاء</span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -377,7 +377,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">ألوان الوضع الفاتح</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -399,7 +399,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -428,7 +428,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -457,7 +457,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">العناوين واسماء المنتجات والتصنيفات وخلافه من النصوص الرئيسية</span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -486,7 +486,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">العناوين الفرعية للمنتجات ومكونات الصفحة الرئيسية .. إلخ</span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -517,7 +517,7 @@
             "key": "0a505cb7-50d9-4004-aff8-6e828737434c",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -539,7 +539,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -568,7 +568,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -599,7 +599,7 @@
             "key": "a43e485c-9583-4b6f-8339-e8ff82a1b1c9",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -623,7 +623,7 @@
             "key": "1a495a59-7539-43ae-a413-133d7e8cdeda",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -639,7 +639,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">ألوان الوضع الداكن</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -663,7 +663,7 @@
             "key": "d2ca0893-8ab3-4765-8131-504bd2e5fe6e",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -687,7 +687,7 @@
             "key": "2c657bbd-09b3-4c3b-841f-d623758f7a28",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -711,7 +711,7 @@
             "key": "16a516e8-974c-4f1e-b94c-74e954e74c75",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -735,7 +735,7 @@
             "key": "97b182d6-0e7e-4c17-b5c8-77f6c67c5b56",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -759,7 +759,7 @@
             "key": "351adee4-c78c-40bc-93e9-8ece9ecb31ce",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -783,7 +783,7 @@
             "key": "51427819-520f-4b51-9187-c08cd6171bee",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -807,7 +807,7 @@
             "key": "6f86034c-95a6-40d9-9547-3f3c8957fd4a",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -831,7 +831,7 @@
             "key": "9223cb8b-50d6-4fff-b9d2-7b9fc06ee471",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -855,7 +855,7 @@
             "key": "a53973c6-2a99-43ab-adad-2369bbcc2f67",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -879,7 +879,7 @@
             "key": "0a4ff6ac-754b-4aa7-b4c2-d51ab8999358",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -895,7 +895,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">خلفية المتجر (باترن)</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -918,7 +918,7 @@
             "key": "afc8a65d-bb0e-4e90-9342-8c06dd89e272",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 }
@@ -939,7 +939,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M9.5 18h5M10 21.5h4M12 2.5a6.5 6.5 0 00-3.8 11.8c.5.4.8 1 .8 1.6V17h6v-1.1c0-.6.3-1.2.8-1.6A6.5 6.5 0 0012 2.5z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">ملاحظة: يفضل ان تكون شفافة وقابلة للتكرار</span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -969,7 +969,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">القيمة الافتراضية هي 0.5 - حيث 0 تعني شفاف تماما و 1 تعني غير شفاف</span></div>",
             "conditions": [
                 {
-                    "id": "section_colors",
+                    "id": "panel_colors",
                     "operation": "=",
                     "value": true
                 },
@@ -1116,7 +1116,7 @@
             "icon": "sicon-toggle-off",
             "label": "الإعلان الترويجي المتحرك",
             "description": null,
-            "id": "section_promo",
+            "id": "panel_promo",
             "format": "switch",
             "required": false,
             "value": false,
@@ -1144,7 +1144,7 @@
             "key": "e5f0e393-59b1-46cb-9674-07129c312bf3",
             "conditions": [
                 {
-                    "id": "section_promo",
+                    "id": "panel_promo",
                     "operation": "=",
                     "value": true
                 }
@@ -1171,7 +1171,7 @@
             "key": "bcdcc9d9-6681-4313-9147-8c759021a080",
             "conditions": [
                 {
-                    "id": "section_promo",
+                    "id": "panel_promo",
                     "operation": "=",
                     "value": true
                 }
@@ -1195,7 +1195,7 @@
             "key": "244bfd65-39df-4923-8923-624ac06a976f",
             "conditions": [
                 {
-                    "id": "section_promo",
+                    "id": "panel_promo",
                     "operation": "=",
                     "value": true
                 }
@@ -1219,7 +1219,7 @@
             "key": "cab27a35-0260-4436-a546-2dfa782ca188",
             "conditions": [
                 {
-                    "id": "section_promo",
+                    "id": "panel_promo",
                     "operation": "=",
                     "value": true
                 }
@@ -1243,7 +1243,7 @@
             "key": "b8a94935-9389-4cad-9c5a-72bd067361b7",
             "conditions": [
                 {
-                    "id": "section_promo",
+                    "id": "panel_promo",
                     "operation": "=",
                     "value": true
                 }
@@ -1267,7 +1267,7 @@
             "key": "2961721b-938d-4813-8363-fdf69897b413",
             "conditions": [
                 {
-                    "id": "section_promo",
+                    "id": "panel_promo",
                     "operation": "=",
                     "value": true
                 }
@@ -1278,7 +1278,7 @@
             "icon": "sicon-toggle-off",
             "label": "خيارات الصفحة الرئيسية",
             "description": null,
-            "id": "section_home",
+            "id": "panel_home",
             "format": "switch",
             "required": false,
             "value": false,
@@ -1303,7 +1303,7 @@
             "key": "55f10cbb-5025-462c-a6f8-46f536ca4322",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -1327,7 +1327,7 @@
             "key": "de371ea8-0423-4ef5-939a-3e40d89083fc",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -1345,7 +1345,7 @@
             "key": "ee4892d0-245b-463f-b7b9-1cf92632bba4",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -1361,7 +1361,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">عناوين العناصر</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -1380,7 +1380,7 @@
             "key": "0c03e765-4ba2-41ce-8f6c-28112b0e4c21",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -1404,7 +1404,7 @@
             "key": "fbc1d290-0c5f-472d-9c9b-383f7923cec6",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -1520,7 +1520,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">من هنا تختار شكل الزخرفة تحت عناوين الصفحة الرئيسية، والأشكال المكتوب جنبها (متحرك) راح تتحرك لحالها تلقائي.</span></div>",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1547,7 +1547,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1576,7 +1576,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1605,7 +1605,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1634,7 +1634,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1663,7 +1663,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1692,7 +1692,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1721,7 +1721,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1750,7 +1750,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1779,7 +1779,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1808,7 +1808,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1837,7 +1837,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1866,7 +1866,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1895,7 +1895,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1924,7 +1924,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1953,7 +1953,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -1982,7 +1982,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -2011,7 +2011,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -2041,7 +2041,7 @@
             "key": "455d30ff-fc6e-402c-b5db-b546eb19c307",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2065,7 +2065,7 @@
             "key": "f33d8c51-666c-42c2-873f-b6e357c67dcc",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2081,7 +2081,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">المنتجات المتحركة</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2105,7 +2105,7 @@
             "key": "77241b62-9351-4674-89ae-a62f8e57d0c0",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2127,7 +2127,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 },
@@ -2157,7 +2157,7 @@
             "key": "56d3ddfb-80db-4a37-a4ad-c9e042b8793a",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2173,7 +2173,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">آراء العملاء</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2197,7 +2197,7 @@
             "key": "9b96b9cc-5a86-4c71-8703-fdd07c0a298e",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2213,7 +2213,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">الصور المربعة</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2250,7 +2250,7 @@
             "required": true,
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2269,7 +2269,7 @@
             "selected": false,
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2287,7 +2287,7 @@
             "selected": false,
             "conditions": [
                 {
-                    "id": "section_home",
+                    "id": "panel_home",
                     "operation": "=",
                     "value": true
                 }
@@ -2300,7 +2300,7 @@
             "icon": "sicon-toggle-off",
             "label": "خيارات بطاقة المنتج",
             "description": null,
-            "id": "section_product_card",
+            "id": "panel_product_card",
             "format": "switch",
             "required": false,
             "value": false,
@@ -2321,7 +2321,7 @@
             "key": "f362bcf8-9d53-4471-a71d-5cd05fe712d9",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2347,7 +2347,7 @@
             "key": "1ad937de-0b88-4c9b-851c-12dc84aca024",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2378,7 +2378,7 @@
             "key": "10d3ef75-0c30-4fa3-b6a4-2c0a94bede22",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2407,7 +2407,7 @@
             "key": "a3164d86-23b3-4267-aa04-82ff88620e2c",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2431,7 +2431,7 @@
             "key": "4151deb6-49ef-4d24-8ac6-2aa3c3e66335",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2460,7 +2460,7 @@
             "key": "dc1d3f78-f739-4c3b-920c-d36a9bf57137",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2484,7 +2484,7 @@
             "key": "12834528-ffd4-4f7e-93f1-338f55b5dbec",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2507,7 +2507,7 @@
             "key": "2a64d50f-ad36-4f75-9f40-68abd59994d0",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2527,7 +2527,7 @@
             "key": "88121d41-a7bb-401c-bc9f-03897d365ea0",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2549,7 +2549,7 @@
             "key": "1c3a84d1-2bdb-41d3-a246-fdea1ce01907",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2578,7 +2578,7 @@
             "key": "cdb27f2f-fe47-46cc-a401-917b76b51d3f",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2602,7 +2602,7 @@
             "key": "f3c5e483-60bc-49e8-9d12-bee7dfdf98ba",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2622,7 +2622,7 @@
             "key": "fd6c5330-1bcc-4b22-80de-423ae35f00ff",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2676,7 +2676,7 @@
             "key": "a97d9abf-0ad1-4588-ad4e-51da1b51f0d5",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2703,7 +2703,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2744,7 +2744,7 @@
             "key": "32747c59-b211-4ff0-8bab-029ca1f9992f",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2771,7 +2771,7 @@
             "key": "af7cf95e-2716-4e87-b3ab-e35fe104871f",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2794,7 +2794,7 @@
             "selected": true,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2813,7 +2813,7 @@
             "selected": false,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2838,7 +2838,7 @@
             "key": "febceec4-60f5-4bac-892a-70352382d552",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2858,7 +2858,7 @@
             "key": "a2f8a55b-63c8-4b2f-976a-fd6bd2338702",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -2882,7 +2882,7 @@
             "key": "1f08a8b6-5eb5-4313-af08-33d116aa8a3a",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2909,7 +2909,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2943,7 +2943,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -2977,7 +2977,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3006,7 +3006,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3038,7 +3038,7 @@
             "key": "bcc7f5a4-aca8-487a-b790-f8226c859b56",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3062,7 +3062,7 @@
             "key": "26bd7cab-d45b-4253-be08-1d905fe3d90d",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3084,7 +3084,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3113,7 +3113,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3142,7 +3142,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3171,7 +3171,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3201,7 +3201,7 @@
             "key": "a0422674-8e96-412b-a66e-197a2a33e7b8",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3223,7 +3223,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3257,7 +3257,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3291,7 +3291,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3332,7 +3332,7 @@
             "key": "3b64e39b-a0e5-4b5e-bfab-4a6b4788a9b5",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3352,7 +3352,7 @@
             "key": "7edb2607-a69e-4ff6-a2b2-cacf66b97a07",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3376,7 +3376,7 @@
             "key": "e2d2d830-33d2-4b66-a742-37751978b2ca",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3404,7 +3404,7 @@
             "key": "633531ea-9d30-41c1-8eff-7ad7fd2d804e",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3430,7 +3430,7 @@
             "selected": false,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 },
@@ -3466,7 +3466,7 @@
             "key": "1e8732e9-f7e9-4e66-b851-a145c1ad4c1b",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3486,7 +3486,7 @@
             "key": "240bb60d-1f09-45cf-9b77-3384789a5690",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3510,7 +3510,7 @@
             "key": "559fd79d-c767-4e81-895e-da1e9dd8a99a",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3526,7 +3526,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">البطاقة الكلاسيكية</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3544,7 +3544,7 @@
             "selected": false,
             "conditions": [
                 {
-                    "id": "section_product_card",
+                    "id": "panel_product_card",
                     "operation": "=",
                     "value": true
                 }
@@ -3556,7 +3556,7 @@
             "icon": "sicon-toggle-off",
             "label": "خيارات صفحة المنتج",
             "description": null,
-            "id": "section_product",
+            "id": "panel_product",
             "format": "switch",
             "required": false,
             "value": false,
@@ -3573,7 +3573,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">شكل خيارات المنتج</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3590,7 +3590,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -3613,7 +3613,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -3642,7 +3642,7 @@
             "key": "90d11efd-1066-4d2a-9085-4f3b787e2bcc",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3659,7 +3659,7 @@
             "key": "30f64e1e-16cf-4cf1-8226-e3a91203272f",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3676,7 +3676,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -3699,7 +3699,7 @@
             ],
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -3728,7 +3728,7 @@
             "key": "0c14cfb5-2037-492f-9565-a59f016c9cda",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3744,7 +3744,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">صور المنتج</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3796,7 +3796,7 @@
             "key": "a673667b-c685-4bf2-9b03-ffd4a1c93b49",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3820,7 +3820,7 @@
             "key": "25e76ffb-de8a-43fd-b906-b9c9b3dad803",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3844,7 +3844,7 @@
             "key": "17fd78eb-7e7b-4dc0-84d8-3f239a8620c6",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3868,7 +3868,7 @@
             "key": "69925b3c-1dc5-44c3-87a0-cc4d74fdd933",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3892,7 +3892,7 @@
             "key": "364d9542-7e02-4cfa-82da-4b036daa798a",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3908,7 +3908,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">السعر والعروض</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3932,7 +3932,7 @@
             "description": null,
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3956,7 +3956,7 @@
             "description": "في حالة تعطيل هذا الخيار سيتم تحديث السعر السفلي فقط عند تغيير كمية المنتج او الخيارات",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -3980,7 +3980,7 @@
             "key": "838f2672-d02e-4f67-a742-0fc334359ca0",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4004,7 +4004,7 @@
             "key": "c57f1638-27f4-4606-9ee3-f98c5a72e569",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4028,7 +4028,7 @@
             "key": "04965983-47c9-4afd-a678-628784d10e2f",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4052,7 +4052,7 @@
             "key": "ccd26a30-7160-45cf-887b-96fb67f8cf56",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4076,7 +4076,7 @@
             "key": "911c3f62-de6c-4c25-b2a8-f547011034c8",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4100,7 +4100,7 @@
             "key": "b0554146-18e6-4ec6-8a53-e85b9ed4d1ed",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4116,7 +4116,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">تفاصيل المنتج</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4139,7 +4139,7 @@
             "key": "7abb6950-9607-4215-8d37-77287f97cd87",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4163,7 +4163,7 @@
             "key": "c6ffb06c-c685-4c6a-91f9-62f44c1e945c",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4187,7 +4187,7 @@
             "key": "1c244d79-e933-4c04-bd36-56311cd78286",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4211,7 +4211,7 @@
             "minLength": 0,
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -4243,7 +4243,7 @@
             "key": "62dffcf3-221b-4392-8a0a-9f26a0051225",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4267,7 +4267,7 @@
             "key": "3b7978c4-55d5-499c-80ff-df15b937f4a9",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4289,7 +4289,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -4320,7 +4320,7 @@
             "key": "abc26509-114a-41b7-a6b5-5ffb5839815c",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4344,7 +4344,7 @@
             "key": "5f0bcc19-eaaf-499b-aa8d-68a4849de08e",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4368,7 +4368,7 @@
             "key": "46af2083-7f1a-4f92-b77c-b38a4660a3df",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4384,7 +4384,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">الإضافة للسلة</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4407,7 +4407,7 @@
             "key": "44783359-330c-4822-a2e2-f799583e892c",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4431,7 +4431,7 @@
             "key": "0da5aa68-07e6-4f0c-a2a4-82cf4ea96dae",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4454,7 +4454,7 @@
             "key": "63028339-bcce-42a3-8cee-621750b13943",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4470,7 +4470,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">مميزات المتجر والقائمة الجانبية</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4494,7 +4494,7 @@
             "key": "d8880ca5-2edc-446d-a24f-369af5372216",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4548,7 +4548,7 @@
             "minLength": "0",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -4580,7 +4580,7 @@
             "key": "83f4a305-ea33-4a66-91a5-aee51dfa1591",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 }
@@ -4650,7 +4650,7 @@
             "minLength": "0",
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -4682,7 +4682,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_product",
+                    "id": "panel_product",
                     "operation": "=",
                     "value": true
                 },
@@ -4702,7 +4702,7 @@
             "icon": "sicon-toggle-off",
             "label": "خيارات صفحات التصنيفات",
             "description": null,
-            "id": "section_categories",
+            "id": "panel_categories",
             "format": "switch",
             "required": false,
             "value": false,
@@ -4727,7 +4727,7 @@
             "key": "ae0195e5-8c5f-4173-9762-48ec2abfa6c9",
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 }
@@ -4751,7 +4751,7 @@
             "key": "6f4b347e-bdeb-439e-9343-f250083976dd",
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 }
@@ -4775,7 +4775,7 @@
             "key": "7425a904-5fc6-49a9-8ad5-96256377df08",
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 }
@@ -4796,7 +4796,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 },
@@ -4825,7 +4825,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 },
@@ -4857,7 +4857,7 @@
             "minLength": 0,
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 },
@@ -5146,7 +5146,7 @@
             "minLength": "1",
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 },
@@ -5178,7 +5178,7 @@
             "key": "45227152-e999-4e5e-8ab2-f43693a51f29",
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 }
@@ -5200,7 +5200,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 },
@@ -5228,7 +5228,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_categories",
+                    "id": "panel_categories",
                     "operation": "=",
                     "value": true
                 },
@@ -5246,7 +5246,7 @@
             "icon": "sicon-toggle-off",
             "label": "خيارات السلة",
             "description": null,
-            "id": "section_cart",
+            "id": "panel_cart",
             "format": "switch",
             "required": false,
             "value": false,
@@ -5266,7 +5266,7 @@
             "key": "866d639e-0864-4421-9d78-9e5851a97934",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5289,7 +5289,7 @@
             "key": "d6f85529-9e60-486d-b6de-298ca4faa79b",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5311,7 +5311,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 },
@@ -5340,7 +5340,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 },
@@ -5369,7 +5369,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 },
@@ -5398,7 +5398,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 },
@@ -5424,7 +5424,7 @@
             "key": "78ecccda-c0f5-4f28-a5f3-f3c8303ed366",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5440,7 +5440,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">صفحة السلة</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5464,7 +5464,7 @@
             "key": "03da3838-6a44-42ce-a44c-8b9746497fe2",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5488,7 +5488,7 @@
             "key": "be5ef680-9c7c-4dc1-9cc7-cc4646883089",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5509,7 +5509,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 },
@@ -5541,7 +5541,7 @@
             "minLength": 0,
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 },
@@ -5573,7 +5573,7 @@
             "key": "7183041e-1006-4466-9913-6c6fc92298b5",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5598,7 +5598,7 @@
             "key": "4c86cb2c-0765-4a87-b5f9-6ed7f422ce1f",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5625,7 +5625,7 @@
             "key": "e5d8fe85-d122-45cd-99cf-8ffd62eb720d",
             "conditions": [
                 {
-                    "id": "section_cart",
+                    "id": "panel_cart",
                     "operation": "=",
                     "value": true
                 }
@@ -5636,7 +5636,7 @@
             "icon": "sicon-toggle-off",
             "label": "خيارات أسفل الصفحة (الفوتر)",
             "description": null,
-            "id": "section_footer",
+            "id": "panel_footer",
             "format": "switch",
             "required": false,
             "value": false,
@@ -5657,7 +5657,7 @@
             "key": "b9594acf-9606-4744-9971-aba3e3215860",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -5680,7 +5680,7 @@
             "key": "6a695529-e5c3-4889-a6cb-573ce2f9b4f8",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -5702,7 +5702,7 @@
             "key": "1cd2b9b1-bb73-4413-9756-14cb9ddc3e18",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -5726,7 +5726,7 @@
             "key": "7e96720f-aca3-4f87-8800-7a0e1736a97d",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -5748,7 +5748,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -5777,7 +5777,7 @@
             "key": "bcfc71ce-dff3-45d0-bb92-ab07cbbb9c00",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -5814,7 +5814,7 @@
             "minLength": "0",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -5842,7 +5842,7 @@
             "key": "f2e3a330-856a-4893-8b87-8f7d93289b37",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -5865,7 +5865,7 @@
             "key": "4f9b8a79-ac08-48aa-ac7b-518a6b22e931",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -5887,7 +5887,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -5916,7 +5916,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -5945,7 +5945,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -5974,7 +5974,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -6001,7 +6001,7 @@
             "key": "b5db760b-a93b-4b3b-8329-b21d2f6a726a",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6024,7 +6024,7 @@
             "key": "3545550b-a1d7-473c-b00e-e095ba9e0aaa",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6046,7 +6046,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -6075,7 +6075,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -6104,7 +6104,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -6131,7 +6131,7 @@
             "key": "8cc30293-a296-4b11-964c-ff8021b3bbe1",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6154,7 +6154,7 @@
             "key": "af662206-2d8b-4ccb-bbd2-a1892dba11a8",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6177,7 +6177,7 @@
             "key": "8d904419-7b87-4c27-9dd6-a6f9fe51f1a0",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6200,7 +6200,7 @@
             "key": "e3085a53-9379-413e-97ab-ec2b0f673eb7",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6223,7 +6223,7 @@
             "key": "74db3ed8-9fd5-423a-b107-d3ad3fa377b7",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6246,7 +6246,7 @@
             "key": "45901d7e-3668-4c9a-97b7-dd538d0b33f4",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6269,7 +6269,7 @@
             "key": "b270ecc2-82d9-4c00-9989-ccf5e1a13f9f",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6292,7 +6292,7 @@
             "key": "8754fd00-f29e-4a6f-af9d-16ec09a67c79",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6312,7 +6312,7 @@
             "key": "446ca641-5800-46eb-85f0-fff16f7089e6",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6335,7 +6335,7 @@
             "key": "ea966aba-2016-4ed5-915c-508f39595ffc",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6355,7 +6355,7 @@
             "required": false,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -6384,7 +6384,7 @@
             "required": false,
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 },
@@ -6412,7 +6412,7 @@
             "key": "b7a0df35-3a3a-4596-800a-98de93f09b7e",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6434,7 +6434,7 @@
             "key": "e2c763cb-851b-4faa-ba5c-eaa6246ddad1",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6456,7 +6456,7 @@
             "key": "d4a16650-2f27-41df-9f36-64aabb9c2b8d",
             "conditions": [
                 {
-                    "id": "section_footer",
+                    "id": "panel_footer",
                     "operation": "=",
                     "value": true
                 }
@@ -6467,7 +6467,7 @@
             "icon": "sicon-toggle-off",
             "label": "نافذة الخصم",
             "description": null,
-            "id": "section_popup",
+            "id": "panel_popup",
             "format": "switch",
             "required": false,
             "value": false,
@@ -6491,7 +6491,7 @@
             "key": "ec9a1e67-fcf3-4715-911e-41f995a0a3a0",
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 }
@@ -6511,7 +6511,7 @@
             "required": false,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6539,7 +6539,7 @@
             "selected": false,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6591,7 +6591,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6626,7 +6626,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6656,7 +6656,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6686,7 +6686,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6718,7 +6718,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6748,7 +6748,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:8px; direction:rtl; padding:8px 10px; border-radius:8px; background:rgba(142,240,18,.08);\"><span style=\"flex:none; margin-top:1px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 3.5l9 15.5H3l9-15.5z\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\"/><path d=\"M12 10v4M12 17h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.6; color:#2F5204;\">في حال تفعيل هذا الخيار سيتم عرض النافذة مرة واحدة فقط, لكي تظهر مرة اخرى يجب عليك حذف بيانات التصفح من متصفحك</span></div>",
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6776,7 +6776,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6807,7 +6807,7 @@
             "minLength": "0",
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6842,7 +6842,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6889,7 +6889,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6927,7 +6927,7 @@
             "minLength": 0,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6963,7 +6963,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -6997,7 +6997,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_popup",
+                    "id": "panel_popup",
                     "operation": "=",
                     "value": true
                 },
@@ -7020,7 +7020,7 @@
             "icon": "sicon-toggle-off",
             "label": "صفحة التحميل",
             "description": null,
-            "id": "section_loading",
+            "id": "panel_loading",
             "format": "switch",
             "required": false,
             "value": false,
@@ -7044,7 +7044,7 @@
             "key": "79a4364e-7b9b-4ed0-a986-9d5289282f09",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 }
@@ -7065,7 +7065,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">اقصى عرض مقبول هو 300 بيكسل</span></div>",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7093,7 +7093,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">اقصى طول مقبول هو 120 بيكسل</span></div>",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7144,7 +7144,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7175,7 +7175,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7203,7 +7203,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">في حالة عدم رفع شعار هنا سيتم عرض شعار المتجر الاساسي</span></div>",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7238,7 +7238,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7267,7 +7267,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7296,7 +7296,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7330,7 +7330,7 @@
             "labelHTML": "",
             "conditions": [
                 {
-                    "id": "section_loading",
+                    "id": "panel_loading",
                     "operation": "=",
                     "value": true
                 },
@@ -7348,7 +7348,7 @@
             "icon": "sicon-toggle-off",
             "label": "الأزرار العائمة",
             "description": null,
-            "id": "section_floating",
+            "id": "panel_floating",
             "format": "switch",
             "required": false,
             "value": false,
@@ -7365,7 +7365,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">زر واتساب</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 }
@@ -7388,7 +7388,7 @@
             "key": "7fa965e7-5fd6-4574-9f72-ae286910a3f1",
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 }
@@ -7411,7 +7411,7 @@
             "minLength": 0,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7442,7 +7442,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7471,7 +7471,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7501,7 +7501,7 @@
             "minLength": 0,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7532,7 +7532,7 @@
             "labelHTML": "<div style=\"display:flex; align-items:flex-start; gap:7px; direction:rtl; padding:3px 1px;\"><span style=\"flex:none; margin-top:2px; color:#4E8A06;\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M12 11v5M12 8h.01\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><span style=\"font-size:11.5px; line-height:1.65; \">في حال تفعيل هذه الميزة سيتم اضافة رسالة جاهزة عندما يضغط العميل على الزر مع رابط المنتج اذا تم الضغط على الزر من صفحة منتج ورابط الطلب ورقمه في حالة الفتح من صفحة الطلب</span></div>",
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7584,7 +7584,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7609,7 +7609,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">زر الجوال</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 }
@@ -7632,7 +7632,7 @@
             "key": "99f05115-b893-4a98-b4bb-9db3b83ed992",
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 }
@@ -7655,7 +7655,7 @@
             "minLength": 0,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7685,7 +7685,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7714,7 +7714,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },
@@ -7737,7 +7737,7 @@
             "value": "<div style=\"display:flex; align-items:center; gap:10px; direction:rtl; margin:10px 0 2px;\"><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span><span style=\"font-size:12.5px; font-weight:700; color:#4E8A06; white-space:nowrap;\">زر الرجوع للأعلى</span><span style=\"flex:1; height:1px; background:rgba(142,240,18,.45);\"></span></div>",
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 }
@@ -7760,7 +7760,7 @@
             "key": "33a0f6fd-c11c-4732-832a-73fa343b8df2",
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 }
@@ -7805,7 +7805,7 @@
             "labelHTML": null,
             "conditions": [
                 {
-                    "id": "section_floating",
+                    "id": "panel_floating",
                     "operation": "=",
                     "value": true
                 },

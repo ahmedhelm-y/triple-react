@@ -29,7 +29,7 @@ function readSectionLabels(root: string): string[] {
   try {
     const tw = JSON.parse(fs.readFileSync(path.join(root, 'twilight.json'), 'utf8'));
     return (tw.settings ?? [])
-      .filter((s: { id?: string }) => typeof s.id === 'string' && s.id.startsWith('section_'))
+      .filter((s: { id?: string }) => typeof s.id === 'string' && s.id.startsWith('panel_'))
       .map((s: { label?: unknown }) =>
         typeof s.label === 'string' ? s.label : ((s.label as { ar?: string })?.ar ?? '')
       )
