@@ -1,10 +1,10 @@
-import { memo, useRef } from 'react';
+import { memo, useMemo, useRef } from 'react';
 import { Link, Image } from '@salla.sa/twilight-theme-engine/common';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { ScrollCarousel } from '../common';
 import { parseSlideVideo } from '../../lib/slideVideo';
 import { useMotionAllowed } from '../../hooks/useMotionAllowed';
-import { SlideVideo, useSlideVideos, type SliderBanner } from './EnhancedSlider';
+import { SlideVideo, useSlideVideos, normalizeSlides, type SliderBanner } from './EnhancedSlider';
 
 export interface PhotosSliderWithTextProps {
   data: {
@@ -72,8 +72,14 @@ function SlideCard({
 export const PhotosSliderWithText = memo(function PhotosSliderWithText({
   data,
 }: PhotosSliderWithTextProps) {
-  const { t } = useTranslation();
-  const slides = data.slides || [];
+  const { t, i18n } = useTranslation();
+  // Slides arrive with prefixed keys / `{ ar, en }` text in the editor + preview
+  // (same as EnhancedSlider); normalize to plain, localized values.
+  const rawSlides = data.slides || [];
+  const slides = useMemo(
+    () => normalizeSlides(rawSlides, i18n.language),
+    [rawSlides, i18n.language]
+  );
   const root = useRef<HTMLDivElement>(null);
   const motionAllowed = useMotionAllowed();
   useSlideVideos(

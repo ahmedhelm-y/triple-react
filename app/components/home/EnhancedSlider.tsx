@@ -235,7 +235,7 @@ function SlideText({ slide, poster }: { slide: SliderBanner; poster?: boolean })
  * clean {@link SliderBanner} so the render reads plain, localized values — mirrors
  * `AdvancedSlider`'s `collectionField(s, 'slides', …)` handling.
  */
-function normalizeSlides(raw: SliderBanner[], lang: string): SliderBanner[] {
+export function normalizeSlides(raw: SliderBanner[], lang: string): SliderBanner[] {
   const cf = (s: SliderBanner, key: string) =>
     collectionField(s as Record<string, unknown>, 'slides', key);
   const text = (s: SliderBanner, key: string) => pickLang(cf(s, key) as MultiLang, lang) || undefined;

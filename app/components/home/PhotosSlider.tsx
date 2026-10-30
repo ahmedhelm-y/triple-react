@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { Link, Image } from '@salla.sa/twilight-theme-engine/common';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { ScrollCarousel } from '../common';
+import { collectionField, asUrl } from '../../lib/homeBlockData';
 
 interface PhotoItem {
   id?: string | number;
@@ -27,7 +28,15 @@ export interface PhotosSliderProps {
  */
 export const PhotosSlider = memo(function PhotosSlider({ data }: PhotosSliderProps) {
   const { t } = useTranslation();
-  const items = data.items || [];
+  // Items arrive with bare (`image`) or prefixed (`items.image`) keys and the
+  // url may be a `{ ar, en }` / link object — resolve both (image is a plain URL).
+  const items = (data.items || []).map((item) => ({
+    id: item.id,
+    image: collectionField(item as Record<string, unknown>, 'items', 'image') as
+      | string
+      | undefined,
+    url: asUrl(collectionField(item as Record<string, unknown>, 'items', 'url')),
+  }));
 
   if (!items.length) return null;
 

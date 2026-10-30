@@ -4,6 +4,7 @@ import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { product, type ProductsListSource } from '@salla.sa/twilight-theme-engine/api/product';
 import { ProductCard } from '../product';
 import { SallaProductsList, ProductsListSkeleton } from '@salla.sa/twilight-components-react';
+import { pickLang, type MultiLang } from '../../lib/homeBlockData';
 
 /**
  * `featured-products` home block — a theme-owned custom component (declared in
@@ -207,7 +208,7 @@ export function FeaturedProducts({
   /** Set by the single-layout blocks; otherwise the layout comes from `data.show_method`. */
   showMethod?: FeaturedProductsShowMethod;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const sections = useMemo(() => (Array.isArray(data.items) ? data.items : []), [data.items]);
   const [active, setActive] = useState('0');
 
@@ -242,10 +243,13 @@ export function FeaturedProducts({
     data.main_product && typeof data.main_product === 'object' && 'title' in data.main_product
       ? (data.main_product as { title?: string }).title
       : '';
-  const heading =
-    mainTitle ||
-    (showMethod === 'special_offer_with_products' ? data.main_product_title : '') ||
-    data.title;
+  // Any of these may arrive as `{ ar, en }` in the editor — resolve the chosen one.
+  const heading = pickLang(
+    (mainTitle ||
+      (showMethod === 'special_offer_with_products' ? data.main_product_title : '') ||
+      data.title) as MultiLang,
+    i18n.language
+  );
   // 2×2 beside the special product; otherwise two full rows of five.
   const perTab = hasSpecial ? 4 : 10;
   const triggers = hasTabs && (

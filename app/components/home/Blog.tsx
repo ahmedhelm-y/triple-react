@@ -6,6 +6,7 @@ import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { blog } from '@salla.sa/twilight-theme-engine/api/blog';
 import { ScrollCarousel } from '../common';
 import { CalendarIcon, UserIcon } from '../icons';
+import { pickLang, type MultiLang } from '../../lib/homeBlockData';
 import {
   blogArticleAuthor,
   blogArticleExcerpt,
@@ -89,7 +90,7 @@ function ArticleCard({ article }: { article: BlogArticleData }) {
  * Styling: `04-components/home-blocks.scss`.
  */
 export const Blog = memo(function Blog({ data }: BlogProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const picked = (data.posts ?? [])
     .map((item) => ({ item, id: blogArticleId(item) }))
     .filter((entry): entry is { item: unknown; id: string } => Boolean(entry.id));
@@ -114,8 +115,9 @@ export const Blog = memo(function Blog({ data }: BlogProps) {
   if (!slots.length) return null;
 
   // An empty title hides the heading; a block saved before the field existed has none.
-  const title = (data.title ?? t('blocks.home.blog', 'Blog')).trim();
-  const description = data.description?.trim();
+  // title / description may arrive as `{ ar, en }` in the editor — resolve them.
+  const title = (pickLang(data.title as MultiLang, i18n.language) || t('blocks.home.blog', 'Blog')).trim();
+  const description = pickLang(data.description as MultiLang, i18n.language).trim();
   const background = data.background_color?.trim();
 
   return (

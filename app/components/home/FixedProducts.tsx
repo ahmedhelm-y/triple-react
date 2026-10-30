@@ -6,6 +6,7 @@ import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { product, type ProductsListSource } from '@salla.sa/twilight-theme-engine/api/product';
 import { ProductCard } from '../product';
 import { blockLimit } from '../../lib/blockLimit';
+import { pickLang, type MultiLang } from '../../lib/homeBlockData';
 
 export interface FixedProductsProps {
   data: {
@@ -35,9 +36,9 @@ export interface FixedProductsProps {
  * Upgrade notes: `FORKS.md`.
  */
 export function FixedProducts({ data }: FixedProductsProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const title = data.title;
+  const title = pickLang(data.title as MultiLang, i18n.language);
   const limit = blockLimit(data.limit);
   const isVertical = data.isVertical ?? true;
 
