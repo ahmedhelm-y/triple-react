@@ -181,3 +181,12 @@
 .category-tabs__content {
   padding-top: 20px;
 }
+
+/* React's SallaProductsList renders `.s-products-list-wrapper` WITHOUT the
+   `s-products-list-vertical-cards` class the global Twig grid rule
+   (home-blocks.scss) keys on, so the tab's products fell back to one full-width
+   column. Set the grid here to match the Twig: 2 on phones, 3 on tablets,
+   5 on desktop. */
+.category-tabs__panel .s-products-list-wrapper {
+  @apply grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-6;
+}

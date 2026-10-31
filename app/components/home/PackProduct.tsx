@@ -88,11 +88,6 @@ export const PackProduct = memo(function PackProduct({ data }: { data: PackProdu
 
   const main = unwrap(data.product);
   const productId = idOf(data.product);
-  const name = (main?.name as string) || '';
-  const url = (main?.url as string) || '#';
-  const image =
-    (main?.image?.url as string) || salla?.url?.asset?.('images/placeholder.png') || 'images/placeholder.png';
-  const description = useMemo(() => stripTags((main?.description as string) || ''), [main?.description]);
 
   const settings: PackSetting[] = (data.packs ?? [])
     .map((item) => ({
@@ -170,6 +165,17 @@ export const PackProduct = memo(function PackProduct({ data }: { data: PackProdu
   }, [loaded, packs]);
 
   const mainProduct = byId.get(productId);
+  // In the live store API the block carries the full product; in the editor /
+  // twilight.preview.json `data.product` is just the id, so the name/image/url
+  // come from the fetched product instead.
+  const name = (main?.name as string) || (mainProduct?.name as string) || '';
+  const url = (main?.url as string) || (mainProduct?.url as string) || '#';
+  const image =
+    (main?.image?.url as string) ||
+    (mainProduct?.image?.url as string) ||
+    salla?.url?.asset?.('images/placeholder.png') ||
+    'images/placeholder.png';
+  const description = stripTags((main?.description as string) || (mainProduct?.description as string) || '');
   const current = active >= 0 ? packs[active] : null;
   const maxQty = Number((current?.product.max_quantity ?? mainProduct?.max_quantity) || 100) || 100;
 
