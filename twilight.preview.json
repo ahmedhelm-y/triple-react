@@ -2,13 +2,16 @@
   "enabled": true,
   "settings": {
     "notify_when_available_in_card": true,
+    "dark_mode_switcher": true,
+    "dark_mode": true,
+    "default_mode": "light",
     "section_colors": false,
     "section_home": false,
     "section_product_card": false,
     "important_links": true,
     "section_general": false,
     "section_popup": false,
-    "panel_colors": false,
+    "panel_colors": true,
     "panel_header": false,
     "panel_loading": false
   },
