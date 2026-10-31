@@ -11,7 +11,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import themeTranslations from 'virtual:twilight/theme-translations';
 import devSchema from 'virtual:twilight/schema';
 import { ThemeLayout } from '../components/layout/ThemeLayout';
-import { buildThemeVarsCss, buildColorModeScript } from '../lib/themeVars';
+import { buildThemeVarsCss, buildColorModeScript, buildFontCss } from '../lib/themeVars';
 import { HOME_ROUTE_ID, PRODUCT_ROUTE_ID } from '../lib/routeIds';
 import appCssUrl from '../styles/app.css?url';
 import homeCriticalCss from '../styles/critical.scss?inline';
@@ -45,8 +45,10 @@ function RootComponent() {
   let colorModeScript = '';
   try {
     const themeSettings = (ctx.settings?.theme?.settings ?? {}) as Record<string, unknown>;
-    const primary = ctx.settings?.theme?.color?.primary ?? '#000000';
-    themeVarsCss = buildThemeVarsCss(themeSettings, primary);
+    // Main colour: the `primary_color` design option wins, else the Triple brand default.
+    const primary = (themeSettings.primary_color as string) || '#7a5a2e';
+    // Merchant custom font (design option) overrides the bundled default font.
+    themeVarsCss = buildThemeVarsCss(themeSettings, primary) + buildFontCss(themeSettings);
     colorModeScript = buildColorModeScript(themeSettings);
   } catch {
     /* settings unavailable (store not resolved) — the static defaults cover it */

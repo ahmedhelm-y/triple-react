@@ -35,7 +35,13 @@ export function buildThemeVarsCss(s: Settings, primary: string): string {
 
   const root = [
     `--s-radius:.75rem`,
-    `--bg-primary:${val(s, 'store_bg', '#ffffff')}`,
+    // Light primaries from the merchant's main colour (the engine injects these
+    // from store.color; re-inject here so a `primary_color` design option wins).
+    `--color-primary:${p}`,
+    `--color-primary-dark:color-mix(in srgb, ${p} 82%, #000)`,
+    `--color-primary-light:color-mix(in srgb, ${p} 85%, #fff)`,
+    `--color-primary-reverse:#ffffff`,
+    `--bg-primary:${val(s, 'store_bg', '#faf7f2')}`,
     `--bg-secondary:${val(s, 'store_bg_secondary', '#ffffff')}`,
     `--store-text-primary:${val(s, 'store_text_color', '#111827')}`,
     `--store-text-secondary:${val(s, 'store_text_color_secondary', '#4b5563')}`,
@@ -145,6 +151,21 @@ export function buildBodyClasses(s: Settings, isHome: boolean, isCart: boolean):
  * choice (switcher on) or the fixed/default mode, and flags a hidden promotion
  * bar. Same storage key (`triple-theme-mode`) as {@link ThemeToggle}.
  */
+/**
+ * Merchant custom font (design option `custom_font`, a uploaded font file URL).
+ * When set it defines a `@font-face` and applies it as the store font, overriding
+ * the theme's bundled default (01-settings/triple-font.scss). Empty → no output,
+ * so the bundled default font stays. Injected after app.css in __root.tsx.
+ */
+export function buildFontCss(s: Settings): string {
+  const url = esc(s?.custom_font);
+  if (!url) return '';
+  return (
+    `@font-face{font-family:'theme-custom-font';src:url('${url}');font-display:swap}` +
+    `body{font-family:'theme-custom-font',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif !important}`
+  );
+}
+
 export function buildColorModeScript(s: Settings): string {
   const switcher = !!s?.dark_mode_switcher;
   const fixedDark = !!s?.dark_mode;
