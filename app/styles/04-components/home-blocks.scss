@@ -37,18 +37,19 @@
 .s-block--hero-slider {
   .swiper-slide {
     @apply relative bg-gray-800;
-    aspect-ratio: 1 / 0.5;
+    /* Fixed slide heights to match the Twig (h-80 / sm:h-96 / lg:h-116 / xl:h-132). */
+    height: 20rem;
 
     @media (min-width: 640px) {
-      aspect-ratio: 12 / 5;
+      height: 24rem;
     }
 
     @media (min-width: 1024px) {
-      aspect-ratio: 12 / 5.5;
+      height: 29rem;
     }
 
     @media (min-width: 1280px) {
-      aspect-ratio: 12 / 5.5;
+      height: 33rem;
     }
 
     .swiper-lazy {
@@ -81,11 +82,19 @@
 }
 
 .s-block--enhanced-slider .s-skeleton-slider-image {
-  height: auto !important;
-  aspect-ratio: 4 / 3; /* EnhancedSlider's slide ratio, below */
+  /* Match the fixed slide heights above (h-80 / h-96 / h-116 / h-132). */
+  height: 20rem !important;
 
   @media (min-width: 640px) {
-    aspect-ratio: 12 / 5;
+    height: 24rem !important;
+  }
+
+  @media (min-width: 1024px) {
+    height: 29rem !important;
+  }
+
+  @media (min-width: 1280px) {
+    height: 33rem !important;
   }
 }
 
