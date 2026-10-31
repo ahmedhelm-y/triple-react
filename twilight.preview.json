@@ -32,11 +32,11 @@
               "en": "Soul of Amir"
             },
             "headline": {
-              "ar": "عطرٌ يروي حكاية الفخامة",
+              "ar": "عطر يروي حكاية الفخامة",
               "en": "A Scent That Tells a Story of Luxury"
             },
             "lead": {
-              "ar": "مزيجٌ شرقيٌّ دافئ من العود والعنبر يرافقك من الصباح حتى المساء.",
+              "ar": "مزيج شرقي دافئ من العود والعنبر يرافقك من الصباح حتى المساء",
               "en": "A warm oriental blend of oud and amber that stays with you from morning to night."
             },
             "cta": {
@@ -112,7 +112,7 @@
       "path": "category-arches",
       "fields": {
         "heading": {
-          "ar": "تسوّق حسب القسم",
+          "ar": "تسوّق حسب التصنيف",
           "en": "Shop by category"
         },
         "frame_shape": "arch",
@@ -181,11 +181,11 @@
       "path": "product-shelves",
       "fields": {
         "heading": {
-          "ar": "مختارات تريبل",
+          "ar": "اختيارات تريبل",
           "en": "Triple Picks"
         },
         "blurb": {
-          "ar": "تشكيلة مختارة لكل ذوق",
+          "ar": "عطور مختارة بعناية لكل ذوق",
           "en": "Carefully chosen scents for every taste"
         },
         "shelf_layout": "slider",
@@ -261,7 +261,7 @@
           "en": "Weekend offer"
         },
         "headline": {
-          "ar": "خصم ٢٠٪ على كل العطور",
+          "ar": "خصم 20% على كل العطور",
           "en": "20% off every perfume"
         },
         "detail": {
@@ -431,7 +431,7 @@
           "en": "Oud Season"
         },
         "story": {
-          "ar": "تشكيلة من أفخر أنواع العود والبخور بأسعار خاصة لفترة محدودة",
+          "ar": "تشكيلة من أجود أنواع العود والبخور بأسعار خاصة لفترة محدودة",
           "en": "A selection of the finest oud and incense at special prices for a limited time"
         },
         "cta": {
@@ -552,7 +552,7 @@
       "path": "complete-set",
       "fields": {
         "kicker": {
-          "ar": "الطقم الكامل",
+          "ar": "تسوّق المجموعة",
           "en": "The full set"
         },
         "title": {
@@ -840,28 +840,32 @@
               "ar": "عطور نسائية",
               "en": "Women's Perfumes"
             },
-            "link": "#"
+            "link": "#",
+            "image": "https://cdn.files.salla.network/other/1384584890/98e9fc58-706b-45be-887f-c554d7422d67-original.webp"
           },
           {
             "title": {
               "ar": "عطور رجالية",
               "en": "Men's Perfumes"
             },
-            "link": "#"
+            "link": "#",
+            "image": "https://cdn.files.salla.network/other/1384584890/342fb4c8-dfdb-480d-b299-1b9eea272561-original.webp"
           },
           {
             "title": {
               "ar": "دهن العود",
               "en": "Oud Oil"
             },
-            "link": "#"
+            "link": "#",
+            "image": "https://cdn.files.salla.network/other/1384584890/1d9f0198-9d62-4741-8334-768130f72d76-original.webp"
           },
           {
             "title": {
               "ar": "هدايا",
               "en": "Gifts"
             },
-            "link": "#"
+            "link": "#",
+            "image": "https://cdn.files.salla.network/other/1384584890/84c60ead-66a3-4ce7-ba0e-4ea7bc3bec8c-original.webp"
           }
         ],
         "position": 18,
@@ -880,7 +884,7 @@
           "en": "Build Your Gift"
         },
         "title": {
-          "ar": "٣ خطوات وهديتك جاهزة",
+          "ar": "3 خطوات وهديتك جاهزة",
           "en": "3 steps and your gift is ready"
         },
         "note": {

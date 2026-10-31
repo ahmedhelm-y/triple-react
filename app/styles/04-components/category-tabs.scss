@@ -188,5 +188,5 @@
    column. Set the grid here to match the Twig: 2 on phones, 3 on tablets,
    5 on desktop. */
 .category-tabs__panel .s-products-list-wrapper {
-  @apply grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-6;
+  @apply grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6;
 }
