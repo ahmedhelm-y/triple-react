@@ -1,0 +1,23 @@
+/* ============================
+   Triple brand font (bundled).
+   The Twig demo renders with the store font "تريبل"; the React theme instance's
+   store font is the default (PingARLT), so bundle the brand font here and apply
+   it as the main font to match the demo exactly. Matches the Twig's computed
+   font-family: "تريبل, -apple-system, BlinkMacSystemFont".
+   ============================ */
+@font-face {
+  font-family: 'تريبل';
+  src: url('../fonts/triple.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-main: 'تريبل';
+}
+
+/* Beat the engine's default font (body.font-pingarlt). */
+body {
+  font-family: 'تريبل', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
