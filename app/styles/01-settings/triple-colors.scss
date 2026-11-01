@@ -63,10 +63,13 @@
 }
 
 html.dark {
-  --bg-primary: #1d1f1f;
-  --bg-secondary: #0e0f0f;
-  --store-text-primary: #ffffff;
-  --store-text-secondary: #cccccc;
+  /* Triple brown-dark palette (matches the Twig demo), NOT a generic grey. These are
+     the static safety-net defaults; the settings-driven <style> injected in __root.tsx
+     overrides them with the merchant's real dark colours at higher specificity. */
+  --bg-primary: #16120f;
+  --bg-secondary: #211b16;
+  --store-text-primary: #f3ece3;
+  --store-text-secondary: #b8aa98;
   --main-text-color: var(--store-text-primary);
 
   /* the store color as text on a dark page: a lighter shade, dark text on primary buttons */
@@ -75,14 +78,14 @@ html.dark {
   --color-primary-light: color-mix(in srgb, var(--color-primary) 45%, #fff);
   --color-primary-reverse: #141414;
 
-  --header-bg: #0e0f0f;
-  --header-text-color: #ffffff;
-  --product-bg: #1d1f1f;
-  --footer-bg: #0e0f0f;
-  --footer-text-color: #ffffff;
-  --bottom-footer-bg: #0e0f0f;
-  --bottom-nav-bg: #1d1f1f;
-  --bottom-nav-text-color: #ffffff;
+  --header-bg: #100d0a;
+  --header-text-color: #f3ece3;
+  --product-bg: #211b16;
+  --footer-bg: #100d0a;
+  --footer-text-color: #e4d9cb;
+  --bottom-footer-bg: #0a0806;
+  --bottom-nav-bg: #1b1612;
+  --bottom-nav-text-color: #f3ece3;
 
   --product-border-color: color-mix(in srgb, var(--store-text-primary) 12%, transparent);
   --countdown-border-color: color-mix(in srgb, var(--store-text-primary) 14%, transparent);

@@ -37,10 +37,13 @@ export function buildThemeVarsCss(s: Settings, primary: string): string {
     `--s-radius:.75rem`,
     // Light primaries from the merchant's main colour (the engine injects these
     // from store.color; re-inject here so a `primary_color` design option wins).
-    `--color-primary:${p}`,
-    `--color-primary-dark:color-mix(in srgb, ${p} 82%, #000)`,
-    `--color-primary-light:color-mix(in srgb, ${p} 85%, #fff)`,
-    `--color-primary-reverse:#ffffff`,
+    // `!important` so the merchant's `primary_color` field beats the engine's
+    // inline `--color-primary:#000000` on <html> (an inline declaration wins over a
+    // normal stylesheet rule, but a stylesheet `!important` wins over inline-normal).
+    `--color-primary:${p} !important`,
+    `--color-primary-dark:color-mix(in srgb, ${p} 82%, #000) !important`,
+    `--color-primary-light:color-mix(in srgb, ${p} 85%, #fff) !important`,
+    `--color-primary-reverse:#ffffff !important`,
     `--bg-primary:${val(s, 'store_bg', '#faf7f2')}`,
     `--bg-secondary:${val(s, 'store_bg_secondary', '#ffffff')}`,
     `--store-text-primary:${val(s, 'store_text_color', '#111827')}`,
@@ -70,30 +73,41 @@ export function buildThemeVarsCss(s: Settings, primary: string): string {
   ].join(';');
 
   const dark = [
-    `--bg-primary:${val(s, 'store_bg_dark', '#1d1f1f')}`,
-    `--bg-secondary:${val(s, 'store_bg_secondary_dark', '#0e0f0f')}`,
-    `--store-text-primary:${val(s, 'store_text_color_dark', '#ffffff')}`,
-    `--store-text-secondary:${val(s, 'store_text_color_secondary_dark', '#cccccc')}`,
+    // Triple brown-dark palette as the defaults (matches the Twig demo), so the
+    // dark mode is brown-black — not a generic grey — when the store hasn't saved
+    // its own dark colours.
+    `--bg-primary:${val(s, 'store_bg_dark', '#16120f')}`,
+    `--bg-secondary:${val(s, 'store_bg_secondary_dark', '#211b16')}`,
+    `--store-text-primary:${val(s, 'store_text_color_dark', '#f3ece3')}`,
+    `--store-text-secondary:${val(s, 'store_text_color_secondary_dark', '#b8aa98')}`,
     `--main-text-color:var(--store-text-primary)`,
-    `--color-primary:color-mix(in srgb, ${p} 58%, #fff)`,
-    `--color-primary-dark:color-mix(in srgb, ${p} 72%, #fff)`,
-    `--color-primary-light:color-mix(in srgb, ${p} 45%, #fff)`,
-    `--color-primary-reverse:#141414`,
-    `--header-bg:${val(s, 'header_bg_dark', '#0e0f0f')}`,
-    `--header-text-color:${val(s, 'header_text_color_dark', '#ffffff')}`,
-    `--product-bg:${val(s, 'product_bg_dark', '#1d1f1f')}`,
-    `--footer-bg:${val(s, 'footer_bg_dark', '#0e0f0f')}`,
-    `--footer-text-color:${val(s, 'footer_text_color_dark', '#ffffff')}`,
-    `--bottom-footer-bg:${val(s, 'bottom_footer_bg_dark', '#0e0f0f')}`,
-    `--bottom-nav-bg:${val(s, 'bottom_nav_bg_dark', '#1d1f1f')}`,
-    `--bottom-nav-text-color:${val(s, 'bottom_nav_text_color_dark', '#ffffff')}`,
+    // `!important` for the same reason as the light block: beat the engine's inline
+    // `--color-primary:#000000`, so the dark primary is a lightened brown, not black.
+    `--color-primary:color-mix(in srgb, ${p} 58%, #fff) !important`,
+    `--color-primary-dark:color-mix(in srgb, ${p} 72%, #fff) !important`,
+    `--color-primary-light:color-mix(in srgb, ${p} 45%, #fff) !important`,
+    `--color-primary-reverse:#141414 !important`,
+    `--header-bg:${val(s, 'header_bg_dark', '#100d0a')}`,
+    `--header-text-color:${val(s, 'header_text_color_dark', '#f3ece3')}`,
+    `--product-bg:${val(s, 'product_bg_dark', '#211b16')}`,
+    `--footer-bg:${val(s, 'footer_bg_dark', '#100d0a')}`,
+    `--footer-text-color:${val(s, 'footer_text_color_dark', '#e4d9cb')}`,
+    `--bottom-footer-bg:${val(s, 'bottom_footer_bg_dark', '#0a0806')}`,
+    `--bottom-nav-bg:${val(s, 'bottom_nav_bg_dark', '#1b1612')}`,
+    `--bottom-nav-text-color:${val(s, 'bottom_nav_text_color_dark', '#f3ece3')}`,
     `--product-border-color:color-mix(in srgb, var(--store-text-primary) 12%, transparent)`,
     `--countdown-border-color:color-mix(in srgb, var(--store-text-primary) 14%, transparent)`,
     `--countdown-bg:color-mix(in srgb, var(--store-text-primary) 8%, transparent)`,
     `--countdown-color:var(--store-text-primary)`,
   ].join(';');
 
-  return `:root{${root}}html.dark{${dark}}`;
+  // Raised selector specificity (`html:root` / `html.dark:root`) so these win over
+  // both the engine's variables and the static SCSS defaults regardless of cascade
+  // ORDER. In dev, Vite injects the compiled app.css via JS at runtime — appended to
+  // <head> AFTER this SSR <style>, so at equal specificity the SCSS `html.dark{}`
+  // block would win by order. Higher specificity here settles it: the merchant's real
+  // colours always apply.
+  return `html:root{${root}}html.dark:root{${dark}}`;
 }
 
 /**
