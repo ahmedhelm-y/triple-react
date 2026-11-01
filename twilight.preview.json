@@ -748,44 +748,71 @@
               "ar": "التركيز",
               "en": "Concentration"
             },
-            "value_1": "EDP",
-            "value_2": "EDP",
-            "value_3": "Extrait"
-          },
-          {
-            "label": {
-              "ar": "الثبات",
-              "en": "Longevity"
-            },
             "value_1": {
-              "ar": "٦ ساعات",
-              "en": "6 hours"
+              "ar": "أو دو بارفان",
+              "en": "Eau de Parfum"
             },
             "value_2": {
-              "ar": "٨ ساعات",
-              "en": "8 hours"
+              "ar": "أو دو بارفان",
+              "en": "Eau de Parfum"
             },
             "value_3": {
-              "ar": "١٠+ ساعات",
-              "en": "10+ hours"
+              "ar": "أو دو تواليت",
+              "en": "Eau de Toilette"
             }
           },
           {
             "label": {
-              "ar": "المناسبة",
-              "en": "Occasion"
+              "ar": "مناسب للسهرات",
+              "en": "Great for evenings"
             },
             "value_1": {
-              "ar": "يومي",
-              "en": "Daily"
+              "ar": "نعم",
+              "en": "Yes"
             },
             "value_2": {
-              "ar": "يومي ومسائي",
-              "en": "Day & evening"
+              "ar": "نعم",
+              "en": "Yes"
             },
             "value_3": {
-              "ar": "مناسبات خاصة",
-              "en": "Special occasions"
+              "ar": "لا",
+              "en": "No"
+            }
+          },
+          {
+            "label": {
+              "ar": "مناسب للاستخدام اليومي",
+              "en": "Great for daily use"
+            },
+            "value_1": {
+              "ar": "لا",
+              "en": "No"
+            },
+            "value_2": {
+              "ar": "نعم",
+              "en": "Yes"
+            },
+            "value_3": {
+              "ar": "نعم",
+              "en": "Yes"
+            }
+          },
+          {
+            "label": {
+              "ar": "مدة الثبات",
+              "en": "Longevity"
+            },
+            "value_1": {
+              "ar": "10 - 12 ساعة",
+              "en": "10 - 12 hours"
+            },
+            "value_2": {
+              "ar": "8 - 10 ساعات",
+              "en": "8 - 10 hours"
+            },
+            "value_3": {
+              "ar": "5 - 6 ساعات",
+              "en": "5 - 6 hours"
             }
           }
         ],
