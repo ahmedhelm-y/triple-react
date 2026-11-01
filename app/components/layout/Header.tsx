@@ -353,17 +353,19 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
 
             {catsRowLayout ? (
               <>
-                {/* Start side (inline-end in RTL = right): cart + account. */}
+                {/* Start side (right in RTL): localization, theme toggle, search —
+                    matching the Twig demo, which keeps the utility icons on the right
+                    and cart + account on the left. */}
                 <div className="site-header__actions site-header__actions--start">
-                  {accountEl}
-                  {scopeEl}
-                  {cartEl}
-                </div>
-                {/* End side (left in RTL): localization, theme toggle, search. */}
-                <div className="site-header__actions site-header__actions--end">
                   {localizationEl}
                   {toggleEl}
                   {searchEl}
+                </div>
+                {/* End side (left in RTL): cart + account. */}
+                <div className="site-header__actions site-header__actions--end">
+                  {accountEl}
+                  {scopeEl}
+                  {cartEl}
                 </div>
               </>
             ) : (
