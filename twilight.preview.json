@@ -878,8 +878,8 @@
           "en": "See the perfume before you choose it"
         },
         "text": {
-          "ar": "لقطات قريبة للزجاجة والتغليف لتتخيّل عطرك قبل الطلب.",
-          "en": "Close-up shots of the bottle and packaging so you can picture your scent before ordering."
+          "ar": "تفاصيل الزجاجة والتغليف على الطبيعة، وكل عطر في الفيديو يمكنك إضافته للسلة مباشرة.",
+          "en": "The bottle and packaging up close, and every perfume in the video can be added to the cart directly."
         },
         "btn_text": {
           "ar": "تسوّق المجموعة",
@@ -1612,7 +1612,7 @@
               "en": "Tahlia St, Al Andalus District"
             },
             "hours": {
-              "ar": "يوميًا ١٠ص - ١٢ص",
+              "ar": "يوميًا ١٠ص - منتصف الليل",
               "en": "Daily 10 AM - 12 AM"
             },
             "phone": "+966 12 000 0000",
@@ -1620,8 +1620,8 @@
           },
           {
             "place": {
-              "ar": "فرع الكورنيش",
-              "en": "Corniche Branch"
+              "ar": "فرع الشاطئ",
+              "en": "Al Shati Branch"
             },
             "city": {
               "ar": "الدمام",
