@@ -80,8 +80,11 @@ export function HeaderTopnav() {
   // Top-bar options (panel_header): show/hide the links + contacts and recolour
   // the bar. Each shows unless explicitly turned off.
   const ts = theme?.settings as Record<string, unknown> | undefined;
-  const showLinks = ts?.header_topbar_links !== false;
-  const showContacts = ts?.header_topbar_contacts !== false;
+  // `hide_topnav_links` / `hide_topnav_contacts` are the Twig-named switches
+  // (ported for parity); `header_topbar_*` are the React equivalents. Either
+  // one hiding takes effect.
+  const showLinks = ts?.header_topbar_links !== false && ts?.hide_topnav_links !== true;
+  const showContacts = ts?.header_topbar_contacts !== false && ts?.hide_topnav_contacts !== true;
   const topbarBg = (ts?.header_topbar_bg as string) || undefined;
   const topbarFg = (ts?.header_topbar_fg as string) || undefined;
   const topbarStyle =

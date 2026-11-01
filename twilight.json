@@ -1171,6 +1171,61 @@
             ]
         },
         {
+            "id": "header_account_icon",
+            "type": "string",
+            "format": "icon",
+            "icon": "sicon-user",
+            "label": "أيقونة حساب العميل",
+            "description": "تظهر للزائر قبل تسجيل الدخول (بعده تظهر صورة العميل)",
+            "value": "sicon-user",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_account_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_scope_icon",
+            "type": "string",
+            "format": "icon",
+            "icon": "sicon-location",
+            "label": "أيقونة الفرع",
+            "value": "sicon-location",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "header_menu_icon",
+            "type": "string",
+            "format": "icon",
+            "icon": "sicon-menu",
+            "label": "أيقونة زر القائمة",
+            "description": "اتركها فارغة لعرض زر القائمة المتحرك (البرجر) الافتراضي",
+            "value": "",
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
             "id": "header_icons_size",
             "type": "items",
             "format": "dropdown-list",
@@ -1259,6 +1314,115 @@
                 },
                 {
                     "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "more_menu_max_items",
+            "icon": "sicon-pencil-ruler",
+            "type": "number",
+            "format": "integer",
+            "label": "عدد التصنيفات الظاهرة في القائمة الرئيسية قبل قائمة (المزيد)",
+            "description": "ما يزيد عن هذا العدد يظهر داخل قائمة (المزيد). من 3 إلى 20، والافتراضي 8",
+            "placeholder": "8",
+            "value": 8,
+            "minimum": 3,
+            "maximum": 20,
+            "required": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "enable_more_menu",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "enable_cats_row",
+            "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "label": "عرض القائمة الرئيسية أسفل الشعار في الديسكتوب في حالة توسيط الشعار",
+            "description": "مناسب عند كثرة التصنيفات في الشريط العلوي",
+            "value": true,
+            "required": false,
+            "selected": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "centered_logo",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "show_reversed_logo",
+            "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "label": "تثبيت الشعار البديل على الواجهة الرئيسية",
+            "value": true,
+            "required": false,
+            "selected": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "hide_topnav_links",
+            "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "label": "إخفاء الروابط الهامة من الشريط العلوي",
+            "value": false,
+            "required": false,
+            "selected": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_topbar_enabled",
+                    "operation": "=",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "id": "hide_topnav_contacts",
+            "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "label": "إخفاء وسائل التواصل من الشريط العلوي",
+            "value": false,
+            "required": false,
+            "selected": false,
+            "conditions": [
+                {
+                    "id": "panel_header",
+                    "operation": "=",
+                    "value": true
+                },
+                {
+                    "id": "header_topbar_enabled",
                     "operation": "=",
                     "value": true
                 }

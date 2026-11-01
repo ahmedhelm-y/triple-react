@@ -71,6 +71,14 @@ function RootComponent() {
         {themeVarsCss ? (
           <style data-triple="theme-vars" dangerouslySetInnerHTML={{ __html: themeVarsCss }} />
         ) : null}
+        {/* Remix Icon (3000+ pro icons) alongside Salla's sallaicons, so an icon
+            field set to a `ri-*` class renders on the storefront. Only the small
+            CSS loads up front; the webfont downloads lazily when a `ri-*` icon is
+            actually on the page. */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+        />
         <ThemeHeadContent />
       </head>
       <body suppressHydrationWarning>

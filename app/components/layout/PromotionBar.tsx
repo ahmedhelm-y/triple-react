@@ -45,11 +45,26 @@ export function PromotionBar() {
   };
 
   return (
-    <div className="promotion-banner" style={{ backgroundColor: s.pormotion_bg || '#000000' }}>
+    <div
+      className="promotion-banner"
+      style={{ backgroundColor: s.pormotion_bg || '#000000', overflow: 'hidden' }}
+    >
       <div className="promotion-banner__inner">
-        <ul>
+        {/* Inline single-line layout so the repeated items never stack
+            vertically during the first paint (before app.css loads) — the
+            marquee animation itself still comes from the stylesheet. */}
+        <ul
+          style={{
+            display: 'flex',
+            flexWrap: 'nowrap',
+            whiteSpace: 'nowrap',
+            listStyle: 'none',
+            margin: 0,
+            padding: '5px 0',
+          }}
+        >
           {Array.from({ length: REPEAT }, (_, i) => (
-            <li key={i} style={{ animationDuration: duration }}>
+            <li key={i} style={{ animationDuration: duration, flexShrink: 0 }}>
               <a
                 href={s.promo_link || undefined}
                 style={{ color: s.promotion_color || '#ffffff' }}

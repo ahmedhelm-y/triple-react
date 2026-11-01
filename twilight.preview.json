@@ -11,8 +11,26 @@
     "important_links": true,
     "section_general": false,
     "section_popup": false,
-    "panel_colors": true,
-    "panel_header": false,
+    "panel_colors": false,
+    "panel_header": true,
+    "trans_header": true,
+    "header_layout": "default",
+    "header_topbar_enabled": false,
+    "centered_logo": true,
+    "footer_is_dark": true,
+    "topnav_is_dark": true,
+    "enhanced_blocks_titles": true,
+    "enhanced_blocks_title_style": "sparkle",
+    "mobile_small_blocks_titles": true,
+    "enable_slider_scrollbar": true,
+    "enhanced_add_btn_in_mobile": true,
+    "fit_slider_products": true,
+    "enable_shine_animation": true,
+    "enable_zoom_animation": true,
+    "enable_bottom_nav": true,
+    "promotion_text": "شحن مجاني للطلبات فوق 300 ريال — وعيّنة عطر هدية مع كل طلب",
+    "fixed_promotion": false,
+    "can_close_promotion": true,
     "panel_loading": false,
     "primary_color": "#7a5a2e",
     "store_bg": "#faf7f2",
@@ -35,7 +53,17 @@
     "footer_text_color_dark": "#e4d9cb",
     "bottom_footer_bg_dark": "#0a0806",
     "bottom_nav_bg_dark": "#1b1612",
-    "bottom_nav_text_color_dark": "#f3ece3"
+    "bottom_nav_text_color_dark": "#f3ece3",
+    "panel_general": false,
+    "header_account_enabled": true,
+    "panel_footer": true,
+    "panel_popup": false,
+    "discount_popup_image": "",
+    "header_is_sticky": true,
+    "header_search_icon": "sicon-search",
+    "panel_promo": false,
+    "footer_logos": [],
+    "header_account_icon": "sicon-user-square"
   },
   "layout": [
     {
@@ -113,7 +141,7 @@
           {
             "glyph": "sicon-rotate-left",
             "words": {
-              "ar": "إرجاع سهل",
+              "ar": "استرجاع سهل",
               "en": "Easy returns"
             }
           },
@@ -152,7 +180,7 @@
               "en": "Women's Perfumes"
             },
             "hint": {
-              "ar": "لمساتٌ زهريةٌ ناعمة",
+              "ar": "عطور زهرية ناعمة",
               "en": "Soft floral scents"
             },
             "target": "#"
@@ -164,7 +192,7 @@
               "en": "Men's Perfumes"
             },
             "hint": {
-              "ar": "لمساتٌ خشبيةٌ جريئة",
+              "ar": "عطور خشبية جريئة",
               "en": "Bold woody scents"
             },
             "target": "#"
@@ -172,11 +200,11 @@
           {
             "photo": "https://cdn.files.salla.network/products/1384584890/4d579b27-3792-4977-af6c-c0df24fa98f0-original.webp",
             "label": {
-              "ar": "زيت عود وبخور",
+              "ar": "دهن العود والبخور",
               "en": "Oud Oil & Incense"
             },
             "hint": {
-              "ar": "عودٌ طبيعيٌّ نقي",
+              "ar": "عود طبيعي فاخر",
               "en": "Pure natural oud"
             },
             "target": "#"
@@ -234,8 +262,8 @@
           },
           {
             "label": {
-              "ar": "تخفيضات",
-              "en": "On Sale"
+              "ar": "عروض خاصة",
+              "en": "Special Offers"
             },
             "feed": "offers",
             "amount": "8"
@@ -271,39 +299,6 @@
           }
         ],
         "position": 5,
-        "channel_visibility": {
-          "desktop": true,
-          "mobile": true
-        }
-      }
-    },
-    {
-      "id": "b-05-deal",
-      "path": "deal-clock",
-      "fields": {
-        "kicker": {
-          "ar": "عرض نهاية الأسبوع",
-          "en": "Weekend offer"
-        },
-        "headline": {
-          "ar": "خصم 20% على كل العطور",
-          "en": "20% off every perfume"
-        },
-        "detail": {
-          "ar": "استخدم الكود عند الدفع واستمتع بالخصم على طلبك كامل",
-          "en": "Use the code at checkout and enjoy the discount on your whole order"
-        },
-        "ends_at": "11-15-2026,12:00:00 pm",
-        "coupon_code": "TRIPLE20",
-        "cta": {
-          "ar": "تسوّق العرض",
-          "en": "Shop the offer"
-        },
-        "target": "#",
-        "when_over": "hide",
-        "tone": "#111111",
-        "ink": "#ffffff",
-        "position": 6,
         "channel_visibility": {
           "desktop": true,
           "mobile": true
@@ -356,6 +351,39 @@
       }
     },
     {
+      "id": "b-05-deal",
+      "path": "deal-clock",
+      "fields": {
+        "kicker": {
+          "ar": "عرض نهاية الأسبوع",
+          "en": "Weekend offer"
+        },
+        "headline": {
+          "ar": "خصم 20% على كل العطور",
+          "en": "20% off every perfume"
+        },
+        "detail": {
+          "ar": "استخدم الكود عند الدفع واستمتع بالخصم على طلبك كامل",
+          "en": "Use the code at checkout and enjoy the discount on your whole order"
+        },
+        "ends_at": "11-15-2026,12:00:00 pm",
+        "coupon_code": "TRIPLE20",
+        "cta": {
+          "ar": "تسوّق العرض",
+          "en": "Shop the offer"
+        },
+        "target": "#",
+        "when_over": "hide",
+        "tone": "#111111",
+        "ink": "#ffffff",
+        "position": 6,
+        "channel_visibility": {
+          "desktop": true,
+          "mobile": true
+        }
+      }
+    },
+    {
       "id": "b-07-spotlight",
       "path": "product-spotlight",
       "fields": {
@@ -371,7 +399,7 @@
           {
             "badge": "sicon-check-circle",
             "point": {
-              "ar": "يدوم حتى ١٠ ساعات",
+              "ar": "ثبات يصل إلى 10 ساعات",
               "en": "Lasts up to 10 hours"
             }
           },
@@ -1180,7 +1208,7 @@
         "main_photo": "https://cdn.files.salla.network/products/1384584890/edb98603-e544-4302-935a-1fb4adc85efc-original.webp",
         "inset_photo": "https://cdn.files.salla.network/products/1384584890/65f121c8-5f38-4c86-906b-7b09bfdf4d28-original.webp",
         "seal_text": {
-          "ar": "منذ ٢٠١٥",
+          "ar": "منذ 2015",
           "en": "Since 2015"
         },
         "kicker": {
@@ -1192,7 +1220,7 @@
           "en": "Scents crafted with passion"
         },
         "story": {
-          "ar": "من فريق تريبل: نختار أجود المكوّنات ونصنع عطورًا تبقى في الذاكرة. أكثر من ١٠ سنوات خبرة، ٢٥ ألف عميل، و١٥٠ عطرًا مميزًا.",
+          "ar": "بدأنا من شغف بالعود والعطور الشرقية، واليوم نقدم لعملائنا تشكيلة مختارة من أجود الزيوت والعطور من حول العالم",
           "en": "From the Triple team: we pick the finest ingredients and craft scents that stay in memory. Over 10 years of experience, 25k customers and 150 signature perfumes."
         },
         "signature": {
@@ -1257,7 +1285,7 @@
               "en": "It started with a passion"
             },
             "text": {
-              "ar": "بدأنا بفكرة بسيطة ومجموعة عطور مختارة بعناية.",
+              "ar": "بدأنا من محل صغير بتشكيلة مختارة من دهن العود والبخور، وهدفنا عطور أصيلة بأسعار عادلة.",
               "en": "We started with a simple idea and a carefully chosen set of perfumes."
             },
             "image": "https://cdn.files.salla.network/other/1384584890/9e1c505c-c2d4-4c4a-998b-394743a48843-original.webp"
@@ -1328,7 +1356,7 @@
             "stars": "5",
             "photo": "",
             "words": {
-              "ar": "ليالي الورد يدوم طوال اليوم والتغليف فخم بحق",
+              "ar": "عطر ليالي الورد ثباته رائع طوال اليوم، والتغليف فخم جداً",
               "en": "Rose Nights lasts all day and the packaging feels truly luxurious"
             }
           },
@@ -1344,7 +1372,7 @@
             "stars": "5",
             "photo": "",
             "words": {
-              "ar": "العود الهندي الملكي غني وأصلي، والتوصيل كان سريعًا",
+              "ar": "دهن العود الهندي أصلي ورائحته غنية، والتوصيل كان سريع",
               "en": "The Royal Indian oud is rich and authentic, and delivery was fast"
             }
           },
@@ -1360,7 +1388,7 @@
             "stars": "5",
             "photo": "",
             "words": {
-              "ar": "طلبت علبة الهدية لأمي ووصلت بتغليف جميل",
+              "ar": "طلبت بوكس الهدايا لأمي ووصل مغلّف بشكل أنيق جداً",
               "en": "I ordered the gift box for my mother and it arrived beautifully wrapped"
             }
           }
@@ -1438,7 +1466,7 @@
         },
         "search_box": true,
         "contact_label": {
-          "ar": "تحدّث معنا على واتساب",
+          "ar": "راسلنا على واتساب",
           "en": "Chat with us on WhatsApp"
         },
         "contact_target": "https://wa.me/966500000000",
@@ -1449,7 +1477,7 @@
               "en": "How long does delivery take?"
             },
             "reply": {
-              "ar": "عادةً من يومين إلى أربعة أيام عمل داخل المملكة، مع شحن مجاني للطلبات فوق ٣٠٠ ريال.",
+              "ar": "من 2 إلى 5 أيام عمل داخل المملكة.",
               "en": "Usually 2–4 business days within the Kingdom, with free shipping on orders over 300 SAR."
             },
             "topic": {
@@ -1473,7 +1501,7 @@
           },
           {
             "ask": {
-              "ar": "هل يمكنني استرجاع المنتج؟",
+              "ar": "هل يمكنني إرجاع الطلب؟",
               "en": "Can I return a product?"
             },
             "reply": {
@@ -1607,19 +1635,19 @@
         "subjects": [
           {
             "subject": {
-              "ar": "سؤال عن طلب",
+              "ar": "استفسار عن طلب",
               "en": "Order question"
             }
           },
           {
             "subject": {
-              "ar": "استشارة عطر",
+              "ar": "اقتراح عطر مناسب",
               "en": "Scent advice"
             }
           },
           {
             "subject": {
-              "ar": "هدايا الشركات والجملة",
+              "ar": "طلب جملة أو هدايا شركات",
               "en": "Wholesale or corporate gifts"
             }
           }

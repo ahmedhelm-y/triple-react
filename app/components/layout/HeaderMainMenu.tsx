@@ -69,8 +69,11 @@ const preventJump = (event: MouseEvent<HTMLAnchorElement>) => event.preventDefau
 export function HeaderMainMenu() {
   const { theme } = useTwilight();
   const { t } = useTranslation();
-  const oneLine =
-    (theme?.settings as { enable_more_menu?: boolean } | undefined)?.enable_more_menu !== false;
+  const hs = theme?.settings as { enable_more_menu?: boolean; more_menu_max_items?: number } | undefined;
+  const oneLine = hs?.enable_more_menu !== false;
+  // `more_menu_max_items` (Twig parity): cap how many root items show before the
+  // "More" item, on top of the width-based fit. 0/unset = width only.
+  const maxItems = Number(hs?.more_menu_max_items) || 0;
   const { data: rawItems = NO_ITEMS } = useQuery(menu.queries.header());
   const items = useMemo(() => pruneUntitled(rawItems), [rawItems]);
 
@@ -81,7 +84,7 @@ export function HeaderMainMenu() {
       </ul>
     );
   }
-  return <OneLineMenu items={items} moreTitle={t('common.titles.more', 'More')} />;
+  return <OneLineMenu items={items} moreTitle={t('common.titles.more', 'More')} maxItems={maxItems} />;
 }
 
 /**
@@ -94,7 +97,15 @@ export function HeaderMainMenu() {
  * 2. On every resize, those widths decide how many items fit; the rest become
  *    the children of a last "More" item.
  */
-function OneLineMenu({ items, moreTitle }: { items: MenuItem[]; moreTitle: string }) {
+function OneLineMenu({
+  items,
+  moreTitle,
+  maxItems = 0,
+}: {
+  items: MenuItem[];
+  moreTitle: string;
+  maxItems?: number;
+}) {
   const key = useMemo(() => menuKey(items), [items]);
   const rootRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
@@ -103,9 +114,11 @@ function OneLineMenu({ items, moreTitle }: { items: MenuItem[]; moreTitle: strin
   const [available, setAvailable] = useState(0);
 
   const current = measured?.key === key ? measured : null;
-  const fit = current
+  const fitByWidth = current
     ? fitCount(current.widths, available, current.more, current.gap)
     : items.length;
+  // Apply the `more_menu_max_items` cap on top of the width-based fit.
+  const fit = maxItems > 0 ? Math.min(fitByWidth, maxItems) : fitByWidth;
   const shown = useMemo(
     () => (current ? splitMenu(items, fit, moreTitle) : items),
     [current, items, fit, moreTitle]

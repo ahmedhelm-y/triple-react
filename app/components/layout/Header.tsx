@@ -39,7 +39,7 @@ function SearchButton({ label, icon }: { label: string; icon?: string }) {
 
 /** Branch / scope trigger — opens `<SallaScopes>` (mounted in `ThemeLayout`) via the
  * `scopes::open` event. Icon-only; the current scope name is the accessible label. */
-function ScopeButton({ label }: { label: string }) {
+function ScopeButton({ label, icon }: { label: string; icon?: string }) {
   return (
     <button
       type="button"
@@ -50,7 +50,7 @@ function ScopeButton({ label }: { label: string }) {
       title={label}
       onClick={openScopes}
     >
-      <MapPinIcon aria-hidden="true" />
+      {icon ? <i className={icon} aria-hidden="true" /> : <MapPinIcon aria-hidden="true" />}
     </button>
   );
 }
@@ -98,6 +98,11 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   // pulls it to the inline-start — kept centred on mobile when mobile_only is on.
   const centeredLogo = hs?.centered_logo !== false;
   const mobileCenteredLogo = hs?.mobile_only_centered_logo !== false;
+  // Twig's `enable_cats_row`: in the default (desktop) layout with a centered
+  // logo, the main menu sits in its OWN row BELOW the logo row (instead of
+  // inline beside the logo). Mirrors triple_twig's centered-logo header.
+  const catsRowLayout =
+    isDefaultLayout && centeredLogo && hs?.enable_cats_row !== false;
   const localizationEnabled = hs?.header_localization_enabled !== false;
   const localizationPosition = (hs?.header_localization_position as string) || 'end';
   const localizationInBar = localizationEnabled && localizationPosition !== 'topbar';
@@ -110,6 +115,16 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
   const cartIconSetting = (hs?.header_cart_icon as string) || '';
   const customCartIcon =
     cartIconSetting && cartIconSetting !== 'sicon-shopping-bag' ? cartIconSetting : '';
+  // Branch, menu-button and account icons (all merchant-controllable). Each keeps
+  // its built-in default (the SVG / animated burger) unless the merchant picks a
+  // different icon — same pattern as the search / cart icons above.
+  const scopeIconSetting = (hs?.header_scope_icon as string) || '';
+  const customScopeIcon =
+    scopeIconSetting && scopeIconSetting !== 'sicon-location' ? scopeIconSetting : '';
+  const menuIcon = (hs?.header_menu_icon as string) || '';
+  // The guest login-button icon (the `login-btn` slot of <salla-user-menu>, same
+  // as the Twig header); defaults to sicon-user, overridable per the setting.
+  const accountIcon = (hs?.header_account_icon as string) || 'sicon-user';
   const logoWidth = Number(hs?.header_logo_width) || 140;
   const logoHeight = Number(hs?.header_logo_height) || 48;
   const [navOpenState, setNavOpenState] = useState(false);
@@ -173,13 +188,81 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
 
   const searchLabel = t('blocks.header.search', 'Search');
 
+  // Header action elements, extracted so the centered (cats-row) layout can
+  // split them into two groups — cart + account on the start side, the rest on
+  // the end side — like triple_twig, while every other layout keeps them in one
+  // group (end side).
+  const ts = theme?.settings as Record<string, unknown> | undefined;
+  const localizationEl = localizationInBar ? (
+    <div
+      key="loc"
+      className={`site-header__loc-wrap site-header__loc-wrap--${localizationPosition}${
+        localizationMobile ? '' : ' site-header__loc-wrap--desktop'
+      }`}
+    >
+      <HeaderLocalization />
+    </div>
+  ) : null;
+  const toggleEl =
+    ts?.dark_mode_switcher && ts?.header_theme_mode_enabled !== false ? (
+      <ThemeToggle key="toggle" toggleClass="header-action" />
+    ) : null;
+  const accountEl = showAccount ? (
+    <SallaUserMenu
+      key="account"
+      avatarOnly
+      showHeader
+      showTrigger
+      relativeDropdown
+      className="header-action"
+    >
+      {/* Guest state: the login-button trigger, with the merchant's icon — the
+          React port of the Twig header's `slot="login-btn"`. Signed-in state
+          keeps the component's avatar. */}
+      <button
+        slot="login-btn"
+        type="button"
+        className="header-action"
+        aria-label={t('blocks.header.account', 'Account')}
+        onClick={() => window.salla?.event?.dispatch('login::open')}
+      >
+        <i className={accountIcon} aria-hidden="true" />
+      </button>
+    </SallaUserMenu>
+  ) : null;
+  const scopeEl = store?.scope ? (
+    <ScopeButton
+      key="scope"
+      label={store.scope.name || t('blocks.header.branches', 'Branches')}
+      icon={customScopeIcon}
+    />
+  ) : null;
+  const cartEl = showCart ? (
+    <SallaCartSummary
+      key="cart"
+      className="header-action"
+      {...(ts?.enable_cart_drawer ? { 'data-drawer-id': 'cart-drawer' } : {})}
+    >
+      {customCartIcon ? (
+        <i className={customCartIcon} slot="icon" aria-hidden="true" />
+      ) : (
+        <ShoppingBagIcon slot="icon" aria-hidden="true" />
+      )}
+    </SallaCartSummary>
+  ) : null;
+  const searchEl = showSearch ? (
+    <SearchButton key="search" label={searchLabel} icon={customSearchIcon} />
+  ) : null;
+
   return (
     <header
       className={`site-header site-header--${isDefaultLayout ? 'default' : 'lite'} site-header--icons-${iconsSize}${
         centeredLogo
           ? ''
           : ` site-header--logo-start${mobileCenteredLogo ? ' site-header--logo-centered-mobile' : ''}`
-      }${isProductPage ? ' site-header--product' : ''}${isHomePage ? ' site-header--home' : ''}`}
+      }${isProductPage ? ' site-header--product' : ''}${isHomePage ? ' site-header--home' : ''}${
+        catsRowLayout ? ' site-header--cats' : ''
+      }`}
       suppressHydrationWarning
     >
       <HookSlot name="header:start" />
@@ -219,13 +302,17 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
                 aria-expanded={navOpen}
                 onClick={() => setNavOpen(true)}
               >
-                {/* CSS burger — staggered bars that even out on hover/focus
-                    (styles: header.scss `.site-header__burger`). */}
-                <span className="site-header__burger" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </span>
+                {/* A merchant-set icon replaces the CSS burger; empty keeps the
+                    staggered-bar burger (styles: header.scss `.site-header__burger`). */}
+                {menuIcon ? (
+                  <i className={menuIcon} aria-hidden="true" />
+                ) : (
+                  <span className="site-header__burger" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                  </span>
+                )}
               </button>
             </div>
 
@@ -255,7 +342,7 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
               <span className="sr-only">{store?.name || 'Store'}</span>
             </a>
 
-            {isDefaultLayout && (
+            {isDefaultLayout && !catsRowLayout && (
               <nav
                 className="site-header__mainmenu"
                 aria-label={t('blocks.header.main_menu', 'Menu')}
@@ -264,45 +351,45 @@ export function Header({ navOpen: navOpenProp, onNavOpenChange }: HeaderProps = 
               </nav>
             )}
 
-            <div className="site-header__actions">
-              {localizationInBar && (
-                <div
-                  className={`site-header__loc-wrap site-header__loc-wrap--${localizationPosition}${
-                    localizationMobile ? '' : ' site-header__loc-wrap--desktop'
-                  }`}
-                >
-                  <HeaderLocalization />
+            {catsRowLayout ? (
+              <>
+                {/* Start side (inline-end in RTL = right): cart + account. */}
+                <div className="site-header__actions site-header__actions--start">
+                  {accountEl}
+                  {scopeEl}
+                  {cartEl}
                 </div>
-              )}
-              {(() => {
-                const ts = theme?.settings as Record<string, unknown> | undefined;
-                return ts?.dark_mode_switcher && ts?.header_theme_mode_enabled !== false ? (
-                  <ThemeToggle toggleClass="header-action" />
-                ) : null;
-              })()}
-              {showAccount && (
-                <SallaUserMenu avatarOnly showHeader relativeDropdown className="header-action" />
-              )}
-              {store?.scope && (
-                <ScopeButton label={store.scope.name || t('blocks.header.branches', 'Branches')} />
-              )}
-              {showCart && (
-                <SallaCartSummary
-                  className="header-action"
-                  {...((theme?.settings as Record<string, unknown> | undefined)?.enable_cart_drawer
-                    ? { 'data-drawer-id': 'cart-drawer' }
-                    : {})}
-                >
-                  {customCartIcon ? (
-                    <i className={customCartIcon} slot="icon" aria-hidden="true" />
-                  ) : (
-                    <ShoppingBagIcon slot="icon" aria-hidden="true" />
-                  )}
-                </SallaCartSummary>
-              )}
-              {showSearch && <SearchButton label={searchLabel} icon={customSearchIcon} />}
-            </div>
+                {/* End side (left in RTL): localization, theme toggle, search. */}
+                <div className="site-header__actions site-header__actions--end">
+                  {localizationEl}
+                  {toggleEl}
+                  {searchEl}
+                </div>
+              </>
+            ) : (
+              <div className="site-header__actions">
+                {localizationEl}
+                {toggleEl}
+                {accountEl}
+                {scopeEl}
+                {cartEl}
+                {searchEl}
+              </div>
+            )}
           </div>
+
+          {/* `enable_cats_row`: the main menu on its own centered row below the
+              logo row (desktop default layout, centered logo). */}
+          {catsRowLayout && (
+            <div className="container site-header__cats">
+              <nav
+                className="site-header__mainmenu site-header__mainmenu--row"
+                aria-label={t('blocks.header.main_menu', 'Menu')}
+              >
+                <HeaderMainMenu />
+              </nav>
+            </div>
+          )}
         </div>
       </div>
 

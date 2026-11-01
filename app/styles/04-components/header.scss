@@ -1143,3 +1143,137 @@ body.topnav-is-dark .site-header--lite .site-header__bar {
 .site-header__mainmenu {
   @apply hidden;
 }
+
+/* =========================================================================
+   Transparent header merged with the hero — React port of triple_twig
+   header.scss ($header-merged). When the FIRST home block is the hero stage
+   AND the merchant left `trans_header` on, the header bar floats OVER the hero
+   (transparent background, light foreground) until it pins on scroll.
+
+   React markup differs from Twig: `.site-header` is `display: contents`, so it
+   and `#main-content` are DOM siblings inside `.app-inner` (CartDrawer /
+   MobilePageTitleBar sit between them — a general-sibling `~` still reaches it).
+   The hero `<section>` carries `.s-block--hero-stage` (see heroStageConfig).
+   Three nesting depths are matched, like the Twig selector, to tolerate the
+   engine wrapping the blocks in a container.  (`:has()` can't nest, so the
+   three alternatives are OR-ed with `:is()`.)
+
+   The bar stays in normal flow with ZERO reserved height (not `absolute`), so
+   anything above it (promotion bar, app banners) keeps its place; the bar then
+   overflows its zero-height box and paints over the hero. On scroll the bar
+   gets `.is-scrolled` (Header.tsx) and this block stops applying to it — it
+   pins solid/white as usual.
+   ========================================================================= */
+$hero-first: '.site-header:is(:has(~ #main-content > .s-block--hero-stage), :has(~ #main-content > :first-child > .s-block--hero-stage:first-child), :has(~ #main-content > :first-child > :first-child > .s-block--hero-stage:first-child))';
+
+body.trans_header #{$hero-first} {
+  --header-transparent-fg: #ffffff;
+
+  /* Don't reserve the bar's height — let the hero slide up to the very top. */
+  .site-header__bar-outer {
+    min-height: 0;
+    height: 0;
+    overflow: visible;
+  }
+
+  /* The resting (un-pinned) bar floats, transparent, light foreground. Once
+     `.is-scrolled` pins it, none of this applies and it goes solid/white. */
+  .site-header__bar:not(.is-scrolled) {
+    @apply relative border-transparent bg-transparent shadow-none;
+    color: var(--header-transparent-fg);
+
+    /* No background scrim (that drew a visible grey band/edge at the bar's
+       bottom, especially once the menu row made the bar taller). Instead give
+       the foreground its OWN soft shadow so text + icons + logo stay readable
+       over a bright hero, with no band — same transparent look as Twig. */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+
+    .site-header__brand img,
+    .header-action svg,
+    .header-action i,
+    .site-header__burger span {
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+    }
+
+    .header-action,
+    .site-header__loc-btn,
+    .s-user-menu-login-btn,
+    .s-cart-summary-wrapper {
+      color: var(--header-transparent-fg);
+    }
+
+    /* Keep hover visible over the image instead of the light-gray hover bg. */
+    .header-action:hover,
+    .s-user-menu-login-btn:hover {
+      background-color: color-mix(in srgb, var(--header-transparent-fg) 18%, transparent);
+      color: var(--header-transparent-fg);
+    }
+  }
+
+  /* The lite layout's slim desktop bullet row also floats transparent. */
+  .site-header__bullet--desktop {
+    --topbar-fg: var(--header-transparent-fg);
+    color: var(--header-transparent-fg);
+  }
+}
+
+/* Merged hero butts right under the promo bar / header: drop the default
+   first-block top margin (`.s-block:first-of-type { margin-top: 1.25rem }`),
+   which otherwise shows a strip of page background between the two. */
+body.trans_header #main-content .s-block--hero-stage:first-of-type {
+  margin-top: 0;
+}
+
+/* =========================================================================
+   `enable_cats_row` — centered logo with the main menu on its OWN row below
+   the logo row (desktop default layout). Port of triple_twig's centered-logo
+   header: row 1 = actions · centered logo · actions; row 2 = centered menu.
+   Markup: Header.tsx (`site-header--cats`, `.site-header__cats`). Below `lg`
+   the menu row hides and the shared mobile burger/drawer takes over.
+   ========================================================================= */
+@media (min-width: 1024px) {
+  /* Row 1: centre the logo (overrides the default layout's logo-start). The
+     nav-toggle is `display:none` on desktop default, so pin the columns
+     explicitly: logo in the centre column, actions in the end column, leaving
+     the start column empty. */
+  .site-header--cats .site-header__bar-inner {
+    grid-template-columns: 1fr auto 1fr;
+  }
+  /* All three pinned to grid ROW 1 as well as their column — the brand is
+     before the action groups in the DOM, so without an explicit row the grid's
+     (non-dense) auto-flow pushed the start-actions onto a second row, breaking
+     the header into two rows (logo floating alone up top). */
+  .site-header--cats .site-header__brand {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+  }
+  /* Split actions: cart + account on the start side (right in RTL), the rest on
+     the end side (left in RTL), mirroring triple_twig's centered-logo header. */
+  .site-header--cats .site-header__actions--start {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+  .site-header--cats .site-header__actions--end {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  /* Row 2: the menu, centred, under the logo row. */
+  .site-header--cats .site-header__cats {
+    @apply flex justify-center pb-3;
+  }
+  .site-header--cats .site-header__mainmenu--row {
+    @apply flex w-full items-stretch justify-center;
+  }
+  .site-header--cats .site-header__mainmenu--row .main-menu {
+    @apply w-auto justify-center;
+  }
+}
+
+/* The menu row is desktop-only; the logo row keeps the mobile burger. */
+.site-header__cats {
+  @apply hidden;
+}
