@@ -102,12 +102,116 @@
 /* `footer_is_dark` darkens `.s-menu-footer-item`'s own border/text too -- the
    one piece of dark-mode handling still theme-owned, since the two menu
    variants above are. */
+/* `footer_is_dark` = the footer is ALWAYS dark, even while the page is in light
+   mode (Twig's `footer_bg_dark` / `footer_text_color_dark` / `bottom_footer_bg_dark`).
+   In page dark-mode the `--footer-*` vars are already these values; here we force the
+   same brown-dark palette so a light page still gets a dark footer. */
 body.footer-is-dark .store-footer {
+  --footer-bg: #100d0a;
+  --footer-text-color: #e4d9cb;
+  --bottom-footer-bg: #0a0806;
+
   &__menu--stacked .s-menu-footer-item {
     @apply text-white;
   }
 
   &__menu--inline .s-menu-footer-item {
     @apply border-white/10 text-white;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Triple page footer (`TripleFooter.tsx`, the footer.twig port). Colours come
+   from the `--footer-*` CSS variables so the footer follows the Triple palette
+   in both light and dark, matching the Twig demo.
+   --------------------------------------------------------------------------- */
+.store-footer {
+  background: var(--footer-bg);
+  color: var(--footer-text-color);
+
+  /* section dividers, keyed off the footer text colour (hidden by `hide-dividers`) */
+  &:not(.hide-dividers) .store-footer__inner,
+  &:not(.hide-dividers) .store-footer__newsletter {
+    border-bottom: 1px dashed color-mix(in srgb, var(--footer-text-color) 14%, transparent);
+  }
+
+  &__inner {
+    @apply py-8 lg:py-14;
+  }
+
+  &__links-title,
+  &__brand h3 {
+    color: var(--footer-text-color);
+  }
+
+  /* Newsletter band */
+  &__newsletter {
+    @apply py-8;
+
+    &-title {
+      color: var(--footer-text-color);
+    }
+
+    &-input {
+      background: color-mix(in srgb, var(--footer-text-color) 8%, transparent);
+      color: var(--footer-text-color);
+    }
+
+    &-btn {
+      background: var(--color-primary);
+      color: var(--color-primary-reverse);
+      @apply transition duration-300 hover:opacity-90;
+    }
+  }
+
+  /* Contacts + centered social row */
+  &__contacts-row {
+    @apply flex flex-col items-center justify-center gap-4 py-8;
+  }
+
+  /* `<salla-social>` wraps a `<ul class="s-social-list">` that defaults to a
+     vertical block list — lay it out as a centered horizontal row (Twig demo). */
+  &__social .s-social-list {
+    @apply flex flex-row flex-wrap items-center justify-center gap-4;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__social .s-social-list > * {
+    @apply m-0;
+  }
+}
+
+.footer-contacts {
+  @apply flex flex-wrap items-center justify-center gap-2.5;
+
+  &--rounded .footer-contact-btn {
+    @apply rounded-full;
+  }
+}
+
+.footer-contact-btn {
+  @apply inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm transition duration-300;
+  border-color: color-mix(in srgb, var(--footer-text-color) 18%, transparent);
+  color: var(--footer-text-color);
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  i {
+    @apply text-base leading-none;
+  }
+}
+
+/* Bottom bar — its own band colour. */
+.footer-bottom {
+  background: var(--bottom-footer-bg);
+
+  .footer-rights,
+  .footer-rights a {
+    color: color-mix(in srgb, var(--footer-text-color) 78%, transparent);
   }
 }

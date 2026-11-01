@@ -18,6 +18,8 @@
     "header_topbar_enabled": false,
     "centered_logo": true,
     "footer_is_dark": true,
+    "footer_show_newsletter": true,
+    "newsletter_title": "اشترك في النشرة البريدية الآن واحصل على خصومات رائعة",
     "topnav_is_dark": true,
     "enhanced_blocks_titles": true,
     "enhanced_blocks_title_style": "sparkle",

@@ -6,8 +6,8 @@ import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
 import { useDocumentClass } from '@salla.sa/twilight-theme-engine/hooks/useDocumentClass';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { useUser } from '@salla.sa/twilight-theme-engine/hooks/useUser';
-import { Footer } from '@salla.sa/twilight-theme-engine/layout';
 import { Header } from './Header';
+import { TripleFooter } from './TripleFooter';
 import { PromotionBar } from './PromotionBar';
 import { LoadingOverlay } from './LoadingOverlay';
 import { TripleFloating } from './TripleFloating';
@@ -26,8 +26,9 @@ import { HOME_ROUTE_ID } from '../../lib/routeIds';
  * `app/routes/__root.tsx` to swap in the rebuilt {@link Header} and the same
  * global modals (offer / login / scopes) as the engine's `MasterLayout`.
  *
- * `Footer` is the engine's own shared component (`@salla.sa/twilight-theme-engine/layout`)
- * now, not a theme-owned fork -- `Header` stays theme-owned since it's deeply
+ * `TripleFooter` is the theme-owned page footer (the Twig footer port with the
+ * newsletter, contacts row and centered social); the engine `Footer` is still used
+ * for the mobile account sheet. `Header` stays theme-owned since it's deeply
  * specific to this theme's nav/search/account UI.
  */
 const SallaLoginModal = lazy(() =>
@@ -191,7 +192,7 @@ export function ThemeLayout({ children }: ThemeLayoutProps) {
           {children}
         </main>
         <Suspense fallback={null}>
-          <Footer />
+          <TripleFooter />
         </Suspense>
         <MobileBottomBar
           navOpen={navOpen}
