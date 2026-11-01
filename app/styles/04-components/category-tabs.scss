@@ -115,14 +115,36 @@
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  object-fit: contain;
+  /* image-type icons are category thumbnails (wide banners) — crop to the square
+     box like the Twig demo, with soft corners. */
+  object-fit: cover;
+  border-radius: 0.5rem;
   transition: 0.3s all ease;
+}
+
+/* a glyph-type icon (`<i>`) has no box to crop — drop the thumbnail radius. */
+i.category-tabs__icon {
+  border-radius: 0;
+}
+
+/* When the icon field holds a sallaicon / Remix class it renders as `<i>`, not an
+   `<img>`: size the glyph to the same box with a matching font-size. */
+i.category-tabs__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
   .category-tabs__icon {
     width: 52px;
     height: 52px;
+  }
+
+  i.category-tabs__icon {
+    font-size: 42px;
   }
 
   .category-tabs__tab span {
@@ -134,6 +156,10 @@
   .category-tabs__icon {
     width: 30px;
     height: 30px;
+  }
+
+  i.category-tabs__icon {
+    font-size: 24px;
   }
 
   .category-tabs__tab {

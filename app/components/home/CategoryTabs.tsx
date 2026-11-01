@@ -139,7 +139,13 @@ export const CategoryTabs = memo(function CategoryTabs({ data }: { data: Categor
                   onClick={() => select(i)}
                 >
                   {tab.icon ? (
-                    <img className="category-tabs__icon" src={tab.icon} alt="" loading="lazy" />
+                    /^(sicon|ri)-[\w-]+$/.test(tab.icon) ? (
+                      // Icon fields hold a sallaicon / Remix class (e.g. `sicon-spray`),
+                      // not an image URL -- render the glyph, not a broken <img>.
+                      <i className={`category-tabs__icon ${tab.icon}`} aria-hidden="true" />
+                    ) : (
+                      <img className="category-tabs__icon" src={tab.icon} alt="" loading="lazy" />
+                    )
                   ) : null}
                   <span>{tab.title}</span>
                 </button>
