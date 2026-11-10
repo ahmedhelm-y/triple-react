@@ -259,6 +259,38 @@ salla-localization-modal {
   z-index: 210;
 }
 
+/* The hosted-login / language / currency pickers (`salla-modal.s-login-modal`,
+   `.s-localization-modal`) ship their form in an `<iframe>` inside `.s-modal-body`.
+   In this build the SDK leaves that body at `max-width:none`, so on desktop it
+   stretches edge-to-edge instead of the centered box the Twig demo shows. Clamp
+   and centre it (mobile keeps the bottom-sheet rules below). */
+@media (min-width: 768px) {
+  /* centre the box in the viewport (SDK leaves the wrapper un-centred here).
+     The language / currency picker is a plain `salla-modal` with no own class,
+     so it is matched by the localization content it holds. */
+  .s-login-modal .s-modal-wrapper,
+  .s-modal:has(.s-localization-modal-inner) .s-modal-wrapper {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .s-login-modal .s-modal-body,
+  .s-modal-body:has(.s-localization-modal-inner) {
+    max-width: 380px;
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* the dim backdrop (SDK renders the overlay element transparent here) */
+  .s-login-modal .s-modal-overlay,
+  .s-modal:has(.s-localization-modal-inner) .s-modal-overlay {
+    background: rgba(107, 114, 128, 0.75);
+  }
+}
+
 /* On mobile every `salla-modal` (appended to <body>, e.g. the language /
    currency picker) renders as a bottom sheet. The mobile bottom bar
    (`.mobile-bottom-bar`, z-220) would otherwise paint over its lower rows,
