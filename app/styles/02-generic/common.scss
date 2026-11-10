@@ -291,6 +291,34 @@ salla-localization-modal {
   }
 }
 
+/* The language / currency picker's content: the confirm `salla-button` keeps its
+   `s-button-solid s-button-primary s-button-wide` classes but renders unstyled in
+   this build (transparent, auto width), so "موافق" shows as plain text. Restore the
+   solid, full-width primary button (and some breathing room) the Twig demo shows. */
+.s-localization-modal-inner {
+  padding: 0.5rem 0.25rem 0.25rem;
+
+  .s-button-primary.s-button-solid {
+    display: block;
+    width: 100%;
+    background: var(--color-primary);
+    color: #fffffa;
+    border-radius: 12px;
+    padding: 8px 24px 10px;
+  }
+
+  /* selected radio dot: the store primary (brown), not the SDK's hard-coded blue
+     (the input paints its own background, so `accent-color` alone is ignored). */
+  .s-localization-modal-input {
+    accent-color: var(--color-primary);
+
+    &:checked {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  }
+}
+
 /* On mobile every `salla-modal` (appended to <body>, e.g. the language /
    currency picker) renders as a bottom sheet. The mobile bottom bar
    (`.mobile-bottom-bar`, z-220) would otherwise paint over its lower rows,
