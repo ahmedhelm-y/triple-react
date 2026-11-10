@@ -298,6 +298,26 @@ salla-localization-modal {
 .s-localization-modal-inner {
   padding: 0.5rem 0.25rem 0.25rem;
 
+  /* each option is a radio + label (+ currency symbol) on ONE line, not stacked
+     (the SDK leaves the item `display:block` in this build). */
+  .s-localization-modal-item {
+    display: flex;
+    align-items: center;
+  }
+
+  /* the label slot must fill the row so its inner space-between pushes the
+     currency symbol to the far edge (it shrinks to content otherwise). */
+  .s-localization-modal-label-slot {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  /* section headings ("اللغة" / "العملة") — match the Twig demo's 16px / 500. */
+  .s-localization-modal-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
   .s-button-primary.s-button-solid {
     display: block;
     width: 100%;
