@@ -12,7 +12,7 @@
     "section_general": false,
     "section_popup": false,
     "panel_colors": false,
-    "panel_header": true,
+    "panel_header": false,
     "trans_header": true,
     "header_layout": "default",
     "header_topbar_enabled": false,
@@ -56,9 +56,9 @@
     "bottom_footer_bg_dark": "#0a0806",
     "bottom_nav_bg_dark": "#1b1612",
     "bottom_nav_text_color_dark": "#f3ece3",
-    "panel_general": true,
+    "panel_general": false,
     "header_account_enabled": true,
-    "panel_footer": true,
+    "panel_footer": false,
     "panel_popup": false,
     "discount_popup_image": "",
     "header_is_sticky": true,
@@ -66,7 +66,7 @@
     "panel_promo": false,
     "footer_logos": [],
     "header_account_icon": "sicon-user-square",
-    "panel_product_card": true,
+    "panel_product_card": false,
     "hover_style": "hover_style_4",
     "product_promo_bg": "#7a5a2e",
     "productcard_options": false,
@@ -79,11 +79,28 @@
     "show_singleSelection": true,
     "show_multipleOption": true,
     "show_sidebar": true,
-    "sidebar_products": [1456761697, 84888672, 723660135, 1497697894],
+    "sidebar_products": [
+      1456761697,
+      84888672,
+      723660135,
+      1497697894
+    ],
     "sidebar_prolicy": [
-      { "icon": "sicon-shipping", "title": "توصيل سريع", "description": "التوصيل خلال 2 - 5 أيام عمل" },
-      { "icon": "sicon-lock", "title": "دفع آمن", "description": "وسائل دفع متعددة ومضمونة" },
-      { "icon": "sicon-box-bankers", "title": "استبدال واسترجاع", "description": "خلال 14 يوم من الاستلام" }
+      {
+        "icon": "sicon-shipping",
+        "title": "توصيل سريع",
+        "description": "التوصيل خلال 2 - 5 أيام عمل"
+      },
+      {
+        "icon": "sicon-lock",
+        "title": "دفع آمن",
+        "description": "وسائل دفع متعددة ومضمونة"
+      },
+      {
+        "icon": "sicon-box-bankers",
+        "title": "استبدال واسترجاع",
+        "description": "خلال 14 يوم من الاستلام"
+      }
     ]
   },
   "layout": [

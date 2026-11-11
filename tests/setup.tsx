@@ -23,6 +23,30 @@ if (typeof window !== 'undefined' && !window.matchMedia) {
   })) as typeof window.matchMedia;
 }
 
+// jsdom doesn't implement IntersectionObserver; report every target as visible
+// so scroll-reveal / sticky-nav observers (e.g. HeaderNav) behave as on-screen.
+if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+  class VisibleObserver {
+    constructor(private cb: IntersectionObserverCallback) {}
+    observe(target: Element) {
+      this.cb(
+        [{ isIntersecting: true, intersectionRatio: 1, target } as IntersectionObserverEntry],
+        this as unknown as IntersectionObserver
+      );
+    }
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return [];
+    }
+    root = null;
+    rootMargin = '';
+    thresholds = [];
+  }
+  window.IntersectionObserver = VisibleObserver as unknown as typeof IntersectionObserver;
+  globalThis.IntersectionObserver = window.IntersectionObserver;
+}
+
 vi.mock('@salla.sa/twilight-components-react/slider', () => ({
   SallaSlider: ({
     type,

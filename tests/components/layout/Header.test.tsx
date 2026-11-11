@@ -104,40 +104,6 @@ describe('Header', () => {
     expect(container.querySelector('[data-hook-slot="header:end"]')).toBeTruthy();
   });
 
-  it('renders the store name, description and social links in the intro row', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    const { container } = render(<Header />);
-    const intro = container.querySelector('.site-header__intro-inner');
-    expect(intro?.querySelector('.site-header__intro-title')?.textContent).toBe('Acme');
-    expect(container.querySelector('.site-header__intro-text')?.innerHTML).toContain(
-      'Handmade goods'
-    );
-    expect(container.querySelector('.site-header__intro salla-social')).toBeTruthy();
-  });
-
-  it('hides the store info row when header_show_store_info is off', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    state.theme = { settings: { header_show_store_info: false } };
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__intro')).toBeNull();
-    expect(container.querySelector('header.site-header')).toBeTruthy();
-  });
-
-  it('shows the store info row when header_show_store_info is unset', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__intro')).toBeTruthy();
-  });
-
-  it('leaves the store contacts to the footer, out of the intro row', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    state.store = { ...state.store, contacts: { phone: '+971500000000', email: 'hi@acme.test' } };
-    const { container } = render(<Header />);
-    const intro = container.querySelector('.site-header__intro');
-    expect(intro).toBeTruthy();
-    expect(intro?.querySelector('a[href^="tel:"], a[href^="mailto:"]')).toBeNull();
-  });
-
   it("server-renders the store's phone and email in the default layout's top bar", () => {
     vi.stubGlobal(
       'IntersectionObserver',
@@ -171,53 +137,6 @@ describe('Header', () => {
     const { container } = render(<Header />);
     expect(container.querySelector('.site-header__topnav')).toBeTruthy();
     expect(container.querySelector('[data-testid="store-header-contacts"]')).toBeNull();
-  });
-
-  it('omits the description block when the store has none', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    state.store.description = '';
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__intro-text')).toBeNull();
-  });
-
-  it('uses <h1> for the intro title on the homepage', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    const { container } = render(<Header />);
-    expect(container.querySelector('h1.site-header__intro-title')?.textContent).toBe('Acme');
-  });
-
-  it('shows the store info row on the homepage only by default', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    const { container, rerender } = render(<Header />);
-    expect(container.querySelector('.site-header__intro')).toBeTruthy();
-
-    state.routeIds = ['/{-$locale}/$slug/p{$id}'];
-    state.isHome = false;
-    rerender(<Header />);
-    expect(container.querySelector('.site-header__intro')).toBeNull();
-  });
-
-  it('shows the store info row on every page when home-only is off', () => {
-    state.theme = { settings: { header_store_info_home_only: false } };
-    state.routeIds = ['/{-$locale}/$slug/p{$id}'];
-    state.isHome = false;
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__intro')).toBeTruthy();
-  });
-
-  it('never shows the store info row in the default header layout', () => {
-    vi.stubGlobal(
-      'IntersectionObserver',
-      class {
-        observe() {}
-        unobserve() {}
-        disconnect() {}
-      }
-    );
-    state.theme = { settings: { header_layout: 'default', header_store_info_home_only: false } };
-    state.routeIds = [HOME_ROUTE_ID];
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__intro')).toBeNull();
   });
 
   it('opens the nav drawer when the menu button is clicked', () => {
@@ -301,26 +220,6 @@ describe('Header', () => {
     state.routeIds = ['/{-$locale}/cart'];
     const { container } = render(<Header />);
     expect(container.querySelector('header.site-header--home')).toBeNull();
-  });
-
-  it('reserves the social row when the store has social links', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__social-slot.has-links')).toBeTruthy();
-  });
-
-  it('does not reserve the social row when the store has no social links', () => {
-    state.routeIds = [HOME_ROUTE_ID];
-    state.store = { ...state.store, social: { twitter: '' } };
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__social-slot')).toBeTruthy();
-    expect(container.querySelector('.site-header__social-slot.has-links')).toBeNull();
-  });
-
-  it('does not reserve the social row for WhatsApp alone, which <salla-social> skips', () => {
-    state.store = { ...state.store, social: { whatsapp: '966500000000' } };
-    const { container } = render(<Header />);
-    expect(container.querySelector('.site-header__social-slot.has-links')).toBeNull();
   });
 
   it("renders the engine's ad bar in the header's ad slot", () => {

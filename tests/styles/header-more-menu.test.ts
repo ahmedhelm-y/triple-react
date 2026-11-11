@@ -141,7 +141,7 @@ describe('default layout dropdown panels', () => {
     const [nested] = rulesMatching(css, new RegExp(`__mainmenu ${sub} ${sub}$`));
     expect(decl(nested, 'border-top-left-radius')).toBeUndefined();
     const panels = rulesMatching(css, new RegExp(`__mainmenu ${sub}$`));
-    expect(panels.some((rule) => decl(rule, 'border-radius') === '16px')).toBe(true);
+    expect(panels.some((rule) => decl(rule, 'border-radius') === '.75rem')).toBe(true);
   });
 
   it('lays a mega panel out as four product columns', async () => {

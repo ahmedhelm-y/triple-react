@@ -6,7 +6,7 @@ import { FixedProducts } from '../../../app/components/home/FixedProducts';
 const listMock = vi.fn();
 
 vi.mock('@salla.sa/twilight-theme-engine/i18n', () => ({
-  useTranslation: () => ({ t: (_k: string, fb?: string) => fb ?? _k }),
+  useTranslation: () => ({ t: (_k: string, fb?: string) => fb ?? _k, i18n: { language: 'ar' } }),
 }));
 
 vi.mock('@salla.sa/twilight-theme-engine/api/product', () => ({

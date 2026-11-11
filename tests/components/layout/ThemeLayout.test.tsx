@@ -6,7 +6,7 @@ import { ThemeLayout } from '../../../app/components/layout/ThemeLayout';
 
 vi.mock('@tanstack/react-router', () => ({
   useRouterState: ({ select }: { select: (s: unknown) => unknown }) =>
-    select({ location: { pathname: '/ar' } }),
+    select({ location: { pathname: '/ar' }, matches: [] }),
 }));
 vi.mock('@salla.sa/twilight-theme-engine/providers', () => ({
   useTwilight: () => ({ theme: { settings: {} }, store: {} }),
@@ -19,6 +19,9 @@ vi.mock('@salla.sa/twilight-theme-engine/hooks/useUser', () => ({
 }));
 vi.mock('@salla.sa/twilight-theme-engine/layout', () => ({ Footer: () => null }));
 vi.mock('../../../app/components/layout/Header', () => ({ Header: () => null }));
+// These tests cover ThemeLayout's component-translation effect, not the footer;
+// stub TripleFooter so its own engine imports (MadeWithSalla, etc.) aren't needed.
+vi.mock('../../../app/components/layout/TripleFooter', () => ({ TripleFooter: () => null }));
 vi.mock('../../../app/components/layout/ImportantLinksSheet', () => ({
   ImportantLinksSheet: () => null,
 }));

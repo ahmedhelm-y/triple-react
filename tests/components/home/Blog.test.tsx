@@ -22,7 +22,7 @@ vi.mock('@salla.sa/twilight-theme-engine/api/blog', () => ({
 }));
 
 vi.mock('@salla.sa/twilight-theme-engine/i18n', () => ({
-  useTranslation: () => ({ t: (_k: string, fb?: string) => fb ?? _k }),
+  useTranslation: () => ({ t: (_k: string, fb?: string) => fb ?? _k, i18n: { language: 'ar' } }),
 }));
 
 vi.mock('@salla.sa/twilight-theme-engine/hooks', () => ({
