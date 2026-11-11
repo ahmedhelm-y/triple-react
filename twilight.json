@@ -18448,7 +18448,8 @@
                     "required": false,
                     "description": null
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/category-tabs.jpg"
         },
         {
             "key": "a2d85284-0368-4f71-9bae-05745725d12a",
@@ -19170,7 +19171,8 @@
                     "description": "بدون خلفية لو تركته فارغاً",
                     "key": "27a24768-f9cf-44fe-a61d-b3c543d0cbf6"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/bold-categories.jpg"
         },
         {
             "key": "b03ca7ae-9f93-4e02-b912-56999a582b77",
@@ -19730,7 +19732,8 @@
                     "description": null,
                     "key": "6c75c702-f40f-4c49-a1e8-3e2057abc59f"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/product-quiz.jpg"
         },
         {
             "key": "51e9acae-000e-41bc-a902-ded6c73fb499",
@@ -19996,7 +19999,8 @@
                     "description": null,
                     "key": "8850681c-f2ba-4bd8-a551-be40d884df7c"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/complete-set.jpg"
         },
         {
             "key": "fb710b83-38b2-40e2-a6be-4071b0020c21",
@@ -20211,7 +20215,8 @@
                     "description": "رقم عمود المنتج اللي يظهر بإطار مميز (0 = بدون)",
                     "key": "85a51c10-fd19-4c5c-a32f-6c99438ede0b"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/compare-products.jpg"
         },
         {
             "key": "7c2f5a3b-9d4e-4f6a-8b1c-2d3e4f5a6b70",
@@ -20498,7 +20503,8 @@
                     "required": false,
                     "description": "لون العنوان والإطارات والأزرار"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/pack-product.jpg"
         },
         {
             "key": "b1ff32cf-1432-4e5f-aeca-86cb8181f437",
@@ -20639,7 +20645,8 @@
                     "description": null,
                     "key": "3e492926-809a-4907-a968-35d7a4dfece2"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/shop-the-feed.jpg"
         },
         {
             "key": "ccfc5d88-d77a-4152-9141-cc4a5ddeadbd",
@@ -21185,7 +21192,8 @@
                     "description": null,
                     "key": "366d84b1-0993-4a0a-a55e-0475ce536ee6"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/outfit-builder.jpg"
         },
         {
             "key": "b2445f88-7f59-4b85-afe3-01b8daaef613",
@@ -22592,7 +22600,8 @@
                     "description": null,
                     "key": "77b990bc-5193-44b9-a11e-9b91697ef73a"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/hero-stage.jpg"
         },
         {
             "key": "07e7b911-ba6c-4b06-9200-83324fa749fd",
@@ -22733,7 +22742,8 @@
                     "description": null,
                     "key": "0a56c62f-5e27-4ec8-8899-c279828b22b2"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/perks-ticker.jpg"
         },
         {
             "key": "ee03e9ac-5ea2-42a1-83b0-22555c0f2982",
@@ -23006,7 +23016,8 @@
                     "description": null,
                     "key": "35fbfb0d-c762-4909-aac1-77618d490d6b"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/category-arches.jpg"
         },
         {
             "key": "c0769fd9-12d2-4851-8d90-c4bad1f13d30",
@@ -23373,7 +23384,8 @@
                     "description": null,
                     "key": "0850df01-75e2-4c87-8375-ecd7649a5b22"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/product-shelves.jpg"
         },
         {
             "key": "2602543a-8786-4ff6-9fbf-eeec0e74ec53",
@@ -24052,7 +24064,8 @@
                     "description": null,
                     "key": "90b855bc-2086-4c0c-81f6-ac3f8c4544ba"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/product-spotlight.jpg"
         },
         {
             "key": "539d4003-48c7-4a04-a965-f328d1d6fa09",
@@ -24164,7 +24177,8 @@
                     "description": null,
                     "key": "b3a4837f-bbf3-4419-913e-99f3f378e125"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/product-stories.jpg"
         },
         {
             "key": "3b137546-dd59-40ed-bd93-0f7b43f11324",
@@ -24541,7 +24555,8 @@
                     "description": null,
                     "key": "9701c78b-e3f6-4052-838a-108740b149ec"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/campaign-products.jpg"
         },
         {
             "key": "97e82ee9-a375-4e3d-a4e6-d1fd8192c4c5",
@@ -24813,7 +24828,8 @@
                     "description": null,
                     "key": "5a5a048b-29bc-4f25-88e0-17fc193a095d"
                 }
-            ]
+            ],
+            "image": "https://raw.githubusercontent.com/ahmedhelm-y/triple-react/main/twilight-preview-assets/home/brand-story.jpg"
         },
         {
             "key": "a065b190-8235-4c41-922a-1e890173c6f1",
