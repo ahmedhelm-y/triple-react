@@ -110,6 +110,19 @@ body:has(.profile-header) {
   }
 }
 
+/* Customer-pages header background image (design option `profile_bg`, Twig
+   parity). ThemeLayout adds `html.has-profile-bg` + the `--profile-header-bg`
+   url when the merchant set it; the dark overlay keeps the breadcrumb legible.
+   Desktop only, so the mobile `background-image:none` rule (common.scss) stays. */
+@media (min-width: 1025px) {
+  html.has-profile-bg .gradient-bg.profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+      var(--profile-header-bg);
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 /* Profile Header section */
 .profile-header {
   @apply relative lg:h-48 overflow-hidden;

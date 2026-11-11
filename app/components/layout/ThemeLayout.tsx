@@ -157,6 +157,25 @@ export function ThemeLayout({ children }: ThemeLayoutProps) {
     return lang.subscribe(() => fillComponentTranslations(lang, themeTranslations));
   }, []);
 
+  // Customer-pages header image (design option `profile_bg`, Twig parity): the
+  // engine's CustomerLayout renders `.profile-header gradient-bg`; apply the
+  // merchant's background image + a dark overlay via a root class + var. Done
+  // client-side from the merged `theme.settings` (the SSR theme-vars read the
+  // store only), so the dev preview / editor override is reflected too.
+  useEffect(() => {
+    const bg = (theme?.settings as Record<string, unknown> | undefined)?.profile_bg as
+      | string
+      | undefined;
+    const root = document.documentElement;
+    if (bg) {
+      root.style.setProperty('--profile-header-bg', `url('${bg}')`);
+      root.classList.add('has-profile-bg');
+    } else {
+      root.style.removeProperty('--profile-header-bg');
+      root.classList.remove('has-profile-bg');
+    }
+  }, [theme?.settings]);
+
   const imgRatio = productImageRatio(theme?.settings?.product_card_img_ratio);
 
   // Triple's settings-driven <body> classes (section-title style, bottom nav,

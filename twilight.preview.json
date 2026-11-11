@@ -74,6 +74,7 @@
     "more_menu_max_items": 3,
     "show_cat_banner": true,
     "banner_image": "https://cdn.files.salla.network/other/1384584890/722e3005-9e4e-406e-9561-844a28d86c95-original.webp",
+    "profile_bg": "https://cdn.files.salla.network/products/1384584890/0c88b9a5-61ab-4e7e-9533-5f8d6d72fae6-original.webp",
     "show_discounted_amount": true,
     "show_singleSelection": true,
     "show_multipleOption": true,
