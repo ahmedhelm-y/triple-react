@@ -226,3 +226,13 @@ body.footer-is-dark .store-footer {
   justify-content: center;
   gap: 0.75rem;
 }
+
+/* Payment-method icons: lay them in a single row (Twig parity — the engine's
+   `.s-payments-list` <ul> is block, so the bank / COD / mada badges would
+   otherwise stack vertically instead of sitting side by side). */
+.s-payments-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
