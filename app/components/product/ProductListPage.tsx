@@ -309,7 +309,10 @@ function CatalogGrid({
   wideGridClass,
   filterStatus,
   onRetry,
+  isBrand,
 }: {
+  /** A `/brands/{id}` page: also renders the Twig `brands:single.items.*` hooks. */
+  isBrand: boolean;
   filterStatus: 'idle' | 'loading' | 'ready' | 'error';
   onRetry: () => void;
   filtersVisible: boolean;
@@ -340,6 +343,7 @@ function CatalogGrid({
         <HookSlot name="product:list.items.start" />
         {/* legacy name for the same point */}
         <HookSlot name="product:index.items.start" />
+        {isBrand && <HookSlot name="brands:single.items.start" />}
 
         <div
           className={`flex min-h-screen${filterStatus === 'loading' ? ' opacity-60' : ''}`}
@@ -395,6 +399,7 @@ function CatalogGrid({
           )}
         </div>
 
+        {isBrand && <HookSlot name="brands:single.items.end" />}
         {/* legacy name for the same point */}
         <HookSlot name="product:index.items.end" />
         <HookSlot name="product:list.items.end" />
@@ -538,7 +543,10 @@ export function ProductListPage({
     >
       {theme?.settings?.product_index_show_breadcrumbs !== false && <Breadcrumb page={page} />}
 
+      {/* Twig `brands/single.twig` hooks around the brand header, for apps that target them */}
+      {isBrand && <HookSlot name="brands:single.details.start" context={{ brand: source.entity }} />}
       <BrandHeader source={source} />
+      {isBrand && <HookSlot name="brands:single.details.end" context={{ brand: source.entity }} />}
 
       {/* Unified banner (design option `show_cat_banner` + `banner_image`, Twig
           parity: views/pages/product/index.twig shows it on every product-index
@@ -610,6 +618,7 @@ export function ProductListPage({
         listKey={`${listKey}${filteredKey}`}
         filterStatus={filterStatus}
         onRetry={retryFilters}
+        isBrand={isBrand}
         selectedSort={selectedSort}
         view={view}
         products={shownProducts}

@@ -7,6 +7,7 @@
   "pages.cart.apply_coupon_btn": "Apply",
   "pages.products.add_to_cart": "Add to Cart",
   "pages.products.out_of_stock": "Out of Stock",
+  "pages.products.not_found": "Page not found",
   "common.actions.save": "Save",
   "common.actions.cancel": "Cancel",
   "pages.thank_you.hero_title": "Thank you for shopping with us! 😊",
