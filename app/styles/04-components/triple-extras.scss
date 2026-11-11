@@ -1205,3 +1205,66 @@
   background: rgba(0, 0, 0, 0.08);
   color: inherit;
 }
+
+/* ============================
+   Product single page — savings box (show_discounted_amount) + sidebar
+   (show_sidebar: sidebar_prolicy policies + sidebar_products). Twig parity:
+   triple_twig/src/views/pages/product/single.twig + triple-pages.scss.
+   ============================ */
+.product-single__discounted-amount {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.3rem 0.1rem;
+
+  > span:first-child {
+    border-inline-end: 1px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+  }
+}
+
+.product-single__sidebar-content {
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+.policy-sidebar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: color-mix(in srgb, var(--color-primary) 5%, var(--bg-secondary));
+  border-radius: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.875rem 1rem;
+
+  .image i {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    display: inline-block;
+  }
+  .content .title {
+    font-weight: 700;
+    color: var(--store-text-primary);
+    margin-bottom: 0.1rem;
+  }
+  .content .description {
+    font-size: 0.8125rem;
+    color: var(--store-text-secondary);
+  }
+}
+
+.collection-sidebar {
+  margin-top: 1.25rem;
+
+  > .title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    color: var(--store-text-primary);
+  }
+}

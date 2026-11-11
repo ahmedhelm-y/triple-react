@@ -5,6 +5,8 @@ import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { getActiveCurrency } from '@salla.sa/twilight-theme-engine/api/client';
 import { useWishlist } from '@salla.sa/twilight-theme-engine/hooks/useWishlist';
 import { CurrencySymbol, Link, Image } from '@salla.sa/twilight-theme-engine/common';
+import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
+import { Money } from '../common/Money';
 import { formatSallaPlural } from '@salla.sa/twilight-theme-engine/utils';
 import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import { SallaRatingStars } from '@salla.sa/twilight-components-react/rating-stars';
@@ -200,28 +202,48 @@ function TitleWishlistButton({ productId }: { productId: number }) {
 
 function ProductPrice({ product }: { product: Product }) {
   const { t } = useTranslation();
+  const { theme } = useTwilight();
   // The API converts the amounts but still labels them in the store's own currency.
   const priceCurrency = getActiveCurrency(product.currency);
 
+  // Savings box (design option `show_discounted_amount`, Twig parity): the amount
+  // off = regular − sale, shown under the price when the product is on sale.
+  const showSaved = !!theme?.settings?.show_discounted_amount && product.is_on_sale;
+  const saved =
+    Math.round((Number(product.regular_price) - Number(product.sale_price) + Number.EPSILON) * 100) /
+    100;
+
   return (
-    <div className="flex whitespace-nowrap gap-4 items-center mb-2.5">
-      <div
-        className={`${product.is_on_sale ? '' : 'hidden'} space-x-2 rtl:space-x-reverse whitespace-nowrap`}
-      >
-        <p className="text-red-800 font-bold text-xl inline-block">
-          {product.sale_price} <CurrencySymbol currency={priceCurrency} />
-        </p>
-        <span className="text-gray-500 line-through">
-          {product.regular_price} <CurrencySymbol currency={priceCurrency} />
-        </span>
+    <>
+      <div className="flex whitespace-nowrap gap-4 items-center mb-2.5">
+        <div
+          className={`${product.is_on_sale ? '' : 'hidden'} space-x-2 rtl:space-x-reverse whitespace-nowrap`}
+        >
+          <p className="text-red-800 font-bold text-xl inline-block">
+            {product.sale_price} <CurrencySymbol currency={priceCurrency} />
+          </p>
+          <span className="text-gray-500 line-through">
+            {product.regular_price} <CurrencySymbol currency={priceCurrency} />
+          </span>
+        </div>
+        <div className={`gap-4 ${product.is_on_sale ? 'hidden' : 'flex'}`}>
+          {product.starting_price && <span>{t('pages.products.starting_price')}</span>}
+          <p className="font-bold text-xl inline-block">
+            {product.starting_price ?? product.price} <CurrencySymbol currency={priceCurrency} />
+          </p>
+        </div>
       </div>
-      <div className={`gap-4 ${product.is_on_sale ? 'hidden' : 'flex'}`}>
-        {product.starting_price && <span>{t('pages.products.starting_price')}</span>}
-        <p className="font-bold text-xl inline-block">
-          {product.starting_price ?? product.price} <CurrencySymbol currency={priceCurrency} />
-        </p>
-      </div>
-    </div>
+      {showSaved && saved > 0 && (
+        <div className="product-single__discounted-amount mb-3">
+          <span className="px-2.5">{t('blocks.triple.you_save', 'وفّر')}</span>
+          <span className="px-2.5">
+            <strong>
+              <Money amount={saved} />
+            </strong>
+          </span>
+        </div>
+      )}
+    </>
   );
 }
 

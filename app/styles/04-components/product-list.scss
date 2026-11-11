@@ -103,6 +103,17 @@
 }
 
 /*
+  Category pages: honour the merchant's `products_per_row` design option (Twig
+  parity — 4 by default) instead of the filter-less full row of 5. Overrides the
+  base 5-col grid from home-blocks.scss at desktop width.
+*/
+.s-products-list-wrapper.s-products-list-vertical-cards.s-products-list-cat-cols {
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(var(--products-per-row, 4), minmax(0, 1fr));
+  }
+}
+
+/*
   List view — the engine's horizontal product card. Space the image off the
   content and make the add-to-cart solid + pill, matching the grid card.
 */

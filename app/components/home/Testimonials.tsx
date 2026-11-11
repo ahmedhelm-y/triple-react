@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import type { HomeComponentConfig } from '@salla.sa/twilight-theme-engine/routes/home';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
+import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
 
 /**
  * `testimonials` home block (an engine default whose view Triple replaces) —
@@ -34,7 +35,12 @@ export interface TestimonialsData {
   [key: string]: unknown;
 }
 
-function themeSetting(key: string): boolean {
+// Theme settings from the engine context (store + editor/preview override) —
+// the official pattern. The module-level `className` config runs with no hook
+// access, so it passes `undefined` and falls back to the live store via
+// `salla.config`; the component passes `theme.settings` and gets the override.
+function themeSetting(settings: Record<string, unknown> | undefined, key: string): boolean {
+  if (settings) return !!settings[key];
   try {
     return !!(globalThis as any).salla?.config?.get?.(`theme.settings.${key}`);
   } catch {
@@ -47,7 +53,7 @@ export const testimonialsConfig: HomeComponentConfig = {
     const d = data as TestimonialsData;
     const hasItems = Array.isArray(d.items) && d.items.length > 0;
     if (!hasItems) return 's-block s-block--testimonials container overflow-hidden';
-    const enhanced = themeSetting('enable_second_reviews');
+    const enhanced = themeSetting(undefined, 'enable_second_reviews');
     return `s-block s-block--testimonials overflow-hidden s-block--animate relative${
       enhanced ? ' enhanced' : ''
     }`;
@@ -69,6 +75,8 @@ function Stars({ stars }: { stars: number }) {
 
 export const Testimonials = memo(function Testimonials({ data }: { data: TestimonialsData }) {
   const { t } = useTranslation();
+  const { theme } = useTwilight();
+  const ts = theme?.settings as Record<string, unknown> | undefined;
   const pos = data.position ?? 0;
   const items = Array.isArray(data.items) ? data.items : [];
 
@@ -90,7 +98,7 @@ export const Testimonials = memo(function Testimonials({ data }: { data: Testimo
     );
   }
 
-  const autoplay = themeSetting('auto_play_products_slider');
+  const autoplay = themeSetting(ts, 'auto_play_products_slider');
   const longItems = items
     .map((item, index) => ({ item, index }))
     .filter(({ item }) => (item.text || '').length > MAX_LENGTH);

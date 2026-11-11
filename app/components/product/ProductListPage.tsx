@@ -436,7 +436,7 @@ export function ProductListPage({
   pagination,
   filters,
 }: ProductListLoaderData) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const store = useStore();
   const { theme } = useTwilight();
   const navigate = useNavigate();
@@ -523,8 +523,12 @@ export function ProductListPage({
 
   const listLayoutClass =
     view === 'list' ? 's-products-list-horizontal-cards' : 's-products-list-vertical-cards';
-  // Offers (and other filter-less lists) get the full row: 5 columns on desktop.
-  const wideGridClass = !query.filters && view === 'grid' ? ' s-products-list-cols-5' : '';
+  // All product-index listings (categories, offers, search) honour the merchant's
+  // `products_per_row` (Twig parity: 4 by default) on desktop — the same grid Twig
+  // uses on every listing. The filtered case falls through to the with-filters
+  // grid rule.
+  const wideGridClass =
+    view === 'grid' && !query.filters ? ' s-products-list-cat-cols' : '';
 
   return (
     <div
@@ -535,6 +539,35 @@ export function ProductListPage({
       {theme?.settings?.product_index_show_breadcrumbs !== false && <Breadcrumb page={page} />}
 
       <BrandHeader source={source} />
+
+      {/* Unified banner (design option `show_cat_banner` + `banner_image`, Twig
+          parity: views/pages/product/index.twig shows it on every product-index
+          listing — categories, offers, search — not brands. */}
+      {source.type !== 'brands' &&
+        (() => {
+          const ts = theme?.settings as Record<string, unknown> | undefined;
+          const en = i18n.language?.startsWith('en');
+          const banner =
+            (en && (ts?.banner_image_en as string)) || (ts?.banner_image as string) || '';
+          if (!ts?.show_cat_banner || !banner) return null;
+          return (
+            <div className="s-block--fixed-banner wide-placeholder mt-4">
+              <a
+                href={(ts?.banner_link as string) || '#'}
+                className="banner banner--fixed overflow-hidden block"
+              >
+                <img
+                  width={1200}
+                  height={300}
+                  style={{ height: 'auto', width: '100%' }}
+                  className="!rounded-none"
+                  src={banner}
+                  alt="Banner"
+                />
+              </a>
+            </div>
+          );
+        })()}
 
       <HookSlot name="product:list.start" />
 

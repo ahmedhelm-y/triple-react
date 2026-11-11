@@ -2,6 +2,7 @@ import { Suspense, memo, useCallback } from 'react';
 import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import type { HomeComponentConfig } from '@salla.sa/twilight-theme-engine/routes/home';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
+import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
 import { product as productApi, type ProductsListSource } from '@salla.sa/twilight-theme-engine/api/product';
 import {
   SallaProductsList,
@@ -61,13 +62,10 @@ function toIds(value: unknown): number[] {
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-function themeSetting(key: string): boolean {
-  const s = (globalThis as unknown as { salla?: any }).salla;
-  try {
-    return !!s?.config?.get?.(`theme.settings.${key}`);
-  } catch {
-    return false;
-  }
+// Theme settings from the engine context (store + editor/preview override) —
+// the official pattern; `salla.config.get` would miss the editor/preview.
+function themeSetting(settings: Record<string, unknown> | undefined, key: string): boolean {
+  return !!settings?.[key];
 }
 
 export interface SpecialProductsSliderData {
@@ -122,6 +120,8 @@ export const SpecialProductsSlider = memo(function SpecialProductsSlider({
   data: SpecialProductsSliderData;
 }) {
   const { i18n } = useTranslation();
+  const { theme } = useTwilight();
+  const ts = theme?.settings as Record<string, unknown> | undefined;
   const lang = i18n.language;
 
   const title = pickLang(data.title as MultiLang, lang);
@@ -172,8 +172,8 @@ export const SpecialProductsSlider = memo(function SpecialProductsSlider({
       }${data.has_light_overlay ? ' has-overlay--light' : ''}`
     : '';
 
-  const fitSlider = themeSetting('fit_slider_products');
-  const autoPlay = themeSetting('auto_play_products_slider');
+  const fitSlider = themeSetting(ts, 'fit_slider_products');
+  const autoPlay = themeSetting(ts, 'auto_play_products_slider');
   const sliderClass = `simplified-products${fitSlider ? ' fit-slider-products' : ''}`;
 
   return (

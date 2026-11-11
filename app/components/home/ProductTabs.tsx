@@ -2,6 +2,7 @@ import { Suspense, memo, useCallback, useState } from 'react';
 import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import type { HomeComponentConfig } from '@salla.sa/twilight-theme-engine/routes/home';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
+import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
 import { product as productApi, type ProductsListSource } from '@salla.sa/twilight-theme-engine/api/product';
 import {
   SallaProductsList,
@@ -68,13 +69,12 @@ function toIds(value: unknown): number[] {
   return arr.map(firstId).filter((n): n is number => n != null);
 }
 
-function themeSetting(key: string): boolean {
-  const s = (globalThis as unknown as { salla?: any }).salla;
-  try {
-    return !!s?.config?.get?.(`theme.settings.${key}`);
-  } catch {
-    return false;
-  }
+// Read a theme setting from the engine context (store settings merged with the
+// editor / twilight.preview.json override) — the official pattern. Reading via
+// `salla.config.get('theme.settings.X')` would see the live store only and miss
+// the editor/preview, so the preview never reflected these slider options.
+function themeSetting(settings: Record<string, unknown> | undefined, key: string): boolean {
+  return !!settings?.[key];
 }
 
 interface ResolvedTab {
@@ -180,6 +180,8 @@ function TabPanel({ tab, sliderClass, autoPlay, sliderId }: {
 
 export const ProductTabs = memo(function ProductTabs({ data }: { data: ProductTabsData }) {
   const { t, i18n } = useTranslation();
+  const { theme } = useTwilight();
+  const ts = theme?.settings as Record<string, unknown> | undefined;
   const lang = i18n.language;
   const [active, setActive] = useState(0);
   const [opened, setOpened] = useState<Set<number>>(() => new Set([0]));
@@ -232,10 +234,10 @@ export const ProductTabs = memo(function ProductTabs({ data }: { data: ProductTa
 
   if (!tabs.length) return null;
 
-  const sliderClass = `simplified-products ${themeSetting('fit_slider_products') ? 'fit-slider-products ' : ''}${
-    themeSetting('enhanced_products_slider') ? 'enhanced-products-slider ' : ''
+  const sliderClass = `simplified-products ${themeSetting(ts, 'fit_slider_products') ? 'fit-slider-products ' : ''}${
+    themeSetting(ts, 'enhanced_products_slider') ? 'enhanced-products-slider ' : ''
   }${
-    themeSetting('enhanced_products_slider') && themeSetting('hide_products_slider_controls')
+    themeSetting(ts, 'enhanced_products_slider') && themeSetting(ts, 'hide_products_slider_controls')
       ? 'hide_products_slider_controls'
       : ''
   }`.trim();
@@ -292,7 +294,7 @@ export const ProductTabs = memo(function ProductTabs({ data }: { data: ProductTa
             <TabPanel
               tab={tab}
               sliderClass={sliderClass}
-              autoPlay={themeSetting('auto_play_products_slider')}
+              autoPlay={themeSetting(ts, 'auto_play_products_slider')}
               sliderId={`product-tabs-slider-${position}-${i + 1}`}
             />
           ) : null}

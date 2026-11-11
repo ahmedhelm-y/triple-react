@@ -394,6 +394,22 @@ export function AddToCartForm({
 }: AddToCartFormProps) {
   const [activeCollapse, setActiveCollapse] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const { theme } = useTwilight();
+  // Product-options display (Twig parity: pages/partials/triple/product-options.twig):
+  // `show_singleSelection` / `show_multipleOption` turn single/multiple-select
+  // options into buttons via the web component's `config` prop (else dropdown).
+  const optionsConfig = JSON.stringify({
+    'single-option': {
+      type: (theme?.settings as Record<string, unknown> | undefined)?.show_singleSelection
+        ? 'button'
+        : 'default',
+    },
+    'multiple-option': {
+      type: (theme?.settings as Record<string, unknown> | undefined)?.show_multipleOption
+        ? 'button'
+        : 'default',
+    },
+  });
   // Replays the little pulse whenever the figures change (quantity / options).
   const priceBump = usePriceBump(
     product.sale_price,
@@ -472,6 +488,7 @@ export function AddToCartForm({
           ref={optionsRef}
           options={JSON.stringify(product.options)}
           productId={product.id}
+          config={optionsConfig}
         />
       )}
 

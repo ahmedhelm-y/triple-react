@@ -3,6 +3,11 @@ body {
   font-weight: 400;
   line-height: 26px;
   color: var(--main-text-color);
+  // The page background (Twig parity: master.twig sets body to --bg-primary).
+  // Without it the body is transparent → browser white, which shows through on
+  // pages whose content doesn't cover it (static pages, empty states) and hides
+  // the white content card on those pages.
+  background-color: var(--bg-primary);
   position: relative;
 }
 

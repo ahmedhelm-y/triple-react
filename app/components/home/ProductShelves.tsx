@@ -2,6 +2,7 @@ import { Suspense, memo, useCallback, useMemo, useState } from 'react';
 import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import type { HomeComponentConfig } from '@salla.sa/twilight-theme-engine/routes/home';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
+import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
 import { product as productApi, type ProductsListSource } from '@salla.sa/twilight-theme-engine/api/product';
 import {
   SallaProductsList,
@@ -48,13 +49,10 @@ function toIds(value: unknown): number[] {
   const arr = Array.isArray(value) ? value : [value];
   return arr.map(firstId).filter((n): n is number => n != null);
 }
-function themeSetting(key: string): boolean {
-  const s = (globalThis as unknown as { salla?: any }).salla;
-  try {
-    return !!s?.config?.get?.(`theme.settings.${key}`);
-  } catch {
-    return false;
-  }
+// Theme settings from the engine context (store + editor/preview override) —
+// the official pattern; `salla.config.get` would miss the editor/preview.
+function themeSetting(settings: Record<string, unknown> | undefined, key: string): boolean {
+  return !!settings?.[key];
 }
 
 interface ShelfRaw {
@@ -142,6 +140,8 @@ function ShelfPanel({ shelf, sliderClass, autoPlay, sliderId, moreText }: {
 
 export const ProductShelves = memo(function ProductShelves({ data }: { data: ProductShelvesData }) {
   const { t, i18n } = useTranslation();
+  const { theme } = useTwilight();
+  const ts = theme?.settings as Record<string, unknown> | undefined;
   const lang = i18n.language;
   const heading = pickLang(data.heading, lang);
   const blurb = pickLang(data.blurb, lang);
@@ -177,7 +177,7 @@ export const ProductShelves = memo(function ProductShelves({ data }: { data: Pro
   if (!shelves.length) return null;
 
   const many = shelves.length > 1;
-  const sliderClass = `simplified-products${themeSetting('fit_slider_products') ? ' fit-slider-products' : ''}`;
+  const sliderClass = `simplified-products${themeSetting(ts, 'fit_slider_products') ? ' fit-slider-products' : ''}`;
   const select = (i: number) => {
     setActive(i);
     setOpened((prev) => (prev.has(i) ? prev : new Set(prev).add(i)));
@@ -227,7 +227,7 @@ export const ProductShelves = memo(function ProductShelves({ data }: { data: Pro
             <ShelfPanel
               shelf={shelf}
               sliderClass={sliderClass}
-              autoPlay={themeSetting('auto_play_products_slider')}
+              autoPlay={themeSetting(ts, 'auto_play_products_slider')}
               sliderId={`shelf-slider-${position}-${i}`}
               moreText={t('blocks.home.shelf_more')}
             />

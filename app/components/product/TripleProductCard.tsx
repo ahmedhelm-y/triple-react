@@ -3,6 +3,7 @@ import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import type { ProductCardProps } from '@salla.sa/twilight-theme-engine/product';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
 import { useWishlist } from '@salla.sa/twilight-theme-engine/hooks/useWishlist';
+import { useTheme } from '@salla.sa/twilight-theme-engine/hooks/useTheme';
 import { registerNativeBookingHook } from '../../lib/nativeBooking';
 import { useVideoProducts, CardVideo } from '../../lib/videoProducts';
 import { Money } from '../common/Money';
@@ -95,18 +96,25 @@ function sallaSdk(): any {
   return (globalThis as unknown as { salla?: any }).salla;
 }
 
-function readSettings(): TripleCardSettings {
+function readSettings(themeSettings?: Record<string, unknown>): TripleCardSettings {
   const s = sallaSdk();
-  if (!s?.config?.get) return DEFAULT_SETTINGS;
   const get = (k: string, d: unknown): unknown => {
     try {
-      const v = s.config.get(k);
+      const v = s?.config?.get?.(k);
       return v === undefined || v === null ? d : v;
     } catch {
       return d;
     }
   };
-  const ts = (k: string, d: unknown) => get(`theme.settings.${k}`, d);
+  // Theme settings come from the engine context (store settings merged with the
+  // theme editor / twilight.preview.json overrides) — the official pattern used
+  // by Salla's own React theme (theme-raed-react via useTheme()). Reading them
+  // from `salla.config.get('theme.settings.X')` would see ONLY the live store and
+  // ignore the editor/preview, so the preview never reflected the merchant's design.
+  const ts = (k: string, d: unknown): unknown => {
+    const v = themeSettings ? themeSettings[k] : undefined;
+    return v === undefined || v === null ? d : v;
+  };
   const win = globalThis as unknown as Record<string, unknown>;
 
   let placeholder = String(ts('placeholder', '') || '');
@@ -357,6 +365,7 @@ export function TripleProductCard(props: TripleProductCardProps) {
 
   const { t } = useTranslation();
   const wishlist = useWishlist();
+  const { settings: themeSettings } = useTheme();
   const [settings, setSettings] = useState<TripleCardSettings>(DEFAULT_SETTINGS);
   const [quickViewId, setQuickViewId] = useState<number | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -367,8 +376,8 @@ export function TripleProductCard(props: TripleProductCardProps) {
 
   useEffect(() => {
     registerNativeBookingHook();
-    setSettings(readSettings());
-  }, []);
+    setSettings(readSettings(themeSettings as Record<string, unknown> | undefined));
+  }, [themeSettings]);
 
   const horizontal = layout === 'horizontal';
   const fullImage = layout === 'fullImage';

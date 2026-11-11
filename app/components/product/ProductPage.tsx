@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { createElement, Fragment, useEffect, useMemo, useState } from 'react';
 import { SallaQuickOrder } from '@salla.sa/twilight-components-react/quick-order';
 import { SallaOffer } from '@salla.sa/twilight-components-react/offer';
 import { SallaComments } from '@salla.sa/twilight-components-react/comments';
@@ -15,6 +15,7 @@ import { ProductDetails } from './ProductDetails';
 import { AddToCartForm } from './AddToCartForm';
 import { BlockHookSlot } from '../common';
 import { ProductsSlider } from '../home';
+import { collectionField, pickLang, type MultiLang } from '../../lib/homeBlockData';
 
 /**
  * "Similar products" slider. A separate component (not inline in
@@ -50,6 +51,74 @@ function RelatedProducts({ productId, title }: { productId: number; title: strin
       )}
       <HookSlot name="product:related.end" />
     </>
+  );
+}
+
+/**
+ * Product-single sidebar (design option `show_sidebar`, Twig parity:
+ * product/single.twig): store policies (`sidebar_prolicy` — icon + title +
+ * description) and a selected-products list (`sidebar_products`). Desktop (xl)
+ * only, matching Twig's `hidden xl:block`.
+ */
+function ProductSidebar({ settings }: { settings?: Record<string, unknown> }) {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+
+  const policies = (((settings?.sidebar_prolicy as unknown[]) || []) as Record<string, unknown>[])
+    .slice(0, 3)
+    .map((p) => ({
+      icon: (collectionField(p, 'sidebar_prolicy', 'icon') as string) || 'sicon-store',
+      title: pickLang(collectionField(p, 'sidebar_prolicy', 'title') as MultiLang, lang),
+      description: pickLang(collectionField(p, 'sidebar_prolicy', 'description') as MultiLang, lang),
+    }))
+    .filter((p) => p.title || p.description);
+
+  let rawIds = settings?.sidebar_products as unknown;
+  if (rawIds && typeof rawIds === 'object' && 'value' in (rawIds as object)) {
+    rawIds = (rawIds as { value: unknown }).value;
+  }
+  const ids = (((rawIds as unknown[]) || []) as unknown[])
+    .map((it) =>
+      it && typeof it === 'object' && 'value' in it ? (it as { value: unknown }).value : it
+    )
+    .filter((v) => v != null)
+    .slice(0, 4);
+
+  if (!policies.length && !ids.length) return null;
+
+  return (
+    <div className="product-single__sidebar w-full xl:w-1/4 hidden xl:block px-[15px]">
+      <div className="product-single__sidebar-content">
+        {policies.length > 0 && (
+          <div className="product-single__policy">
+            {policies.map((p, i) => (
+              <div className="policy-sidebar" key={i}>
+                <div className="image">
+                  <i className={p.icon} aria-hidden="true" />
+                </div>
+                <div className="content">
+                  {p.title && <div className="title">{p.title}</div>}
+                  {p.description && <div className="description">{p.description}</div>}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        {ids.length > 0 && (
+          <div className="collection-sidebar">
+            <div className="title">{t('blocks.triple.selected_products', 'منتجات مختارة')}</div>
+            <div className="content">
+              {createElement('salla-products-list', {
+                'horizontal-cards': '',
+                source: 'selected',
+                limit: '4',
+                'source-value': JSON.stringify(ids),
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -117,10 +186,16 @@ export function ProductPage({ product: initialProduct, page }: ProductPageProps)
 
         <HookSlot name="product:start" />
 
-        <div className="flex flex-col items-start md:flex-row" id={`product-${product.id}`}>
-          <ProductGallery product={product} />
+        <div
+          className="flex flex-col items-start xl:flex-row-reverse xl:gap-2"
+          id={`product-${product.id}`}
+        >
+          <div
+            className={`flex flex-col items-start md:flex-row w-full ${theme?.settings?.show_sidebar ? 'xl:w-3/4' : ''}`}
+          >
+            <ProductGallery product={product} />
 
-          <div className="main-content md:sticky md:overflow-hidden md:top-24 w-full md:w-2/4 md:pb-16">
+            <div className="main-content md:sticky md:overflow-hidden md:top-24 w-full md:w-2/4 md:pb-16">
             <HookSlot name="product:details.start" />
             {/* Loader product: like Twig, the header price stays the unit price; only the SKU and barcode are live */}
             <ProductDetails
@@ -139,7 +214,11 @@ export function ProductPage({ product: initialProduct, page }: ProductPageProps)
             <PageBlocks hook="product:single.description.end" scope={blockScope} />
 
             <SallaQuickOrder className="mt-5 md:-mb-2 block" />
+            </div>
           </div>
+          {theme?.settings?.show_sidebar ? (
+            <ProductSidebar settings={theme?.settings as Record<string, unknown>} />
+          ) : null}
         </div>
 
         <SallaOffer />

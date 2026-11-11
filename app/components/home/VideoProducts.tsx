@@ -2,6 +2,7 @@ import { Suspense, memo, useCallback, useMemo } from 'react';
 import type { Product } from '@salla.sa/twilight-theme-engine/types';
 import type { HomeComponentConfig } from '@salla.sa/twilight-theme-engine/routes/home';
 import { useTranslation } from '@salla.sa/twilight-theme-engine/i18n';
+import { useTwilight } from '@salla.sa/twilight-theme-engine/providers';
 import { product as productApi } from '@salla.sa/twilight-theme-engine/api/product';
 import {
   SallaProductsList,
@@ -50,12 +51,10 @@ function productId(raw: unknown): string {
   return String(raw);
 }
 
-function themeSetting(key: string): boolean {
-  try {
-    return !!(globalThis as any).salla?.config?.get?.(`theme.settings.${key}`);
-  } catch {
-    return false;
-  }
+// Theme settings from the engine context (store + editor/preview override) —
+// the official pattern; `salla.config.get` would miss the editor/preview.
+function themeSetting(settings: Record<string, unknown> | undefined, key: string): boolean {
+  return !!settings?.[key];
 }
 
 export interface VideoProductsData {
@@ -90,6 +89,8 @@ export const videoProductsConfig: HomeComponentConfig = {
 
 export const VideoProducts = memo(function VideoProducts({ data }: { data: VideoProductsData }) {
   const { t, i18n } = useTranslation();
+  const { theme } = useTwilight();
+  const ts = theme?.settings as Record<string, unknown> | undefined;
   const lang = i18n.language;
 
   const title = pickLang(data.title as MultiLang, lang);
@@ -128,8 +129,8 @@ export const VideoProducts = memo(function VideoProducts({ data }: { data: Video
 
   if (!ids.length) return null;
 
-  const fitSlider = themeSetting('fit_slider_products');
-  const autoPlaySlider = themeSetting('auto_play_products_slider');
+  const fitSlider = themeSetting(ts, 'fit_slider_products');
+  const autoPlaySlider = themeSetting(ts, 'auto_play_products_slider');
   const listClass = `vertical-products simplified-products${fitSlider ? ' fit-slider-products' : ''}`;
   const sliderClass = `simplified-products${fitSlider ? ' fit-slider-products' : ''}`;
 
