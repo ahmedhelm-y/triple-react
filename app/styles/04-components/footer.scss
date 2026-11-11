@@ -215,3 +215,14 @@ body.footer-is-dark .store-footer {
     color: color-mix(in srgb, var(--footer-text-color) 78%, transparent);
   }
 }
+
+/* App-store badges: lay them side by side and centred (Twig parity — the engine
+   renders `.s-apps-icons-list` as display:block, so the App Store / Google Play
+   badges would otherwise stack vertically instead of sitting in one row). */
+.store-footer__apps .s-apps-icons-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
