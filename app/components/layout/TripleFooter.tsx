@@ -168,14 +168,16 @@ function FooterContactButtons({ rounded }: { rounded: boolean }) {
       href: `tel:${c.phone}`,
       external: false,
     },
-    c.mobile &&
-      c.mobile !== c.phone && {
-        key: 'mobile',
-        icon: 'sicon-phone',
-        label: t('blocks.footer.mobile', 'Mobile'),
-        href: `tel:${c.mobile}`,
-        external: false,
-      },
+    c.mobile && {
+      // Twig's <triple-contacts> lists every non-empty contact without
+      // de-duplicating mobile against phone, so show الجوال whenever it is set
+      // even if it matches the phone number.
+      key: 'mobile',
+      icon: 'sicon-phone',
+      label: t('blocks.footer.mobile', 'Mobile'),
+      href: `tel:${c.mobile}`,
+      external: false,
+    },
     c.whatsapp && {
       key: 'whatsapp',
       icon: 'sicon-whatsapp',
