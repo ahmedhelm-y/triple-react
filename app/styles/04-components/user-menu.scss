@@ -1,3 +1,48 @@
+/* Avatar-only account trigger (Twig parity). The React `<salla-user-menu avatar-only>`
+   still renders the greeting + name + chevron in its trigger and a big avatar/greeting
+   header in its dropdown; Twig hides all three and shows only the round avatar as the
+   trigger with a clean menu list. Match that: size the avatar and hide the extras. */
+/* Signed-in state renders the avatar wrapper. Twig's component build hides the guest
+   login-btn slot then; the React build leaves it visible next to the avatar (two icons
+   stacked). Hide it whenever the logged-in wrapper is present — guest state has no wrapper. */
+salla-user-menu:has(.s-user-menu-wrapper) > [slot='login-btn'] {
+  display: none;
+}
+
+salla-user-menu[avatar-only] {
+  .s-user-menu-trigger {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .s-user-menu-avatar-wrap {
+    width: 32px;
+    height: 32px;
+  }
+
+  .s-user-menu-trigger-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* The component ships these in the trigger even in avatar-only mode; Twig's build
+     doesn't show them, so the trigger is the avatar alone. */
+  .s-user-menu-trigger-content,
+  .s-user-menu-trigger-icon {
+    display: none;
+  }
+
+  /* Dropdown opens as a clean menu list — no avatar/greeting/close header (Twig). */
+  .s-user-menu-dropdown-header {
+    display: none;
+  }
+}
+
 // Dropdown toggler
 .dropdown__trigger {
   @apply rounded-full overflow-hidden w-10 h-10 font-medium focus:ring-offset-transparent;
