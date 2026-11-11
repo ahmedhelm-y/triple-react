@@ -136,6 +136,8 @@ function ProductSidebar({ settings }: { settings?: Record<string, unknown> }) {
  */
 export function ProductPage({ product: initialProduct, page }: ProductPageProps) {
   const { theme, store } = useTwilight();
+  // `show_sidebar` is a theme-specific design option not in the engine's ThemeSettings type.
+  const showSidebar = !!(theme?.settings as Record<string, unknown> | undefined)?.show_sidebar;
   const { t } = useTranslation();
   const { product } = useProduct(initialProduct);
   const { commentsKey } = useComments();
@@ -191,7 +193,7 @@ export function ProductPage({ product: initialProduct, page }: ProductPageProps)
           id={`product-${product.id}`}
         >
           <div
-            className={`flex flex-col items-start md:flex-row w-full ${theme?.settings?.show_sidebar ? 'xl:w-3/4' : ''}`}
+            className={`flex flex-col items-start md:flex-row w-full ${showSidebar ? 'xl:w-3/4' : ''}`}
           >
             <ProductGallery product={product} />
 
@@ -216,7 +218,7 @@ export function ProductPage({ product: initialProduct, page }: ProductPageProps)
             <SallaQuickOrder className="mt-5 md:-mb-2 block" />
             </div>
           </div>
-          {theme?.settings?.show_sidebar ? (
+          {showSidebar ? (
             <ProductSidebar settings={theme?.settings as Record<string, unknown>} />
           ) : null}
         </div>

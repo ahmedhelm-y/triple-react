@@ -15,6 +15,17 @@ vi.mock('@salla.sa/twilight-theme-engine/hooks', () => ({
   HookSlot: ({ name }: { name: string }) => <div data-hook-slot={name} />,
 }));
 
+// ProductPrice reads `theme.settings` (useTwilight) for the "وفّر" savings box.
+// Provide a minimal theme so the component renders without a full TwilightProvider;
+// keep the other provider exports real.
+vi.mock('@salla.sa/twilight-theme-engine/providers', async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return {
+    ...actual,
+    useTwilight: () => ({ theme: { settings: {} }, store: {}, currency: { code: 'SAR' } }),
+  };
+});
+
 // jsdom has no IntersectionObserver; report every element as visible so the
 // deferred-hydration wrappers mount.
 beforeAll(() => {

@@ -208,7 +208,9 @@ function ProductPrice({ product }: { product: Product }) {
 
   // Savings box (design option `show_discounted_amount`, Twig parity): the amount
   // off = regular − sale, shown under the price when the product is on sale.
-  const showSaved = !!theme?.settings?.show_discounted_amount && product.is_on_sale;
+  const showSaved =
+    !!(theme?.settings as Record<string, unknown> | undefined)?.show_discounted_amount &&
+    product.is_on_sale;
   const saved =
     Math.round((Number(product.regular_price) - Number(product.sale_price) + Number.EPSILON) * 100) /
     100;
