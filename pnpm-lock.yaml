@@ -13,11 +13,11 @@ importers:
   .:
     dependencies:
       '@salla.sa/twilight-components-react':
-        specifier: ^3.0.2
-        version: 3.0.2(@salla.sa/twilight-components@3.0.2(@jitsu/protocols@1.11.0)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26)))(@stencil/core@4.45.2)(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: ^3.0.49
+        version: 3.0.49(@salla.sa/twilight-components@3.0.2(@jitsu/protocols@1.11.0)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26)))(@stencil/core@4.45.2)(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@salla.sa/twilight-theme-engine':
-        specifier: ^1.0.132
-        version: 1.0.132(fd7bed1e983fb9be19ff82e418d77efd)
+        specifier: ^1.0.173
+        version: 1.0.173(fd7bed1e983fb9be19ff82e418d77efd)
       '@tanstack/react-query':
         specifier: ~5.102.8
         version: 5.102.8(react@19.2.8)
@@ -1249,8 +1249,8 @@ packages:
   '@salla.sa/base@3.0.2':
     resolution: {integrity: sha512-AxMUhjsfc1R20C8raPVo3700xg0dZ3Yt6Zo+qvqDpwWXiSaHfMJlAnZ+y7iOGG/P//ZB+JklqL7TP/JpjGJDUg==}
 
-  '@salla.sa/twilight-components-react@3.0.2':
-    resolution: {integrity: sha512-6fJihyHIoRTxHxRF50RrNV8tMsjPi7uIlcxqE/MJNFFvUSGzou4IuZj0a8g83FsnY5OY6Dr3vHfF7Oi74u0X8Q==}
+  '@salla.sa/twilight-components-react@3.0.49':
+    resolution: {integrity: sha512-TTwBDxX1ue1NQaapkEST4bF2cM3zx959Y8u4tSkwqMWArDUtLS/hqaYYOmf7FcxV5rdIPLNVEigJmW6nIayrGg==}
     peerDependencies:
       '@salla.sa/twilight-components': ^3.0.0
       react: '>=17.0.0 || ^19'
@@ -1262,8 +1262,8 @@ packages:
   '@salla.sa/twilight-tailwind-theme@3.0.2':
     resolution: {integrity: sha512-xcVNSLUMjrg5m+ThPX1LvLb5kgssKJh6+7TAlwG2tyzmjfJEM/mwlt21JiR3D25JS2Kh/lCVFZuu1pH2Trrr0g==}
 
-  '@salla.sa/twilight-theme-engine@1.0.132':
-    resolution: {integrity: sha512-y/ILIdBJvvQK46FLLxp+oZG6MPlaOfkEoLcexvbK3cLfELmf4jQ8tIdT+TD98MjzI6DtTaSRJUBQ5HD8KoflJg==}
+  '@salla.sa/twilight-theme-engine@1.0.173':
+    resolution: {integrity: sha512-VKRMGgbW5bf2i0GFdsI1qdt1B56cjF6QX0w2DZGI3c08Demj1qZ6747mwQMOr7mYslWw9dsibbkMDsVfGsohbg==}
     hasBin: true
     peerDependencies:
       '@tanstack/react-query': ~5.102.8
@@ -4508,7 +4508,7 @@ snapshots:
       lodash: 4.18.1
       store: 2.0.12
 
-  '@salla.sa/twilight-components-react@3.0.2(@salla.sa/twilight-components@3.0.2(@jitsu/protocols@1.11.0)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26)))(@stencil/core@4.45.2)(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@salla.sa/twilight-components-react@3.0.49(@salla.sa/twilight-components@3.0.2(@jitsu/protocols@1.11.0)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26)))(@stencil/core@4.45.2)(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@salla.sa/twilight-components': 3.0.2(@jitsu/protocols@1.11.0)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26))
       '@stencil/react-output-target': 1.6.5(@stencil/core@4.45.2)(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -4555,11 +4555,11 @@ snapshots:
 
   '@salla.sa/twilight-tailwind-theme@3.0.2': {}
 
-  '@salla.sa/twilight-theme-engine@1.0.132(fd7bed1e983fb9be19ff82e418d77efd)':
+  '@salla.sa/twilight-theme-engine@1.0.173(fd7bed1e983fb9be19ff82e418d77efd)':
     dependencies:
       '@cloudflare/vite-plugin': 1.53.1(@types/node@26.6.5)(bufferutil@4.1.0)(utf-8-validate@5.0.10)(vite@8.2.2(@types/node@26.6.5)(esbuild@0.28.2)(jiti@1.21.7)(sass@1.105.1)(terser@5.51.2))(wrangler@4.125.0(@types/node@26.6.5)(bufferutil@4.1.0)(utf-8-validate@5.0.10))
       '@justinribeiro/lite-youtube': 1.9.0
-      '@salla.sa/twilight-components-react': 3.0.2(@salla.sa/twilight-components@3.0.2(@jitsu/protocols@1.11.0)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26)))(@stencil/core@4.45.2)(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@salla.sa/twilight-components-react': 3.0.49(@salla.sa/twilight-components@3.0.2(@jitsu/protocols@1.11.0)(@types/dlv@1.1.5)(lit@3.3.3)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26)))(@stencil/core@4.45.2)(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@sentry/cloudflare': 10.76.2(wrangler@4.125.0(@types/node@26.6.5)(bufferutil@4.1.0)(utf-8-validate@5.0.10))
       '@sentry/tanstackstart-react': 10.76.2(@opentelemetry/core@2.12.0(@opentelemetry/api@1.9.1))(react@19.2.8)(webpack@5.111.1(esbuild@0.28.2)(postcss@8.5.26))
       '@tanstack/react-query': 5.102.8(react@19.2.8)
@@ -4571,6 +4571,7 @@ snapshots:
       '@vitejs/plugin-react': 6.1.2(vite@8.2.2(@types/node@26.6.5)(esbuild@0.28.2)(jiti@1.21.7)(sass@1.105.1)(terser@5.51.2))
       esbuild: 0.28.2
       i18next: 26.4.3(typescript@6.0.3)
+      isbot: 5.2.2
       ky: 2.2.0
       oxc-parser: 0.146.0
       react: 19.2.8

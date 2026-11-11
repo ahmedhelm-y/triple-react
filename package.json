@@ -14,8 +14,8 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@salla.sa/twilight-components-react": "^3.0.2",
-    "@salla.sa/twilight-theme-engine": "^1.0.132",
+    "@salla.sa/twilight-components-react": "^3.0.49",
+    "@salla.sa/twilight-theme-engine": "^1.0.173",
     "@tanstack/react-query": "~5.102.8",
     "@tanstack/react-router": "~1.170.38",
     "@tanstack/react-router-devtools": "~1.167.2",
