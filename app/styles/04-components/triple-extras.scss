@@ -1268,3 +1268,12 @@
     color: var(--store-text-primary);
   }
 }
+
+/* Sidebar selected-products (product page): a single column of horizontal cards
+   (Twig parity — the engine wrapper stays a 2-col grid even with the
+   `horizontal-cards` class, so without this the 4 products form a 2×2 grid). */
+.collection-sidebar .s-products-list-wrapper {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.75rem;
+}
