@@ -23,6 +23,35 @@ if (typeof window !== 'undefined' && !window.matchMedia) {
   })) as typeof window.matchMedia;
 }
 
+// Some engine modules, when imported, leave jsdom's localStorage/sessionStorage
+// undefined in a worker. Provide a minimal in-memory Storage so tests that reset
+// state with `localStorage.clear()` keep working (test-only; no app/design impact).
+if (typeof window !== 'undefined' && (!window.localStorage || !window.sessionStorage)) {
+  const makeStorage = (): Storage => {
+    const map = new Map<string, string>();
+    return {
+      getItem: (k: string) => (map.has(k) ? (map.get(k) as string) : null),
+      setItem: (k: string, v: string) => {
+        map.set(k, String(v));
+      },
+      removeItem: (k: string) => {
+        map.delete(k);
+      },
+      clear: () => {
+        map.clear();
+      },
+      key: (i: number) => [...map.keys()][i] ?? null,
+      get length() {
+        return map.size;
+      },
+    } as Storage;
+  };
+  if (!window.localStorage)
+    Object.defineProperty(window, 'localStorage', { value: makeStorage(), configurable: true });
+  if (!window.sessionStorage)
+    Object.defineProperty(window, 'sessionStorage', { value: makeStorage(), configurable: true });
+}
+
 // jsdom doesn't implement IntersectionObserver; report every target as visible
 // so scroll-reveal / sticky-nav observers (e.g. HeaderNav) behave as on-screen.
 if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
